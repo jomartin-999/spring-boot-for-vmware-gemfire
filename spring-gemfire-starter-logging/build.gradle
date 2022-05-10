@@ -1,0 +1,49 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'dependency-management'
+}
+description = "Spring Boot Logging Starter for VMware Tanzu GemFire with Logback as the logging provider and adaptation of Log4j to SLF4J"
+
+dependencies {
+    implementation "org.springframework.geode:spring-geode-starter-logging:$springBootDataGeodeVersion"
+    testImplementation "org.springframework.geode:spring-geode-starter-test:$springBootDataGeodeVersion"
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = project.group
+            artifactId = project.name
+            version = project.version
+
+            from components.java
+        }
+    }
+}
+
+sourceSets {
+    test {
+        java {
+            srcDir file('src/test/java')
+            srcDir file('src/sbdg-test-read-only/java')
+        }
+        resources {
+            srcDir file('src/test/resources')
+            srcDir file('src/sbdg-test-read-only/resources')
+        }
+    }
+}
+
+task cleanSpringTestClasses(type:Exec)
+{
+    commandLine 'rm', '-rf', "${project.projectDir}/src/sbdg-test-read-only"
+}
+
+clean{
+    dependsOn("cleanSpringTestClasses")
+}
+
+test{
+    dependsOn(":spring-gemfire-starter:test")
+}
