@@ -1,0 +1,64 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'dependency-management'
+}
+
+description = "Spring Boot Actuator for VMware Tanzu GemFire"
+
+dependencies {
+    implementation project(":spring-gemfire")
+    implementation "org.springframework.geode:spring-geode-actuator:$springBootDataGeodeVersion"
+
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
+
+    runtimeOnly "org.apache.geode:geode-logging"
+    runtimeOnly "org.apache.geode:geode-serialization"
+
+    testImplementation "junit:junit"
+    testImplementation "org.assertj:assertj-core"
+    testImplementation "org.mockito:mockito-core"
+    testImplementation "org.projectlombok:lombok"
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "org.springframework.data:spring-data-geode-test"
+    testImplementation "edu.umd.cs.mtc:multithreadedtc"
+
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = project.group
+            artifactId = project.name
+            version = project.version
+
+            from components.java
+        }
+    }
+}
+
+sourceSets{
+    test{
+        java{
+            srcDir file('src/test/java')
+            srcDir file('src/sbdg-test-read-only/java')
+        }
+        resources{
+            srcDir file('src/test/resources')
+            srcDir file('src/sbdg-test-read-only/resources')
+        }
+    }
+}
+
+task cleanSpringTestClasses(type:Exec)
+{
+    commandLine 'rm', '-rf', "${project.projectDir}/src/sbdg-test-read-only"
+}
+
+clean{
+    dependsOn("cleanSpringTestClasses")
+}
+
+test{
+    dependsOn(":spring-gemfire-starter:test")
+}

@@ -1,0 +1,78 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id "io.freefair.lombok" version "5.3.0"
+    id 'dependency-management'
+}
+
+description = "Spring Boot Auto-Configuration for VMware Tanzu GemFire"
+
+dependencies {
+    api project(':spring-gemfire-extensions')
+    api("org.springframework.geode:spring-geode:$springBootDataGeodeVersion"){
+        exclude group:"org.springframework.data", module:"spring-data-geode"
+        exclude group:"org.springframework.geode", module:"apache-geode-extensions"
+    }
+
+    api "com.vmware.tanzu.gemfire:spring-data-tanzu-gemfire:$springDataGemFireVersion"
+
+    compileOnly "com.google.code.findbugs:jsr305"
+
+    runtimeOnly "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
+
+    testImplementation "org.springframework:spring-test"
+    testImplementation "junit:junit"
+    testImplementation "org.assertj:assertj-core"
+    testImplementation "org.mockito:mockito-core"
+    testImplementation "org.projectlombok:lombok"
+    testImplementation "org.testcontainers:testcontainers"
+    testImplementation "edu.umd.cs.mtc:multithreadedtc"
+
+    testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootVersion") {
+        exclude group: "org.skyscreamer", module: "jsonassert"
+    }
+
+    testImplementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
+    testImplementation "org.springframework.boot:spring-boot-starter-data-cassandra:$springBootVersion"
+    testImplementation "org.springframework.data:spring-data-geode-test"
+
+    testRuntimeOnly "org.hsqldb:hsqldb"
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = project.group
+            artifactId = project.name
+            version = project.version
+
+            from components.java
+        }
+    }
+}
+
+sourceSets{
+    test{
+        java{
+            srcDir file('src/test/java')
+            srcDir file('src/sbdg-test-read-only/java')
+        }
+        resources{
+            srcDir file('src/test/resources')
+            srcDir file('src/sbdg-test-read-only/resources')
+        }
+    }
+}
+
+task cleanSpringTestClasses(type:Exec)
+{
+    commandLine 'rm', '-rf', "${project.projectDir}/src/sbdg-test-read-only"
+}
+
+clean{
+    dependsOn("cleanSpringTestClasses")
+}
+
+test{
+    dependsOn(":spring-gemfire-starter:test")
+}

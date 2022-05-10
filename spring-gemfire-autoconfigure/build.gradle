@@ -1,0 +1,88 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id "io.freefair.lombok" version "5.3.0"
+    id 'dependency-management'
+}
+
+description = "Spring Boot Auto-Configuration for VMware Tanzu GemFire"
+
+dependencies {
+    implementation("org.springframework.geode:spring-geode-autoconfigure:$springBootDataGeodeVersion") {
+        exclude group:"org.springframework.geode", module:"spring-geode"
+    }
+
+    implementation project(":spring-gemfire")
+
+    compileOnly "com.google.code.findbugs:jsr305:$findbugsVersion"
+
+    implementation project(':spring-gemfire-extensions')
+
+    implementation "org.springframework.boot:spring-boot-autoconfigure-processor:$springBootVersion"
+    implementation "org.springframework.boot:spring-boot-configuration-processor:$springBootVersion"
+    implementation "org.springframework.session:spring-session-data-geode:$springSessionDataGeodeVersion"
+
+    testImplementation "jakarta.servlet:jakarta.servlet-api"
+    testImplementation "junit:junit"
+    testImplementation "org.assertj:assertj-core"
+    testImplementation "org.mockito:mockito-core"
+    testImplementation "org.projectlombok:lombok"
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "org.springframework.boot:spring-boot-starter-web"
+    testImplementation "org.springframework.data:spring-data-geode-test"
+    testImplementation "edu.umd.cs.mtc:multithreadedtc"
+    testImplementation "org.apache.geode:geode-http-service"
+    testImplementation "org.apache.geode:geode-web"
+    testImplementation "org.apache.httpcomponents:httpclient"
+
+    testCompileOnly "com.google.code.findbugs:jsr305"
+
+    testRuntimeOnly "javax.cache:cache-api"
+    testRuntimeOnly "org.springframework.boot:spring-boot-starter-jetty"
+    testRuntimeOnly "org.springframework.boot:spring-boot-starter-json"
+    testRuntimeOnly "org.springframework.shell:spring-shell"
+
+    // Runtime Test dependency on Spring Cloud Services (SCS) to verify workaround to SCS problem!
+    //testRuntime("io.pivotal.spring.cloud:spring-cloud-services-starter-service-registry:2.0.3.RELEASE") {
+    //	exclude group: "org.apache.logging.log4j", module: "log4j-core"
+    //}
+
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = project.group
+            artifactId = project.name
+            version = project.version
+
+            from components.java
+        }
+    }
+}
+
+sourceSets{
+    test{
+        java{
+            srcDir file('src/test/java')
+            srcDir file('src/sbdg-test-read-only/java')
+        }
+        resources{
+            srcDir file('src/test/resources')
+            srcDir file('src/sbdg-test-read-only/resources')
+        }
+    }
+}
+
+task cleanSpringTestClasses(type:Exec)
+{
+    commandLine 'rm', '-rf', "${project.projectDir}/src/sbdg-test-read-only"
+}
+
+clean{
+    dependsOn("cleanSpringTestClasses")
+}
+
+test{
+    dependsOn(":spring-gemfire-starter:test")
+}
