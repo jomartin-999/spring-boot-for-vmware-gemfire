@@ -1,0 +1,59 @@
+plugins {
+  id 'java-library'
+  id 'maven-publish'
+  id 'dependency-management'
+}
+description = "Spring Boot for VMware Tanzu GemFire Extensions"
+
+dependencies {
+  api("org.springframework.geode:apache-geode-extensions:$springBootDataGeodeVersion")
+  implementation("com.vmware.gemfire:gemfire-server-all:$gemfireVersion") {
+    exclude group: "org.apache.geode", module: "geode-log4j"
+  }
+  implementation "com.fasterxml.jackson.core:jackson-databind"
+
+  testImplementation "org.apache.geode:geode-membership"
+  testImplementation "junit:junit"
+  testImplementation "org.assertj:assertj-core"
+  testImplementation "org.mockito:mockito-core"
+  testImplementation "org.projectlombok:lombok"
+  testImplementation "edu.umd.cs.mtc:multithreadedtc:$multithreadedtcVersion"
+}
+
+publishing {
+  publications {
+    maven(MavenPublication) {
+      groupId = project.group
+      artifactId = project.name
+      version = project.version
+
+      from components.java
+    }
+  }
+}
+
+sourceSets {
+  test {
+    java {
+      srcDir file('src/test/java')
+      srcDir file('src/sbdg-test-read-only/java')
+    }
+    resources {
+      srcDir file('src/test/resources')
+      srcDir file('src/sbdg-test-read-only/resources')
+    }
+  }
+}
+
+task cleanSpringTestClasses(type:Exec)
+{
+  commandLine 'rm', '-rf', "${project.projectDir}/src/sbdg-test-read-only"
+}
+
+clean{
+  dependsOn("cleanSpringTestClasses")
+}
+
+test{
+  dependsOn(":spring-gemfire-starter:test")
+}

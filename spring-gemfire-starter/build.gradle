@@ -1,0 +1,52 @@
+plugins {
+  id 'java-library'
+  id 'maven-publish'
+}
+
+description = "Spring Boot Starter for VMware Tanzu GemFire"
+
+dependencies {
+  api "org.springframework.boot:spring-boot-starter:$springBootVersion"
+
+  api project(':spring-gemfire')
+  api project(':spring-gemfire-autoconfigure')
+
+  runtimeOnly 'org.springframework.shell:spring-shell:$springShellVersion'
+}
+
+publishing {
+  publications {
+    maven(MavenPublication) {
+      groupId = project.group
+      artifactId = project.name
+      version = project.version
+
+      from components.java
+    }
+  }
+}
+
+
+task copySpringTestClasses(type: Exec) {
+  dependsOn("cleanSpringTestClasses")
+  workingDir "$rootDir/scripts"
+  commandLine 'chmod', '+x', 'copySBDGTestResources.sh'
+  if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+    commandLine 'cmd', '/c', 'mycommand'
+  } else {
+    commandLine './copySBDGTestResources.sh', '-l', "${rootProject.rootDir}/tmp/spring-boot-geode", '-b',
+        "${springBootDataGeodeVersion}", '-t', "${rootProject.rootDir}"
+  }
+}
+
+task cleanSpringTestClasses(type: Exec) {
+  commandLine 'rm', '-rf', "${rootProject.rootDir}/tmp"
+}
+
+test {
+  dependsOn("copySpringTestClasses")
+}
+
+clean{
+  dependsOn("cleanSpringTestClasses")
+}
