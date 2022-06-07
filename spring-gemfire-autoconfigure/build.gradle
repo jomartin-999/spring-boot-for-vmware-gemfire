@@ -1,26 +1,35 @@
 plugins {
     id 'java-library'
-    id 'maven-publish'
     id "io.freefair.lombok" version "5.3.0"
-    id 'dependency-management'
+    id 'dependency-constraints'
+    id 'gemfire-repo-artifact-publishing'
+    id 'spring-java-jar'
+    id 'com.netflix.nebula.optional-base' version '8.0.0' // if you want optional-base
+//    id 'com.netflix.nebula.provided-base' version '8.0.0' // if you want provided-base
 }
 
-description = "Spring Boot Auto-Configuration for VMware Tanzu GemFire"
+description = "Spring Boot Auto-Configuration for VMware GemFire"
+
+project.ext.set("pomProjectLongName","Spring Boot Auto-Configure for VMware GemFire")
+project.ext.set("pomProjectArtifactName","spring-boot-2.6-gemfire-autoconfigure-${gemfireBaseVersion}")
+project.ext.set("pomProjectDescription",description)
 
 dependencies {
-    implementation("org.springframework.geode:spring-geode-autoconfigure:$springBootDataGeodeVersion") {
+    api("org.springframework.geode:spring-geode-autoconfigure:$springBootDataGeodeVersion") {
         exclude group:"org.springframework.geode", module:"spring-geode"
     }
+    implementation(platform("com.vmware.gemfire:gemfire-server-bom:$gemfireVersion")) {
+        exclude group: 'org.apache.geode', module: 'geode-log4j'
+    }
 
-    implementation project(":spring-gemfire")
+    api project(":spring-gemfire")
 
-    compileOnly "com.google.code.findbugs:jsr305:$findbugsVersion"
+    compileOnly "com.google.code.findbugs:jsr305"
 
-    implementation project(':spring-gemfire-extensions')
+    implementation project(':spring-gemfire-extensions'), optional
 
-    implementation "org.springframework.boot:spring-boot-autoconfigure-processor:$springBootVersion"
-    implementation "org.springframework.boot:spring-boot-configuration-processor:$springBootVersion"
-    implementation "org.springframework.session:spring-session-data-geode:$springSessionDataGeodeVersion"
+    implementation "org.springframework.boot:spring-boot-configuration-processor:$springBootVersion", optional
+    implementation "com.vmware.gemfire:spring-session-2.6-gemfire-${gemfireBaseVersion}:$springSessionDataGemFireVersion", optional
 
     testImplementation "jakarta.servlet:jakarta.servlet-api"
     testImplementation "junit:junit"
@@ -31,8 +40,8 @@ dependencies {
     testImplementation "org.springframework.boot:spring-boot-starter-web"
     testImplementation "org.springframework.data:spring-data-geode-test"
     testImplementation "edu.umd.cs.mtc:multithreadedtc"
-    testImplementation "org.apache.geode:geode-http-service"
-    testImplementation "org.apache.geode:geode-web"
+    testImplementation "com.vmware.gemfire:geode-http-service"
+    testImplementation "com.vmware.gemfire:geode-web"
     testImplementation "org.apache.httpcomponents:httpclient"
 
     testCompileOnly "com.google.code.findbugs:jsr305"
@@ -47,18 +56,6 @@ dependencies {
     //	exclude group: "org.apache.logging.log4j", module: "log4j-core"
     //}
 
-}
-
-publishing {
-    publications {
-        maven(MavenPublication) {
-            groupId = project.group
-            artifactId = project.name
-            version = project.version
-
-            from components.java
-        }
-    }
 }
 
 sourceSets{
@@ -86,3 +83,16 @@ clean{
 test{
     dependsOn(":spring-gemfire-starter:test")
 }
+
+repositories {
+    def additionalMavenRepoURLs = project.ext.get('additionalMavenRepoURLs')
+    if (!additionalMavenRepoURLs.isEmpty() && !additionalMavenRepoURLs.isBlank()) {
+        additionalMavenRepoURLs.split(",").each {
+            project.getRepositories()
+                    .maven(mavenRepository -> {
+                        mavenRepository.setUrl(uri(it.toString()));
+                    });
+        }
+    }
+}
+

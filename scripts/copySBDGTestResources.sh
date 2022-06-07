@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+#
+# Copyright (c) VMware, Inc. 2022. All rights reserved.
+# SPDX-License-Identifier: Apache-2.0
+#
+
 #if anything errors, bail.
 set -e
 
@@ -42,7 +47,7 @@ CopyTestResources() {
 
 RemoveClonedPath() {
   # Checkout correct branch
-  cd "/" || exit
+  cd  || exit
   rm -rf "$sbdgPath"
 }
 
