@@ -1,35 +1,36 @@
 plugins {
   id 'java-library'
-  id 'maven-publish'
-  id 'dependency-management'
+  id 'dependency-constraints'
+  id 'gemfire-repo-artifact-publishing'
+  id 'spring-java-jar'
 }
-description = "Spring Boot for VMware Tanzu GemFire Extensions"
+
+description = "Spring Boot for VMware GemFire Extensions"
+
+project.ext.set("pomProjectLongName",description)
+project.ext.set("pomProjectArtifactName","spring-boot-2.7-gemfire-extensions-${gemfireBaseVersion}")
+project.ext.set("pomProjectDescription",description)
+
 
 dependencies {
-  api("org.springframework.geode:apache-geode-extensions:$springBootDataGeodeVersion")
-  implementation("com.vmware.gemfire:gemfire-server-all:$gemfireVersion") {
-    exclude group: "org.apache.geode", module: "geode-log4j"
+  api("org.springframework.geode:apache-geode-extensions:$springBootDataGeodeVersion"){
+    exclude group: 'org.apache.geode', module: 'geode-core'
+    exclude group: 'org.apache.geode', module: 'geode-cq'
+    exclude group: 'org.apache.geode', module: 'geode-lucene'
+    exclude group: 'org.apache.geode', module: 'geode-wan'
   }
+  implementation(platform("com.vmware.gemfire:gemfire-server-bom:$gemfireVersion")) {
+    exclude group: 'org.apache.geode', module: 'geode-log4j'
+  }
+
   implementation "com.fasterxml.jackson.core:jackson-databind"
 
-  testImplementation "org.apache.geode:geode-membership"
+  testImplementation "com.vmware.gemfire:geode-membership"
   testImplementation "junit:junit"
   testImplementation "org.assertj:assertj-core"
   testImplementation "org.mockito:mockito-core"
   testImplementation "org.projectlombok:lombok"
   testImplementation "edu.umd.cs.mtc:multithreadedtc:$multithreadedtcVersion"
-}
-
-publishing {
-  publications {
-    maven(MavenPublication) {
-      groupId = project.group
-      artifactId = project.name
-      version = project.version
-
-      from components.java
-    }
-  }
 }
 
 sourceSets {
@@ -56,4 +57,16 @@ clean{
 
 test{
   dependsOn(":spring-gemfire-starter:test")
+}
+
+repositories {
+  def additionalMavenRepoURLs = project.ext.get('additionalMavenRepoURLs')
+  if (!additionalMavenRepoURLs.isEmpty() && !additionalMavenRepoURLs.isBlank()) {
+    additionalMavenRepoURLs.split(",").each {
+      project.getRepositories()
+              .maven(mavenRepository -> {
+                mavenRepository.setUrl(uri(it.toString()));
+              });
+    }
+  }
 }

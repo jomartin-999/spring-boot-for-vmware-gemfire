@@ -3,7 +3,6 @@ buildscript {
     mavenCentral()
     gradlePluginPortal()
     maven { url 'https://repo.spring.io/plugins-release' }
-    maven { url 'https://repo.spring.io/plugins-snapshot' }
   }
 }
 
@@ -11,29 +10,24 @@ plugins {
   id 'org.springframework.boot' version "${springBootVersion}" apply false
   id 'idea'
   id 'eclipse'
+  id 'java'
 }
 
 allprojects {
 
-  group = 'com.vmware.gemfire.boot'
-  version = '2.0.0'
+  group = 'com.vmware.gemfire'
+
+  sourceCompatibility = '1.8'
+  targetCompatibility = '1.8'
 
   repositories {
-    mavenLocal()
     mavenCentral()
-
-    if (version.contains('-')) {
-      maven { url "https://repo.spring.io/milestone" }
-    }
-    if (version.endsWith('-SNAPSHOT')) {
-      maven { url "https://repo.spring.io/snapshot" }
-    }
     maven {
-      url "gcs://gemfire-build-resources/maven/gemfire"
-    }
-
-    maven {
-      url "https://maven.apachegeode-ci.info/snapshots"
+      credentials {
+        username "$gemfireRepoUsername"
+        password "$gemfireRepoPassword"
+      }
+      url = uri("https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire")
     }
   }
 
