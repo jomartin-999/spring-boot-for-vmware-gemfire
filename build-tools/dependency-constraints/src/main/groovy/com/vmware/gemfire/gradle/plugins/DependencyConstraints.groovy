@@ -24,7 +24,6 @@ class DependencyConstraints {
     depVersionMapping.put("findbugsVersion", "3.0.2")
     depVersionMapping.put("multithreadedtcVersion", "1.01")
     depVersionMapping.put("springBootVersion", "2.6.13")
-    depVersionMapping.put("springBootDataGeodeVersion", "1.6.13")
     depVersionMapping.put("springDataGeodeTestVersion", "0.2.3-Q")
     depVersionMapping.put("springShellVersion", "1.2.0.RELEASE")
     depVersionMapping.put("testcontainersVersion", "1.17.5")
@@ -52,7 +51,6 @@ class DependencyConstraints {
         api(group: 'org.springframework.security', name: 'spring-security-web', version: '5.6.9' )
         api(group: 'org.testcontainers', name: 'testcontainers', version: get('testcontainersVersion'))
         api(group: 'org.testcontainers', name: 'cassandra', version: get('testcontainersVersion'))
-        api(group: 'org.springframework.geode', name: 'spring-geode-actuator-autoconfigure', version: get('springBootDataGeodeVersion'))
       }
 
     }

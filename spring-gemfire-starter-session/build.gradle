@@ -14,7 +14,7 @@ project.ext.set("pomProjectDescription",description)
 dependencies {
     api(project(':spring-gemfire-starter'))
 
-    api "com.vmware.gemfire:spring-session-gemfire-$gemfireBaseVersion:$springSessionDataGemFireVersion"
+    api "com.vmware.gemfire:spring-session-2.6-gemfire-${gemfireBaseVersion}:$springSessionDataGemFireVersion"
 
 }
 

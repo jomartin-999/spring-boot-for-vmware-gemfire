@@ -11,34 +11,13 @@ project.ext.set("pomProjectDescription","Spring Boot Logging Starter for VMware 
 
 
 dependencies {
-    api "org.springframework.geode:spring-geode-starter-logging:$springBootDataGeodeVersion"
-    testImplementation "org.springframework.geode:spring-geode-starter-test:$springBootDataGeodeVersion"
-}
+  api "ch.qos.logback:logback-classic"
+  api "org.apache.logging.log4j:log4j-to-slf4j"
+  api "org.springframework.boot:spring-boot-starter-logging"
 
-sourceSets {
-    test {
-        java {
-            srcDir file('src/test/java')
-            srcDir file('src/sbdg-test-read-only/java')
-        }
-        resources {
-            srcDir file('src/test/resources')
-            srcDir file('src/sbdg-test-read-only/resources')
-        }
-    }
-}
+  implementation "org.codehaus.janino:janino"
 
-task cleanSpringTestClasses(type:Exec)
-{
-    commandLine 'rm', '-rf', "${project.projectDir}/src/sbdg-test-read-only"
-}
-
-clean{
-    dependsOn("cleanSpringTestClasses")
-}
-
-test{
-    dependsOn(":spring-gemfire-starter:test")
+  testImplementation project(":spring-gemfire-starter-test")
 }
 
 repositories {

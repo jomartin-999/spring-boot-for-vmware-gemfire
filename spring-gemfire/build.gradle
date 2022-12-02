@@ -15,18 +15,18 @@ project.ext.set("pomProjectDescription",description)
 
 dependencies {
   implementation project(':spring-gemfire-extensions')
-  api("org.springframework.geode:spring-geode:$springBootDataGeodeVersion") {
-    exclude group: "org.springframework.data", module: "spring-data-geode"
-    exclude group: "org.springframework.geode", module: "apache-geode-extensions"
-  }
+  api "org.springframework:spring-context:5.3.24"
+  implementation "org.springframework:spring-context-support:5.3.24"
+  implementation "org.springframework:spring-jcl:5.3.24"
+  api "org.springframework.boot:spring-boot-starter:$springBootVersion"
 
-    api "com.vmware.gemfire:spring-data-2.6-gemfire-$gemfireBaseVersion:$springDataTanzuGemFireVersion"
+  api "com.vmware.gemfire:spring-data-2.6-gemfire-$gemfireBaseVersion:$springDataTanzuGemFireVersion"
 
   compileOnly "com.google.code.findbugs:jsr305"
 
   runtimeOnly "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
 
-  testImplementation "org.springframework:spring-test"
+  testImplementation "org.springframework:spring-test:5.3.24"
   testImplementation "junit:junit"
   testImplementation "org.assertj:assertj-core"
   testImplementation "org.mockito:mockito-core"
@@ -41,35 +41,14 @@ dependencies {
 
   testImplementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
   testImplementation "org.springframework.boot:spring-boot-starter-data-cassandra:$springBootVersion"
-  testImplementation "org.springframework.data:spring-data-geode-test"
+  testImplementation ("org.springframework.data:spring-data-geode-test"){
+    exclude group: "org.apache.geode", module: "geode-core"
+    exclude group: "org.apache.geode", module: "geode-cq"
+    exclude group: "org.apache.geode", module: "geode-lucene"
+    exclude group: "org.apache.geode", module: "geode-wan"
+  }
 
   testRuntimeOnly "org.hsqldb:hsqldb"
-}
-
-sourceSets {
-  test {
-    java {
-      srcDir file('src/test/java')
-      srcDir file('src/sbdg-test-read-only/java')
-    }
-    resources {
-      srcDir file('src/test/resources')
-      srcDir file('src/sbdg-test-read-only/resources')
-    }
-  }
-}
-
-task cleanSpringTestClasses(type: Exec)
-{
-  commandLine 'rm', '-rf', "${project.projectDir}/src/sbdg-test-read-only"
-}
-
-clean {
-  dependsOn("cleanSpringTestClasses")
-}
-
-test {
-  dependsOn(":spring-gemfire-starter:test")
 }
 
 repositories {
