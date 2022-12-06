@@ -25,6 +25,9 @@ dependencies {
 
   implementation project(':spring-gemfire-extensions'), optional
 
+  annotationProcessor "org.springframework.boot:spring-boot-configuration-processor:$springBootVersion"
+  annotationProcessor "org.springframework.boot:spring-boot-autoconfigure-processor:$springBootVersion"
+
   implementation "org.springframework.boot:spring-boot-configuration-processor:$springBootVersion", optional
   implementation "org.springframework.boot:spring-boot-autoconfigure-processor:$springBootVersion", optional
   implementation "com.vmware.gemfire:spring-session-2.6-gemfire-${gemfireBaseVersion}:$springSessionDataGemFireVersion", optional
@@ -59,6 +62,10 @@ dependencies {
   //	exclude group: "org.apache.logging.log4j", module: "log4j-core"
   //}
 
+}
+
+tasks.named('compileJava') {
+  inputs.files(tasks.named('processResources'))
 }
 
 repositories {
