@@ -187,7 +187,7 @@ public class ClusterConfigurationWithAuthenticationIntegrationTests extends Fork
 
 		private static void resolveAndConfigureGeodeHome() throws IOException {
 
-			ClassPathResource resource = new ClassPathResource("/geode-home");
+			ClassPathResource resource = new ClassPathResource("/gemfire-home");
 
 			File resourceFile = resource.getFile();
 
