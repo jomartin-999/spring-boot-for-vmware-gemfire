@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) VMware, Inc. 2022. All rights reserved.
+  ~ SPDX-License-Identifier: Apache-2.0
+  -->
+
+<configuration debug="false">
+
+	<include resource="logback-include.xml"/>
+
+	<root level="${logback.root.log.level:-ERROR}">
+		<appender-ref ref="delegate"/>
+	</root>
+
+</configuration>

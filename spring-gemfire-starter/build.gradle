@@ -19,30 +19,6 @@ dependencies {
   runtimeOnly "org.springframework.shell:spring-shell:$springShellVersion"
 }
 
-task copySpringTestClasses(type: Exec) {
-  dependsOn("cleanSpringTestClasses")
-  workingDir "$rootDir/scripts"
-  commandLine 'chmod', '+x', 'copySBDGTestResources.sh'
-  if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-    commandLine 'cmd', '/c', 'mycommand'
-  } else {
-    commandLine './copySBDGTestResources.sh', '-l', "${rootProject.rootDir}/tmp/spring-boot-geode", '-b',
-        "${springBootDataGeodeVersion}", '-t', "${rootProject.rootDir}"
-  }
-}
-
-task cleanSpringTestClasses(type: Exec) {
-  commandLine 'rm', '-rf', "${rootProject.rootDir}/tmp"
-}
-
-test {
-  dependsOn("copySpringTestClasses")
-}
-
-clean{
-  dependsOn("cleanSpringTestClasses")
-}
-
 repositories {
   def additionalMavenRepoURLs = project.ext.get('additionalMavenRepoURLs')
   if (!additionalMavenRepoURLs.isEmpty() && !additionalMavenRepoURLs.isBlank()) {

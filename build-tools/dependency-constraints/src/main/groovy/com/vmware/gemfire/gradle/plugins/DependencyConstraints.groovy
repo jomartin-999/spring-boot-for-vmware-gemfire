@@ -23,12 +23,13 @@ class DependencyConstraints {
     depVersionMapping.put("antlrVersion", "2.7.7")
     depVersionMapping.put("findbugsVersion", "3.0.2")
     depVersionMapping.put("multithreadedtcVersion", "1.01")
-    depVersionMapping.put("springBootVersion", "2.7.5")
+    depVersionMapping.put("springBootVersion", "2.7.6")
     depVersionMapping.put("springBootDataGeodeVersion", "1.7.5")
     depVersionMapping.put("springDataGeodeTestVersion", "0.3.4-RAJ")
     depVersionMapping.put("springShellVersion", "1.2.0.RELEASE")
+    depVersionMapping.put("springFrameworkVersion", "5.3.24")
     depVersionMapping.put("testcontainersVersion", "1.17.5")
-    depVersionMapping.put("gemfireVersion", "9.15.2")
+    depVersionMapping.put("gemfireVersion", "9.15.3")
 
     return depVersionMapping
   }
@@ -41,6 +42,8 @@ class DependencyConstraints {
       implementation(platform(group: 'com.vmware.gemfire', name: 'gemfire-server-bom', version: get('gemfireVersion')))
 
       constraints {
+        api(group: 'org.springframework', name: 'spring-context-support', version: get("springFrameworkVersion"))
+                api(group: 'org.springframework', name: 'spring-jcl', version: get("springFrameworkVersion"))
         api(group: 'antlr', name: 'antlr', version: get('antlrVersion'))
         api(group: 'com.google.code.findbugs', name: 'jsr305', version: get('findbugsVersion'))
         api(group: 'edu.umd.cs.mtc', name: 'multithreadedtc', version: get('multithreadedtcVersion'))

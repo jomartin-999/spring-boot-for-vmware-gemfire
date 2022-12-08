@@ -16,7 +16,6 @@ description = "Spring Boot Actuator Auto-Configuration for VMware GemFire"
 dependencies {
     api project(":spring-gemfire-actuator")
     api project(":spring-gemfire-autoconfigure")
-    api "org.springframework.geode:spring-geode-actuator-autoconfigure:$springBootDataGeodeVersion"
 
     compileOnly "com.google.code.findbugs:jsr305:$findbugsVersion"
 
@@ -25,35 +24,14 @@ dependencies {
     testImplementation "org.mockito:mockito-core"
     testImplementation "org.projectlombok:lombok"
     testImplementation "org.springframework.boot:spring-boot-starter-test"
-    testImplementation "org.springframework.data:spring-data-geode-test"
+    testImplementation ("org.springframework.data:spring-data-geode-test"){
+        exclude group: "org.apache.geode", module: "geode-core"
+        exclude group: "org.apache.geode", module: "geode-cq"
+        exclude group: "org.apache.geode", module: "geode-lucene"
+        exclude group: "org.apache.geode", module: "geode-wan"
+    }
     testImplementation "edu.umd.cs.mtc:multithreadedtc"
 
-}
-
-sourceSets{
-    test{
-        java{
-            srcDir file('src/test/java')
-            srcDir file('src/sbdg-test-read-only/java')
-        }
-        resources{
-            srcDir file('src/test/resources')
-            srcDir file('src/sbdg-test-read-only/resources')
-        }
-    }
-}
-
-task cleanSpringTestClasses(type:Exec)
-{
-    commandLine 'rm', '-rf', "${project.projectDir}/src/sbdg-test-read-only"
-}
-
-clean{
-    dependsOn("cleanSpringTestClasses")
-}
-
-test{
-    dependsOn(":spring-gemfire-starter:test")
 }
 
 repositories {

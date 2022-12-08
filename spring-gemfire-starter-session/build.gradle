@@ -18,32 +18,6 @@ dependencies {
 
 }
 
-sourceSets {
-  test {
-    java {
-      srcDir file('src/test/java')
-      srcDir file('src/sbdg-test-read-only/java')
-    }
-    resources {
-      srcDir file('src/test/resources')
-      srcDir file('src/sbdg-test-read-only/resources')
-    }
-  }
-}
-
-task cleanSpringTestClasses(type: Exec)
-{
-  commandLine 'rm', '-rf', "${project.projectDir}/src/sbdg-test-read-only"
-}
-
-clean {
-  dependsOn("cleanSpringTestClasses")
-}
-
-test {
-  dependsOn(":spring-gemfire-starter:test")
-}
-
 repositories {
   def additionalMavenRepoURLs = project.ext.get('additionalMavenRepoURLs')
   if (!additionalMavenRepoURLs.isEmpty() && !additionalMavenRepoURLs.isBlank()) {
