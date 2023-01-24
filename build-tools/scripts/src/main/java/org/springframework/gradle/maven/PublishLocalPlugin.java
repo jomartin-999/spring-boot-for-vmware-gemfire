@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.gradle.maven;
@@ -20,8 +20,8 @@ import org.gradle.api.publish.maven.plugins.MavenPublishPlugin;
  *
  * @author Rob Winch
  * @author John Blum
- * @see org.gradle.api.Plugin
- * @see org.gradle.api.Project
+ * @see Plugin
+ * @see Project
  * @since 2.0.0
  */
 public class PublishLocalPlugin implements Plugin<Project> {

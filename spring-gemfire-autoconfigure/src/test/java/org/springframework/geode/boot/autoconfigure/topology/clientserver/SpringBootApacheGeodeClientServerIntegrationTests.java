@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure.topology.clientserver;
@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.IOException;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,7 +44,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
 /**
- * Integration Tests testing and asserting the interaction between an Apache Geode client & server
+ * Integration Tests testing and asserting the interaction between an Apache Geode client &amp; server
  * in the client/server topology, bootstrapped, configured and initialized with Spring Boot for Apache Geode.
  *
  * @author John Blum

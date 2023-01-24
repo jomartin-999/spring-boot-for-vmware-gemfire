@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.pdx;
@@ -33,9 +33,9 @@ import lombok.Setter;
  * Unit Tests for {@link ObjectPdxInstanceAdapter}.
  *
  * @author John Blum
- * @see org.junit.Test
+ * @see Test
  * @see org.mockito.Mockito
- * @see org.springframework.geode.pdx.ObjectPdxInstanceAdapter
+ * @see ObjectPdxInstanceAdapter
  * @since 1.3.0
  */
 @SuppressWarnings("unused")

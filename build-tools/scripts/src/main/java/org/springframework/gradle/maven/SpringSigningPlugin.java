@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.gradle.maven;
@@ -20,9 +20,9 @@ import io.spring.gradle.convention.Utils;
  *
  * @author Rob Winch
  * @author John Blum
- * @see org.gradle.api.Plugin
- * @see org.gradle.api.Project
- * @see org.gradle.plugins.signing.SigningPlugin
+ * @see Plugin
+ * @see Project
+ * @see SigningPlugin
  */
 public class SpringSigningPlugin implements Plugin<Project> {
 

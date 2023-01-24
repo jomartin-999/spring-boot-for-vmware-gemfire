@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.actuate.autoconfigure.config;
@@ -22,17 +22,17 @@ import org.springframework.geode.boot.actuate.GeodeRegionsHealthIndicator;
  * and {@link ClientCache} {@link HealthIndicator HealthIndicators}.
  *
  * @author John Blum
- * @see Cache
- * @see GemFireCache
- * @see ClientCache
- * @see HealthIndicator
- * @see ApplicationContext
- * @see Bean
- * @see Configuration
- * @see GeodeCacheHealthIndicator
- * @see GeodeDiskStoresHealthIndicator
- * @see GeodeIndexesHealthIndicator
- * @see GeodeRegionsHealthIndicator
+ * @see org.apache.geode.cache.Cache
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.apache.geode.cache.client.ClientCache
+ * @see org.springframework.boot.actuate.health.HealthIndicator
+ * @see org.springframework.context.ApplicationContext
+ * @see org.springframework.context.annotation.Bean
+ * @see org.springframework.context.annotation.Configuration
+ * @see org.springframework.geode.boot.actuate.GeodeCacheHealthIndicator
+ * @see org.springframework.geode.boot.actuate.GeodeDiskStoresHealthIndicator
+ * @see org.springframework.geode.boot.actuate.GeodeIndexesHealthIndicator
+ * @see org.springframework.geode.boot.actuate.GeodeRegionsHealthIndicator
  * @since 1.0.0
  */
 @Configuration

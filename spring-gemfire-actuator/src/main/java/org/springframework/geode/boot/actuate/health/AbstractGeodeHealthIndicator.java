@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -17,9 +17,9 @@ import org.springframework.util.Assert;
  * Apache Geode {@link HealthIndicator} objects.
  *
  * @author John Blum
- * @see GemFireCache
- * @see AbstractHealthIndicator
- * @see HealthIndicator
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.springframework.boot.actuate.health.AbstractHealthIndicator
+ * @see org.springframework.boot.actuate.health.HealthIndicator
  * @since 1.0.0
  */
 @SuppressWarnings("unused")
@@ -44,7 +44,7 @@ public abstract class AbstractGeodeHealthIndicator extends AbstractHealthIndicat
 	 *
 	 * @param gemfireCache reference to the {@link GemFireCache} instance used to collect health information.
 	 * @throws IllegalArgumentException if {@link GemFireCache} is {@literal null}.
-	 * @see GemFireCache
+	 * @see org.apache.geode.cache.GemFireCache
 	 */
 	public AbstractGeodeHealthIndicator(GemFireCache gemfireCache) {
 
@@ -57,7 +57,7 @@ public abstract class AbstractGeodeHealthIndicator extends AbstractHealthIndicat
 	 * Returns a reference to the {@link GemFireCache} instance.
 	 *
 	 * @return a reference to the {@link GemFireCache} instance.
-	 * @see GemFireCache
+	 * @see org.apache.geode.cache.GemFireCache
 	 */
 	protected Optional<GemFireCache> getGemFireCache() {
 		return Optional.ofNullable(this.gemfireCache);
@@ -68,7 +68,7 @@ public abstract class AbstractGeodeHealthIndicator extends AbstractHealthIndicat
 	 *
 	 * @param type {@link Class} type to evaluate.
 	 * @return the {@link String name} of the {@link Class} type.
-	 * @see Class#getName()
+	 * @see java.lang.Class#getName()
 	 */
 	protected String nullSafeClassName(Class<?> type) {
 		return type != null ? type.getName() : "";

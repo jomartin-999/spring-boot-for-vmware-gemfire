@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.actuate.health.support;
@@ -26,11 +26,11 @@ import org.springframework.util.Assert;
  * {@link DataPolicy data management policy}.
  *
  * @author John Blum
- * @see CacheStatistics
- * @see Region
- * @see PartitionRegionHelper
- * @see BucketRegion
- * @see PartitionedRegion
+ * @see org.apache.geode.cache.CacheStatistics
+ * @see org.apache.geode.cache.Region
+ * @see org.apache.geode.cache.partition.PartitionRegionHelper
+ * @see org.apache.geode.internal.cache.BucketRegion
+ * @see org.apache.geode.internal.cache.PartitionedRegion
  * @since 1.0.0
  */
 @SuppressWarnings("unused")

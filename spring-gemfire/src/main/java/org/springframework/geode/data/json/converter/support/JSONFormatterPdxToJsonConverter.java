@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.data.json.converter.support;
@@ -36,7 +36,7 @@ import org.springframework.util.StringUtils;
  * @see WritablePdxInstance
  * @see ObjectToJsonConverter
  * @see JacksonObjectToJsonConverter
- * @see org.springframework.geode.pdx.PdxInstanceBuilder
+ * @see PdxInstanceBuilder
  * @since 1.3.0
  */
 public class JSONFormatterPdxToJsonConverter extends JacksonObjectToJsonConverter {
@@ -133,7 +133,7 @@ public class JSONFormatterPdxToJsonConverter extends JacksonObjectToJsonConverte
 	 * Constructs a new instance of {@link PdxInstanceBuilder}.
 	 *
 	 * @return a new instance of {@link PdxInstanceBuilder}; never {@literal null}.
-	 * @see org.springframework.geode.pdx.PdxInstanceBuilder
+	 * @see PdxInstanceBuilder
 	 */
 	@NonNull PdxInstanceBuilder newPdxInstanceBuilder() {
 		return PdxInstanceBuilder.create();

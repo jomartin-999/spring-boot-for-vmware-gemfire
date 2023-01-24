@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.distributed.event;
@@ -25,8 +25,8 @@ import org.springframework.util.Assert;
  * @see DistributedMember
  * @see DistributedSystem
  * @see ConfigurableApplicationContext
- * @see org.springframework.geode.distributed.event.support.MemberDepartedEvent
- * @see org.springframework.geode.distributed.event.support.MemberJoinedEvent
+ * @see MemberDepartedEvent
+ * @see MemberJoinedEvent
  * @since 1.3.0
  */
 public class ApplicationContextMembershipListener
@@ -64,7 +64,7 @@ public class ApplicationContextMembershipListener
 	 * departs from the {@link DistributedSystem cluster} by calling {@link ConfigurableApplicationContext#close()}.
 	 *
 	 * @param event {@link MemberDepartedEvent} to handle.
-	 * @see org.springframework.geode.distributed.event.support.MemberDepartedEvent
+	 * @see MemberDepartedEvent
 	 * @see ConfigurableApplicationContext#close()
 	 */
 	@Override
@@ -77,7 +77,7 @@ public class ApplicationContextMembershipListener
 	 * joins the {@link DistributedSystem cluster} by calling {@link ConfigurableApplicationContext#refresh()}.
 	 *
 	 * @param event {@link MemberJoinedEvent} to handle.
-	 * @see org.springframework.geode.distributed.event.support.MemberJoinedEvent
+	 * @see MemberJoinedEvent
 	 * @see ConfigurableApplicationContext#refresh()
 	 */
 	@Override

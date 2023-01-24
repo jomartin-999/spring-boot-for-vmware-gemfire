@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure.support;
@@ -21,11 +21,11 @@ import org.springframework.data.gemfire.config.annotation.PoolConfigurer;
  * as well as the SDG {@literal gemfirePool} {@link Pool}, only.
  *
  * @author John Blum
- * @see Pool
- * @see Bean
- * @see Configuration
- * @see ClientCacheConfigurer
- * @see PoolConfigurer
+ * @see org.apache.geode.cache.client.Pool
+ * @see org.springframework.context.annotation.Bean
+ * @see org.springframework.context.annotation.Configuration
+ * @see org.springframework.data.gemfire.config.annotation.ClientCacheConfigurer
+ * @see org.springframework.data.gemfire.config.annotation.PoolConfigurer
  * @since 1.2.0
  */
 @Configuration

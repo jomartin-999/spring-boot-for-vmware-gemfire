@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.actuate.autoconfigure;
@@ -25,17 +25,17 @@ import org.springframework.geode.boot.autoconfigure.ClientCacheAutoConfiguration
  * {@link HealthIndicator HealthIndicators}.
  *
  * @author John Blum
- * @see GemFireCache
- * @see ConditionalOnEnabledHealthIndicator
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.springframework.boot.actuate.autoconfigure.health.ConditionalOnEnabledHealthIndicator
  * @see org.springframework.boot.actuate.autoconfigure.health.HealthContributorAutoConfiguration
- * @see EnableAutoConfiguration
- * @see Configuration
- * @see Import
- * @see CacheFactoryBean
- * @see BaseGeodeHealthIndicatorConfiguration
- * @see ClientCacheHealthIndicatorConfiguration
- * @see PeerCacheHealthIndicatorConfiguration
- * @see ClientCacheAutoConfiguration
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
+ * @see org.springframework.context.annotation.Configuration
+ * @see org.springframework.context.annotation.Import
+ * @see org.springframework.data.gemfire.CacheFactoryBean
+ * @see org.springframework.geode.boot.actuate.autoconfigure.config.BaseGeodeHealthIndicatorConfiguration
+ * @see org.springframework.geode.boot.actuate.autoconfigure.config.ClientCacheHealthIndicatorConfiguration
+ * @see org.springframework.geode.boot.actuate.autoconfigure.config.PeerCacheHealthIndicatorConfiguration
+ * @see org.springframework.geode.boot.autoconfigure.ClientCacheAutoConfiguration
  * @since 1.0.0
  */
 @Configuration

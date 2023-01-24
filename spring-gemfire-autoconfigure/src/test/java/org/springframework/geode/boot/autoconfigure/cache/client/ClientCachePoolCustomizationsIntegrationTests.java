@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure.cache.client;
@@ -96,7 +96,7 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 			assertThat(namedPoolBean).isNotNull();
 			assertThat(namedPoolBean.getName()).isEqualTo(poolName);
 			assertThat(namedPoolBean.getServerGroup()).isEqualTo("TestServerGroup");
-			assertThat(namedPoolBean.getThreadLocalConnections()).isTrue();
+			assertThat(namedPoolBean.getSubscriptionEnabled()).isTrue();
 		}
 
 		Pool namedPool = PoolManager.find(poolName);
@@ -104,7 +104,7 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 		assertThat(namedPool).isNotNull();
 		assertThat(namedPool.getName()).isEqualTo(poolName);
 		assertThat(namedPool.getServerGroup()).isEqualTo("TestServerGroup");
-		assertThat(namedPool.getThreadLocalConnections()).isTrue();
+		assertThat(namedPool.getSubscriptionEnabled()).isTrue();
 
 		if (DEFAULT_POOL_NAME.equals(poolName)) {
 			assertThat(namedPool).isSameAs(clientCache.getDefaultPool());
@@ -152,7 +152,7 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 	public void usingClientCacheDefaultPoolPropertiesConfigurationModifiesDefaultPool() {
 
 		System.setProperty("spring.data.gemfire.pool.default.server-group", "TestServerGroup");
-		System.setProperty("spring.data.gemfire.pool.default.thread-local-connections", Boolean.TRUE.toString());
+		System.setProperty("spring.data.gemfire.pool.default.subscription-enabled", Boolean.TRUE.toString());
 
 		ConfigurableApplicationContext applicationContext =
 			newApplicationContext(WithAutoConfiguredClientCacheConfiguration.class,
@@ -166,7 +166,7 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 	public void usingClientCachePoolPropertiesConfigurationModifiesAllPools() {
 
 		System.setProperty("spring.data.gemfire.pool.server-group", "TestServerGroup");
-		System.setProperty("spring.data.gemfire.pool.thread-local-connections", Boolean.TRUE.toString());
+		System.setProperty("spring.data.gemfire.pool.subscription-enabled", Boolean.TRUE.toString());
 
 		ConfigurableApplicationContext applicationContext =
 			newApplicationContext(WithAutoConfiguredClientCacheConfiguration.class,
@@ -226,7 +226,7 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 	public void usingPoolPropertiesForTestPoolModifiesTestPool() {
 
 		System.setProperty("spring.data.gemfire.pool.TestPool.server-group", "TestServerGroup");
-		System.setProperty("spring.data.gemfire.pool.TestPool.thread-local-connections", Boolean.TRUE.toString());
+		System.setProperty("spring.data.gemfire.pool.TestPool.subscription-enabled", Boolean.TRUE.toString());
 
 		ConfigurableApplicationContext applicationContext =
 			newApplicationContext(WithAutoConfiguredClientCacheConfiguration.class,
@@ -261,7 +261,7 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 	@EnableGemFireMockObjects(destroyOnEvents = ContextClosedEvent.class)
 	static class WithAutoConfiguredClientCacheConfiguration { }
 
-	@ClientCacheApplication(serverGroup = "TestServerGroup", threadLocalConnections = true)
+	@ClientCacheApplication(serverGroup = "TestServerGroup", subscriptionEnabled = true)
 	static class WithClientCacheApplicationConfiguration { }
 
 	@Configuration
@@ -273,7 +273,7 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 			return (beanName, clientCacheFactoryBean) -> {
 
 				clientCacheFactoryBean.setServerGroup("TestServerGroup");
-				clientCacheFactoryBean.setThreadLocalConnections(true);
+				clientCacheFactoryBean.setSubscriptionEnabled(true);
 			};
 		}
 	}
@@ -283,7 +283,7 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 	static class WithEnableDefaultPoolConfiguration { }
 
 	@Configuration
-	@EnablePool(name = "DEFAULT", serverGroup = "TestServerGroup", threadLocalConnections = true)
+	@EnablePool(name = "DEFAULT", serverGroup = "TestServerGroup", subscriptionEnabled = true)
 	static class WithEnableDefaultPoolAttributesConfiguration { }
 
 	@Configuration
@@ -292,7 +292,7 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 
 	@Configuration
 	@EnablePool(name = "TestPool", servers = @EnablePool.Server, serverGroup = "TestServerGroup",
-		threadLocalConnections = true)
+		subscriptionEnabled = true)
 	static class WithEnableTestPoolAttributesConfiguration { }
 
 	@Configuration
@@ -305,7 +305,7 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 			return (beanName, poolFactoryBean) -> {
 
 				poolFactoryBean.setServerGroup("TestServerGroup");
-				poolFactoryBean.setThreadLocalConnections(true);
+				poolFactoryBean.setSubscriptionEnabled(true);
 			};
 		}
 	}
@@ -324,7 +324,7 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 			return (beanName, poolFactoryBean) -> {
 
 				poolFactoryBean.setServerGroup("TestServerGroup");
-				poolFactoryBean.setThreadLocalConnections(true);
+				poolFactoryBean.setSubscriptionEnabled(true);
 			};
 		}
 	}

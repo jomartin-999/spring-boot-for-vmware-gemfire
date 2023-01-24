@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.gradle.maven;
@@ -23,12 +23,12 @@ import org.gradle.api.publish.maven.plugins.MavenPublishPlugin;
  *
  * @author Rob Winch
  * @author John Blum
- * @see org.gradle.api.Plugin
- * @see org.gradle.api.Project
- * @see org.gradle.api.publish.PublishingExtension
- * @see org.gradle.api.publish.maven.MavenPom
- * @see org.gradle.api.publish.maven.MavenPublication
- * @see org.gradle.api.publish.maven.plugins.MavenPublishPlugin
+ * @see Plugin
+ * @see Project
+ * @see PublishingExtension
+ * @see MavenPom
+ * @see MavenPublication
+ * @see MavenPublishPlugin
  */
 public class MavenPublishConventionsPlugin implements Plugin<Project> {
 
@@ -61,7 +61,7 @@ public class MavenPublishConventionsPlugin implements Plugin<Project> {
 
 		pom.getName().set(project.provider(project::getName));
 		pom.getDescription().set(project.provider(project::getDescription));
-		pom.getUrl().set("https://github.com/spring-projects/spring-session-data-geode");
+		pom.getUrl().set("https://github.com/spring-projects/spring-boot-data-geode");
 		pom.licenses(this::customizeLicences);
 		pom.organization(this::customizeOrganization);
 		pom.developers(this::customizeDevelopers);
@@ -82,7 +82,7 @@ public class MavenPublishConventionsPlugin implements Plugin<Project> {
 	private void customizeIssueManagement(MavenPomIssueManagement issueManagement) {
 
 		issueManagement.getSystem().set("GitHub");
-		issueManagement.getUrl().set("https://github.com/spring-projects/spring-session-data-geode/issues");
+		issueManagement.getUrl().set("https://github.com/spring-projects/spring-boot-data-geode/issues");
 	}
 
 	private void customizeLicences(MavenPomLicenseSpec licences) {
@@ -101,8 +101,8 @@ public class MavenPublishConventionsPlugin implements Plugin<Project> {
 
 	private void customizeScm(MavenPomScm scm) {
 
-		scm.getConnection().set("scm:git:git://github.com/spring-projects/spring-session-data-geode.git");
-		scm.getDeveloperConnection().set("scm:git:ssh://git@github.com/spring-projects/spring-session-data-geode.git");
-		scm.getUrl().set("https://github.com/spring-projects/spring-session-data-geode");
+		scm.getConnection().set("scm:git:git://github.com/spring-projects/spring-boot-data-geode.git");
+		scm.getDeveloperConnection().set("scm:git:ssh://git@github.com/spring-projects/spring-boot-data-geode.git");
+		scm.getUrl().set("https://github.com/spring-projects/spring-boot-data-geode");
 	}
 }

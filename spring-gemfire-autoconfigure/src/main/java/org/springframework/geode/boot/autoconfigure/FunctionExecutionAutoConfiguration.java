@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -21,15 +21,15 @@ import org.springframework.geode.function.config.GemFireFunctionExecutionAutoCon
  * functionality in a {@link GemFireCache} application.
  *
  * @author John Blum
- * @see GemFireCache
- * @see SpringBootConfiguration
- * @see EnableAutoConfiguration
- * @see Import
- * @see EnableGemfireFunctions
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
+ * @see org.springframework.context.annotation.Import
+ * @see org.springframework.data.gemfire.function.config.EnableGemfireFunctions
  * @see org.springframework.data.gemfire.function.config.EnableGemfireFunctionExecutions
- * @see GemFireFunctionExecutionAutoConfigurationRegistrar
- * @see GemfireFunctionOperations
- * @see ClientCacheAutoConfiguration
+ * @see org.springframework.geode.function.config.GemFireFunctionExecutionAutoConfigurationRegistrar
+ * @see org.springframework.data.gemfire.function.execution.GemfireFunctionOperations
+ * @see org.springframework.geode.boot.autoconfigure.ClientCacheAutoConfiguration
  * @since 1.0.0
  */
 @SpringBootConfiguration

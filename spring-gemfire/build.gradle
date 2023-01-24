@@ -1,52 +1,44 @@
 plugins {
   id 'java-library'
-  id "io.freefair.lombok" version "5.3.0"
+  id "io.freefair.lombok" version "6.5.1"
   id 'dependency-constraints'
   id 'gemfire-repo-artifact-publishing'
-  id 'spring-java-jar'
+  id 'com.netflix.nebula.optional-base' version '9.0.0' // if you want optional-base
 }
 
 description = "Spring GemFire base build for VMware GemFire"
 
 project.ext.set("pomProjectLongName", description)
-project.ext.set("pomProjectArtifactName", "spring-boot-2.7-gemfire-core-${gemfireBaseVersion}")
+project.ext.set("pomProjectArtifactName", "spring-boot-3.0-gemfire-core-${gemfireBaseVersion}")
 project.ext.set("pomProjectDescription", description)
 
 
 dependencies {
-  implementation project(':spring-gemfire-extensions')
+  api project(':spring-gemfire-extensions')
 
   api "org.springframework:spring-context-support"
   api "org.springframework:spring-jcl"
-  api "org.springframework.boot:spring-boot-starter:$springBootVersion"
+  api "org.springframework.boot:spring-boot-starter"
+  api "com.vmware.gemfire:spring-data-3.0-gemfire-${gemfireBaseVersion}:${springDataTanzuGemFireVersion}"
 
-  api "com.vmware.gemfire:spring-data-2.7-gemfire-$gemfireBaseVersion:$springDataTanzuGemFireVersion"
+  compileOnly "com.google.code.findbugs:jsr305:$findbugsVersion"
 
-  compileOnly "com.google.code.findbugs:jsr305"
+  implementation "org.springframework:spring-test", optional
 
   runtimeOnly "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
 
-  testImplementation "org.springframework:spring-test"
-  testImplementation "junit:junit"
-  testImplementation "org.assertj:assertj-core"
-  testImplementation "org.mockito:mockito-core"
-  testImplementation "org.projectlombok:lombok"
-  testImplementation "org.testcontainers:testcontainers"
-  testImplementation "org.testcontainers:cassandra"
-  testImplementation "edu.umd.cs.mtc:multithreadedtc"
-
-  testImplementation("org.springframework.boot:spring-boot-starter-test:$springBootVersion") {
+  // See additional testImplementation dependencies declared in the testDependencies project extension
+  // defined in the DependencySetPlugin.
+  testImplementation("org.springframework.boot:spring-boot-starter-test") {
     exclude group: "org.skyscreamer", module: "jsonassert"
   }
 
-  testImplementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
-  testImplementation "org.springframework.boot:spring-boot-starter-data-cassandra:$springBootVersion"
-  testImplementation ("org.springframework.data:spring-data-geode-test"){
-    exclude group: "org.apache.geode", module: "geode-core"
-    exclude group: "org.apache.geode", module: "geode-cq"
-    exclude group: "org.apache.geode", module: "geode-lucene"
-    exclude group: "org.apache.geode", module: "geode-wan"
-  }
+  testImplementation "jakarta.persistence:jakarta.persistence-api"
+  testImplementation "org.springframework.boot:spring-boot-starter-data-jpa"
+  testImplementation "org.springframework.boot:spring-boot-starter-data-cassandra"
+  testImplementation "com.vmware.gemfire:spring-test-gemfire-${gemfireBaseVersion}-3.0:${springDataTanzuGemFireVersion}"
+  testImplementation "org.testcontainers:testcontainers"
+  testImplementation "org.testcontainers:cassandra"
 
   testRuntimeOnly "org.hsqldb:hsqldb"
 }

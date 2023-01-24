@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -24,14 +24,14 @@ import org.springframework.session.data.gemfire.config.annotation.web.http.GemFi
  * configuration properties used to configure either Apache Geode to manage (HTTP) Session state.
  *
  * @author John Blum
- * @see GemFireCache
- * @see SpringBootConfiguration
- * @see EnableAutoConfiguration
- * @see ConfigurationProperties
- * @see EnableConfigurationProperties
- * @see Environment
- * @see SpringSessionProperties
- * @see SessionRepository
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
+ * @see org.springframework.boot.context.properties.ConfigurationProperties
+ * @see org.springframework.boot.context.properties.EnableConfigurationProperties
+ * @see org.springframework.core.env.Environment
+ * @see org.springframework.geode.boot.autoconfigure.configuration.SpringSessionProperties
+ * @see org.springframework.session.SessionRepository
  * @since 1.0.0
  */
 @SpringBootConfiguration

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -8,7 +8,6 @@ import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.gemfire.client.ClientCacheFactoryBean;
 import org.springframework.data.gemfire.config.annotation.ApacheShiroSecurityConfiguration;
 import org.springframework.data.gemfire.config.annotation.GeodeIntegratedSecurityConfiguration;
@@ -20,14 +19,14 @@ import org.springframework.geode.config.annotation.EnableSecurityManager;
  *
  * @author John Blum
  * @see org.apache.geode.security.SecurityManager
- * @see SpringBootConfiguration
- * @see EnableAutoConfiguration
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
  * @see org.springframework.context.annotation.Import
  * @see org.springframework.data.gemfire.CacheFactoryBean
- * @see ClientCacheFactoryBean
- * @see ApacheShiroSecurityConfiguration
- * @see GeodeIntegratedSecurityConfiguration
- * @see EnableSecurityManager
+ * @see org.springframework.data.gemfire.client.ClientCacheFactoryBean
+ * @see org.springframework.data.gemfire.config.annotation.ApacheShiroSecurityConfiguration
+ * @see org.springframework.data.gemfire.config.annotation.GeodeIntegratedSecurityConfiguration
+ * @see org.springframework.geode.config.annotation.EnableSecurityManager
  * @since 1.0.0
  */
 @SpringBootConfiguration

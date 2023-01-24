@@ -1,11 +1,11 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package example.app.crm.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 import org.springframework.data.cassandra.core.mapping.Indexed;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
@@ -20,8 +20,8 @@ import lombok.NoArgsConstructor;
  * The {@link Customer} class is an Abstract Data Type (ADT) modeling a customer.
  *
  * @author John Blum
- * @see javax.persistence.Entity
- * @see javax.persistence.Table
+ * @see jakarta.persistence.Entity
+ * @see jakarta.persistence.Table
  * @see org.springframework.data.cassandra.core.mapping.Indexed
  * @see org.springframework.data.cassandra.core.mapping.PrimaryKey
  * @see org.springframework.data.cassandra.core.mapping.Table
@@ -38,7 +38,7 @@ import lombok.NoArgsConstructor;
 public class Customer {
 
 	@PrimaryKey
-	@javax.persistence.Id
+	@jakarta.persistence.Id
 	private Long id;
 
 	@Indexed

@@ -1,12 +1,10 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.data.json.converter.support;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
-import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.eq;
@@ -25,7 +23,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 
 import org.junit.Test;
 
@@ -65,21 +62,27 @@ public class JacksonObjectToJsonConverterUnitTests {
 		verify(mockObjectMapper, times(1)).writeValueAsString(eq(source));
 	}
 
-	@Test
-	@SuppressWarnings("all")
+	@Test(expected = IllegalArgumentException.class)
 	public void convertNullThrowsIllegalArgumentException() {
 
 		JacksonObjectToJsonConverter converter = spy(new JacksonObjectToJsonConverter());
 
-		assertThatIllegalArgumentException()
-			.isThrownBy(() -> converter.convert(null))
-			.withMessage("Source object to convert must not be null")
-				.withNoCause();
+		try {
+			converter.convert(null);
+		}
+		catch (IllegalArgumentException expected) {
 
-		verify(converter, never()).newObjectMapper(any());
+			assertThat(expected).hasMessage("Source object to convert must not be null");
+			assertThat(expected).hasNoCause();
+
+			throw expected;
+		}
+		finally {
+			verify(converter, never()).newObjectMapper(any());
+		}
 	}
 
-	@Test
+	@Test(expected = ConversionFailedException.class)
 	public void convertHandlesJsonProcessingException() throws JsonProcessingException {
 
 		Object source = new Object();
@@ -92,24 +95,36 @@ public class JacksonObjectToJsonConverterUnitTests {
 		doThrow(new JsonGenerationException("TEST", (JsonGenerator) null))
 			.when(mockObjectMapper).writeValueAsString(any());
 
-		assertThatExceptionOfType(ConversionFailedException.class)
-			.isThrownBy(() -> converter.convert(source))
-			.withMessageStartingWith("Failed to convert from type [java.lang.Object] to type [java.lang.String] for value")
-			.withMessageContaining("TEST")
-			.withCauseInstanceOf(JsonGenerationException.class);
+		try {
+			converter.convert(source);
+		}
+		catch (ConversionFailedException expected) {
 
-		verify(converter, times(1)).newObjectMapper(eq(source));
-		verify(mockObjectMapper, times(1)).writeValueAsString(eq(source));
+			assertThat(expected.getCause()).isInstanceOf(JsonProcessingException.class);
+			assertThat(expected.getCause()).hasMessage("TEST");
+			assertThat(expected.getCause()).hasNoCause();
+
+			throw expected;
+		}
+		finally {
+			verify(converter, times(1)).newObjectMapper(eq(source));
+			verify(mockObjectMapper, times(1)).writeValueAsString(eq(source));
+		}
 	}
 
-	@Test
-	@SuppressWarnings("all")
+	@Test(expected = IllegalArgumentException.class)
 	public void newObjectMapperWithNullTarget() {
 
-		assertThatIllegalArgumentException()
-			.isThrownBy(() -> new JacksonObjectToJsonConverter().newObjectMapper(null))
-			.withMessage("Target object must not be null")
-			.withNoCause();
+		try {
+			new JacksonObjectToJsonConverter().newObjectMapper(null);
+		}
+		catch (IllegalArgumentException expected) {
+
+			assertThat(expected).hasMessage("Target object must not be null");
+			assertThat(expected).hasNoCause();
+
+			throw expected;
+		}
 	}
 
 	@Test
@@ -117,36 +132,32 @@ public class JacksonObjectToJsonConverterUnitTests {
 
 		Object target = Customer.newCustomer(1L, "Jon Doe");
 
-		JsonMapper mockJsonMapper = mock(JsonMapper.class);
-
-		JsonMapper.Builder mockJsonMapperBuilder = mock(JsonMapper.Builder.class);
+		ObjectMapper mockObjectMapper = mock(ObjectMapper.class);
 
 		JacksonObjectToJsonConverter converter = spy(new JacksonObjectToJsonConverter());
 
-		doReturn(mockJsonMapperBuilder).when(converter).newJsonMapperBuilder();
-		doReturn(mockJsonMapperBuilder).when(mockJsonMapperBuilder).addMixIn(any(), any());
-		doReturn(mockJsonMapperBuilder).when(mockJsonMapperBuilder).configure(any(JsonGenerator.Feature.class), anyBoolean());
-		doReturn(mockJsonMapperBuilder).when(mockJsonMapperBuilder).configure(any(MapperFeature.class), anyBoolean());
-		doReturn(mockJsonMapperBuilder).when(mockJsonMapperBuilder).configure(any(SerializationFeature.class), anyBoolean());
-		doReturn(mockJsonMapper).when(mockJsonMapperBuilder).build();
-		doReturn(mockJsonMapper).when(mockJsonMapper).findAndRegisterModules();
+		doReturn(mockObjectMapper).when(converter).newObjectMapper();
+		doReturn(mockObjectMapper).when(mockObjectMapper).addMixIn(any(), any());
+		doReturn(mockObjectMapper).when(mockObjectMapper).configure(any(JsonGenerator.Feature.class), anyBoolean());
+		doReturn(mockObjectMapper).when(mockObjectMapper).configure(any(MapperFeature.class), anyBoolean());
+		doReturn(mockObjectMapper).when(mockObjectMapper).configure(any(SerializationFeature.class), anyBoolean());
+		doReturn(mockObjectMapper).when(mockObjectMapper).findAndRegisterModules();
 
 		ObjectMapper objectMapper = converter.newObjectMapper(target);
 
 		assertThat(objectMapper).isNotNull();
 
-		verify(converter, times(1)).newJsonMapperBuilder();
+		verify(converter, times(1)).newObjectMapper();
 
-		verify(mockJsonMapperBuilder, times(1))
+		verify(mockObjectMapper, times(1))
 			.addMixIn(eq(target.getClass()), eq(JacksonObjectToJsonConverter.ObjectTypeMetadataMixin.class));
-		verify(mockJsonMapperBuilder, times(1))
+		verify(mockObjectMapper, times(1))
 			.configure(eq(JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN), eq(true));
-		verify(mockJsonMapperBuilder, times(1))
+		verify(mockObjectMapper, times(1))
 			.configure(eq(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY), eq(true));
-		verify(mockJsonMapperBuilder, times(1))
+		verify(mockObjectMapper, times(1))
 			.configure(eq(SerializationFeature.INDENT_OUTPUT), eq(true));
-		verify(mockJsonMapperBuilder, times(1)).build();
-		verify(mockJsonMapper, times(1)).findAndRegisterModules();
-		verifyNoMoreInteractions(mockJsonMapperBuilder, mockJsonMapper);
+		verify(mockObjectMapper, times(1)).findAndRegisterModules();
+		verifyNoMoreInteractions(mockObjectMapper);
 	}
 }

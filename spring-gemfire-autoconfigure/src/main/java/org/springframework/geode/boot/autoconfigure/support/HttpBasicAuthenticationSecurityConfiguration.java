@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure.support;
@@ -38,14 +38,14 @@ import org.springframework.web.client.RestTemplate;
  * which is used by the Java Platform anytime a Java process needs to make a secure network connection.
  *
  * @author John Blum
- * @see Authenticator
- * @see PasswordAuthentication
- * @see BeanPostProcessor
- * @see Bean
- * @see Configuration
- * @see Environment
- * @see ClientHttpRequestInterceptor
- * @see RestTemplate
+ * @see java.net.Authenticator
+ * @see java.net.PasswordAuthentication
+ * @see org.springframework.beans.factory.config.BeanPostProcessor
+ * @see org.springframework.context.annotation.Bean
+ * @see org.springframework.context.annotation.Configuration
+ * @see org.springframework.core.env.Environment
+ * @see org.springframework.http.client.ClientHttpRequestInterceptor
+ * @see org.springframework.web.client.RestTemplate
  * @since 1.0.0
  * @deprecated
  */

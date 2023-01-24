@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -58,26 +58,26 @@ import org.springframework.util.StringUtils;
  * in order to perform {@link Region} data access operations.
  *
  * @author John Blum
- * @see GemFireCache
- * @see Region
- * @see BeanFactory
- * @see BeanDefinition
- * @see BeanFactoryPostProcessor
- * @see BeanPostProcessor
- * @see ConfigurableBeanFactory
- * @see BeanDefinitionBuilder
- * @see BeanDefinitionRegistry
- * @see SpringBootConfiguration
- * @see AutoConfigureAfter
- * @see ConditionalOnBean
- * @see ConditionalOnClass
- * @see ApplicationContext
- * @see ConfigurableApplicationContext
- * @see Bean
- * @see EventListener
- * @see GemfireTemplate
- * @see ResolvableRegionFactoryBean
- * @see TypelessAnnotationConfigSupport
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.apache.geode.cache.Region
+ * @see org.springframework.beans.factory.BeanFactory
+ * @see org.springframework.beans.factory.config.BeanDefinition
+ * @see org.springframework.beans.factory.config.BeanFactoryPostProcessor
+ * @see org.springframework.beans.factory.config.BeanPostProcessor
+ * @see org.springframework.beans.factory.config.ConfigurableBeanFactory
+ * @see org.springframework.beans.factory.support.BeanDefinitionBuilder
+ * @see org.springframework.beans.factory.support.BeanDefinitionRegistry
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.AutoConfigureAfter
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnBean
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnClass
+ * @see org.springframework.context.ApplicationContext
+ * @see org.springframework.context.ConfigurableApplicationContext
+ * @see org.springframework.context.annotation.Bean
+ * @see org.springframework.context.event.EventListener
+ * @see org.springframework.data.gemfire.GemfireTemplate
+ * @see org.springframework.data.gemfire.ResolvableRegionFactoryBean
+ * @see org.springframework.geode.config.annotation.support.TypelessAnnotationConfigSupport
  * @since 1.0.0
  */
 @SpringBootConfiguration
@@ -99,9 +99,7 @@ public class RegionTemplateAutoConfiguration extends TypelessAnnotationConfigSup
 
 		return beanFactory -> {
 
-			if (beanFactory instanceof BeanDefinitionRegistry) {
-
-				BeanDefinitionRegistry registry = (BeanDefinitionRegistry) beanFactory;
+			if (beanFactory instanceof BeanDefinitionRegistry registry) {
 
 				List<String> beanDefinitionNames =
 					Arrays.asList(ArrayUtils.nullSafeArray(registry.getBeanDefinitionNames(), String.class));
@@ -240,10 +238,7 @@ public class RegionTemplateAutoConfiguration extends TypelessAnnotationConfigSup
 			@Override
 			public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
 
-				if (bean instanceof GemFireCache) {
-
-					GemFireCache cache = (GemFireCache) bean;
-
+				if (bean instanceof GemFireCache cache) {
 					registerRegionTemplatesForCacheRegions(applicationContext, cache);
 				}
 
@@ -267,10 +262,7 @@ public class RegionTemplateAutoConfiguration extends TypelessAnnotationConfigSup
 
 		ApplicationContext applicationContext = event.getApplicationContext();
 
-		if (applicationContext instanceof ConfigurableApplicationContext) {
-
-			ConfigurableApplicationContext configurableApplicationContext =
-				(ConfigurableApplicationContext) applicationContext;
+		if (applicationContext instanceof ConfigurableApplicationContext configurableApplicationContext) {
 
 			GemFireCache cache = configurableApplicationContext.getBean(GemFireCache.class);
 

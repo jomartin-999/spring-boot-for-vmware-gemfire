@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.context.annotation;
@@ -11,8 +11,6 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -35,15 +33,18 @@ import org.springframework.lang.Nullable;
 import org.springframework.util.ClassUtils;
 import org.springframework.util.StringUtils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * A {@literal refreshable} {@link ApplicationContext} capable of loading {@link Class component classes} used for
  * {@link Annotation} based configuration in addition to scanning {@link String configuration locations}, and then
  * providing the ability to reload/refresh the context at some point later during runtime.
  *
  * DISCLAIMER: Currently, this {@link ApplicationContext} implementation (and extension) is being used exclusively for
- * testing and experimental (R&D) purposes. It was designed around Apache Geode's forced-disconnect / auto-reconnect
- * functionality, providing support for this behavior inside a Spring context. Specifically, this concern is only
- * applicable when using Spring Boot to configure and bootstrap Apache Geode peer member
+ * testing and experimental ({@literal R&D}) purposes. It was designed around Apache Geode's forced-disconnect
+ * / auto-reconnect functionality, providing support for this behavior inside a Spring context. Specifically, this
+ * concern is only applicable when using Spring Boot to configure and bootstrap Apache Geode peer member
  * {@link org.apache.geode.cache.Cache} applications, such as when annotating your Spring Boot application with
  * SDG's {@link PeerCacheApplication} annotation. This {@link ApplicationContext} implementation is not recommended for
  * use in Production Systems/Applications (yet).

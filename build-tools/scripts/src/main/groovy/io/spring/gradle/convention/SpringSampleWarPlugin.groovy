@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package io.spring.gradle.convention
@@ -7,7 +7,6 @@ package io.spring.gradle.convention
 import org.gradle.api.Project
 import org.gradle.api.Task
 import org.gradle.api.plugins.PluginManager
-import org.gradle.api.tasks.SourceSetContainer
 import org.gradle.api.tasks.testing.Test
 
 /**
@@ -23,33 +22,20 @@ class SpringSampleWarPlugin extends SpringSamplePlugin {
     @Override
     void applyAdditionalPlugins(Project project) {
 
-        super.applyAdditionalPlugins(project)
+        super.applyAdditionalPlugins(project);
 
-        PluginManager pluginManager = project.getPluginManager()
+        PluginManager pluginManager = project.getPluginManager();
 
-        pluginManager.apply("war")
-        pluginManager.apply("org.gretty")
-
-        def resolvedLogbackConfigFile = new File(project.extensions.getByType(SourceSetContainer)
-            .findByName("integrationTest")?.resources?.filter {
-                "logback-test.xml".equals(it.name)
-            }?.singleFile?.absolutePath)
-
-        // println "Resolved logbackConfigFile [$resolvedLogbackConfigFile]"
+        pluginManager.apply("war");
+        pluginManager.apply("org.gretty");
 
         project.gretty {
             servletContainer = 'tomcat10'
             contextPath = '/'
-            consoleLogEnabled = false
             fileLogEnabled = false
-            loggingLevel = 'OFF'
-
-            if (resolvedLogbackConfigFile?.isFile()) {
-                logbackConfigFile = resolvedLogbackConfigFile
-            }
         }
 
-        Task prepareAppServerBeforeIntegrationTests = project.tasks.create('prepareAppServerBeforeIntegrationTests') {
+        Task prepareAppServerForIntegrationTests = project.tasks.create('prepareAppServerForIntegrationTests') {
             group = 'Verification'
             description = 'Prepares the Web application server for Integration Testing'
             doFirst {
@@ -60,9 +46,8 @@ class SpringSampleWarPlugin extends SpringSamplePlugin {
             }
         }
 
-        // Gretty Gradle Plugin Task.
         project.tasks.matching { it.name == "appBeforeIntegrationTest" }.all { task ->
-            task.dependsOn prepareAppServerBeforeIntegrationTests
+            task.dependsOn prepareAppServerForIntegrationTests
         }
 
         project.tasks.withType(Test).all { task ->
@@ -72,7 +57,7 @@ class SpringSampleWarPlugin extends SpringSamplePlugin {
         }
     }
 
-    def static applyForIntegrationTest(Project project, Task integrationTest) {
+    def applyForIntegrationTest(Project project, Task integrationTest) {
 
         project.gretty.integrationTestTask = integrationTest.name
 
@@ -104,7 +89,10 @@ class SpringSampleWarPlugin extends SpringSamplePlugin {
         }
     }
 
-    def static getRandomPort() {
-        new ServerSocket(0).withCloseable { it.localPort }
+    def getRandomPort() {
+        ServerSocket serverSocket = new ServerSocket(0)
+        int port = serverSocket.localPort
+        serverSocket.close()
+        return port
     }
 }

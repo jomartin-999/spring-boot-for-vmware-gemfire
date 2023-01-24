@@ -2,47 +2,41 @@ plugins {
   id 'java-library'
   id 'dependency-constraints'
   id 'gemfire-repo-artifact-publishing'
-  id 'spring-java-jar'
 }
 
 description = "Spring Boot Actuator for VMware GemFire"
 
 project.ext.set("pomProjectLongName", description)
-project.ext.set("pomProjectArtifactName", "spring-boot-2.7-gemfire-actuator-${gemfireBaseVersion}")
+project.ext.set("pomProjectArtifactName", "spring-boot-3.0-gemfire-actuator-${gemfireBaseVersion}")
 project.ext.set("pomProjectDescription", description)
 
 
 dependencies {
-    api project(":spring-gemfire")
+  api project(":spring-gemfire")
 
-    api "org.springframework.boot:spring-boot-starter-actuator"
+  api "org.springframework.boot:spring-boot-starter-actuator"
 
-    runtimeOnly "com.vmware.gemfire:geode-logging"
-    runtimeOnly "com.vmware.gemfire:geode-serialization"
+  runtimeOnly "com.vmware.gemfire:geode-logging"
+  runtimeOnly "com.vmware.gemfire:geode-serialization"
 
-    testImplementation "junit:junit"
-    testImplementation "org.assertj:assertj-core"
-    testImplementation "org.mockito:mockito-core"
-    testImplementation "org.projectlombok:lombok"
-    testImplementation "org.springframework.boot:spring-boot-starter-test"
-  testImplementation ("org.springframework.data:spring-data-geode-test"){
-    exclude group: "org.apache.geode", module: "geode-core"
-    exclude group: "org.apache.geode", module: "geode-cq"
-    exclude group: "org.apache.geode", module: "geode-lucene"
-    exclude group: "org.apache.geode", module: "geode-wan"
-  }
-    testImplementation "edu.umd.cs.mtc:multithreadedtc"
+  testImplementation "junit:junit"
+  testImplementation "org.assertj:assertj-core"
+  testImplementation "org.mockito:mockito-core"
+  testImplementation "org.projectlombok:lombok"
+  testImplementation "org.springframework.boot:spring-boot-starter-test"
+  testImplementation("com.vmware.gemfire:spring-test-gemfire-9.15-3.0:1.1.0-build.9999")
+  testImplementation "edu.umd.cs.mtc:multithreadedtc"
 
 }
 
 repositories {
-    def additionalMavenRepoURLs = project.ext.get('additionalMavenRepoURLs')
-    if (!additionalMavenRepoURLs.isEmpty() && !additionalMavenRepoURLs.isBlank()) {
-        additionalMavenRepoURLs.split(",").each {
-            project.getRepositories()
-                    .maven(mavenRepository -> {
-                        mavenRepository.setUrl(uri(it.toString()));
-                    });
-        }
+  def additionalMavenRepoURLs = project.ext.get('additionalMavenRepoURLs')
+  if (!additionalMavenRepoURLs.isEmpty() && !additionalMavenRepoURLs.isBlank()) {
+    additionalMavenRepoURLs.split(",").each {
+      project.getRepositories()
+              .maven(mavenRepository -> {
+                mavenRepository.setUrl(uri(it.toString()));
+              });
     }
+  }
 }

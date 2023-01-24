@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.data.json;
@@ -42,7 +42,7 @@ import org.springframework.util.Assert;
  * @see JacksonJsonToPdxConverter
  * @see ResourceCapableCacheDataImporterExporter
  * @see ObjectPdxInstanceAdapter
- * @see org.springframework.geode.pdx.PdxInstanceWrapper
+ * @see PdxInstanceWrapper
  * @see Component
  * @since 1.3.0
  */
@@ -172,7 +172,7 @@ public class JsonCacheDataImporterExporter extends ResourceCapableCacheDataImpor
 	 *
 	 * @param pdxInstance {@link PdxInstance} used to resolve the {@link Object key}.
 	 * @return the resolved {@link Object key}.
-	 * @see org.springframework.geode.pdx.PdxInstanceWrapper#getIdentifier()
+	 * @see PdxInstanceWrapper#getIdentifier()
 	 * @see PdxInstance
 	 */
 	protected @NonNull Object resolveKey(@NonNull PdxInstance pdxInstance) {
@@ -193,7 +193,7 @@ public class JsonCacheDataImporterExporter extends ResourceCapableCacheDataImpor
 	 * @param pdxInstance {@link PdxInstance} to unwrap.
 	 * @return the resolved {@link Object value}.
 	 * @see ObjectPdxInstanceAdapter#unwrap(PdxInstance)
-	 * @see org.springframework.geode.pdx.PdxInstanceWrapper#unwrap(PdxInstance)
+	 * @see PdxInstanceWrapper#unwrap(PdxInstance)
 	 * @see PdxInstance
 	 * @see #postProcess(PdxInstance)
 	 */

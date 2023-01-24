@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure.session;
@@ -9,8 +9,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.net.URI;
 import java.util.concurrent.atomic.AtomicReference;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpSession;
 
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -23,7 +23,7 @@ import org.apache.geode.cache.Region;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.gemfire.tests.integration.IntegrationTestsSupport;
 import org.springframework.geode.config.annotation.ClusterAwareConfiguration;

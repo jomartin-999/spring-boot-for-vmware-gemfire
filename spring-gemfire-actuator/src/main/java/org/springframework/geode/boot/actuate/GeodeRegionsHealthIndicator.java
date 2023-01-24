@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.actuate;
@@ -31,11 +31,11 @@ import org.springframework.util.StringUtils;
  * the health of the {@link GemFireCache} {@link Region Regions}.
  *
  * @author John Blum
- * @see GemFireCache
- * @see Region
- * @see Health
- * @see HealthIndicator
- * @see AbstractGeodeHealthIndicator
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.apache.geode.cache.Region
+ * @see org.springframework.boot.actuate.health.Health
+ * @see org.springframework.boot.actuate.health.HealthIndicator
+ * @see org.springframework.geode.boot.actuate.health.AbstractGeodeHealthIndicator
  * @since 1.0.0
  */
 @SuppressWarnings("unused")
@@ -61,7 +61,7 @@ public class GeodeRegionsHealthIndicator extends AbstractGeodeHealthIndicator {
 	 *
 	 * @param gemfireCache reference to the {@link GemFireCache} instance used to collect health information.
 	 * @throws IllegalArgumentException if {@link GemFireCache} is {@literal null}.
-	 * @see GemFireCache
+	 * @see org.apache.geode.cache.GemFireCache
 	 */
 	public GeodeRegionsHealthIndicator(GemFireCache gemfireCache) {
 		super(gemfireCache);
@@ -73,9 +73,9 @@ public class GeodeRegionsHealthIndicator extends AbstractGeodeHealthIndicator {
 	 *
 	 * @return the collection of {@link BiConsumer} objects that applies health details about the {@link GemFireCache}
 	 * {@link Region Regions} to the {@link Health} object.
-	 * @see Health
-	 * @see Region
-	 * @see BiConsumer
+	 * @see org.springframework.boot.actuate.health.Health
+	 * @see org.apache.geode.cache.Region
+	 * @see java.util.function.BiConsumer
 	 */
 	protected BiConsumer<Region<?, ?>, Health.Builder> getGemfireRegionHealthIndicatorConsumers() {
 		return this.gemfireRegionHealthIndicatorConsumers;

@@ -2,13 +2,12 @@ plugins {
     id 'java-library'
     id 'dependency-constraints'
     id 'gemfire-repo-artifact-publishing'
-    id 'spring-java-jar'
 }
 
 description = "Spring Boot Auto-Configuration for VMware GemFire"
 
 project.ext.set("pomProjectLongName","Spring Boot Auto-Configure for VMware GemFire")
-project.ext.set("pomProjectArtifactName","spring-boot-2.7-gemfire-actuator-autoconfigure-${gemfireBaseVersion}")
+project.ext.set("pomProjectArtifactName","spring-boot-3.0-gemfire-actuator-autoconfigure-${gemfireBaseVersion}")
 project.ext.set("pomProjectDescription",description)
 
 description = "Spring Boot Actuator Auto-Configuration for VMware GemFire"
@@ -24,12 +23,7 @@ dependencies {
     testImplementation "org.mockito:mockito-core"
     testImplementation "org.projectlombok:lombok"
     testImplementation "org.springframework.boot:spring-boot-starter-test"
-    testImplementation ("org.springframework.data:spring-data-geode-test"){
-        exclude group: "org.apache.geode", module: "geode-core"
-        exclude group: "org.apache.geode", module: "geode-cq"
-        exclude group: "org.apache.geode", module: "geode-lucene"
-        exclude group: "org.apache.geode", module: "geode-wan"
-    }
+    testImplementation ("com.vmware.gemfire:spring-test-gemfire-9.15-3.0:1.1.0-build.9999")
     testImplementation "edu.umd.cs.mtc:multithreadedtc"
 
 }

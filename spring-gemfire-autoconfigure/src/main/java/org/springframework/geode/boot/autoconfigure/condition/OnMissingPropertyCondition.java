@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -28,14 +28,14 @@ import org.springframework.util.StringUtils;
  * asserting whether the specified, declared properties are missing.
  *
  * @author John Blum
- * @see ConditionOutcome
- * @see SpringBootCondition
- * @see Condition
- * @see ConditionContext
- * @see AnnotationAttributes
- * @see PropertyResolver
- * @see AnnotatedTypeMetadata
- * @see ConditionalOnMissingProperty
+ * @see org.springframework.boot.autoconfigure.condition.ConditionOutcome
+ * @see org.springframework.boot.autoconfigure.condition.SpringBootCondition
+ * @see org.springframework.context.annotation.Condition
+ * @see org.springframework.context.annotation.ConditionContext
+ * @see org.springframework.core.annotation.AnnotationAttributes
+ * @see org.springframework.core.env.PropertyResolver
+ * @see org.springframework.core.type.AnnotatedTypeMetadata
+ * @see org.springframework.geode.boot.autoconfigure.condition.ConditionalOnMissingProperty
  * @since 1.0.0
  */
 public class OnMissingPropertyCondition extends SpringBootCondition {

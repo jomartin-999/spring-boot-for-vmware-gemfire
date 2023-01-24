@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure.configuration;
@@ -29,21 +29,21 @@ import org.springframework.geode.boot.autoconfigure.configuration.support.Servic
  * SDG {@link Properties}.
  *
  * @author John Blum
- * @see Properties
- * @see ConfigurationProperties
- * @see NestedConfigurationProperty
- * @see CacheProperties
- * @see ClusterProperties
- * @see DiskStoreProperties
- * @see EntityProperties
- * @see LocatorProperties
- * @see LoggingProperties
- * @see ManagementProperties
- * @see ManagerProperties
- * @see PdxProperties
- * @see PoolProperties
- * @see SecurityProperties
- * @see ServiceProperties
+ * @see java.util.Properties
+ * @see org.springframework.boot.context.properties.ConfigurationProperties
+ * @see org.springframework.boot.context.properties.NestedConfigurationProperty
+ * @see org.springframework.geode.boot.autoconfigure.configuration.support.CacheProperties
+ * @see org.springframework.geode.boot.autoconfigure.configuration.support.ClusterProperties
+ * @see org.springframework.geode.boot.autoconfigure.configuration.support.DiskStoreProperties
+ * @see org.springframework.geode.boot.autoconfigure.configuration.support.EntityProperties
+ * @see org.springframework.geode.boot.autoconfigure.configuration.support.LocatorProperties
+ * @see org.springframework.geode.boot.autoconfigure.configuration.support.LoggingProperties
+ * @see org.springframework.geode.boot.autoconfigure.configuration.support.ManagementProperties
+ * @see org.springframework.geode.boot.autoconfigure.configuration.support.ManagerProperties
+ * @see org.springframework.geode.boot.autoconfigure.configuration.support.PdxProperties
+ * @see org.springframework.geode.boot.autoconfigure.configuration.support.PoolProperties
+ * @see org.springframework.geode.boot.autoconfigure.configuration.support.SecurityProperties
+ * @see org.springframework.geode.boot.autoconfigure.configuration.support.ServiceProperties
  * @since 1.0.0
  */
 @SuppressWarnings("unused")

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.data.json.converter.support;
@@ -10,7 +10,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 
 import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.core.convert.TypeDescriptor;
@@ -30,7 +29,7 @@ import org.springframework.util.Assert;
  * @see MapperFeature
  * @see TypeDescriptor
  * @see ObjectToJsonConverter
- * @see org.springframework.geode.pdx.PdxInstanceWrapper
+ * @see PdxInstanceWrapper
  * @since 1.3.0
  */
 public class JacksonObjectToJsonConverter implements ObjectToJsonConverter {
@@ -81,16 +80,6 @@ public class JacksonObjectToJsonConverter implements ObjectToJsonConverter {
 	}
 
 	/**
-	 * Constructs a new instance of Jackson's {@link JsonMapper.Builder}.
-	 *
-	 * @return a new instance of Jackson's {@link JsonMapper.Builder}; never {@literal null}.
-	 * @see JsonMapper.Builder
-	 */
-	@NonNull JsonMapper.Builder newJsonMapperBuilder() {
-		return JsonMapper.builder();
-	}
-
-	/**
 	 * Constructs a new instance of the Jackson {@link ObjectMapper} class.
 	 *
 	 * @return a new instance of the Jackson {@link ObjectMapper} class.
@@ -100,13 +89,22 @@ public class JacksonObjectToJsonConverter implements ObjectToJsonConverter {
 
 		Assert.notNull(target, "Target object must not be null");
 
-		return newJsonMapperBuilder()
+		return newObjectMapper()
 			.addMixIn(target.getClass(), ObjectTypeMetadataMixin.class)
 			.configure(JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN, true)
 			.configure(MapperFeature.SORT_PROPERTIES_ALPHABETICALLY, true)
 			.configure(SerializationFeature.INDENT_OUTPUT, true)
-			.build()
 			.findAndRegisterModules();
+	}
+
+	/**
+	 * Constructs a new instance of Jackson's {@link ObjectMapper}.
+	 *
+	 * @return a new instance of Jackson's {@link ObjectMapper}; never {@literal null}.
+	 * @see ObjectMapper
+	 */
+	@NonNull ObjectMapper newObjectMapper() {
+		return new ObjectMapper();
 	}
 
 	@JsonTypeInfo(

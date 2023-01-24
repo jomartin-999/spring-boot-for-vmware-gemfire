@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -18,9 +18,9 @@ import org.springframework.util.Assert;
  * used to capture the current {@link ServerMetrics} and access the latest {@link ServerLoad} details.
  *
  * @author John Blum
- * @see ServerLoad
- * @see ServerLoadProbe
- * @see ServerMetrics
+ * @see org.apache.geode.cache.server.ServerLoad
+ * @see org.apache.geode.cache.server.ServerLoadProbe
+ * @see org.apache.geode.cache.server.ServerMetrics
  * @since 1.0.0
  */
 @SuppressWarnings("unused")
@@ -36,7 +36,7 @@ public class ActuatorServerLoadProbeWrapper implements ServerLoadProbe {
 	 *
 	 * @param serverLoadProbe required {@link ServerLoadProbe}.
 	 * @throws IllegalArgumentException if {@link ServerLoadProbe} is {@literal null}.
-	 * @see ServerLoadProbe
+	 * @see org.apache.geode.cache.server.ServerLoadProbe
 	 */
 	public ActuatorServerLoadProbeWrapper(ServerLoadProbe serverLoadProbe) {
 
@@ -49,9 +49,9 @@ public class ActuatorServerLoadProbeWrapper implements ServerLoadProbe {
 	 * Returns the current, most up-to-date details on the {@link ServerLoad} if possible.
 	 *
 	 * @return the current {@link ServerLoad}.
-	 * @see ServerLoad
+	 * @see org.apache.geode.cache.server.ServerLoad
 	 * @see #getCurrentServerMetrics()
-	 * @see Optional
+	 * @see java.util.Optional
 	 */
 	public Optional<ServerLoad> getCurrentServerLoad() {
 		return getCurrentServerMetrics().map(getDelegate()::getLoad);
@@ -70,7 +70,7 @@ public class ActuatorServerLoadProbeWrapper implements ServerLoadProbe {
 	 * Returns the underlying, wrapped {@link ServerLoadProbe} backing this instance.
 	 *
 	 * @return the underlying, wrapped {@link ServerLoadProbe}.
-	 * @see ServerLoadProbe
+	 * @see org.apache.geode.cache.server.ServerLoadProbe
 	 */
 	protected ServerLoadProbe getDelegate() {
 		return this.delegate;

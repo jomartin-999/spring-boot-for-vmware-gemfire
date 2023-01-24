@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -43,29 +43,29 @@ import org.springframework.util.StringUtils;
  * as an (HTTP) {@link Session} state management provider in Spring Session.
  *
  * @author John Blum
- * @see Properties
- * @see GemFireCache
- * @see SpringApplication
- * @see SpringBootConfiguration
- * @see AutoConfigureAfter
- * @see EnableAutoConfiguration
- * @see ConditionalOnBean
- * @see ConditionalOnClass
- * @see ConditionalOnMissingBean
- * @see ConditionalOnWebApplication
- * @see Condition
- * @see ConditionContext
- * @see Conditional
- * @see Import
- * @see ConfigurableEnvironment
- * @see PropertiesPropertySource
- * @see PropertySource
- * @see AnnotatedTypeMetadata
- * @see EnableSubscriptionConfiguration
- * @see Session
- * @see EnableGemFireHttpSession
- * @see GemFireHttpSessionConfiguration
- * @see SessionRepositoryFilter
+ * @see java.util.Properties
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.springframework.boot.SpringApplication
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.AutoConfigureAfter
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnBean
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnClass
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnWebApplication
+ * @see org.springframework.context.annotation.Condition
+ * @see org.springframework.context.annotation.ConditionContext
+ * @see org.springframework.context.annotation.Conditional
+ * @see org.springframework.context.annotation.Import
+ * @see org.springframework.core.env.ConfigurableEnvironment
+ * @see org.springframework.core.env.PropertiesPropertySource
+ * @see org.springframework.core.env.PropertySource
+ * @see org.springframework.core.type.AnnotatedTypeMetadata
+ * @see org.springframework.geode.boot.autoconfigure.support.EnableSubscriptionConfiguration
+ * @see org.springframework.session.Session
+ * @see org.springframework.session.data.gemfire.config.annotation.web.http.EnableGemFireHttpSession
+ * @see org.springframework.session.data.gemfire.config.annotation.web.http.GemFireHttpSessionConfiguration
+ * @see org.springframework.session.web.http.SessionRepositoryFilter
  * @since 1.0.0
  */
 @SpringBootConfiguration

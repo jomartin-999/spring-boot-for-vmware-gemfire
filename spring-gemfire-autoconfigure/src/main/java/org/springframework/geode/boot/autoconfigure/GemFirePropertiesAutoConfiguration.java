@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -22,14 +22,14 @@ import org.springframework.geode.boot.autoconfigure.configuration.GemFirePropert
  * configuration properties.
  *
  * @author John Blum
- * @see GemFireCache
- * @see SpringBootConfiguration
- * @see EnableAutoConfiguration
- * @see ConfigurationProperties
- * @see EnableConfigurationProperties
- * @see Environment
- * @see CacheFactoryBean
- * @see GemFireProperties
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
+ * @see org.springframework.boot.context.properties.ConfigurationProperties
+ * @see org.springframework.boot.context.properties.EnableConfigurationProperties
+ * @see org.springframework.core.env.Environment
+ * @see org.springframework.data.gemfire.CacheFactoryBean
+ * @see org.springframework.geode.boot.autoconfigure.configuration.GemFireProperties
  * @since 1.0.0
  */
 @SpringBootConfiguration

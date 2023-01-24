@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -50,30 +50,30 @@ import org.slf4j.LoggerFactory;
  * between client and servers when using the client/server topology.
  *
  * @author John Blum
- * @see File
- * @see URL
- * @see Properties
- * @see GemFireCache
- * @see SpringApplication
- * @see SpringBootConfiguration
- * @see AutoConfigureBefore
- * @see EnableAutoConfiguration
- * @see ConditionalOnClass
- * @see ConditionalOnProperty
- * @see EnvironmentPostProcessor
- * @see Condition
- * @see ConditionContext
- * @see Conditional
- * @see ConfigurableEnvironment
- * @see Environment
- * @see PropertiesPropertySource
- * @see PropertySource
- * @see ClassPathResource
- * @see Resource
- * @see AnnotatedTypeMetadata
- * @see CacheFactoryBean
- * @see EnableSsl
- * @see ClientCacheAutoConfiguration
+ * @see java.io.File
+ * @see java.net.URL
+ * @see java.util.Properties
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.springframework.boot.SpringApplication
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.AutoConfigureBefore
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnClass
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+ * @see org.springframework.boot.env.EnvironmentPostProcessor
+ * @see org.springframework.context.annotation.Condition
+ * @see org.springframework.context.annotation.ConditionContext
+ * @see org.springframework.context.annotation.Conditional
+ * @see org.springframework.core.env.ConfigurableEnvironment
+ * @see org.springframework.core.env.Environment
+ * @see org.springframework.core.env.PropertiesPropertySource
+ * @see org.springframework.core.env.PropertySource
+ * @see org.springframework.core.io.ClassPathResource
+ * @see org.springframework.core.io.Resource
+ * @see org.springframework.core.type.AnnotatedTypeMetadata
+ * @see org.springframework.data.gemfire.CacheFactoryBean
+ * @see org.springframework.data.gemfire.config.annotation.EnableSsl
+ * @see org.springframework.geode.boot.autoconfigure.ClientCacheAutoConfiguration
  * @since 1.0.0
  */
 @SpringBootConfiguration

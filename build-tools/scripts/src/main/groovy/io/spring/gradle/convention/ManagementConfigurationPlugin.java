@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package io.spring.gradle.convention;
@@ -27,8 +27,8 @@ import org.springframework.gradle.propdeps.PropDepsPlugin;
  *
  * @author Rob Winch
  * @author John Blum
- * @see org.gradle.api.Plugin
- * @see org.gradle.api.Project
+ * @see Plugin
+ * @see Project
  */
 public class ManagementConfigurationPlugin implements Plugin<Project> {
 

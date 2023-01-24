@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.actuate;
@@ -26,16 +26,16 @@ import org.springframework.util.StringUtils;
  * and the {@link ResourceManager}.
  *
  * @author John Blum
- * @see URL
+ * @see java.net.URL
  * @see java.util.Optional
- * @see Function
- * @see GemFireCache
- * @see ResourceManager
- * @see DistributedMember
- * @see DistributedSystem
- * @see Health
- * @see HealthIndicator
- * @see AbstractGeodeHealthIndicator
+ * @see java.util.function.Function
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.apache.geode.cache.control.ResourceManager
+ * @see org.apache.geode.distributed.DistributedMember
+ * @see org.apache.geode.distributed.DistributedSystem
+ * @see org.springframework.boot.actuate.health.Health
+ * @see org.springframework.boot.actuate.health.HealthIndicator
+ * @see org.springframework.geode.boot.actuate.health.AbstractGeodeHealthIndicator
  * @since 1.0.0
  */
 @SuppressWarnings("unused")
@@ -60,7 +60,7 @@ public class GeodeCacheHealthIndicator extends AbstractGeodeHealthIndicator {
 	 *
 	 * @param gemfireCache reference to the {@link GemFireCache} instance used to collect health information.
 	 * @throws IllegalArgumentException if {@link GemFireCache} is {@literal null}.
-	 * @see GemFireCache
+	 * @see org.apache.geode.cache.GemFireCache
 	 */
 	public GeodeCacheHealthIndicator(GemFireCache gemfireCache) {
 		super(gemfireCache);
@@ -72,8 +72,8 @@ public class GeodeCacheHealthIndicator extends AbstractGeodeHealthIndicator {
 	 *
 	 * @return a collection of {@link Function Functions} applying {@link HealthIndicator} information
 	 * about the {@link GemFireCache} to a {@link Health} object.
-	 * @see Health.Builder
-	 * @see Function
+	 * @see org.springframework.boot.actuate.health.Health.Builder
+	 * @see java.util.function.Function
 	 */
 	protected Function<Health.Builder, Health.Builder> getGemfireHealthIndicatorFunctions() {
 		return this.gemfireHealthIndicatorFunctions;

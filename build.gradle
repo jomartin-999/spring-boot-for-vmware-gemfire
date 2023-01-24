@@ -13,12 +13,12 @@ plugins {
   id 'java'
 }
 
-allprojects {
+subprojects {
 
   group = 'com.vmware.gemfire'
 
-  sourceCompatibility = '1.8'
-  targetCompatibility = '1.8'
+  sourceCompatibility = '17'
+  targetCompatibility = '17'
 
   repositories {
     mavenLocal()
@@ -29,6 +29,23 @@ allprojects {
         password "$gemfireRepoPassword"
       }
       url = uri("https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire")
+    }
+  }
+
+  ext.testDependencies = [
+          "junit:junit",
+          "org.junit.jupiter:junit-jupiter-api",
+          "org.junit.vintage:junit-vintage-engine",
+          "org.assertj:assertj-core",
+          "org.mockito:mockito-core",
+          "org.projectlombok:lombok",
+          "org.springframework:spring-test",
+          "edu.umd.cs.mtc:multithreadedtc"
+  ]
+
+  plugins.withType(JavaPlugin) {
+    dependencies {
+      testImplementation testDependencies
     }
   }
 

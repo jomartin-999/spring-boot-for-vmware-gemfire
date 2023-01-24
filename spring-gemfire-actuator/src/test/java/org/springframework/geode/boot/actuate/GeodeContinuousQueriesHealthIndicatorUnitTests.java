@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -33,17 +33,17 @@ import org.springframework.data.gemfire.listener.ContinuousQueryListenerContaine
  * Unit tests for {@link GeodeContinuousQueriesHealthIndicator}.
  *
  * @author John Blum
- * @see Test
- * @see Mock
+ * @see org.junit.Test
+ * @see org.mockito.Mock
  * @see org.mockito.Mockito
- * @see MockitoJUnitRunner
- * @see CqQuery
- * @see Query
- * @see QueryService
- * @see Health
+ * @see org.mockito.junit.MockitoJUnitRunner
+ * @see org.apache.geode.cache.query.CqQuery
+ * @see org.apache.geode.cache.query.Query
+ * @see org.apache.geode.cache.query.QueryService
+ * @see org.springframework.boot.actuate.health.Health
  * @see org.springframework.boot.actuate.health.HealthIndicator
- * @see ContinuousQueryListenerContainer
- * @see GeodeContinuousQueriesHealthIndicator
+ * @see org.springframework.data.gemfire.listener.ContinuousQueryListenerContainer
+ * @see org.springframework.geode.boot.actuate.GeodeContinuousQueriesHealthIndicator
  * @since 1.0.0
  */
 @RunWith(MockitoJUnitRunner.class)

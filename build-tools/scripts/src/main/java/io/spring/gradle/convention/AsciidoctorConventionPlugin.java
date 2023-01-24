@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package io.spring.gradle.convention;
@@ -123,8 +123,8 @@ public class AsciidoctorConventionPlugin implements Plugin<Project> {
 	 * @return a {@link Sync} task used to copy the Spring Documentation Resources to a build directory
 	 * used to generate documentation.
 	 * @see <a href="https://repo.spring.io/ui/native/release/io/spring/docresources/spring-doc-resources">spring-doc-resources</a>
-	 * @see org.gradle.api.tasks.Sync
-	 * @see org.gradle.api.Project
+	 * @see Sync
+	 * @see Project
 	 */
 	@SuppressWarnings("all")
 	private Sync createUnzipDocumentationResourcesTask(Project project) {

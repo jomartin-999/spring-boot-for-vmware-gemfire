@@ -1,12 +1,11 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure.cluster.config;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.util.List;
@@ -32,7 +31,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.gemfire.GemfireTemplate;
 import org.springframework.data.gemfire.GemfireUtils;
 import org.springframework.data.gemfire.config.annotation.CacheServerApplication;
@@ -41,7 +39,6 @@ import org.springframework.data.gemfire.config.annotation.EnableEntityDefinedReg
 import org.springframework.data.gemfire.config.annotation.EnableManager;
 import org.springframework.data.gemfire.tests.integration.ForkingClientServerIntegrationTestsSupport;
 import org.springframework.geode.security.TestSecurityManager;
-import org.springframework.geode.util.GeodeConstants;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.client.ClientHttpRequest;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
@@ -58,18 +55,22 @@ import example.app.books.model.ISBN;
  * server is configured with Security (Authentication).
  *
  * @author John Blum
- * @see java.io.File
  * @see java.net.URI
  * @see org.junit.Test
  * @see org.apache.geode.cache.GemFireCache
  * @see org.apache.geode.cache.Region
+ * @see org.springframework.boot.ApplicationRunner
  * @see org.springframework.boot.autoconfigure.SpringBootApplication
  * @see org.springframework.boot.builder.SpringApplicationBuilder
  * @see org.springframework.boot.test.context.SpringBootTest
  * @see org.springframework.context.annotation.Bean
  * @see org.springframework.context.annotation.Profile
+ * @see org.springframework.data.gemfire.GemfireTemplate
  * @see org.springframework.data.gemfire.config.annotation.EnableClusterConfiguration
+ * @see org.springframework.data.gemfire.config.annotation.EnableEntityDefinedRegions
  * @see org.springframework.data.gemfire.tests.integration.ForkingClientServerIntegrationTestsSupport
+ * @see org.springframework.geode.security.TestSecurityManager
+ * @see org.springframework.test.annotation.DirtiesContext
  * @see org.springframework.test.context.ActiveProfiles
  * @see org.springframework.test.context.junit4.SpringRunner
  * @since 1.0.0
@@ -171,27 +172,12 @@ public class ClusterConfigurationWithAuthenticationIntegrationTests extends Fork
 	@EnableManager(start = true)
 	static class GeodeServerConfiguration {
 
-		private static final String GEODE_HOME_PROPERTY = GeodeConstants.GEMFIRE_PROPERTY_PREFIX + "home";
-
 		public static void main(String[] args) throws IOException {
-
-			resolveAndConfigureGeodeHome();
-
-			//System.err.printf("%s [%s]%n", GEODE_HOME_PROPERTY, System.getProperty(GEODE_HOME_PROPERTY));
 
 			new SpringApplicationBuilder(GeodeServerConfiguration.class)
 				.web(WebApplicationType.NONE)
 				.build()
 				.run(args);
-		}
-
-		private static void resolveAndConfigureGeodeHome() throws IOException {
-
-			ClassPathResource resource = new ClassPathResource("/gemfire-home");
-
-			File resourceFile = resource.getFile();
-
-			System.setProperty(GEODE_HOME_PROPERTY, resourceFile.getAbsolutePath());
 		}
 
 		@Bean

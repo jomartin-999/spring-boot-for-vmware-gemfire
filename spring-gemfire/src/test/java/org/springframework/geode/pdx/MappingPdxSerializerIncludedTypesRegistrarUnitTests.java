@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.pdx;
@@ -29,11 +29,11 @@ import org.springframework.data.gemfire.mapping.MappingPdxSerializer;
  * Unit Tests for {@link MappingPdxSerializerIncludedTypesRegistrar}.
  *
  * @author John Blum
- * @see org.junit.Test
+ * @see Test
  * @see org.mockito.Mockito
- * @see org.apache.geode.cache.GemFireCache
- * @see org.apache.geode.pdx.PdxSerializer
- * @see org.springframework.geode.pdx.MappingPdxSerializerIncludedTypesRegistrar
+ * @see GemFireCache
+ * @see PdxSerializer
+ * @see MappingPdxSerializerIncludedTypesRegistrar
  * @since 1.5.0
  */
 public class MappingPdxSerializerIncludedTypesRegistrarUnitTests {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -22,17 +22,17 @@ import org.springframework.geode.config.annotation.ClusterAvailableConfiguration
  * functionality in a {@link ClientCache} application.
  *
  * @author John Blum
- * @see ClientCache
- * @see SpringBootConfiguration
- * @see EnableAutoConfiguration
+ * @see org.apache.geode.cache.client.ClientCache
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
  * @see org.springframework.context.annotation.Bean
- * @see Conditional
- * @see Import
- * @see ClientCacheFactoryBean
+ * @see org.springframework.context.annotation.Conditional
+ * @see org.springframework.context.annotation.Import
+ * @see org.springframework.data.gemfire.client.ClientCacheFactoryBean
  * @see org.springframework.data.gemfire.config.annotation.ClientCacheConfigurer
- * @see EnableContinuousQueries
- * @see EnableSubscriptionConfiguration
- * @see ClusterAvailableConfiguration.AnyClusterAvailableCondition
+ * @see org.springframework.data.gemfire.config.annotation.EnableContinuousQueries
+ * @see org.springframework.geode.boot.autoconfigure.support.EnableSubscriptionConfiguration
+ * @see org.springframework.geode.config.annotation.ClusterAvailableConfiguration.AnyClusterAvailableCondition
  * @since 1.0.0
  */
 @SpringBootConfiguration

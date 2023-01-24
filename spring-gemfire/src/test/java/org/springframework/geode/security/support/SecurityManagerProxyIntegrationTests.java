@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.security.support;
@@ -7,11 +7,13 @@ package org.springframework.geode.security.support;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 
-import org.apache.geode.cache.GemFireCache;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import org.apache.geode.cache.GemFireCache;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.gemfire.config.annotation.PeerCacheApplication;
@@ -24,7 +26,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * Integration tests for {@link SecurityManagerProxy}.
+ * Integration Tests for {@link SecurityManagerProxy}.
  *
  * @author John Blum
  * @see org.apache.geode.cache.GemFireCache

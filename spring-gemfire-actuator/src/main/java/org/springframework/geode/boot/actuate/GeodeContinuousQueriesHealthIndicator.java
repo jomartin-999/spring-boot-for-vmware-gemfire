@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.actuate;
@@ -27,13 +27,13 @@ import org.springframework.geode.boot.actuate.health.AbstractGeodeHealthIndicato
  * about the health of the registered Apache Geode {@link CqQuery Continuous Queries}.
  *
  * @author John Blum
- * @see CqQuery
- * @see Query
- * @see QueryService
- * @see Health
- * @see HealthIndicator
- * @see ContinuousQueryListenerContainer
- * @see AbstractGeodeHealthIndicator
+ * @see org.apache.geode.cache.query.CqQuery
+ * @see org.apache.geode.cache.query.Query
+ * @see org.apache.geode.cache.query.QueryService
+ * @see org.springframework.boot.actuate.health.Health
+ * @see org.springframework.boot.actuate.health.HealthIndicator
+ * @see org.springframework.data.gemfire.listener.ContinuousQueryListenerContainer
+ * @see org.springframework.geode.boot.actuate.health.AbstractGeodeHealthIndicator
  * @since 1.0.0
  */
 @SuppressWarnings("unused")
@@ -55,7 +55,7 @@ public class GeodeContinuousQueriesHealthIndicator extends AbstractGeodeHealthIn
 	 * the {@link ContinuousQueryListenerContainer}.
 	 *
 	 * @param continuousQueryListenerContainer reference to the SDG {@link ContinuousQueryListenerContainer}.
-	 * @see ContinuousQueryListenerContainer
+	 * @see org.springframework.data.gemfire.listener.ContinuousQueryListenerContainer
 	 */
 	public GeodeContinuousQueriesHealthIndicator(ContinuousQueryListenerContainer continuousQueryListenerContainer) {
 
@@ -68,8 +68,8 @@ public class GeodeContinuousQueriesHealthIndicator extends AbstractGeodeHealthIn
 	 * Returns an {@link Optional} reference to the configured {@link ContinuousQueryListenerContainer}.
 	 *
 	 * @return an {@link Optional} reference to the configured {@link ContinuousQueryListenerContainer}.
-	 * @see ContinuousQueryListenerContainer
-	 * @see Optional
+	 * @see org.springframework.data.gemfire.listener.ContinuousQueryListenerContainer
+	 * @see java.util.Optional
 	 */
 	protected Optional<ContinuousQueryListenerContainer> getContinuousQueryListenerContainer() {
 		return Optional.ofNullable(this.continuousQueryListenerContainer);

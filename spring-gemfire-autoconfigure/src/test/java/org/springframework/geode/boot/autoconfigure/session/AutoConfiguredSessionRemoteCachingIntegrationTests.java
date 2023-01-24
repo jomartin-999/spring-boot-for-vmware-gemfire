@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure.session;
@@ -10,8 +10,8 @@ import java.io.IOException;
 import java.net.URI;
 import java.util.concurrent.atomic.AtomicReference;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
+import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpSession;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -27,7 +27,7 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.gemfire.config.annotation.CacheServerApplication;
 import org.springframework.data.gemfire.tests.integration.ForkingClientServerIntegrationTestsSupport;
@@ -51,14 +51,14 @@ import org.springframework.web.client.RestTemplate;
  *
  * @author John Blum
  * @see java.net.URI
- * @see javax.servlet.http.HttpSession
+ * @see jakarta.servlet.http.HttpSession
  * @see org.junit.Test
  * @see org.apache.geode.cache.Region
  * @see org.apache.geode.cache.client.ClientCache
  * @see org.springframework.boot.autoconfigure.SpringBootApplication
  * @see org.springframework.boot.builder.SpringApplicationBuilder
  * @see org.springframework.boot.test.context.SpringBootTest
- * @see org.springframework.boot.web.server.LocalServerPort
+ * @see org.springframework.boot.test.web.server.LocalServerPort
  * @see org.springframework.context.annotation.Bean
  * @see org.springframework.data.gemfire.config.annotation.CacheServerApplication
  * @see org.springframework.data.gemfire.tests.integration.ForkingClientServerIntegrationTestsSupport

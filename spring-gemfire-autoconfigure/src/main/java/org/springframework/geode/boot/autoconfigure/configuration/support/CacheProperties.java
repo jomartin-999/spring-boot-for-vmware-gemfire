@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure.configuration.support;
@@ -22,13 +22,13 @@ import org.springframework.boot.context.properties.NestedConfigurationProperty;
  * {@link Properties}.
  *
  * @author John Blum
- * @see Properties
- * @see Cache
- * @see ClientCache
- * @see ResourceManager
- * @see CacheServer
- * @see ConfigurationProperties
- * @see NestedConfigurationProperty
+ * @see java.util.Properties
+ * @see org.apache.geode.cache.Cache
+ * @see org.apache.geode.cache.client.ClientCache
+ * @see org.apache.geode.cache.control.ResourceManager
+ * @see org.apache.geode.cache.server.CacheServer
+ * @see org.springframework.boot.context.properties.ConfigurationProperties
+ * @see org.springframework.boot.context.properties.NestedConfigurationProperty
  * @since 1.0.0
  */
 @SuppressWarnings("unused")

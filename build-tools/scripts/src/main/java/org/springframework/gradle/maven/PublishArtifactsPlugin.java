@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.gradle.maven;
@@ -14,8 +14,8 @@ import io.spring.gradle.convention.Utils;
  *
  * @author Rob Winch
  * @author John Blum
- * @see org.gradle.api.Plugin
- * @see org.gradle.api.Project
+ * @see Plugin
+ * @see Project
  * @see <a href="https://www.jfrog.com/confluence/display/JFROG/Gradle+Artifactory+Plugin">Artifatory Gradle Plugin</a>
  * @see <a href="https://central.sonatype.org/publish/publish-gradle/">Maven Central Sonatype Gradle Support</a>
  */

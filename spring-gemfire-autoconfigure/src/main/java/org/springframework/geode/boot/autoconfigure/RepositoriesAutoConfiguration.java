@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -32,18 +32,18 @@ import org.springframework.data.gemfire.repository.support.GemfireRepositoryFact
  * {@link EnableGemfireRepositories} annotation.
  *
  * @author John Blum
- * @see Cache
- * @see GemFireCache
- * @see ClientCache
- * @see SpringBootConfiguration
- * @see EnableAutoConfiguration
- * @see Import
- * @see GemfireRepository
- * @see EnableGemfireRepositories
- * @see GemfireRepositoryConfigurationExtension
- * @see GemfireRepositoryFactoryBean
- * @see ClientCacheAutoConfiguration
- * @see GemFireRepositoriesAutoConfigurationRegistrar
+ * @see org.apache.geode.cache.Cache
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.apache.geode.cache.client.ClientCache
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
+ * @see org.springframework.context.annotation.Import
+ * @see org.springframework.data.gemfire.repository.GemfireRepository
+ * @see org.springframework.data.gemfire.repository.config.EnableGemfireRepositories
+ * @see org.springframework.data.gemfire.repository.config.GemfireRepositoryConfigurationExtension
+ * @see org.springframework.data.gemfire.repository.support.GemfireRepositoryFactoryBean
+ * @see org.springframework.geode.boot.autoconfigure.ClientCacheAutoConfiguration
+ * @see org.springframework.geode.boot.autoconfigure.GemFireRepositoriesAutoConfigurationRegistrar
  * @since 1.0.0
  */
 @SpringBootConfiguration

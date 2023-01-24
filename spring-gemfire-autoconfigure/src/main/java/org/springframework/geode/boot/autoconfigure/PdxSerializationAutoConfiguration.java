@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -19,12 +19,12 @@ import org.springframework.data.gemfire.config.annotation.EnablePdx;
  * functionality in a either a {@link Cache peer cache} or {@link ClientCache} application.
  *
  * @author John Blum
- * @see Cache
- * @see GemFireCache
- * @see ClientCache
- * @see SpringBootConfiguration
- * @see EnableAutoConfiguration
- * @see EnablePdx
+ * @see org.apache.geode.cache.Cache
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.apache.geode.cache.client.ClientCache
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
+ * @see org.springframework.data.gemfire.config.annotation.EnablePdx
  * @since 1.0.0
  */
 @SpringBootConfiguration

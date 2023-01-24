@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure.session;
@@ -9,6 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.time.Duration;
 
 import org.junit.runner.RunWith;
+
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.session.Session;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -35,7 +36,7 @@ public class SessionExpirationTimeoutInMillisecondsIntegrationTests
 
 	@Override
 	protected int getExpectedMaxInactiveIntervalInSeconds() {
-		int maxInactiveIntervalInSeconds = Long.valueOf(Duration.ofMillis(250).getSeconds()).intValue();
+		int maxInactiveIntervalInSeconds = Long.valueOf(Duration.ofMillis(250).toSeconds()).intValue();
 		assertThat(maxInactiveIntervalInSeconds).isZero();
 		return maxInactiveIntervalInSeconds;
 	}

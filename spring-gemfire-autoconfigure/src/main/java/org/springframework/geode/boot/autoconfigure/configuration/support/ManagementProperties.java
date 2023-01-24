@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure.configuration.support;
@@ -15,8 +15,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * {@link Properties}.
  *
  * @author John Blum
- * @see Properties
- * @see ConfigurationProperties
+ * @see java.util.Properties
+ * @see org.springframework.boot.context.properties.ConfigurationProperties
  * @since 1.0.0
  */
 @SuppressWarnings("unused")

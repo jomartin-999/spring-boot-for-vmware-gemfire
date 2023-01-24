@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.actuate;
@@ -39,19 +39,19 @@ import org.springframework.data.gemfire.util.CacheUtils;
  * Unit tests for {@link GeodePoolsHealthIndicator}.
  *
  * @author John Blum
- * @see Test
- * @see Mock
+ * @see org.junit.Test
+ * @see org.mockito.Mock
  * @see org.mockito.Mockito
- * @see MockitoJUnitRunner
- * @see Cache
- * @see GemFireCache
- * @see ClientCache
- * @see Pool
- * @see DistributedSystem
- * @see Health
+ * @see org.mockito.junit.MockitoJUnitRunner
+ * @see org.apache.geode.cache.Cache
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.apache.geode.cache.client.ClientCache
+ * @see org.apache.geode.cache.client.Pool
+ * @see org.apache.geode.distributed.DistributedSystem
+ * @see org.springframework.boot.actuate.health.Health
  * @see org.springframework.boot.actuate.health.HealthIndicator
- * @see PoolMockObjects
- * @see GeodePoolsHealthIndicator
+ * @see org.springframework.data.gemfire.tests.mock.PoolMockObjects
+ * @see org.springframework.geode.boot.actuate.GeodePoolsHealthIndicator
  * @since 1.0.0
  */
 @RunWith(MockitoJUnitRunner.class)

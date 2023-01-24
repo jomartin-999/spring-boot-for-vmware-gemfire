@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -16,10 +16,10 @@ import org.springframework.data.repository.config.RepositoryConfigurationExtensi
  * Spring {@link ImportBeanDefinitionRegistrar} used to auto-configure Spring Data Geode Repositories.
  *
  * @author John Blum
- * @see AbstractRepositoryConfigurationSourceSupport
- * @see EnableGemfireRepositories
- * @see GemfireRepositoryConfigurationExtension
- * @see RepositoriesAutoConfiguration
+ * @see org.springframework.boot.autoconfigure.data.AbstractRepositoryConfigurationSourceSupport
+ * @see org.springframework.data.gemfire.repository.config.EnableGemfireRepositories
+ * @see org.springframework.data.gemfire.repository.config.GemfireRepositoryConfigurationExtension
+ * @see org.springframework.geode.boot.autoconfigure.RepositoriesAutoConfiguration
  * @since 1.0.0
  */
 public class GemFireRepositoriesAutoConfigurationRegistrar extends AbstractRepositoryConfigurationSourceSupport {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -20,13 +20,13 @@ import org.springframework.data.gemfire.config.annotation.ClientCacheApplication
  * instance constructed, configured and initialized with Spring Data for Apache Geode.
  *
  * @author John Blum
- * @see GemFireCache
- * @see ClientCache
- * @see Locator
- * @see SpringBootConfiguration
- * @see EnableAutoConfiguration
- * @see ClientCacheFactoryBean
- * @see ClientCacheApplication
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.apache.geode.cache.client.ClientCache
+ * @see org.apache.geode.distributed.Locator
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
+ * @see org.springframework.data.gemfire.client.ClientCacheFactoryBean
+ * @see org.springframework.data.gemfire.config.annotation.ClientCacheApplication
  * @since 1.0.0
  */
 @SpringBootConfiguration

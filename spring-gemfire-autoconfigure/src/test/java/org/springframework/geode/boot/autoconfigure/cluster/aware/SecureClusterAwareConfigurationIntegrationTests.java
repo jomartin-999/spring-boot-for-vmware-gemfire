@@ -1,12 +1,11 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure.cluster.aware;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.File;
 import java.io.IOException;
 import java.security.KeyStore;
 import java.util.List;
@@ -24,12 +23,15 @@ import org.apache.geode.cache.DataPolicy;
 import org.apache.geode.cache.GemFireCache;
 import org.apache.geode.cache.Region;
 
-import org.apache.http.client.HttpClient;
-import org.apache.http.conn.ssl.NoopHostnameVerifier;
-import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.conn.ssl.TrustAllStrategy;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.ssl.SSLContexts;
+import org.apache.hc.client5.http.classic.HttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClients;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManagerBuilder;
+import org.apache.hc.client5.http.io.HttpClientConnectionManager;
+import org.apache.hc.client5.http.ssl.NoopHostnameVerifier;
+import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactory;
+import org.apache.hc.client5.http.ssl.SSLConnectionSocketFactoryBuilder;
+import org.apache.hc.client5.http.ssl.TrustAllStrategy;
+import org.apache.hc.core5.ssl.SSLContexts;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -53,7 +55,6 @@ import org.springframework.data.gemfire.tests.integration.ForkingClientServerInt
 import org.springframework.geode.config.annotation.ClusterAwareConfiguration;
 import org.springframework.geode.config.annotation.EnableClusterAware;
 import org.springframework.geode.security.TestSecurityManager;
-import org.springframework.geode.util.GeodeConstants;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.lang.NonNull;
 import org.springframework.test.annotation.DirtiesContext;
@@ -68,6 +69,7 @@ import example.app.books.model.ISBN;
  * (server(s)) are secure (i.e. when both Authentication and TLS/SSL are enabled).
  *
  * @author John Blum
+ * @see java.security.KeyStore
  * @see org.junit.Test
  * @see org.apache.geode.cache.GemFireCache
  * @see org.apache.geode.cache.Region
@@ -77,10 +79,11 @@ import example.app.books.model.ISBN;
  * @see org.springframework.boot.test.context.SpringBootTest
  * @see org.springframework.context.annotation.Bean
  * @see org.springframework.context.annotation.Profile
+ * @see org.springframework.core.env.Environment
+ * @see org.springframework.core.env.Profiles
  * @see org.springframework.data.gemfire.GemfireTemplate
- * @see org.springframework.data.gemfire.config.annotation.CacheServerApplication
- * @see org.springframework.data.gemfire.config.annotation.EnableManager
  * @see org.springframework.data.gemfire.tests.integration.ForkingClientServerIntegrationTestsSupport
+ * @see org.springframework.geode.config.annotation.ClusterAwareConfiguration
  * @see org.springframework.geode.config.annotation.EnableClusterAware
  * @see org.springframework.geode.security.TestSecurityManager
  * @see org.springframework.test.annotation.DirtiesContext
@@ -109,7 +112,8 @@ public class SecureClusterAwareConfigurationIntegrationTests extends ForkingClie
 	@BeforeClass
 	public static void startGeodeServer() throws IOException {
 		startGemFireServer(TestGeodeServerConfiguration.class,
-			"-Dspring.profiles.active=cluster-aware-with-secure-server,ssl");
+			"-Dspring.profiles.active=cluster-aware-with-secure-server,ssl",
+			"-Dapache-geode.logback.log.level=INFO");
 	}
 
 	@BeforeClass @AfterClass
@@ -180,8 +184,18 @@ public class SecureClusterAwareConfigurationIntegrationTests extends ForkingClie
 							.loadTrustMaterial(keyStore, TrustAllStrategy.INSTANCE)
 							.build();
 
+						SSLConnectionSocketFactory sslSocketFactory =
+							SSLConnectionSocketFactoryBuilder.create()
+								.setHostnameVerifier(new NoopHostnameVerifier())
+								.setSslContext(sslContext)
+								.build();
+
+						HttpClientConnectionManager connectionManager = PoolingHttpClientConnectionManagerBuilder.create()
+							.setSSLSocketFactory(sslSocketFactory)
+							.build();
+
 						HttpClient httpClient = HttpClients.custom()
-							.setSSLSocketFactory(new SSLConnectionSocketFactory(sslContext, new NoopHostnameVerifier()))
+							.setConnectionManager(connectionManager)
 							.build();
 
 						restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory(httpClient));
@@ -204,25 +218,12 @@ public class SecureClusterAwareConfigurationIntegrationTests extends ForkingClie
 	@Profile("cluster-aware-with-secure-server")
 	static class TestGeodeServerConfiguration {
 
-		private static final String GEODE_HOME_PROPERTY = GeodeConstants.GEMFIRE_PROPERTY_PREFIX + "home";
-
 		public static void main(String[] args) throws IOException {
-
-			resolveAndConfigureGeodeHome();
 
 			new SpringApplicationBuilder(TestGeodeServerConfiguration.class)
 				.web(WebApplicationType.NONE)
 				.build()
 				.run(args);
-		}
-
-		private static void resolveAndConfigureGeodeHome() throws IOException {
-
-			ClassPathResource resource = new ClassPathResource("/gemfire-home");
-
-			File resourceFile = resource.getFile();
-
-			System.setProperty(GEODE_HOME_PROPERTY, resourceFile.getAbsolutePath());
 		}
 
 		@Bean

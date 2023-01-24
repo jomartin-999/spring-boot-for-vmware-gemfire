@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -21,7 +21,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
 import org.springframework.context.annotation.Conditional;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.core.env.Environment;
 import org.springframework.core.type.AnnotatedTypeMetadata;
@@ -39,24 +38,24 @@ import org.springframework.lang.Nullable;
  * Spring Boot {@link EnableAutoConfiguration auto-configuration} for cache data import/export.
  *
  * @author John Blum
- * @see GemFireCache
+ * @see org.apache.geode.cache.GemFireCache
  * @see org.apache.geode.cache.Region
- * @see SpringBootConfiguration
- * @see EnableAutoConfiguration
- * @see AnyNestedCondition
- * @see ConditionalOnBean
- * @see ConditionalOnClass
- * @see ConditionalOnProperty
- * @see Bean
- * @see Condition
- * @see Conditional
- * @see ConfigurableEnvironment
- * @see Environment
- * @see CacheFactoryBean
- * @see PdxInstanceWrapperRegionAspect
- * @see CacheDataImporterExporter
- * @see JsonCacheDataImporterExporter
- * @see LifecycleAwareCacheDataImporterExporter
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
+ * @see org.springframework.boot.autoconfigure.condition.AnyNestedCondition
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnBean
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnClass
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+ * @see org.springframework.context.annotation.Bean
+ * @see org.springframework.context.annotation.Condition
+ * @see org.springframework.context.annotation.Conditional
+ * @see org.springframework.core.env.ConfigurableEnvironment
+ * @see org.springframework.core.env.Environment
+ * @see org.springframework.data.gemfire.CacheFactoryBean
+ * @see org.springframework.geode.boot.autoconfigure.support.PdxInstanceWrapperRegionAspect
+ * @see org.springframework.geode.data.CacheDataImporterExporter
+ * @see org.springframework.geode.data.json.JsonCacheDataImporterExporter
+ * @see org.springframework.geode.data.support.LifecycleAwareCacheDataImporterExporter
  * @since 1.3.0
  */
 @SpringBootConfiguration

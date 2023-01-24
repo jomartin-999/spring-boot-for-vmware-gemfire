@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -18,13 +18,13 @@ import org.springframework.data.gemfire.config.annotation.EnableLogging;
  * Spring Boot {@link EnableAutoConfiguration auto-Configuration} for Apache Geode logging.
  *
  * @author John Blum
- * @see SpringBootConfiguration
- * @see EnableAutoConfiguration
- * @see ConditionalOnBean
- * @see ConditionalOnClass
- * @see ConditionalOnMissingBean
- * @see CacheFactoryBean
- * @see EnableLogging
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnBean
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnClass
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+ * @see org.springframework.data.gemfire.CacheFactoryBean
+ * @see org.springframework.data.gemfire.config.annotation.EnableLogging
  * @since 1.1.0
  */
 @SpringBootConfiguration

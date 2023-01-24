@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -19,7 +19,7 @@ import org.springframework.core.annotation.AliasFor;
  * or disable functionality based on the absence of any declared properties.
  *
  * @author John Blum
- * @see Conditional
+ * @see org.springframework.context.annotation.Conditional
  * @since 1.0.0
  */
 @Target({ ElementType.TYPE, ElementType.METHOD })

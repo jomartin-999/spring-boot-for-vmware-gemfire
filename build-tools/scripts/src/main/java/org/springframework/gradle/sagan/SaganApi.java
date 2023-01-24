@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -73,7 +73,7 @@ public class SaganApi {
 		}
 
 		@Override
-		public okhttp3.Response intercept(Chain chain) throws IOException {
+		public Response intercept(Chain chain) throws IOException {
 			Request request = chain.request().newBuilder()
 					.addHeader("Authorization", "Basic " + this.token).build();
 			return chain.proceed(request);

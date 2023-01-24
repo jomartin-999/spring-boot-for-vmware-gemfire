@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.actuate;
@@ -25,11 +25,11 @@ import org.springframework.util.Assert;
  * the health of Apache Geode {@link DiskStore DiskStores}.
  *
  * @author John Blum
- * @see DiskStore
- * @see Health
- * @see HealthIndicator
- * @see ApplicationContext
- * @see AbstractGeodeHealthIndicator
+ * @see org.apache.geode.cache.DiskStore
+ * @see org.springframework.boot.actuate.health.Health
+ * @see org.springframework.boot.actuate.health.HealthIndicator
+ * @see org.springframework.context.ApplicationContext
+ * @see org.springframework.geode.boot.actuate.health.AbstractGeodeHealthIndicator
  * @since 1.0.0
  */
 @SuppressWarnings("unused")
@@ -52,7 +52,7 @@ public class GeodeDiskStoresHealthIndicator extends AbstractGeodeHealthIndicator
 	 *
 	 * @param applicationContext reference to the Spring {@link ApplicationContext}.
 	 * @throws IllegalArgumentException if {@link ApplicationContext} is {@literal null}.
-	 * @see ApplicationContext
+	 * @see org.springframework.context.ApplicationContext
 	 */
 	public GeodeDiskStoresHealthIndicator(ApplicationContext applicationContext) {
 
@@ -67,8 +67,8 @@ public class GeodeDiskStoresHealthIndicator extends AbstractGeodeHealthIndicator
 	 * Returns an {@link Optional} reference to the Spring {@link ApplicationContext}.
 	 *
 	 * @return an {@link Optional} reference to the Spring {@link ApplicationContext}.
-	 * @see ApplicationContext
-	 * @see Optional
+	 * @see org.springframework.context.ApplicationContext
+	 * @see java.util.Optional
 	 */
 	protected Optional<ApplicationContext> getApplicationContext() {
 		return Optional.ofNullable(this.applicationContext);

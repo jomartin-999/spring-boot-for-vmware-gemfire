@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.actuate;
@@ -26,13 +26,13 @@ import org.springframework.geode.boot.actuate.health.support.ActuatorServerLoadP
  * the health of Apache Geode {@link CacheServer CacheServers}.
  *
  * @author John Blum
- * @see Cache
- * @see GemFireCache
- * @see CacheServer
- * @see Health
- * @see HealthIndicator
- * @see AbstractGeodeHealthIndicator
- * @see ActuatorServerLoadProbeWrapper
+ * @see org.apache.geode.cache.Cache
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.apache.geode.cache.server.CacheServer
+ * @see org.springframework.boot.actuate.health.Health
+ * @see org.springframework.boot.actuate.health.HealthIndicator
+ * @see org.springframework.geode.boot.actuate.health.AbstractGeodeHealthIndicator
+ * @see org.springframework.geode.boot.actuate.health.support.ActuatorServerLoadProbeWrapper
  * @since 1.0.0
  */
 @SuppressWarnings("unused")
@@ -52,7 +52,7 @@ public class GeodeCacheServersHealthIndicator extends AbstractGeodeHealthIndicat
 	 *
 	 * @param gemfireCache reference to the {@link GemFireCache} instance used to collect health information.
 	 * @throws IllegalArgumentException if {@link GemFireCache} is {@literal null}.
-	 * @see GemFireCache
+	 * @see org.apache.geode.cache.GemFireCache
 	 */
 	public GeodeCacheServersHealthIndicator(GemFireCache gemfireCache) {
 		super(gemfireCache);

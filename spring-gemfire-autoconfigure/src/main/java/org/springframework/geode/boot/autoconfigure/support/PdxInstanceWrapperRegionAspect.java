@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure.support;
@@ -29,13 +29,13 @@ import org.aspectj.lang.annotation.Pointcut;
  * read data access operations inside a new instance of {@link PdxInstanceWrapper}.
  *
  * @author John Blum
- * @see Map
- * @see Region
- * @see PdxInstance
- * @see Around
- * @see Aspect
- * @see Pointcut
- * @see PdxInstanceWrapper
+ * @see java.util.Map
+ * @see org.apache.geode.cache.Region
+ * @see org.apache.geode.pdx.PdxInstance
+ * @see org.aspectj.lang.annotation.Around
+ * @see org.aspectj.lang.annotation.Aspect
+ * @see org.aspectj.lang.annotation.Pointcut
+ * @see org.springframework.geode.pdx.PdxInstanceWrapper
  * @since 1.3.0
  */
 @Aspect

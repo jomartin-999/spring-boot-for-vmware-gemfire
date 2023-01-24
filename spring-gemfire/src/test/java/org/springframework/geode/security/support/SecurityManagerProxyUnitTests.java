@@ -1,8 +1,7 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
-
 package org.springframework.geode.security.support;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -16,11 +15,12 @@ import static org.mockito.Mockito.when;
 import java.security.Principal;
 import java.util.Properties;
 
-import org.apache.geode.security.ResourcePermission;
 import org.junit.Test;
 
+import org.apache.geode.security.ResourcePermission;
+
 /**
- * Unit tests for {@link SecurityManagerProxy}
+ * Unit Tests for {@link SecurityManagerProxy}
  *
  * @author John Blum
  * @see java.security.Principal

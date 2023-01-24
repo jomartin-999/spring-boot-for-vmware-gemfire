@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.gradle.maven;
@@ -17,13 +17,13 @@ import org.gradle.api.publish.maven.plugins.MavenPublishPlugin;
  *
  * @author Rob Winch
  * @author John Blum
- * @see org.gradle.api.Plugin
- * @see org.gradle.api.Project
- * @see org.gradle.api.plugins.JavaPlatformPlugin
- * @see org.gradle.api.plugins.JavaPlugin
- * @see org.gradle.api.publish.PublishingExtension
- * @see org.gradle.api.publish.maven.MavenPublication
- * @see org.gradle.api.publish.maven.plugins.MavenPublishPlugin
+ * @see Plugin
+ * @see Project
+ * @see JavaPlatformPlugin
+ * @see JavaPlugin
+ * @see PublishingExtension
+ * @see MavenPublication
+ * @see MavenPublishPlugin
  */
 public class PublishAllJavaComponentsPlugin implements Plugin<Project> {
 

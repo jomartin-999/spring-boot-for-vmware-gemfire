@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.data.json.converter.support;
@@ -114,8 +114,8 @@ public class JSONFormatterJsonToPdxConverter implements JsonToPdxConverter {
 	 *
 	 * @param pdxInstance {@link PdxInstance} to wrap.
 	 * @return a new instance of {@link PdxInstanceWrapper} wrapping the given {@link PdxInstance}.
-	 * @see org.springframework.geode.pdx.PdxInstanceWrapper#from(PdxInstance)
-	 * @see org.springframework.geode.pdx.PdxInstanceWrapper
+	 * @see PdxInstanceWrapper#from(PdxInstance)
+	 * @see PdxInstanceWrapper
 	 * @see PdxInstance
 	 */
 	protected @NonNull PdxInstanceWrapper wrap(@NonNull PdxInstance pdxInstance) {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.boot.autoconfigure.condition;
@@ -36,17 +36,17 @@ import org.springframework.util.StringUtils;
  * Integration Tests asserting the behavior of Spring Boot's {@link Conditional} configuration.
  *
  * @author John Blum
- * @see Test
- * @see BeanDefinitionRegistry
- * @see AllNestedConditions
- * @see AnyNestedCondition
+ * @see org.junit.Test
+ * @see org.springframework.beans.factory.support.BeanDefinitionRegistry
+ * @see org.springframework.boot.autoconfigure.condition.AllNestedConditions
+ * @see org.springframework.boot.autoconfigure.condition.AnyNestedCondition
  * @see org.springframework.context.annotation.Condition
- * @see Conditional
- * @see ConditionContext
- * @see Configuration
- * @see IntegrationTestsSupport
- * @see ContextConfiguration
- * @see SpringRunner
+ * @see org.springframework.context.annotation.Conditional
+ * @see org.springframework.context.annotation.ConditionContext
+ * @see org.springframework.context.annotation.Configuration
+ * @see org.springframework.data.gemfire.tests.integration.IntegrationTestsSupport
+ * @see org.springframework.test.context.ContextConfiguration
+ * @see org.springframework.test.context.junit4.SpringRunner
  * @since 1.2.0
  */
 @RunWith(SpringRunner.class)

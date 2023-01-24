@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -14,7 +14,6 @@ import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
@@ -30,16 +29,16 @@ import org.springframework.util.StringUtils;
  * with the Spring Boot {@literal spring.application.name} property.
  *
  * @author John Blum
- * @see Cache
- * @see GemFireCache
- * @see ClientCache
- * @see SpringBootConfiguration
- * @see EnableAutoConfiguration
- * @see Bean
- * @see Environment
- * @see CacheFactoryBean
- * @see ClientCacheConfigurer
- * @see PeerCacheConfigurer
+ * @see org.apache.geode.cache.Cache
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.apache.geode.cache.client.ClientCache
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
+ * @see org.springframework.context.annotation.Bean
+ * @see org.springframework.core.env.Environment
+ * @see org.springframework.data.gemfire.CacheFactoryBean
+ * @see org.springframework.data.gemfire.config.annotation.ClientCacheConfigurer
+ * @see org.springframework.data.gemfire.config.annotation.PeerCacheConfigurer
  * @since 1.0.0
  */
 @SpringBootConfiguration

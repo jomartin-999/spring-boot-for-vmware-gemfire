@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package example.app.crm.config;
@@ -104,11 +104,9 @@ public abstract class TestCassandraConfiguration {
 		return new BeanPostProcessor() {
 
 			@Override
-			public Object postProcessAfterInitialization(@NonNull Object bean, @NonNull String beanName) throws BeansException {
+			public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
 
-				if (bean instanceof CassandraTemplate) {
-
-					CassandraTemplate cassandraTemplate = (CassandraTemplate) bean;
+				if (bean instanceof CassandraTemplate cassandraTemplate) {
 
 					Consumer<CassandraTemplate> cassandraTemplateConsumer = noopCassandraTemplateConsumer()
 						.andThen(insertEntityObjectCassandraTemplateConsumer())
@@ -158,7 +156,7 @@ public abstract class TestCassandraConfiguration {
 
 		return cassandraTemplate -> {
 
-			String resolvedKeyspaceName = Optional.of(cassandraTemplate.getCqlOperations())
+			String resolvedKeyspaceName = Optional.ofNullable(cassandraTemplate.getCqlOperations())
 				.filter(CqlTemplate.class::isInstance)
 				.map(CqlTemplate.class::cast)
 				.map(CqlTemplate::getSessionFactory)
@@ -177,9 +175,9 @@ public abstract class TestCassandraConfiguration {
 
 			String entityTableName = cassandraTemplate.getTableName(Customer.class).toString();
 
-			assertThat(entityTableName).endsWith(TABLE_NAME);
+			assertThat(entityTableName).endsWithIgnoringCase("Customers");
 
-			Optional.of(cassandraTemplate.getCqlOperations())
+			Optional.ofNullable(cassandraTemplate.getCqlOperations())
 				.filter(CqlTemplate.class::isInstance)
 				.map(CqlTemplate.class::cast)
 				.map(CqlTemplate::getSessionFactory)

@@ -2,34 +2,33 @@ plugins {
   id 'java-library'
   id 'dependency-constraints'
   id 'gemfire-repo-artifact-publishing'
-  id 'spring-java-jar'
 }
 
 description = "Spring Boot for VMware GemFire Extensions"
 
 project.ext.set("pomProjectLongName",description)
-project.ext.set("pomProjectArtifactName","spring-boot-2.7-gemfire-extensions-${gemfireBaseVersion}")
+project.ext.set("pomProjectArtifactName","spring-boot-3.0-gemfire-extensions-${gemfireBaseVersion}")
 project.ext.set("pomProjectDescription",description)
 
 
 dependencies {
-  api(platform("com.vmware.gemfire:gemfire-server-bom:$gemfireVersion")) {
-    exclude group: 'org.apache.geode', module: 'geode-log4j'
-  }
 
-  api "com.vmware.gemfire:geode-core"
-  api "com.vmware.gemfire:geode-cq"
-  api "com.vmware.gemfire:geode-lucene"
-  api "com.vmware.gemfire:geode-wan"
+  api "org.springframework:spring-web"
+
+  api "com.vmware.gemfire:geode-core:$gemfireVersion"
+  api "com.vmware.gemfire:geode-cq:$gemfireVersion"
+  api "com.vmware.gemfire:geode-lucene:$gemfireVersion"
+  api "com.vmware.gemfire:geode-wan:$gemfireVersion"
 
   implementation "com.fasterxml.jackson.core:jackson-databind"
 
-  testImplementation "com.vmware.gemfire:geode-membership"
+  testImplementation "com.vmware.gemfire:geode-membership:$gemfireVersion"
+  testImplementation "com.vmware.gemfire:geode-serialization:$gemfireVersion"
   testImplementation "junit:junit"
   testImplementation "org.assertj:assertj-core"
   testImplementation "org.mockito:mockito-core"
   testImplementation "org.projectlombok:lombok"
-  testImplementation "edu.umd.cs.mtc:multithreadedtc:$multithreadedtcVersion"
+  testImplementation "edu.umd.cs.mtc:multithreadedtc"
 }
 
 repositories {

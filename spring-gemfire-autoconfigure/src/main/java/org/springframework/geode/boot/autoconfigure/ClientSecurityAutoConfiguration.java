@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -12,8 +12,6 @@ import java.util.Properties;
 import org.apache.geode.cache.GemFireCache;
 import org.apache.geode.cache.client.ClientCache;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
@@ -38,38 +36,41 @@ import org.springframework.geode.core.env.support.User;
 import org.springframework.lang.Nullable;
 import org.springframework.util.StringUtils;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Spring Boot {@link EnableAutoConfiguration auto-configuration} enabling Apache Geode's Security functionality,
  * and specifically Authentication between a client and server using Spring Data Geode Security annotations.
  *
  * @author John Blum
- * @see Properties
- * @see GemFireCache
- * @see ClientCache
- * @see SpringApplication
- * @see SpringBootConfiguration
- * @see AutoConfigureBefore
- * @see EnableAutoConfiguration
- * @see AllNestedConditions
- * @see AnyNestedCondition
- * @see ConditionalOnClass
- * @see ConditionalOnCloudPlatform
- * @see ConditionalOnMissingBean
- * @see ConditionalOnProperty
- * @see CloudPlatform
- * @see EnvironmentPostProcessor
- * @see Conditional
- * @see ConfigurableEnvironment
- * @see Environment
- * @see PropertySource
- * @see ClientCacheFactoryBean
- * @see EnableSecurity
+ * @see java.util.Properties
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.apache.geode.cache.client.ClientCache
+ * @see org.springframework.boot.SpringApplication
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.AutoConfigureBefore
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
+ * @see org.springframework.boot.autoconfigure.condition.AllNestedConditions
+ * @see org.springframework.boot.autoconfigure.condition.AnyNestedCondition
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnClass
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnCloudPlatform
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+ * @see org.springframework.boot.autoconfigure.condition.ConditionalOnProperty
+ * @see org.springframework.boot.cloud.CloudPlatform
+ * @see org.springframework.boot.env.EnvironmentPostProcessor
+ * @see org.springframework.context.annotation.Conditional
+ * @see org.springframework.core.env.ConfigurableEnvironment
+ * @see org.springframework.core.env.Environment
+ * @see org.springframework.core.env.PropertySource
+ * @see org.springframework.data.gemfire.client.ClientCacheFactoryBean
+ * @see org.springframework.data.gemfire.config.annotation.EnableSecurity
  * @see org.springframework.data.gemfire.config.annotation.support.AutoConfiguredAuthenticationInitializer
- * @see ClientCacheAutoConfiguration
- * @see VcapPropertySource
- * @see CloudCacheService
+ * @see org.springframework.geode.boot.autoconfigure.ClientCacheAutoConfiguration
+ * @see org.springframework.geode.core.env.VcapPropertySource
+ * @see org.springframework.geode.core.env.support.CloudCacheService
  * @see org.springframework.geode.core.env.support.Service
- * @see User
+ * @see org.springframework.geode.core.env.support.User
  * @since 1.0.0
  */
 @SpringBootConfiguration

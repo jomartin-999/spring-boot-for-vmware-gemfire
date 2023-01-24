@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.actuate;
@@ -23,12 +23,12 @@ import org.springframework.geode.boot.actuate.health.AbstractGeodeHealthIndicato
  * about the health of Apache Geode {@link GatewayReceiver GatewayReceivers}.
  *
  * @author John Blum
- * @see Cache
- * @see GemFireCache
- * @see GatewayReceiver
- * @see Health
- * @see HealthIndicator
- * @see AbstractGeodeHealthIndicator
+ * @see org.apache.geode.cache.Cache
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.apache.geode.cache.wan.GatewayReceiver
+ * @see org.springframework.boot.actuate.health.Health
+ * @see org.springframework.boot.actuate.health.HealthIndicator
+ * @see org.springframework.geode.boot.actuate.health.AbstractGeodeHealthIndicator
  * @since 1.0.0
  */
 @SuppressWarnings("unused")
@@ -48,7 +48,7 @@ public class GeodeGatewayReceiversHealthIndicator extends AbstractGeodeHealthInd
 	 *
 	 * @param gemfireCache reference to the {@link GemFireCache} instance used to collect health information.
 	 * @throws IllegalArgumentException if {@link GemFireCache} is {@literal null}.
-	 * @see GemFireCache
+	 * @see org.apache.geode.cache.GemFireCache
 	 */
 	public GeodeGatewayReceiversHealthIndicator(GemFireCache gemfireCache) {
 		super(gemfireCache);

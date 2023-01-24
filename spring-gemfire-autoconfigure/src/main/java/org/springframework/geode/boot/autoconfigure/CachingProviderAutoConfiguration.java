@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.boot.autoconfigure;
@@ -9,7 +9,7 @@ import static org.springframework.data.gemfire.util.CollectionUtils.asSet;
 import java.util.Optional;
 import java.util.Set;
 
-import javax.annotation.PostConstruct;
+import jakarta.annotation.PostConstruct;
 
 import org.apache.geode.cache.GemFireCache;
 
@@ -26,7 +26,6 @@ import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Condition;
 import org.springframework.context.annotation.ConditionContext;
 import org.springframework.context.annotation.Conditional;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 import org.springframework.data.gemfire.cache.GemfireCacheManager;
 import org.springframework.data.gemfire.cache.config.EnableGemfireCaching;
@@ -38,16 +37,16 @@ import org.springframework.util.StringUtils;
  * using Apache Geode as the caching provider.
  *
  * @author John Blum
- * @see PostConstruct
- * @see GemFireCache
- * @see SpringBootConfiguration
- * @see EnableAutoConfiguration
- * @see CacheManagerCustomizers
- * @see CacheProperties
- * @see CacheManager
- * @see GemfireCacheManager
- * @see EnableGemfireCaching
- * @see ClientCacheAutoConfiguration
+ * @see jakarta.annotation.PostConstruct
+ * @see org.apache.geode.cache.GemFireCache
+ * @see org.springframework.boot.SpringBootConfiguration
+ * @see org.springframework.boot.autoconfigure.EnableAutoConfiguration
+ * @see org.springframework.boot.autoconfigure.cache.CacheManagerCustomizers
+ * @see org.springframework.boot.autoconfigure.cache.CacheProperties
+ * @see org.springframework.cache.CacheManager
+ * @see org.springframework.data.gemfire.cache.GemfireCacheManager
+ * @see org.springframework.data.gemfire.cache.config.EnableGemfireCaching
+ * @see org.springframework.geode.boot.autoconfigure.ClientCacheAutoConfiguration
  * @since 1.0.0
  */
 @SpringBootConfiguration

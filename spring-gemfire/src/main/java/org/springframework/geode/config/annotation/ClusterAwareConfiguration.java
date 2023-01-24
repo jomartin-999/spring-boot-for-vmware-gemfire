@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package org.springframework.geode.config.annotation;
@@ -99,7 +99,7 @@ import org.slf4j.LoggerFactory;
  * @see AbstractAnnotationConfigSupport
  * @see ConnectionEndpoint
  * @see ConnectionEndpointList
- * @see org.springframework.geode.cache.SimpleCacheResolver
+ * @see SimpleCacheResolver
  * @since 1.2.0
  */
 @Configuration

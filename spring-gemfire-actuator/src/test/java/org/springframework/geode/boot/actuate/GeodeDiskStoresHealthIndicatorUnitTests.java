@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -32,16 +32,16 @@ import org.springframework.data.gemfire.util.ArrayUtils;
  * Unit tests for {@link GeodeDiskStoresHealthIndicator}.
  *
  * @author John Blum
- * @see Test
- * @see Mock
+ * @see org.junit.Test
+ * @see org.mockito.Mock
  * @see org.mockito.Mockito
- * @see MockitoJUnitRunner
- * @see DiskStore
- * @see Health
+ * @see org.mockito.junit.MockitoJUnitRunner
+ * @see org.apache.geode.cache.DiskStore
+ * @see org.springframework.boot.actuate.health.Health
  * @see org.springframework.boot.actuate.health.HealthIndicator
- * @see ApplicationContext
- * @see DiskStoreMockObjects
- * @see GeodeDiskStoresHealthIndicator
+ * @see org.springframework.context.ApplicationContext
+ * @see org.springframework.data.gemfire.tests.mock.DiskStoreMockObjects
+ * @see org.springframework.geode.boot.actuate.GeodeDiskStoresHealthIndicator
  * @since 1.0.0
  */
 @RunWith(MockitoJUnitRunner.class)

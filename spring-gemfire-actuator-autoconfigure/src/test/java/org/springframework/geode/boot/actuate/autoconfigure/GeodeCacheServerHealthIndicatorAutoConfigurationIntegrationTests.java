@@ -1,8 +1,7 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
-
 package org.springframework.geode.boot.actuate.autoconfigure;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -11,13 +10,15 @@ import static org.mockito.Mockito.when;
 
 import java.util.Map;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
 import org.apache.geode.cache.Cache;
 import org.apache.geode.cache.server.CacheServer;
 import org.apache.geode.cache.server.ServerLoad;
 import org.apache.geode.cache.server.ServerLoadProbe;
 import org.apache.geode.cache.server.ServerMetrics;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.ApplicationRunner;
@@ -36,17 +37,28 @@ import org.springframework.geode.boot.actuate.health.support.ActuatorServerLoadP
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
- * The GeodeCacheServerHealthIndicatorAutoConfigurationIntegrationTests class...
+ * Integration Tests for the auto-configuration of Apache Geode's {@link GeodeCacheServersHealthIndicator}.d
  *
  * @author John Blum
+ * @see org.junit.Test
+ * @see org.mockito.Mockito
+ * @see org.apache.geode.cache.Cache
+ * @see org.apache.geode.cache.server.CacheServer
+ * @see org.springframework.boot.autoconfigure.SpringBootApplication
+ * @see org.springframework.boot.test.context.SpringBootTest
+ * @see org.springframework.data.gemfire.config.annotation.PeerCacheApplication
+ * @see org.springframework.data.gemfire.server.CacheServerFactoryBean
+ * @see org.springframework.data.gemfire.tests.integration.IntegrationTestsSupport
+ * @see org.springframework.data.gemfire.tests.mock.CacheServerMockObjects
+ * @see org.springframework.data.gemfire.tests.mock.annotation.EnableGemFireMockObjects
+ * @see org.springframework.geode.boot.actuate.GeodeCacheServersHealthIndicator
+ * @see org.springframework.test.context.junit4.SpringRunner
  * @since 1.0.0
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @SuppressWarnings("unused")
 public class GeodeCacheServerHealthIndicatorAutoConfigurationIntegrationTests extends IntegrationTestsSupport {
-
-	private static final String GEODE_LOG_LEVEL = "error";
 
 	@Autowired
 	private GeodeCacheServersHealthIndicator healthIndicator;
@@ -77,10 +89,7 @@ public class GeodeCacheServerHealthIndicatorAutoConfigurationIntegrationTests ex
 
 	@SpringBootApplication
 	@EnableGemFireMockObjects
-	@PeerCacheApplication(
-		name = "GeodeCacheServerHealthIndicatorAutoConfigurationIntegrationTests",
-		logLevel = GEODE_LOG_LEVEL
-	)
+	@PeerCacheApplication(name = "GeodeCacheServerHealthIndicatorAutoConfigurationIntegrationTests")
 	static class TestConfiguration {
 
 		@Bean("MockCacheServer")
