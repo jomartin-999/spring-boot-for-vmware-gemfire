@@ -1,6 +1,6 @@
 plugins {
   id 'java-library'
-  id "io.freefair.lombok" version "5.3.0"
+  id "io.freefair.lombok" version "6.5.1"
   id 'dependency-constraints'
   id 'gemfire-repo-artifact-publishing'
   id 'spring-java-jar'
@@ -40,10 +40,7 @@ dependencies {
   testImplementation "org.springframework.boot:spring-boot-starter-test"
   testImplementation "org.springframework.boot:spring-boot-starter-web"
   testImplementation("org.springframework.data:spring-data-geode-test") {
-    exclude group: "org.apache.geode", module: "geode-core"
-    exclude group: "org.apache.geode", module: "geode-cq"
-    exclude group: "org.apache.geode", module: "geode-lucene"
-    exclude group: "org.apache.geode", module: "geode-wan"
+    exclude group: 'org.springframework.data', module: "spring-data-geode"
   }
   testImplementation "edu.umd.cs.mtc:multithreadedtc"
   testImplementation "com.vmware.gemfire:geode-http-service"

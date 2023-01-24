@@ -3,6 +3,7 @@ plugins {
   id 'dependency-constraints'
   id 'gemfire-repo-artifact-publishing'
   id 'spring-java-jar'
+  id "io.freefair.lombok" version "6.5.1"
 }
 
 project.ext.set("pomProjectLongName", "Spring Boot Test Starter for VMware GemFire")
@@ -13,11 +14,21 @@ dependencies {
   api project(':spring-gemfire-starter')
 
   api "org.springframework.boot:spring-boot-starter-test"
+  api "org.projectlombok:lombok"
   api("org.springframework.data:spring-data-geode-test") {
-    exclude group: "org.apache.geode", module: "geode-core"
-    exclude group: "org.apache.geode", module: "geode-cq"
-    exclude group: "org.apache.geode", module: "geode-lucene"
-    exclude group: "org.apache.geode", module: "geode-wan"
+    exclude group: 'org.springframework.data', module: "spring-data-geode"
   }
 
+}
+
+repositories {
+  def additionalMavenRepoURLs = project.ext.get('additionalMavenRepoURLs')
+  if (!additionalMavenRepoURLs.isEmpty() && !additionalMavenRepoURLs.isBlank()) {
+    additionalMavenRepoURLs.split(",").each {
+      project.getRepositories()
+              .maven(mavenRepository -> {
+                mavenRepository.setUrl(uri(it.toString()));
+              });
+    }
+  }
 }

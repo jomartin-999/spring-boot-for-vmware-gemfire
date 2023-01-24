@@ -1,6 +1,6 @@
 plugins {
   id 'java-library'
-  id "io.freefair.lombok" version "5.3.0"
+  id "io.freefair.lombok" version "6.5.1"
   id 'dependency-constraints'
   id 'gemfire-repo-artifact-publishing'
   id 'spring-java-jar'
@@ -15,9 +15,9 @@ project.ext.set("pomProjectDescription",description)
 
 dependencies {
   implementation project(':spring-gemfire-extensions')
-  api "org.springframework:spring-context:5.3.24"
-  implementation "org.springframework:spring-context-support:5.3.24"
-  implementation "org.springframework:spring-jcl:5.3.24"
+  api "org.springframework:spring-context:5.3.25"
+  implementation "org.springframework:spring-context-support:5.3.25"
+  implementation "org.springframework:spring-jcl:5.3.25"
   api "org.springframework.boot:spring-boot-starter:$springBootVersion"
 
   api "com.vmware.gemfire:spring-data-2.6-gemfire-$gemfireBaseVersion:$springDataTanzuGemFireVersion"
@@ -26,7 +26,7 @@ dependencies {
 
   runtimeOnly "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
 
-  testImplementation "org.springframework:spring-test:5.3.24"
+  testImplementation "org.springframework:spring-test:5.3.25"
   testImplementation "junit:junit"
   testImplementation "org.assertj:assertj-core"
   testImplementation "org.mockito:mockito-core"
@@ -41,11 +41,8 @@ dependencies {
 
   testImplementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
   testImplementation "org.springframework.boot:spring-boot-starter-data-cassandra:$springBootVersion"
-  testImplementation ("org.springframework.data:spring-data-geode-test"){
-    exclude group: "org.apache.geode", module: "geode-core"
-    exclude group: "org.apache.geode", module: "geode-cq"
-    exclude group: "org.apache.geode", module: "geode-lucene"
-    exclude group: "org.apache.geode", module: "geode-wan"
+  testImplementation("org.springframework.data:spring-data-geode-test") {
+    exclude group: 'org.springframework.data', module: "spring-data-geode"
   }
 
   testRuntimeOnly "org.hsqldb:hsqldb"

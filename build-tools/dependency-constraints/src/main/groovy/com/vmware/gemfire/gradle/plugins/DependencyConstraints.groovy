@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2022-2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -23,11 +23,11 @@ class DependencyConstraints {
     depVersionMapping.put("antlrVersion", "2.7.7")
     depVersionMapping.put("findbugsVersion", "3.0.2")
     depVersionMapping.put("multithreadedtcVersion", "1.01")
-    depVersionMapping.put("springBootVersion", "2.6.13")
-    depVersionMapping.put("springDataGeodeTestVersion", "0.2.3-Q")
+    depVersionMapping.put("springBootVersion", "2.6.14")
+    depVersionMapping.put("springDataGeodeTestVersion", "0.2.4-Q")
     depVersionMapping.put("springShellVersion", "1.2.0.RELEASE")
     depVersionMapping.put("testcontainersVersion", "1.17.5")
-    depVersionMapping.put("gemfireVersion", "9.15.2")
+    depVersionMapping.put("gemfireVersion", "9.15.3")
 
     return depVersionMapping
   }
