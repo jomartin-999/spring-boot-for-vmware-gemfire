@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2022-2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 package io.spring.gradle.convention
@@ -59,7 +59,7 @@ class DependencySetPlugin implements Plugin<Project> {
 			"org.mockito:mockito-core",
 			"org.projectlombok:lombok",
 			"org.springframework:spring-test",
-			"org.springframework.data:spring-data-geode-test",
+			"com.vmware.gemfire:spring-test-gemfire-9.15-2.7",
 			"edu.umd.cs.mtc:multithreadedtc"
 		]
 

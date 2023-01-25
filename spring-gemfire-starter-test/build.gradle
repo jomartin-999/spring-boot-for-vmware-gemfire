@@ -12,11 +12,6 @@ dependencies {
 	api project(':spring-gemfire-starter')
 
 	api "org.springframework.boot:spring-boot-starter-test"
-	api ("org.springframework.data:spring-data-geode-test"){
-		exclude group: "org.apache.geode", module: "geode-core"
-		exclude group: "org.apache.geode", module: "geode-cq"
-		exclude group: "org.apache.geode", module: "geode-lucene"
-		exclude group: "org.apache.geode", module: "geode-wan"
-	}
+	api ("com.vmware.gemfire:spring-test-gemfire-9.15-2.7:1.0.0-build.9999")
 
 }

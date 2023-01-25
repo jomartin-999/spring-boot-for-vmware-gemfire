@@ -1,5 +1,5 @@
 /*
- * Copyright (c) VMware, Inc. 2022. All rights reserved.
+ * Copyright (c) VMware, Inc. 2022-2023. All rights reserved.
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -23,11 +23,9 @@ class DependencyConstraints {
     depVersionMapping.put("antlrVersion", "2.7.7")
     depVersionMapping.put("findbugsVersion", "3.0.2")
     depVersionMapping.put("multithreadedtcVersion", "1.01")
-    depVersionMapping.put("springBootVersion", "2.7.6")
-    depVersionMapping.put("springBootDataGeodeVersion", "1.7.5")
-    depVersionMapping.put("springDataGeodeTestVersion", "0.3.4-RAJ")
+    depVersionMapping.put("springBootVersion", "2.7.8")
     depVersionMapping.put("springShellVersion", "1.2.0.RELEASE")
-    depVersionMapping.put("springFrameworkVersion", "5.3.24")
+    depVersionMapping.put("springFrameworkVersion", "5.3.25")
     depVersionMapping.put("testcontainersVersion", "1.17.5")
     depVersionMapping.put("gemfireVersion", "9.15.3")
 
@@ -47,7 +45,6 @@ class DependencyConstraints {
         api(group: 'antlr', name: 'antlr', version: get('antlrVersion'))
         api(group: 'com.google.code.findbugs', name: 'jsr305', version: get('findbugsVersion'))
         api(group: 'edu.umd.cs.mtc', name: 'multithreadedtc', version: get('multithreadedtcVersion'))
-        api(group: 'org.springframework.data', name: 'spring-data-geode-test', version: get('springDataGeodeTestVersion'))
         api(group: 'org.springframework.shell', name: 'spring-shell', version: get('springShellVersion'))
         api(group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: get('springBootVersion'))
         api(group: 'org.springframework.boot', name: 'spring-boot-autoconfigure-processor', version: get('springBootVersion'))

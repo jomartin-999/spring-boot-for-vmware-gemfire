@@ -25,12 +25,7 @@ dependencies {
     testImplementation "org.mockito:mockito-core"
     testImplementation "org.projectlombok:lombok"
     testImplementation "org.springframework.boot:spring-boot-starter-test"
-  testImplementation ("org.springframework.data:spring-data-geode-test"){
-    exclude group: "org.apache.geode", module: "geode-core"
-    exclude group: "org.apache.geode", module: "geode-cq"
-    exclude group: "org.apache.geode", module: "geode-lucene"
-    exclude group: "org.apache.geode", module: "geode-wan"
-  }
+  testImplementation "com.vmware.gemfire:spring-test-gemfire-9.15-2.7:1.0.0-build.9999"
     testImplementation "edu.umd.cs.mtc:multithreadedtc"
 
 }

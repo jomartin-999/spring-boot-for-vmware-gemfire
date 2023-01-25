@@ -41,12 +41,7 @@ dependencies {
 
   testImplementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
   testImplementation "org.springframework.boot:spring-boot-starter-data-cassandra:$springBootVersion"
-  testImplementation ("org.springframework.data:spring-data-geode-test"){
-    exclude group: "org.apache.geode", module: "geode-core"
-    exclude group: "org.apache.geode", module: "geode-cq"
-    exclude group: "org.apache.geode", module: "geode-lucene"
-    exclude group: "org.apache.geode", module: "geode-wan"
-  }
+  testImplementation "com.vmware.gemfire:spring-test-gemfire-9.15-2.7:1.0.0-build.9999"
 
   testRuntimeOnly "org.hsqldb:hsqldb"
 }
