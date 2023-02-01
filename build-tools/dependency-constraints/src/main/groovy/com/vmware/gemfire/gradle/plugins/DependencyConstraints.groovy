@@ -27,7 +27,6 @@ class DependencyConstraints {
     depVersionMapping.put("springShellVersion", "1.2.0.RELEASE")
     depVersionMapping.put("springFrameworkVersion", "5.3.25")
     depVersionMapping.put("testcontainersVersion", "1.17.5")
-    depVersionMapping.put("gemfireVersion", "9.15.3")
 
     return depVersionMapping
   }
@@ -37,7 +36,6 @@ class DependencyConstraints {
 
       api(platform(group: 'org.springframework.boot', name: 'spring-boot-dependencies', version: get('springBootVersion')))
       api(platform(group: 'org.testcontainers', name: 'testcontainers-bom', version: get('testcontainersVersion')))
-      implementation(platform(group: 'com.vmware.gemfire', name: 'gemfire-server-bom', version: get('gemfireVersion')))
 
       constraints {
         api(group: 'org.springframework', name: 'spring-context-support', version: get("springFrameworkVersion"))
