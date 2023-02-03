@@ -24,7 +24,6 @@ class DependencyConstraints {
     depVersionMapping.put("findbugsVersion", "3.0.2")
     depVersionMapping.put("multithreadedtcVersion", "1.01")
     depVersionMapping.put("springBootVersion", "2.6.14")
-    depVersionMapping.put("springDataGeodeTestVersion", "0.2.4-Q")
     depVersionMapping.put("springShellVersion", "1.2.0.RELEASE")
     depVersionMapping.put("testcontainersVersion", "1.17.5")
 
@@ -41,12 +40,11 @@ class DependencyConstraints {
         api(group: 'antlr', name: 'antlr', version: get('antlrVersion'))
         api(group: 'com.google.code.findbugs', name: 'jsr305', version: get('findbugsVersion'))
         api(group: 'edu.umd.cs.mtc', name: 'multithreadedtc', version: get('multithreadedtcVersion'))
-        api(group: 'org.springframework.data', name: 'spring-data-geode-test', version: get('springDataGeodeTestVersion'))
         api(group: 'org.springframework.shell', name: 'spring-shell', version: get('springShellVersion'))
         api(group: 'org.springframework.boot', name: 'spring-boot-configuration-processor', version: get('springBootVersion'))
         api(group: 'org.springframework.boot', name: 'spring-boot-autoconfigure-processor', version: get('springBootVersion'))
-        api(group: 'org.springframework.security', name: 'spring-security-core', version: '5.6.9' )
-        api(group: 'org.springframework.security', name: 'spring-security-web', version: '5.6.9' )
+        api(group: 'org.springframework.security', name: 'spring-security-core', version: '5.6.10' )
+        api(group: 'org.springframework.security', name: 'spring-security-web', version: '5.6.10' )
         api(group: 'org.testcontainers', name: 'testcontainers', version: get('testcontainersVersion'))
         api(group: 'org.testcontainers', name: 'cassandra', version: get('testcontainersVersion'))
       }

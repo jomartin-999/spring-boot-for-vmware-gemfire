@@ -15,10 +15,6 @@ project.ext.set("pomProjectArtifactName", "spring-boot-2.6-gemfire-autoconfigure
 project.ext.set("pomProjectDescription", description)
 
 dependencies {
-  implementation(platform("com.vmware.gemfire:gemfire-server-bom:$gemfireVersion")) {
-    exclude group: 'org.apache.geode', module: 'geode-log4j'
-  }
-
   api project(":spring-gemfire")
 
   compileOnly "com.google.code.findbugs:jsr305"
@@ -39,12 +35,10 @@ dependencies {
   testImplementation "org.projectlombok:lombok"
   testImplementation "org.springframework.boot:spring-boot-starter-test"
   testImplementation "org.springframework.boot:spring-boot-starter-web"
-  testImplementation("org.springframework.data:spring-data-geode-test") {
-    exclude group: 'org.springframework.data', module: "spring-data-geode"
-  }
+  testImplementation "com.vmware.gemfire:spring-test-gemfire-9.15-2.6:1.0.0-build.6"
   testImplementation "edu.umd.cs.mtc:multithreadedtc"
-  testImplementation "com.vmware.gemfire:geode-http-service"
-  testImplementation "com.vmware.gemfire:geode-web"
+  testImplementation "com.vmware.gemfire:geode-http-service:${gemfireVersion}"
+  testImplementation "com.vmware.gemfire:geode-web:${gemfireVersion}"
   testImplementation "org.apache.httpcomponents:httpclient"
 
   testCompileOnly "com.google.code.findbugs:jsr305"

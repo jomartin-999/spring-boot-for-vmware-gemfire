@@ -13,10 +13,6 @@ project.ext.set("pomProjectDescription",description)
 
 
 dependencies {
-  implementation(platform("com.vmware.gemfire:gemfire-server-bom:$gemfireVersion")) {
-    exclude group: 'org.apache.geode', module: 'geode-log4j'
-  }
-
   implementation "com.vmware.gemfire:geode-core:$gemfireVersion"
   implementation "com.vmware.gemfire:geode-cq:$gemfireVersion"
   implementation "com.vmware.gemfire:geode-lucene:$gemfireVersion"
