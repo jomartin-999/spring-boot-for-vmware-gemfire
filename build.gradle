@@ -32,6 +32,18 @@ allprojects {
     }
   }
 
+  repositories {
+    def additionalMavenRepoURLs = project.ext.get('additionalMavenRepoURLs')
+    if (!additionalMavenRepoURLs.isEmpty() && !additionalMavenRepoURLs.isBlank()) {
+      additionalMavenRepoURLs.split(",").each {
+        project.getRepositories()
+                .maven(mavenRepository -> {
+                  mavenRepository.setUrl(uri(it.toString()));
+                });
+      }
+    }
+  }
+
   configurations.all {
     resolutionStrategy.cacheChangingModulesFor 0, "minutes"
   }
