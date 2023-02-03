@@ -13,18 +13,14 @@ project.ext.set("pomProjectDescription",description)
 
 
 dependencies {
-  api(platform("com.vmware.gemfire:gemfire-server-bom:$gemfireVersion")) {
-    exclude group: 'org.apache.geode', module: 'geode-log4j'
-  }
-
-  api "com.vmware.gemfire:geode-core"
-  api "com.vmware.gemfire:geode-cq"
-  api "com.vmware.gemfire:geode-lucene"
-  api "com.vmware.gemfire:geode-wan"
+  api "com.vmware.gemfire:geode-core:${gemfireVersion}"
+  api "com.vmware.gemfire:geode-cq:${gemfireVersion}"
+  api "com.vmware.gemfire:geode-lucene:${gemfireVersion}"
+  api "com.vmware.gemfire:geode-wan:${gemfireVersion}"
 
   implementation "com.fasterxml.jackson.core:jackson-databind"
 
-  testImplementation "com.vmware.gemfire:geode-membership"
+  testImplementation "com.vmware.gemfire:geode-membership:${gemfireVersion}"
   testImplementation "junit:junit"
   testImplementation "org.assertj:assertj-core"
   testImplementation "org.mockito:mockito-core"
