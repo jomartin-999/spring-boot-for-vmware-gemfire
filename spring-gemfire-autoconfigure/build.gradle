@@ -36,7 +36,7 @@ dependencies {
     testRuntimeOnly "org.springframework.boot:spring-boot-starter-jetty"
     testRuntimeOnly "org.springframework.boot:spring-boot-starter-json"
     testRuntimeOnly "org.springframework.shell:spring-shell:$springShellVersion"
-    testImplementation 'com.vmware.gemfire:spring-test-gemfire-9.15-3.0:1.1.0-build.9999'
+    testImplementation 'com.vmware.gemfire:spring-test-gemfire-9.15-3.0'
 }
 
 repositories {

@@ -30,6 +30,16 @@ subprojects {
       }
       url = uri("https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire")
     }
+
+    def additionalMavenRepoURLs = project.ext.get('additionalMavenRepoURLs')
+    if (!additionalMavenRepoURLs.isEmpty() && !additionalMavenRepoURLs.isBlank()) {
+      additionalMavenRepoURLs.split(",").each {
+        project.getRepositories()
+                .maven(mavenRepository -> {
+                  mavenRepository.setUrl(uri(it.toString()));
+                });
+      }
+    }
   }
 
   ext.testDependencies = [

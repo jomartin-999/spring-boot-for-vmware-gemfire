@@ -28,7 +28,8 @@ class DependencyConstraints {
     depVersionMapping.put("springFrameworkVersion", "6.0.4")
     depVersionMapping.put("springSecurityVersion", "6.0.1")
     depVersionMapping.put("testcontainersVersion", "1.17.6")
-    depVersionMapping.put("gemfireVersion", "9.15.3")
+    depVersionMapping.put("gemfireVersion", "9.15.4-RC.3")
+    depVersionMapping.put("springTestGemFire", "1.0.0-build.11")
 
     return depVersionMapping
   }
@@ -44,6 +45,7 @@ class DependencyConstraints {
         api(group: 'org.springframework', name: 'spring-jcl', version: get("springFrameworkVersion"))
         api(group: 'org.springframework', name: 'spring-web', version: get("springFrameworkVersion"))
         api(group: 'org.springframework', name: 'spring-test', version: get("springFrameworkVersion"))
+
         api(group: 'antlr', name: 'antlr', version: get('antlrVersion'))
         api(group: 'com.google.code.findbugs', name: 'jsr305', version: get('findbugsVersion'))
         api(group: 'edu.umd.cs.mtc', name: 'multithreadedtc', version: get('multithreadedtcVersion'))
@@ -53,7 +55,8 @@ class DependencyConstraints {
         api(group: 'org.springframework.security', name: 'spring-security-core', version: get('springSecurityVersion'))
         api(group: 'org.springframework.security', name: 'spring-security-web', version: get('springSecurityVersion'))
         api(group: 'org.testcontainers', name: 'testcontainers', version: get('testcontainersVersion'))
-        api(group: 'com.vmware.gemfire', name: 'spring-test-gemfire-9.15-3.0', version: "1.1.0-build.9999")
+        api(group: 'com.vmware.gemfire', name: 'spring-test-gemfire-9.15-3.0', version: get("springTestGemFire"))
+        api(group: 'com.vmware.gemfire', name: 'geode-web', version: get("gemfireVersion"))
       }
 
     }
