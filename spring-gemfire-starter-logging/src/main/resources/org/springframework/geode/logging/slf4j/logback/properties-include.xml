@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) VMware, Inc. 2023. All rights reserved.
+  ~ SPDX-License-Identifier: Apache-2.0
+  -->
+
 <included>
 
 	<property name="SPRING_BOOT_LOG_CHARSET" value="${SPRING_BOOT_LOG_CHARSET:-${file.encoding:-UTF-8}}"/>
