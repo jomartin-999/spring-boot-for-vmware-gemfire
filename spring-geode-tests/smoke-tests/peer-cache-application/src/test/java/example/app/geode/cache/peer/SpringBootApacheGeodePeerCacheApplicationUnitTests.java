@@ -23,7 +23,6 @@ import org.springframework.geode.distributed.event.ApplicationContextMembershipL
 import org.springframework.geode.distributed.event.MembershipListenerAdapter;
 import org.springframework.geode.distributed.event.support.MemberDepartedEvent;
 import org.springframework.geode.distributed.event.support.MemberJoinedEvent;
-import org.springframework.geode.test.context.TestRefreshableApplicationContextLoader;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -39,7 +38,6 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @see org.springframework.data.gemfire.tests.mock.annotation.EnableGemFireMockObjects
  * @see org.springframework.geode.distributed.event.ApplicationContextMembershipListener
  * @see org.springframework.geode.distributed.event.MembershipListenerAdapter
- * @see org.springframework.geode.test.context.TestRefreshableApplicationContextLoader
  * @see org.springframework.test.context.ContextConfiguration
  * @see org.springframework.test.context.junit4.SpringRunner
  * @since 1.3.0
