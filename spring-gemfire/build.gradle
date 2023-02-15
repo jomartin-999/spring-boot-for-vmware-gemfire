@@ -41,7 +41,7 @@ dependencies {
 
   testImplementation "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
   testImplementation "org.springframework.boot:spring-boot-starter-data-cassandra:$springBootVersion"
-  testImplementation "com.vmware.gemfire:spring-test-gemfire-9.15-2.7:1.0.0-build.5"
+  testImplementation "com.vmware.gemfire:spring-test-gemfire-10.0-2.7:1.0.0-build.2"
 
   testRuntimeOnly "org.hsqldb:hsqldb"
 }

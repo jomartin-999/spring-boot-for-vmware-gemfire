@@ -96,7 +96,6 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 			assertThat(namedPoolBean).isNotNull();
 			assertThat(namedPoolBean.getName()).isEqualTo(poolName);
 			assertThat(namedPoolBean.getServerGroup()).isEqualTo("TestServerGroup");
-			assertThat(namedPoolBean.getThreadLocalConnections()).isTrue();
 		}
 
 		Pool namedPool = PoolManager.find(poolName);
@@ -104,7 +103,6 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 		assertThat(namedPool).isNotNull();
 		assertThat(namedPool.getName()).isEqualTo(poolName);
 		assertThat(namedPool.getServerGroup()).isEqualTo("TestServerGroup");
-		assertThat(namedPool.getThreadLocalConnections()).isTrue();
 
 		if (DEFAULT_POOL_NAME.equals(poolName)) {
 			assertThat(namedPool).isSameAs(clientCache.getDefaultPool());
@@ -261,7 +259,7 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 	@EnableGemFireMockObjects(destroyOnEvents = ContextClosedEvent.class)
 	static class WithAutoConfiguredClientCacheConfiguration { }
 
-	@ClientCacheApplication(serverGroup = "TestServerGroup", threadLocalConnections = true)
+	@ClientCacheApplication(serverGroup = "TestServerGroup")
 	static class WithClientCacheApplicationConfiguration { }
 
 	@Configuration
@@ -273,7 +271,6 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 			return (beanName, clientCacheFactoryBean) -> {
 
 				clientCacheFactoryBean.setServerGroup("TestServerGroup");
-				clientCacheFactoryBean.setThreadLocalConnections(true);
 			};
 		}
 	}
@@ -283,7 +280,7 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 	static class WithEnableDefaultPoolConfiguration { }
 
 	@Configuration
-	@EnablePool(name = "DEFAULT", serverGroup = "TestServerGroup", threadLocalConnections = true)
+	@EnablePool(name = "DEFAULT", serverGroup = "TestServerGroup")
 	static class WithEnableDefaultPoolAttributesConfiguration { }
 
 	@Configuration
@@ -291,8 +288,7 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 	static class WithEnableTestPoolConfiguration { }
 
 	@Configuration
-	@EnablePool(name = "TestPool", servers = @EnablePool.Server, serverGroup = "TestServerGroup",
-		threadLocalConnections = true)
+	@EnablePool(name = "TestPool", servers = @EnablePool.Server, serverGroup = "TestServerGroup")
 	static class WithEnableTestPoolAttributesConfiguration { }
 
 	@Configuration
@@ -305,7 +301,6 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 			return (beanName, poolFactoryBean) -> {
 
 				poolFactoryBean.setServerGroup("TestServerGroup");
-				poolFactoryBean.setThreadLocalConnections(true);
 			};
 		}
 	}
@@ -324,7 +319,6 @@ public class ClientCachePoolCustomizationsIntegrationTests extends SpringBootApp
 			return (beanName, poolFactoryBean) -> {
 
 				poolFactoryBean.setServerGroup("TestServerGroup");
-				poolFactoryBean.setThreadLocalConnections(true);
 			};
 		}
 	}

@@ -17,15 +17,15 @@ dependencies {
 
     api "org.springframework.boot:spring-boot-starter-actuator"
 
-    runtimeOnly "com.vmware.gemfire:geode-logging"
-    runtimeOnly "com.vmware.gemfire:geode-serialization"
+    runtimeOnly "com.vmware.gemfire:gemfire-logging"
+    runtimeOnly "com.vmware.gemfire:gemfire-serialization"
 
     testImplementation "junit:junit"
     testImplementation "org.assertj:assertj-core"
     testImplementation "org.mockito:mockito-core"
     testImplementation "org.projectlombok:lombok"
     testImplementation "org.springframework.boot:spring-boot-starter-test"
-  testImplementation "com.vmware.gemfire:spring-test-gemfire-9.15-2.7:1.0.0-build.5"
+    testImplementation "com.vmware.gemfire:spring-test-gemfire-10.0-2.7:1.0.0-build.2"
     testImplementation "edu.umd.cs.mtc:multithreadedtc"
 
 }

@@ -32,10 +32,10 @@ dependencies {
   testImplementation "org.projectlombok:lombok"
   testImplementation "org.springframework.boot:spring-boot-starter-test"
   testImplementation "org.springframework.boot:spring-boot-starter-web"
-  testImplementation "com.vmware.gemfire:spring-test-gemfire-9.15-2.7:1.0.0-build.5"
+  testImplementation "com.vmware.gemfire:spring-test-gemfire-10.0-2.7:1.0.0-build.2"
   testImplementation "edu.umd.cs.mtc:multithreadedtc"
-  testImplementation "com.vmware.gemfire:geode-http-service:${gemfireVersion}"
-  testImplementation "com.vmware.gemfire:geode-web:${gemfireVersion}"
+  testImplementation "com.vmware.gemfire:gemfire-http-service:${gemfireVersion}"
+  testImplementation "com.vmware.gemfire:gemfire-web:${gemfireVersion}"
   testImplementation "org.apache.httpcomponents:httpclient"
 
   testCompileOnly "com.google.code.findbugs:jsr305"

@@ -84,7 +84,7 @@ public class GeodeRegionsHealthIndicatorUnitTests {
 		when(mockRegionOne.getAttributes().getStatisticsEnabled()).thenReturn(false);
 		when(mockRegionOne.getAttributes().getValueConstraint()).thenReturn((Class) Currency.class);
 
-		PartitionAttributes<?, ?> mockPartitionAttributes = mock(PartitionAttributes.class);
+		PartitionAttributes mockPartitionAttributes = mock(PartitionAttributes.class);
 
 		when(mockPartitionAttributes.getColocatedWith()).thenReturn("CollocatedRegion");
 		when(mockPartitionAttributes.getLocalMaxMemory()).thenReturn(10240);

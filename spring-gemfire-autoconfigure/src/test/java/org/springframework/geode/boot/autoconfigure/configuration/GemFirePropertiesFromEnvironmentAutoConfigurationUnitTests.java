@@ -114,7 +114,6 @@ public class GemFirePropertiesFromEnvironmentAutoConfigurationUnitTests {
 
 		Map<String, Object> gemfirePropertiesTwo = MapBuilder.<String, Object>newMapBuilder()
 			.put("gemfire.groups", "MockGroup,TestGroup")
-			.put("gemfire.mcast-port", " ")
 			.put("gemfire.remote-locators", "hellbox[666]")
 			.put("mock-property", "MOCK")
 			.put("  ", "BLANK")
@@ -178,8 +177,6 @@ public class GemFirePropertiesFromEnvironmentAutoConfigurationUnitTests {
 
 		verify(mockLogger, times(1))
 			.warn(eq("[gemfire.non-existing-property] is not a valid Apache Geode property"));
-		verify(mockLogger, times(1))
-			.warn(eq("Apache Geode Property [{}] was not set"), eq("mcast-port"));
 	}
 
 	@Test(expected = IllegalArgumentException.class)
