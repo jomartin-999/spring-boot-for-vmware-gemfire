@@ -13,31 +13,38 @@ project.ext.set("pomProjectDescription", description)
 
 
 dependencies {
-    api project(":spring-gemfire")
+  api project(":spring-gemfire")
 
-    api "org.springframework.boot:spring-boot-starter-actuator"
+  api "org.springframework.boot:spring-boot-starter-actuator"
 
-    runtimeOnly "com.vmware.gemfire:geode-logging"
-    runtimeOnly "com.vmware.gemfire:geode-serialization"
+  runtimeOnly "com.vmware.gemfire:geode-logging"
+  runtimeOnly "com.vmware.gemfire:geode-serialization"
 
-    testImplementation "junit:junit"
-    testImplementation "org.assertj:assertj-core"
-    testImplementation "org.mockito:mockito-core"
-    testImplementation "org.projectlombok:lombok"
-    testImplementation "org.springframework.boot:spring-boot-starter-test"
+  compileOnly "com.vmware.gemfire:geode-server-all:$gemfireVersion"
+
+  testImplementation ("com.vmware.gemfire:geode-server-all:$gemfireVersion"){
+    exclude group: 'com.vmware.gemfire', module: 'geode-log4j'
+  }
+
+
+  testImplementation "junit:junit"
+  testImplementation "org.assertj:assertj-core"
+  testImplementation "org.mockito:mockito-core"
+  testImplementation "org.projectlombok:lombok"
+  testImplementation "org.springframework.boot:spring-boot-starter-test"
   testImplementation "com.vmware.gemfire:spring-test-gemfire-9.15-2.7:1.0.0-build.5"
-    testImplementation "edu.umd.cs.mtc:multithreadedtc"
+  testImplementation "edu.umd.cs.mtc:multithreadedtc"
 
 }
 
 repositories {
-    def additionalMavenRepoURLs = project.ext.get('additionalMavenRepoURLs')
-    if (!additionalMavenRepoURLs.isEmpty() && !additionalMavenRepoURLs.isBlank()) {
-        additionalMavenRepoURLs.split(",").each {
-            project.getRepositories()
-                    .maven(mavenRepository -> {
-                        mavenRepository.setUrl(uri(it.toString()));
-                    });
-        }
+  def additionalMavenRepoURLs = project.ext.get('additionalMavenRepoURLs')
+  if (!additionalMavenRepoURLs.isEmpty() && !additionalMavenRepoURLs.isBlank()) {
+    additionalMavenRepoURLs.split(",").each {
+      project.getRepositories()
+              .maven(mavenRepository -> {
+                mavenRepository.setUrl(uri(it.toString()));
+              });
     }
+  }
 }

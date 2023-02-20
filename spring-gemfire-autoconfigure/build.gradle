@@ -25,6 +25,15 @@ dependencies {
   implementation "org.springframework.boot:spring-boot-autoconfigure-processor:$springBootVersion", optional
   implementation "com.vmware.gemfire:spring-session-2.7-gemfire-${gemfireBaseVersion}:$springSessionDataGemFireVersion", optional
 
+  implementation "org.aspectj:aspectjweaver:1.9.7"
+
+  compileOnly "com.vmware.gemfire:geode-server-all:$gemfireVersion"
+
+  testImplementation ("com.vmware.gemfire:geode-server-all:$gemfireVersion"){
+    exclude group: 'com.vmware.gemfire', module: 'geode-log4j'
+  }
+
+
   testImplementation "jakarta.servlet:jakarta.servlet-api"
   testImplementation "junit:junit"
   testImplementation "org.assertj:assertj-core"

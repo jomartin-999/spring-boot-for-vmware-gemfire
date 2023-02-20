@@ -19,6 +19,12 @@ dependencies {
 
     compileOnly "com.google.code.findbugs:jsr305:$findbugsVersion"
 
+    compileOnly "com.vmware.gemfire:geode-server-all:$gemfireVersion"
+
+    testImplementation ("com.vmware.gemfire:geode-server-all:$gemfireVersion"){
+        exclude group: 'com.vmware.gemfire', module: 'geode-log4j'
+    }
+
     testImplementation "junit:junit"
     testImplementation "org.assertj:assertj-core"
     testImplementation "org.mockito:mockito-core"
