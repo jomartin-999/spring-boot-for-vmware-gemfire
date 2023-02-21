@@ -17,7 +17,7 @@ dependencies {
     api project(":spring-gemfire-actuator")
     api project(":spring-gemfire-autoconfigure")
 
-    compileOnly "com.google.code.findbugs:jsr305:$findbugsVersion"
+    compileOnly "com.google.code.findbugs:jsr305"
 
     compileOnly "com.vmware.gemfire:geode-server-all:$gemfireVersion"
 
