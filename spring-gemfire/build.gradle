@@ -26,6 +26,9 @@ dependencies {
 
   runtimeOnly "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
 
+  implementation 'com.fasterxml.jackson.core:jackson-annotations:2.14.1'
+  implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.1'
+
   compileOnly "com.vmware.gemfire:geode-server-all:$gemfireVersion"
 
   testImplementation ("com.vmware.gemfire:geode-server-all:$gemfireVersion"){
