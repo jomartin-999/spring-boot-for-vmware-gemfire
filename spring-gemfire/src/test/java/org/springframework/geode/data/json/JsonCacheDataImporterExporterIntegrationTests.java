@@ -499,8 +499,8 @@ public class JsonCacheDataImporterExporterIntegrationTests extends SpringApplica
 	@Test(expected = JSONFormatterException.class)
 	public void geodeJsonFormatterFromJsonCannotParseArrays() throws IOException {
 
+		ConfigurableApplicationContext configurableApplicationContext = newApplicationContext(TestGeodeConfiguration.class);
 		try {
-
 			byte[] json = FileCopyUtils.copyToByteArray(
 				new ClassPathResource("data-example-doefamily.json").getInputStream());
 
@@ -508,15 +508,12 @@ public class JsonCacheDataImporterExporterIntegrationTests extends SpringApplica
 			assertThat(json).isNotEmpty();
 
 			JSONFormatter.fromJSON(json);
-		}
-		catch (JSONFormatterException expected) {
-
+		} catch (JSONFormatterException expected) {
 			// Caused because the JSONFormatter.fromJSON(..) method's JsonParser is not configured correctly!
-
 			assertThat(expected).hasMessageStartingWith("Could not parse JSON document");
-			assertThat(expected).hasCauseInstanceOf(IllegalStateException.class);
-			assertThat(expected.getCause()).hasMessageStartingWith("Array start called when state is NONE");
-			assertThat(expected.getCause()).hasNoCause();
+			assertThat(expected.getCause()).isInstanceOf(org.apache.geode.json.JsonParseException.class);
+			assertThat(expected.getCause()).hasMessageStartingWith("Could not parse JSON document");
+			assertThat(expected.getCause().getCause()).isInstanceOf(NullPointerException.class);
 
 			throw expected;
 		}

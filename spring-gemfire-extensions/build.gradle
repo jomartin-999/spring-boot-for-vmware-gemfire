@@ -15,15 +15,15 @@ dependencies {
 
   api "org.springframework:spring-web"
 
-  api "com.vmware.gemfire:geode-core:$gemfireVersion"
-  api "com.vmware.gemfire:geode-cq:$gemfireVersion"
-  api "com.vmware.gemfire:geode-lucene:$gemfireVersion"
-  api "com.vmware.gemfire:geode-wan:$gemfireVersion"
+  api "com.vmware.gemfire:gemfire-core:$gemfireVersion"
+  api "com.vmware.gemfire:gemfire-cq:$gemfireVersion"
+  api "com.vmware.gemfire:gemfire-lucene:$gemfireLuceneVersion"
+  api "com.vmware.gemfire:gemfire-wan:$gemfireVersion"
 
   implementation "com.fasterxml.jackson.core:jackson-databind"
 
-  testImplementation "com.vmware.gemfire:geode-membership:$gemfireVersion"
-  testImplementation "com.vmware.gemfire:geode-serialization:$gemfireVersion"
+  testImplementation "com.vmware.gemfire:gemfire-membership:$gemfireVersion"
+  testImplementation "com.vmware.gemfire:gemfire-serialization:$gemfireVersion"
   testImplementation "junit:junit"
   testImplementation "org.assertj:assertj-core"
   testImplementation "org.mockito:mockito-core"

@@ -22,6 +22,7 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-configuration-processor:$springBootVersion", optional
     implementation "org.springframework.boot:spring-boot-autoconfigure-processor:$springBootVersion", optional
     implementation "com.vmware.gemfire:spring-session-3.0-gemfire-${gemfireBaseVersion}:$springSessionDataGemFireVersion", optional
+    implementation "org.aspectj:aspectjtools:1.9.19"
 
     testImplementation "jakarta.servlet:jakarta.servlet-api"
     testImplementation "org.apache.httpcomponents.client5:httpclient5"
@@ -32,11 +33,11 @@ dependencies {
     testRuntimeOnly project(':spring-gemfire-jetty11')
 
     testRuntimeOnly "javax.cache:cache-api"
-    testRuntimeOnly "com.vmware.gemfire:geode-web"
+    testRuntimeOnly "com.vmware.gemfire:gemfire-web"
     testRuntimeOnly "org.springframework.boot:spring-boot-starter-jetty"
     testRuntimeOnly "org.springframework.boot:spring-boot-starter-json"
     testRuntimeOnly "org.springframework.shell:spring-shell:$springShellVersion"
-    testImplementation 'com.vmware.gemfire:spring-test-gemfire-9.15-3.0'
+    testImplementation 'com.vmware.gemfire:spring-test-gemfire-10.0-3.0'
 }
 
 repositories {

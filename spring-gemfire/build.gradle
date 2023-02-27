@@ -25,7 +25,7 @@ dependencies {
 
   implementation "org.springframework:spring-test", optional
 
-  runtimeOnly "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
+  implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
 
   // See additional testImplementation dependencies declared in the testDependencies project extension
   // defined in the DependencySetPlugin.
