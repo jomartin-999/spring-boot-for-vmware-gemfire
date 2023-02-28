@@ -855,17 +855,6 @@
       "description": "Configures the protocol used by the embedded Memcached server (service)."
     },
     {
-      "name": "spring.data.gemfire.service.redis.bind-address",
-      "type": "java.lang.String",
-      "description": "Configures the IP address or hostname of the system NIC used by the embedded Redis server to bind an listen for connections."
-    },
-    {
-      "name": "spring.data.gemfire.service.redis.port",
-      "type": "java.lang.Integer",
-      "default": 6379,
-      "description": "Configures the port used by the embedded Redis server to listen for connections."
-    },
-    {
       "name": "spring.session.data.gemfire.cache.client.pool.name",
       "type": "java.lang.String",
       "default": "gemfirePool",

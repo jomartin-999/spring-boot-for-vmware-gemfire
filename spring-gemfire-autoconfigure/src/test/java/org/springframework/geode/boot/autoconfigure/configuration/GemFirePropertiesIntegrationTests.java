@@ -467,16 +467,6 @@ public class GemFirePropertiesIntegrationTests extends IntegrationTestsSupport {
 		assertThat(memcachedProperties.getProtocol()).isEqualTo(EnableMemcachedServer.MemcachedProtocol.BINARY);
 	}
 
-	@Test
-	public void serviceRedisConfigurationIsCorrect() {
-
-		ServiceProperties.RedisServerProperties redisProperties = this.gemfireProperties.getService().getRedis();
-
-		assertThat(redisProperties).isNotNull();
-		assertThat(redisProperties.getBindAddress()).isEqualTo("10.21.121.242");
-		assertThat(redisProperties.getPort()).isEqualTo(3697);
-	}
-
 	@SpringBootApplication
 	@EnableGemFireMockObjects
 	static class TestConfiguration { }

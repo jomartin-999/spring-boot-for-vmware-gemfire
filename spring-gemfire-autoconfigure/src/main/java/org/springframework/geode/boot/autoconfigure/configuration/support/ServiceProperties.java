@@ -12,8 +12,7 @@ import org.springframework.data.gemfire.config.annotation.EnableMemcachedServer;
 /**
  * Spring Boot {@link ConfigurationProperties} used to configure Apache Geode embedded services.
  *
- * Currently, the supported embedded services include HTTP service (Jetty), Memcached (protocol) server
- * and a Redis (protocol) server.
+ * Currently, the supported embedded services include HTTP service (Jetty), and Memcached (protocol) server..
  *
  * The configuration {@link Properties} are based on well-known, documented Spring Data for Apache Geode (SDG)
  * {@link Properties}.
@@ -31,18 +30,12 @@ public class ServiceProperties {
 
 	private final MemcachedServerProperties memcachedServerProperties = new MemcachedServerProperties();
 
-	private final RedisServerProperties redisServerProperties = new RedisServerProperties();
-
 	public HttpServiceProperties getHttp() {
 		return this.httpServiceProperties;
 	}
 
 	public MemcachedServerProperties getMemcached() {
 		return this.memcachedServerProperties;
-	}
-
-	public RedisServerProperties getRedis() {
-		return this.redisServerProperties;
 	}
 
 	public static class DeveloperRestApiProperties {
@@ -125,31 +118,6 @@ public class ServiceProperties {
 
 		public void setProtocol(EnableMemcachedServer.MemcachedProtocol protocol) {
 			this.protocol = protocol;
-		}
-	}
-
-	public static class RedisServerProperties {
-
-		public static final int DEFAULT_PORT = 6379;
-
-		private int port = DEFAULT_PORT;
-
-		private String bindAddress;
-
-		public String getBindAddress() {
-			return this.bindAddress;
-		}
-
-		public void setBindAddress(String bindAddress) {
-			this.bindAddress = bindAddress;
-		}
-
-		public int getPort() {
-			return this.port;
-		}
-
-		public void setPort(int port) {
-			this.port = port;
 		}
 	}
 }

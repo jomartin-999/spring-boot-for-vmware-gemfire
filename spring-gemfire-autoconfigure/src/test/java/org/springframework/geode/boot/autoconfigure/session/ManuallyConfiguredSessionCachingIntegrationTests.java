@@ -82,7 +82,6 @@ public class ManuallyConfiguredSessionCachingIntegrationTests extends Integratio
 
 		assertThat(sessionRepository).isNotNull();
 		assertThat(sessionRepository).isNotInstanceOf(GemFireOperationsSessionRepository.class);
-		assertThat(sessionRepository.getClass().getName().toLowerCase()).doesNotContain("redis");
 	}
 
 	@SpringBootApplication
