@@ -20,8 +20,8 @@ Title: Logging
 
 
 
-VMware GemFire `1.9.2` was modularized to separate its use of
-the Apache Log4j API to log output in VMware GemFire code from
+[vmware-gemfire-name] `1.9.2` was modularized to separate its use of
+the Apache Log4j API to log output in [vmware-gemfire-name] code from
 the underlying implementation of logging, which uses Apache Log4j as the
 logging provider by default.
 
@@ -31,18 +31,18 @@ logging provider by default.
 
 Prior to `1.9.2`, the Apache Log4j API (`log4j-api`) and the Apache
 Log4j service provider (`log4j-core`) were automatically pulled in by
-VMware GemFire core (`org.apache.geode:geode-core`), thereby
+[vmware-gemfire-name] core (`org.apache.geode:geode-core`), thereby
 making it problematic to change logging providers when using
-VMware GemFire in Spring Boot applications.
+[vmware-gemfire-name] in Spring Boot applications.
 
 
 
 
 
-However, now, in order to get any log output from VMware GemFire
-whatsoever, VMware GemFire requires a logging provider declared
+However, now, in order to get any log output from [vmware-gemfire-name]
+whatsoever, [vmware-gemfire-name] requires a logging provider declared
 on your Spring Boot application classpath. Consequently, this also means
-the old VMware GemFire `Properties` (such as `log-level`) no
+the old [vmware-gemfire-name] `Properties` (such as `log-level`) no
 longer have any effect, regardless of whether the property is specified
 in `gemfire.properties`, in Spring Boot `application.properties`, or
 even as a JVM System Property (`-Dgemfire.log-level`).
@@ -61,7 +61,7 @@ even as a JVM System Property (`-Dgemfire.log-level`).
 <td class="icon">
 Tip
 </td>
-<td class="content">See VMware GemFire's
+<td class="content">See [vmware-gemfire-name]'s
 https://geode.apache.org/docs/guide/115/reference/topics/gemfire_properties.html[documentation]
 for a complete list of valid <code>Properties</code>, including the
 <code>Properties</code> used to configure logging.</td>
@@ -73,23 +73,22 @@ for a complete list of valid <code>Properties</code>, including the
 
 
 
-Unfortunately, this also means the Spring Data for
-VMware GemFire
+Unfortunately, this also means the [spring-data-gemfire-name]
 https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableLogging.html\[`@EnableLogging`\]
-annotation no longer has any effect on VMware GemFire logging
+annotation no longer has any effect on [vmware-gemfire-name] logging
 either. Consequently, it has been
 [deprecated](https://jira.spring.io/browse/DATAGEODE-299). The reason
 `@EnableLogging` no longer has any effect on logging is because this
-annotation’s attributes and associated SDG properties indirectly set the
-corresponding VMware GemFire properties, which, again, are
-useless from VMware GemFire `1.9.2` onward.
+annotation’s attributes and associated [spring-data-gemfire-name] properties indirectly set the
+corresponding [vmware-gemfire-name] properties, which, again, are
+useless from [vmware-gemfire-name] `1.9.2` onward.
 
 
 
 
 
 By way of example, and to make this concrete, **none** of the following
-approaches have any effect on VMware GemFire logging:
+approaches have any effect on [vmware-gemfire-name] logging:
 
 
 
@@ -124,7 +123,7 @@ $ java -classpath ...:/path/to/MySpringBootApacheGeodeClientCacheApplication.jar
 
 
 
-Example 2. Externalized configuration using VMware GemFire
+Example 2. Externalized configuration using [vmware-gemfire-name]
 `gemfire.properties`
 
 
@@ -136,7 +135,7 @@ Example 2. Externalized configuration using VMware GemFire
 
 
 ``` highlight
-# VMware GemFire only/specific properties
+# [vmware-gemfire-name] only/specific properties
 log-level=INFO
 ```
 
@@ -180,7 +179,7 @@ spring.data.gemfire.logging.level=DEBUG
 
 
 
-Example 4. Java configuration using SDG’s `@EnableLogging` annotation
+Example 4. Java configuration using [spring-data-gemfire-name]’s `@EnableLogging` annotation
 
 
 
@@ -209,23 +208,23 @@ class MySpringBootApacheGeodeClientApplication {
 
 
 None of the preceding approaches have any effect without the **new**
-SBDG logging starter.
+[spring-boot-gemfire-name] logging starter.
 
 
 
 
 
-### Configure VMware GemFire Logging
+### Configure [vmware-gemfire-name] Logging
 
 
 
-So, how do you configure logging for VMware GemFire?
+So, how do you configure logging for [vmware-gemfire-name]?
 
 
 
 
 
-Three things are required to get VMware GemFire to log output:
+Three things are required to get [vmware-gemfire-name] to log output:
 
 
 
@@ -250,8 +249,8 @@ Three things are required to get VMware GemFire to log output:
 
     
 
-    Internally, VMware GemFire uses the Apache Log4j API to log
-    output from Geode components. Therefore, you must bridge Log4j to
+    Internally, [vmware-gemfire-name] uses the Apache Log4j API to log
+    output from [vmware-gemfire-short-name] components. Therefore, you must bridge Log4j to
     any other logging provider (such as Logback) that is not Log4j
     (`log4j-core`). If you use Log4j as your logging provider, you need
     not declare an adapter or bridge JAR on your Spring Boot application
@@ -267,7 +266,7 @@ Three things are required to get VMware GemFire to log output:
     For example, when you use Logback, you must provide a `logback.xml`
     configuration file on your Spring Boot application classpath or in
     the filesystem. Alternatively, you can use other means to configure
-    your logging provider and get VMware GemFire to log output.
+    your logging provider and get [vmware-gemfire-name] to log output.
 
     
 
@@ -285,12 +284,12 @@ Three things are required to get VMware GemFire to log output:
 <td class="icon">
 Note
 </td>
-<td class="content">VMware GemFire's <code>geode-log4j</code>
+<td class="content">[vmware-gemfire-name]'s <code>geode-log4j</code>
 module covers the required configuration for steps 1-3 above and uses
 Apache Log4j (<code>org.apache.logging.log4j:log4j-core</code>) as the
 logging provider. The <code>geode-log4j</code> module even provides a
 default <code>log4j2.xml</code> configuration file to configure Loggers,
-Appenders, and log levels for VMware GemFire.</td>
+Appenders, and log levels for [vmware-gemfire-name].</td>
 </tr>
 </tbody>
 </table>
@@ -312,7 +311,7 @@ logging provider and automatically adapts (bridges) `java.util.logging`
 (JUL) and Apache Log4j to SLF4J. However, you still need to supply
 logging provider configuration (such as a `logback.xml` file for
 Logback) to configure logging not only for your Spring Boot application
-but for VMware GemFire as well.
+but for [vmware-gemfire-name] as well.
 
 
 
@@ -341,7 +340,7 @@ for complete details.</td>
 
 
 
-SBDG has simplified the setup of VMware GemFire logging. You
+[spring-boot-gemfire-name] has simplified the setup of [vmware-gemfire-name] logging. You
 need only declare the
 `org.springframework.geode:spring-geode-starter-logging` dependency on
 your Spring Boot application classpath.
@@ -350,8 +349,8 @@ your Spring Boot application classpath.
 
 
 
-Unlike VMware GemFire's default Log4j XML configuration file
-(`log4j2.xml` from `geode-log4j`), SBDG’s provided `logback.xml`
+Unlike [vmware-gemfire-name]'s default Log4j XML configuration file
+(`log4j2.xml` from `geode-log4j`), [spring-boot-gemfire-name]’s provided `logback.xml`
 configuration file is properly parameterized, letting you adjust log
 levels, add Appenders as well as adjust other logging settings.
 
@@ -359,9 +358,9 @@ levels, add Appenders as well as adjust other logging settings.
 
 
 
-In addition, SBDG’s provided Logback configuration uses templates so
+In addition, [spring-boot-gemfire-name]’s provided Logback configuration uses templates so
 that you can compose your own logging configuration while still
-including snippets from SBDG’s provided logging configuration, such as
+including snippets from [spring-boot-gemfire-name]’s provided logging configuration, such as
 Loggers and Appenders.
 
 
@@ -375,15 +374,15 @@ Loggers and Appenders.
 One of the most common logging tasks is to adjust the log level of one
 or more Loggers or the ROOT Logger. However, you may want to only adjust
 the log level for specific components of your Spring Boot application,
-such as for VMware GemFire, by setting the log level for only
-the Logger that logs VMware GemFire events.
+such as for [vmware-gemfire-name], by setting the log level for only
+the Logger that logs [vmware-gemfire-name] events.
 
 
 
 
 
-SBDG’s Logback configuration defines three Loggers to control the log
-output from VMware GemFire:
+[spring-boot-gemfire-name]’s Logback configuration defines three Loggers to control the log
+output from [vmware-gemfire-name]:
 
 
 
@@ -391,7 +390,7 @@ output from VMware GemFire:
 
 
 
-Example 5. VMware GemFire Loggers by Name
+Example 5. [vmware-gemfire-name] Loggers by Name
 
 
 
@@ -419,8 +418,8 @@ Example 5. VMware GemFire Loggers by Name
 
 
 
-The `com.gemstone.gemfire` Logger covers old GemFire components that are
-still present in VMware GemFire for backwards compatibility. By
+The `com.gemstone.gemfire` Logger covers old [vmware-gemfire-short-name] components that are
+still present in [vmware-gemfire-name] for backwards compatibility. By
 default, it logs output at `INFO`. This Logger’s use should be mostly
 unnecessary.
 
@@ -429,8 +428,8 @@ unnecessary.
 
 
 The `org.apache.geode` Logger is the primary Logger used to control log
-output from all VMware GemFire components during the runtime
-operation of VMware GemFire. By default, it logs output at
+output from all [vmware-gemfire-name] components during the runtime
+operation of [vmware-gemfire-name]. By default, it logs output at
 `INFO`.
 
 
@@ -438,8 +437,8 @@ operation of VMware GemFire. By default, it logs output at
 
 
 The `org.jgroups` Logger is used to log output from
-VMware GemFire's message distribution and membership system.
-VMware GemFire uses JGroups for membership and message
+[vmware-gemfire-name]'s message distribution and membership system.
+[vmware-gemfire-name] uses JGroups for membership and message
 distribution between peer members (nodes) in the cluster (distributed
 system). By default, JGroups logs output at `WARN`.
 
@@ -457,7 +456,7 @@ configure the `org.jgroups` Logger by setting the
 
 
 
-You can set the SBDG logging properties on the command line as JVM
+You can set the [spring-boot-gemfire-name] logging properties on the command line as JVM
 System properties when you run your Spring Boot application:
 
 
@@ -512,7 +511,7 @@ is not supported by the Java Runtime Environment (JRE).</td>
 
 
 
-Alternatively, you can configure and control VMware GemFire
+Alternatively, you can configure and control [vmware-gemfire-name]
 logging in Spring Boot `application.properties`:
 
 
@@ -545,8 +544,7 @@ spring.boot.data.gemfire.log.level=DEBUG
 
 
 
-For backwards compatibility, SBDG additionally supports the Spring Data
-for VMware GemFire (SDG) logging properties as well, by using
+For backwards compatibility, [spring-boot-gemfire-name] additionally supports the [spring-data-gemfire-name]  logging properties as well, by using
 either of the following properties:
 
 
@@ -555,7 +553,7 @@ either of the following properties:
 
 
 
-Example 8. Setting log-level using SDG Properties
+Example 8. Setting log-level using [spring-data-gemfire-name] Properties
 
 
 
@@ -580,8 +578,8 @@ spring.data.gemfire.logging.level=DEBUG
 
 
 
-If you previously used either of these SDG-based logging properties,
-they continue to work as designed in SBDG `1.3` or later.
+If you previously used either of these [spring-data-gemfire-name]-based logging properties,
+they continue to work as designed in [spring-boot-gemfire-name] `1.3` or later.
 
 
 
@@ -593,15 +591,15 @@ they continue to work as designed in SBDG `1.3` or later.
 
 
 
-As mentioned earlier, SBDG lets you compose your own logging
-configuration from SBDG’s default Logback configuration metadata.
+As mentioned earlier, [spring-boot-gemfire-name] lets you compose your own logging
+configuration from [spring-boot-gemfire-name]’s default Logback configuration metadata.
 
 
 
 
 
-SBDG conveniently bundles the Properties, Loggers and Appenders from
-SBDG’s logging starter into several template files that you can include
+[spring-boot-gemfire-name] conveniently bundles the Properties, Loggers and Appenders from
+[spring-boot-gemfire-name]’s logging starter into several template files that you can include
 into your own custom Logback XML configuration file.
 
 
@@ -634,7 +632,7 @@ The Logback configuration template files are broken down into:
 <td class="icon">
 Warning
 </td>
-<td class="content">As of SBDG <code>3.0</code>, the
+<td class="content">As of [spring-boot-gemfire-name] <code>3.0</code>, the
 <code>logback-include.xml</code> file was removed.</td>
 </tr>
 </tbody>
@@ -645,7 +643,7 @@ Warning
 
 
 The `properties-include.xml` defines Logback "*local*" scoped properties
-or variables common to SBDG’s configuration of VMware GemFire
+or variables common to [spring-boot-gemfire-name]’s configuration of [vmware-gemfire-name]
 logging.
 
 
@@ -687,7 +685,7 @@ Example 9. properties-include.xml
 
 
 The `loggers-include.xml` file defines the `Loggers` used to log output
-from VMware GemFire components.
+from [vmware-gemfire-name] components.
 
 
 
@@ -740,14 +738,14 @@ Example 10. loggers-include.xml
 The `appenders-include.xml` file defines Appenders to send the log
 output to. If Spring Boot is on the application classpath, then Spring
 Boot logging configuration will define the "CONSOLE" `Appender`,
-otherwise, SBDG will provide a default definition.
+otherwise, [spring-boot-gemfire-name] will provide a default definition.
 
 
 
 
 
-The "geode" `Appender` defines the VMware GemFire logging
-pattern as seen in VMware GemFire's Log4j configuration.
+The "geode" `Appender` defines the [vmware-gemfire-name] logging
+pattern as seen in [vmware-gemfire-name]'s Log4j configuration.
 
 
 
@@ -802,7 +800,7 @@ Example 11. appenders-include.xml
 
 
 
-Then you can include any of SBDG’S Logback configuration metadata files
+Then you can include any of [spring-boot-gemfire-name]’S Logback configuration metadata files
 as needed in your application-specific Logback XML configuration file,
 as follows:
 
@@ -858,7 +856,7 @@ Example 12. application-specific logback.xml
 
 
 It is now possible to customize the configuration of
-VMware GemFire logging using properties defined in a
+[vmware-gemfire-name] logging using properties defined in a
 `spring-geode-logging.properties` file included on the Spring Boot
 application classpath.
 
@@ -875,10 +873,10 @@ Any of the properties defined in
 
 
 
-For instance, and by default, VMware GemFire components log
+For instance, and by default, [vmware-gemfire-name] components log
 output using the Spring Boot log pattern. However, if you prefer the
-fine-grained details of Apache Geode’s logging behavior, you can change
-the `Appender` used by the VMware GemFire `Logger’s` to use the
+fine-grained details of [vmware-gemfire-name]’s logging behavior, you can change
+the `Appender` used by the [vmware-gemfire-name] `Logger’s` to use the
 pre-defined "geode" `Appender` instead. Simply set the
 `spring-geode.logging.appender-ref` property to "geode" in a
 `spring-geode-logging.properties` file on your Spring Boot application
@@ -917,7 +915,7 @@ spring.geode.logging.appender-ref=geode
 
 Alternatively, if you want to configure the log output of your entire
 Spring Boot application, including log output from all
-VMware GemFire components, then you can set the
+[vmware-gemfire-name] components, then you can set the
 `SPRING_BOOT_LOG_PATTERN` property, or Spring Boot’s
 `CONSOLE_LOG_PATTERN` property, in `spring-geode-logging.properties`, as
 follows:
@@ -982,7 +980,7 @@ file is only recognized when the
 
 
 
-SBDG provides additional support when working with the SLF4J and Logback
+[spring-boot-gemfire-name] provides additional support when working with the SLF4J and Logback
 APIs. This support is available when you declare the
 `org.springframework.geode:spring-geode-starter-logging` dependency on
 your Spring Boot application classpath.
@@ -1023,7 +1021,7 @@ during automated testing.
 
 
 
-In addition to the `LogbackSupport` class, SBDG also provides some
+In addition to the `LogbackSupport` class, [spring-boot-gemfire-name] also provides some
 custom Logback `Appenders`.
 
 
@@ -1170,7 +1168,7 @@ thereby doing no actual work.
 
 
 
-By default, SBDG registers the
+By default, [spring-boot-gemfire-name] registers the
 `org.springframework.geode.logging.slfj4.logback.DelegatingAppender`
 with the ROOT `Logger`, which can be useful for testing purposes.
 
@@ -1341,7 +1339,7 @@ safely in a multi-Threaded context by calling
 
 
 
-When combined with other SBDG provided `Appenders` in conjunction with
+When combined with other [spring-boot-gemfire-name] provided `Appenders` in conjunction with
 the `LogbackSupport` class, you have a lot of power both in application
 code as well as in your tests.
 

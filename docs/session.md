@@ -20,8 +20,7 @@ Title: Spring Session
 
 
 
-This chapter covers auto-configuration of Spring Session for
-VMware GemFire to manage (HTTP) session state in a reliable
+This chapter covers auto-configuration of [spring-session-gemfire-name] to manage (HTTP) session state in a reliable
 (consistent), highly available (replicated), and clustered manner.
 
 
@@ -55,10 +54,9 @@ document. You can learn more by reading the
 
 
 
-Spring Boot for VMware GemFire provides auto-configuration
-support to configure VMware GemFire as the session management
-provider and store when {spring-session-data-gemfire-website}\[Spring
-Session for VMware GemFire\] is on your Spring Boot
+[spring-boot-gemfire-name] provides auto-configuration
+support to configure [vmware-gemfire-name] as the session management
+provider and store when {spring-session-data-gemfire-website}\[[spring-session-gemfire-name]\] is on your Spring Boot
 application’s classpath.
 
 
@@ -75,8 +73,7 @@ application’s classpath.
 <td class="icon">
 Tip
 </td>
-<td class="content">You can learn more about Spring Session for
-VMware GemFire in the
+<td class="content">You can learn more about [spring-session-gemfire-name] in the
 https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/reference/html5[docs].</td>
 </tr>
 </tbody>
@@ -98,8 +95,7 @@ Tip
 </td>
 <td class="content">See the corresponding sample <a
 href="guides/caching-http-session.html">guide</a> and
- https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/caching/http-session[code] to see Spring Session
-for VMware GemFire in action.</td>
+ https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/caching/http-session[code] to see [spring-session-gemfire-name] in action.</td>
 </tr>
 </tbody>
 </table>
@@ -112,7 +108,7 @@ for VMware GemFire in action.</td>
 
 
 
-You need do nothing special to use VMware GemFire as a Spring
+You need do nothing special to use [vmware-gemfire-name] as a Spring
 Session provider implementation, managing the (HTTP) session state of
 your Spring Boot application.
 
@@ -277,7 +273,7 @@ class MyApplicationController {
 
 
 The `HttpSession` is replaced by a Spring managed `Session` that is
-stored in VMware GemFire.
+stored in [vmware-gemfire-name].
 
 
 
@@ -289,17 +285,17 @@ stored in VMware GemFire.
 
 
 
-By default, Spring Boot for VMware GemFire (SBDG) applies
-reasonable and sensible defaults when configuring VMware GemFire
+By default, [spring-boot-gemfire-name] applies
+reasonable and sensible defaults when configuring [vmware-gemfire-name]
 as the provider in Spring Session.
 
 
 
 
 
-For instance, by default, SBDG sets the session expiration timeout to 30
+For instance, by default, [spring-boot-gemfire-name] sets the session expiration timeout to 30
 minutes. It also uses a `ClientRegionShortcut.PROXY` as the data
-management policy for the VMware GemFire client Region that
+management policy for the [vmware-gemfire-name] client Region that
 managing the (HTTP) session state when the Spring Boot application is
 using a `ClientCache`, which it does by
 [default](#geode-clientcache-applications).
@@ -325,10 +321,10 @@ In that case, see the next section.
 
 
 
-Spring Session for VMware GemFire publishes
+[spring-session-gemfire-name] publishes
 https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/reference/html5/#httpsession-gemfire-configuration-properties\[well-known
 configuration properties\] for each of the various Spring Session
-configuration options when you use VMware GemFire as the (HTTP)
+configuration options when you use [vmware-gemfire-name] as the (HTTP)
 session state management provider.
 
 
@@ -337,14 +333,13 @@ session state management provider.
 
 You can specify any of these properties in Spring Boot
 `application.properties` to adjust Spring Session’s configuration when
-using VMware GemFire.
+using [vmware-gemfire-name].
 
 
 
 
 
-In addition to the properties provided in and by Spring Session for
-VMware GemFire, Spring Boot for VMware GemFire also
+In addition to the properties provided in and by [spring-session-gemfire-name], [spring-boot-gemfire-name] also
 recognizes and respects the `spring.session.timeout` property and the
 `server.servlet.session.timeout` property, as discussed
 https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-session.html\[the Spring Boot
@@ -384,11 +379,11 @@ the Spring <code>Environment</code> of your application.</td>
 
 
 
-Spring Session for VMware GemFire also provides the
+[spring-session-gemfire-name] also provides the
 https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/api/org/springframework/session/data/gemfire/config/annotation/web/http/support/SpringSessionGemFireConfigurer.html\[`SpringSessionGemFireConfigurer`\]
 callback interface, which you can declare in your Spring
 `ApplicationContext` to programmatically control the configuration of
-Spring Session when you use VMware GemFire.
+Spring Session when you use [vmware-gemfire-name].
 
 
 
@@ -396,7 +391,7 @@ Spring Session when you use VMware GemFire.
 
 The `SpringSessionGemFireConfigurer`, when declared in the Spring
 `ApplicationContext`, takes precedence over any of the Spring Session
-(for VMware GemFire) configuration properties and effectively
+(for [vmware-gemfire-name]) configuration properties and effectively
 overrides them when both are present.
 
 
@@ -420,7 +415,7 @@ https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/refer
 
 
 There may be cases where you do not want your Spring Boot application to
-manage (HTTP) session state by using VMware GemFire.
+manage (HTTP) session state by using [vmware-gemfire-name].
 
 
 
@@ -531,7 +526,7 @@ Tip
 <td class="content">You can include multiple provider implementations on
 the classpath of your Spring Boot application. For instance, you might
 use Redis to cache your application’s (HTTP) session state while using
-VMware GemFire as your application’s transactional persistent
+[vmware-gemfire-name] as your application’s transactional persistent
 store (System of Record).</td>
 </tr>
 </tbody>
@@ -553,7 +548,7 @@ Note
 </td>
 <td class="content">Spring Boot does not properly recognize
 <code>spring.session.store-type=[gemfire|geode]</code> even though
-Spring Boot for VMware GemFire is set up to handle either of
+[spring-boot-gemfire-name] is set up to handle either of
 these property values (that is, either <code>gemfire</code> or
 <code>geode</code>).</td>
 </tr>
@@ -570,9 +565,9 @@ these property values (that is, either <code>gemfire</code> or
 
 
 
-Whether you use Spring Session in a Spring Boot, VMware GemFire
+Whether you use Spring Session in a Spring Boot, [vmware-gemfire-name]
 `ClientCache` application to connect to an standalone, externally
-managed cluster of VMware GemFire servers or to connect to a
+managed cluster of [vmware-gemfire-name] servers or to connect to a
 cluster of servers in a {pivotal-cloudcache-name} service instance
 managed by a Tanzu Application Service environment, the setup is the
 same.
@@ -581,7 +576,7 @@ same.
 
 
 
-Spring Session for VMware GemFire expects there to be a cache
+[spring-session-gemfire-name] expects there to be a cache
 Region in the cluster that can store and manage (HTTP) session state
 when your Spring Boot application is a `ClientCache` application in the
 client/server topology.
@@ -677,7 +672,7 @@ sessions, you must create the cache Region in the cluster somehow.
 
 
 
-On the client, doing so is simple, since SBDG’s auto-configuration
+On the client, doing so is simple, since [spring-boot-gemfire-name]’s auto-configuration
 automatically creates the client `PROXY` Region that is used to send and
 receive (HTTP) session state between the client and server for you when
 either Spring Session is on the application classpath (for example,
@@ -758,7 +753,7 @@ Policy set on the cache Region that is used to store session state. The
 Servlet container’s (HTTP) session expiration configuration is not used,
 since Spring Session replaces the Servlet container’s session management
 capabilities with its own, and Spring Session delegates this behavior to
-the individual providers, such as VMware GemFire.</td>
+the individual providers, such as [vmware-gemfire-name].</td>
 </tr>
 </tbody>
 </table>
@@ -769,9 +764,9 @@ the individual providers, such as VMware GemFire.</td>
 
 Alternatively, you could send the definition for the cache Region from
 your Spring Boot `ClientCache` application to the cluster by using the
-SBDG
+[spring-boot-gemfire-name]
 {spring-boot-data-geode-javadoc}/org/springframework/geode/config/annotation/EnableClusterAware.html\[`@EnableClusterAware`\]
-annotation, which is meta-annotated with SDG’s
+annotation, which is meta-annotated with [spring-data-gemfire-name]’s
 `@EnableClusterConfiguration` annotation:
 
 
@@ -869,7 +864,7 @@ gfsh> alter region --name=MySessions --entry-idle-time-expiration=1800
 Now your Spring Boot `ClientCache` application that uses Spring Session
 in a client/server topology is configured to store and manage user
 (HTTP) session state in the cluster. This works for either standalone,
-externally managed VMware GemFire clusters or when you use PCC
+externally managed [vmware-gemfire-name] clusters or when you use PCC
 running in a Tanzu Application Service environment.
 
 

@@ -1,4 +1,4 @@
-# Running a VMware GemFire cluster with Spring Boot from your IDE
+# Running a [vmware-gemfire-name] cluster with Spring Boot from your IDE
 
 <!-- 
  Copyright (c) VMware, Inc. 2022. All rights reserved.
@@ -18,15 +18,15 @@
 
 As described in
 [geode-clientcache-applications](#geode-clientcache-applications),
-you can configure and run a small VMware GemFire cluster from
+you can configure and run a small [vmware-gemfire-name] cluster from
 inside your IDE using Spring Boot. This is extremely helpful during
 development because it enables you to manually run, test, and debug your
 applications quickly and easily.
 
-Spring Boot for VMware GemFire includes such a class:
+[spring-boot-gemfire-name] includes such a class:
 
 Example 11. Spring Boot application class used to configure and
-bootstrap a VMware GemFire server
+bootstrap a [vmware-gemfire-name] server
 
 
 ``` highlight
@@ -58,7 +58,7 @@ public class SpringBootApacheGeodeCacheServerApplication {
 ```
 
 This class is a proper Spring Boot application that you can use to
-configure and bootstrap multiple VMware GemFire servers and join
+configure and bootstrap multiple [vmware-gemfire-name] servers and join
 them together to form a small cluster. You only need to modify the
 runtime configuration of this class to startup multiple servers.
 
@@ -77,7 +77,7 @@ connections and handling automatic fail-over in the event of failed
 connections, among other things.
 
 The Manager lets you connect to this server using Gfsh
-(VMware GemFire's
+([vmware-gemfire-name]'s
 [command-line shell tool](https://geode.apache.org/docs/guide/115/tools_modules/gfsh/chapter_overview.html)).
 
 To start your primary server, create a run configuration in your IDE for
@@ -143,7 +143,7 @@ Build-Date: 2017-09-16 07:20:46 -0700
 Build-Id: abaker 0
 Build-Java-Version: 1.8.0_121
 Build-Platform: Mac OS X 10.12.3 x86_64
-Product-Name: Apache Geode
+Product-Name: [vmware-gemfire-name]
 Product-Version: 1.2.1
 Source-Date: 2017-09-08 11:57:38 -0700
 Source-Repository: release/1.2.1
@@ -174,7 +174,7 @@ System Properties:
     PID = 41795
   ...
 [info 2018/06/24 21:42:30.045 PDT <main> tid=0x1] Startup Configuration:
- ### GemFire Properties defined with api ###
+ ### [vmware-gemfire-short-name] Properties defined with api ###
 disable-auto-reconnect=true
 jmx-manager=true
 jmx-manager-port=1099
@@ -185,7 +185,7 @@ mcast-port=0
 name=SpringBootApacheGeodeCacheServerApplication
 start-locator=localhost[10334]
 use-cluster-configuration=false
-### GemFire Properties using default values ###
+### [vmware-gemfire-short-name] Properties using default values ###
 ack-severe-alert-threshold=0
 ...
 
@@ -226,7 +226,7 @@ jblum-mbpro-2:lab jblum$ gfsh
  / /__/ / ____/  _____/ / /    / /
 /______/_/      /______/_/    /_/    1.2.1
 
-Monitor and Manage Apache Geode
+Monitor and Manage [vmware-gemfire-name]
 
 gfsh>connect
 Connecting to Locator at [host=localhost, port=10334] ..
@@ -263,7 +263,7 @@ Client Connections       : 0
 Now you can run additional servers to scale-out your cluster.
 
 To do so, you must vary the name of the members you add to your cluster
-as peers. VMware GemFire requires members in a cluster to be named
+as peers. [vmware-gemfire-name] requires members in a cluster to be named
 and for the names of each member in the cluster to be unique.
 
 Additionally, since we are running multiple instances of our
@@ -295,7 +295,7 @@ which enables the configuration provided in the nested
 provided in the `LonerConfiguration` class.
 
 The `ClusteredConfiguration` class is also annotated with
-`@UseLocators`, which sets the VMware GemFire `locators` property
+`@UseLocators`, which sets the [vmware-gemfire-name] `locators` property
 to "localhost[10334]". By default, it assumes that the Locator runs on
 localhost, listening on the default Locator port of 10334. You can
 adjust your `locators` connection endpoint if your Locators run
@@ -344,13 +344,13 @@ Tip
 </td>
 <td class="content">Both <code>spring.data.gemfire.name</code> and
 <code>spring.data.gemfire.cache.server.port</code> are well-known
-properties used by SDG to dynamically configure VMware GemFire with
+properties used by [spring-data-gemfire-name] to dynamically configure [vmware-gemfire-name] with
 a Spring Boot <code>application.properties</code> file or by using Java
 System properties. You can find these properties in the annotation
-Javadoc in SDG’s annotation-based configuration model. For example, see
+Javadoc in [spring-data-gemfire-name]’s annotation-based configuration model. For example, see
 the Javadoc for the
 https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#port--[<code>spring.data.gemfire.cache.server.port</code>
-property]. Most SDG annotations include corresponding properties that
+property]. Most [spring-data-gemfire-name] annotations include corresponding properties that
 can be defined in Spring Boot <code>application.properties</code>, which
 is explained in detail in the
 https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-properties/#bootstrap-annotation-config-properties[documentation].</td>
@@ -441,10 +441,10 @@ Running                  : true
 Client Connections       : 0
 ```
 
-Congratulations. You have just started a small VMware GemFire
+Congratulations. You have just started a small [vmware-gemfire-name]
 cluster with 3 members by using Spring Boot from inside your IDE.
 
-Now you can build and run a Spring Boot, VMware GemFire
+Now you can build and run a Spring Boot, [vmware-gemfire-name]
 `ClientCache` application that connects to this cluster. To do so,
-include and use Spring Boot for VMware GemFire.
+include and use [spring-boot-gemfire-name].
 

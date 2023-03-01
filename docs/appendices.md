@@ -19,7 +19,7 @@ title: Appendix
 -->
 
 The following appendices provide additional help while developing Spring
-Boot applications backed by VMware GemFire:
+Boot applications backed by [vmware-gemfire-name]:
 
 1.  [Auto-configuration vs. Annotation-based
     configuration](./configuration-annotations.html)
@@ -28,10 +28,10 @@ Boot applications backed by VMware GemFire:
 
 3.  [Deactivating Auto-configuration](./configuration-deactivate.html)
 
-4.  [Switching from VMware GemFire to VMware GemFire or
-    VMware GemFire for TAS](#geode-gemfire-switch)
+4.  [Switching from [vmware-gemfire-name] to [vmware-gemfire-name] or
+    [vmware-gemfire-name] for TAS](#geode-gemfire-switch)
 
-5.  [Running a VMware GemFire cluster with Spring Boot from your
+5.  [Running a [vmware-gemfire-name] cluster with Spring Boot from your
     IDE](./switching-to-gemfire.html)
 
 6.  [Testing](#geode-testing-support)

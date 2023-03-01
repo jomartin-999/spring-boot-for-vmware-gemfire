@@ -36,11 +36,10 @@ Table of Contents
 This guide walks you through building a simple Spring Boot application
 using [Spring’s Cache
 Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache)
-backed by VMware GemFire as the caching provider for Inline Caching.
+backed by [vmware-gemfire-name] as the caching provider for Inline Caching.
 
 It is assumed that the reader is familiar with the Spring *programming
-model*. No prior knowledge of Spring’s *Cache Abstraction* or VMware
-GemFire is required to utilize caching in your Spring Boot applications.
+model*. No prior knowledge of Spring’s *Cache Abstraction* or [vmware-gemfire-name] is required to utilize caching in your Spring Boot applications.
 
 Additionally, this Sample builds on the concepts from the [Look-Aside
 Caching with Spring](caching-look-aside.html) guide. Therefore, it would
@@ -53,8 +52,7 @@ href="../index.html#geode-caching-provider-inline-caching">Inline
 Caching</a> section, and specifically the <a
 href="../index.html#geode-caching-provider-inline-caching-synchronous">Synchronous
 Inline Caching</a>, in the <a
-href="../index.html#geode-caching-provider">Caching with VMware
-GemFire</a> chapter of the reference documentation for more
+href="../index.html#geode-caching-provider">Caching with [vmware-gemfire-name]</a> chapter of the reference documentation for more
 information.
 
 
@@ -271,9 +269,9 @@ for this example, however.
 
 Both the `factorial(..)` and `sqrt(..)` methods have been annotated with
 Spring’s `@Cacheable` annotation to demarcate these methods with caching
-behavior. Of course, as explained in SBDG’s
+behavior. Of course, as explained in [spring-boot-gemfire-name]’s
 [documentation](../_includes/configuration-annotations.html#geode-caching-provider),
-caching with Spring’s Cache Abstraction using VMware GemFire as the
+caching with Spring’s Cache Abstraction using [vmware-gemfire-name] as the
 caching provider is enabled by default. Therefore, there is nothing more
 you need do to start leverage caching in your Spring Boot applications
 than to annotate the service methods with the appropriate Spring or
@@ -333,9 +331,9 @@ for our Calculator application is contained in the
 `inlineCachingForCalculatorApplicationRegionsConfigurer` bean
 definition.
 
-SBDG provides the `InlineCachingRegionConfigurer` class used in the bean
+[spring-boot-gemfire-name] provides the `InlineCachingRegionConfigurer` class used in the bean
 definition to configure and enable the caches (a.k.a. as Regions in
-VMware GemFire terminology) with *Inline Caching* behavior.
+[vmware-gemfire-name] terminology) with *Inline Caching* behavior.
 
 The Configurer’s job is to configure the appropriate Spring Data (SD)
 *Repository* used as a Region’s `CacheLoader` for "*read-through*"
@@ -413,8 +411,8 @@ JPA](https://spring.io/projects/spring-data-jpa)).
 This is what makes the Spring Data *Repository* pattern so ideal. It is
 very flexible and has a highly consistent API across a disparate
 grouping of data stores. And due to that uniformity, it is easy to
-"adapt" the VMware GemFire `CacheLoader`/`CacheWriter` interfaces to use
-a SD Repository under-the-hood. Indeed, that is exactly what SBDG has
+"adapt" the [vmware-gemfire-name] `CacheLoader`/`CacheWriter` interfaces to use
+a SD Repository under-the-hood. Indeed, that is exactly what [spring-boot-gemfire-name] has
 done for you!
 
 We will circle back to the `resultKeyGenerator` bean definition after we
@@ -422,31 +420,31 @@ talk about the application domain model.
 
 Also notice the use of the `@EnableCachingDefinedRegions` annotation.
 
-Whenever you use a caching provider like VMware GemFire or Redis, you
+Whenever you use a caching provider like [vmware-gemfire-name] or Redis, you
 must explicitly define or declare your caches in some manner. This is
 inconvenient since you have basically already declared the caches
 required by your application when using Spring’s, or alternatively, the
 JSR-107, JCache API annotations (e.g. `@Cacheable`). Why should you have
-to do this again? Well, using SBDG, you don’t. You simply have to
-declare the `@EnableCachingDefinedRegions` annotation and SBDG will take
-care of defining the necessary VMware GemFire Regions backing the caches
+to do this again? Well, using [spring-boot-gemfire-name], you don’t. You simply have to
+declare the `@EnableCachingDefinedRegions` annotation and [spring-boot-gemfire-name] will take
+care of defining the necessary [vmware-gemfire-name] Regions backing the caches
 for you.
 
 Regions for caches are not auto-configured for you because there are
 many different ways to "define" a Region, with different configuration,
 such as eviction and expiration polices, memory requirements,
 application callbacks, etc. The Region may already exist and have been
-created some other way. Either way, you may not want SBDG to
+created some other way. Either way, you may not want [spring-boot-gemfire-name] to
 auto-configure these Regions for you.
 
 <p class="note"><strong>Note:</strong>
 If you have not done so already, you should
-definitely read about SBDG’s support for <em>Inline Caching</em> in the
+definitely read about [spring-boot-gemfire-name]’s support for <em>Inline Caching</em> in the
 <a href="../index.html#geode-caching-provider-inline-caching">Inline
 Caching</a> section.
 </p>
 
-To learn more about how VMware GemFire’s data
+To learn more about how [vmware-gemfire-name]’s data
 loading functionality works, or specifically, how to <a
 href="https://geode.apache.org/docs/guide/%7Bapache-geode-doc-version%7D/developing/outside_data_sources/sync_outside_data.html">"Keep
 the Cache in Sync with Outside Data Sources"</a> follow the link. You
@@ -456,8 +454,7 @@ and <a
 href="https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/CacheWriter.html"><code>CacheWriter</code></a>.
 
 To learn more about
-<code>@EnableCachingDefinedRegions</code>, see the Spring Data for
-VMware GemFire <a
+<code>@EnableCachingDefinedRegions</code>, see the [spring-data-gemfire-name] <a
 href="https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-caching">documentation</a>.
 
 ### Backend DataSource Configuration
@@ -833,7 +830,7 @@ again, the `latency` drops to zero (and ***cacheMiss*** is ***false***):
 ![factorial of four after](./images/factorial-of-four-after.png)
 
 That is because the result (i.e. **24**) of `factorial(4)` is "cached"
-in VMware GemFire (as well as persisted to the database;
+in [vmware-gemfire-name] (as well as persisted to the database;
 *write-through*) and therefore, the `CaculatorService.factorial(:int)`
 method is **not** called. The result, however, is pulled from the cache,
 not the database.
@@ -889,7 +886,7 @@ will serve an important role in reducing the contention and load on the
 backend database.
 
 As you have seen in this guide, the configuration of *Inline Caching* is
-very simple to do with Spring Boot for VMware GemFire (SBDG) when using
-Spring’s Cache Abstraction along with VMware GemFire as the caching
+very simple to do with [spring-boot-gemfire-name] when using
+Spring’s Cache Abstraction along with [vmware-gemfire-name] as the caching
 provider.
 

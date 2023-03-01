@@ -16,21 +16,19 @@
  the License.
 -->
 
-The definitive source of truth on how to best use Spring Boot for
-VMware GemFire is to refer to the [samples](#geode-samples).
+The definitive source of truth on how to best use [spring-boot-gemfire-name] is to refer to the [samples](#geode-samples).
 
 See also the [Temperature
 Service](https://github.com/jxblum/temperature-service), Spring Boot
 application that implements a temperature sensor and monitoring,
-Internet of Things (IOT) example. The example uses SBDG to showcase
-VMware GemFire CQ, function implementations and executions, and
-positions VMware GemFire as a caching provider in Spring’s Cache
+Internet of Things (IOT) example. The example uses [spring-boot-gemfire-name] to showcase
+[vmware-gemfire-name] CQ, function implementations and executions, and
+positions [vmware-gemfire-name] as a caching provider in Spring’s Cache
 Abstraction. It is a working, sophisticated, and complete example, and
 we highly recommend it as a good starting point for real-world use
 cases.
 
 See the [Boot
 example](https://github.com/jxblum/contacts-application/tree/master/boot-example)
-from the contact application reference implementation (RI) for Spring
-Data for VMware GemFire (SDG) as yet another example.
+from the contact application reference implementation (RI) for [spring-data-gemfire-name] as yet another example.
 

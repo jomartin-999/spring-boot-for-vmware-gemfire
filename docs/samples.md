@@ -32,8 +32,7 @@ Title: Samples
 > <td class="icon">
 > Note
 > </td>
-> <td class="content">You are viewing Samples for Spring Boot for Apache
-> Geode (SBDG) version 1.27.</td>
+> <td class="content">You are viewing Samples for [spring-boot-gemfire-name] version 1.27.</td>
 > </tr>
 > </tbody>
 > </table>
@@ -44,24 +43,23 @@ Title: Samples
 
 
 
-This section contains working examples that show how to use Spring Boot
-for VMware GemFire (SBDG) effectively.
+This section contains working examples that show how to use [spring-boot-gemfire-name]  effectively.
 
 
 
 
 
 Some examples focus on specific use cases (such as (HTTP) session state
-caching), while other examples show how SBDG works under the hood, to
+caching), while other examples show how [spring-boot-gemfire-name] works under the hood, to
 give you a better understanding of what is actually happening and how to
-debug problems with your Spring Boot VMware GemFire
+debug problems with your Spring Boot [vmware-gemfire-name]
 applications.
 
 
 
 <table class="tableblock frame-all grid-all stretch">
 <caption>Table 1. Example Spring Boot applications using
-VMware GemFire</caption>
+[vmware-gemfire-name]</caption>
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -77,10 +75,9 @@ VMware GemFire</caption>
 <tbody>
 <tr class="odd">
 <td class="tableblock halign-left valign-top"><p><a
-href="guides/getting-started.html">Getting Started with Spring Boot for
-VMware GemFire</a></p></td>
+href="guides/getting-started.html">Getting Started with [spring-boot-gemfire-name]</a></p></td>
 <td class="tableblock halign-left valign-top"><p>Explains how to get
-started quickly, easily, and reliably building VMware GemFire
+started quickly, easily, and reliably building [vmware-gemfire-name]
 powered applications with Spring Boot.</p></td>
 <td
 class="tableblock halign-left valign-top"><p> https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/intro/getting-started[Getting
@@ -89,9 +86,9 @@ Started]</p></td>
 <tr class="even">
 <td class="tableblock halign-left valign-top"><p><a
 href="guides/boot-configuration.html">Spring Boot Auto-Configuration for
-VMware GemFire</a></p></td>
+[vmware-gemfire-name]</a></p></td>
 <td class="tableblock halign-left valign-top"><p>Explains what
-auto-configuration is provided by SBDG and what the auto-configuration
+auto-configuration is provided by [spring-boot-gemfire-name] and what the auto-configuration
 does.</p></td>
 <td
 class="tableblock halign-left valign-top"><p> https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/boot/configuration[Spring
@@ -100,9 +97,9 @@ Boot Auto-Configuration]</p></td>
 <tr class="odd">
 <td class="tableblock halign-left valign-top"><p><a
 href="guides/boot-actuator.html">Spring Boot Actuator for
-VMware GemFire</a></p></td>
+[vmware-gemfire-name]</a></p></td>
 <td class="tableblock halign-left valign-top"><p>Explains how to use
-Spring Boot Actuator for VMware GemFire and how it
+Spring Boot Actuator for [vmware-gemfire-name] and how it
 works.</p></td>
 <td
 class="tableblock halign-left valign-top"><p> https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/boot/actuator[Spring
@@ -111,9 +108,9 @@ Boot Actuator]</p></td>
 <tr class="even">
 <td class="tableblock halign-left valign-top"><p><a
 href="guides/boot-security.html">Spring Boot Security for
-VMware GemFire</a></p></td>
+[vmware-gemfire-name]</a></p></td>
 <td class="tableblock halign-left valign-top"><p>Explains how to
-configure auth and TLS with SSL when you use VMware GemFire in
+configure auth and TLS with SSL when you use [vmware-gemfire-name] in
 your Spring Boot applications.</p></td>
 <td
 class="tableblock halign-left valign-top"><p> https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/boot/security[Spring
@@ -122,9 +119,9 @@ Boot Security]</p></td>
 <tr class="odd">
 <td class="tableblock halign-left valign-top"><p><a
 href="guides/caching-look-aside.html">Look-Aside Caching with Spring’s
-Cache Abstraction and VMware GemFire</a></p></td>
+Cache Abstraction and [vmware-gemfire-name]</a></p></td>
 <td class="tableblock halign-left valign-top"><p>Explains how to enable
-and use Spring’s Cache Abstraction with VMware GemFire as the
+and use Spring’s Cache Abstraction with [vmware-gemfire-name] as the
 caching provider for look-aside caching.</p></td>
 <td
 class="tableblock halign-left valign-top"><p> https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/caching/look-aside[Look-Aside
@@ -133,9 +130,9 @@ Caching]</p></td>
 <tr class="even">
 <td class="tableblock halign-left valign-top"><p><a
 href="guides/caching-inline.html">Inline Caching with Spring’s Cache
-Abstraction and VMware GemFire</a></p></td>
+Abstraction and [vmware-gemfire-name]</a></p></td>
 <td class="tableblock halign-left valign-top"><p>Explains how to enable
-and use Spring’s Cache Abstraction with VMware GemFire as the
+and use Spring’s Cache Abstraction with [vmware-gemfire-name] as the
 caching provider for inline caching. This sample builds on the
 look-aside caching sample.</p></td>
 <td
@@ -145,9 +142,9 @@ Caching]</p></td>
 <tr class="odd">
 <td class="tableblock halign-left valign-top"><p><a
 href="guides/caching-inline-async.html">Asynchronous Inline Caching with
-Spring’s Cache Abstraction and VMware GemFire</a></p></td>
+Spring’s Cache Abstraction and [vmware-gemfire-name]</a></p></td>
 <td class="tableblock halign-left valign-top"><p>Explains how to enable
-and use Spring’s Cache Abstraction with VMware GemFire as the
+and use Spring’s Cache Abstraction with [vmware-gemfire-name] as the
 caching provider for asynchronous inline caching. This sample builds on
 the look-aside and inline caching samples.</p></td>
 <td
@@ -157,9 +154,9 @@ Inline Caching]</p></td>
 <tr class="even">
 <td class="tableblock halign-left valign-top"><p><a
 href="guides/caching-near.html">Near Caching with Spring’s Cache
-Abstraction and VMware GemFire</a></p></td>
+Abstraction and [vmware-gemfire-name]</a></p></td>
 <td class="tableblock halign-left valign-top"><p>Explains how to enable
-and use Spring’s Cache Abstraction with VMware GemFire as the
+and use Spring’s Cache Abstraction with [vmware-gemfire-name] as the
 caching provider for near caching. This sample builds on the look-aside
 caching sample.</p></td>
 <td
@@ -169,9 +166,9 @@ Caching]</p></td>
 <tr class="odd">
 <td class="tableblock halign-left valign-top"><p><a
 href="guides/caching-multi-site.html">Multi-Site Caching with Spring’s
-Cache Abstraction and VMware GemFire</a></p></td>
+Cache Abstraction and [vmware-gemfire-name]</a></p></td>
 <td class="tableblock halign-left valign-top"><p>Explains how to enable
-and use Spring’s Cache Abstraction with VMware GemFire as the
+and use Spring’s Cache Abstraction with [vmware-gemfire-name] as the
 caching provider for multi-site caching. This sample builds on the
 look-aside caching sample.</p></td>
 <td
@@ -181,9 +178,9 @@ Caching]</p></td>
 <tr class="even">
 <td class="tableblock halign-left valign-top"><p><a
 href="guides/caching-http-session.html">HTTP Session Caching with Spring
-Session and VMware GemFire</a></p></td>
+Session and [vmware-gemfire-name]</a></p></td>
 <td class="tableblock halign-left valign-top"><p>Explains how to enable
-and use Spring Session with VMware GemFire to manage HTTP
+and use Spring Session with [vmware-gemfire-name] to manage HTTP
 session state.</p></td>
 <td
 class="tableblock halign-left valign-top"><p> https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/caching/http-session[HTTP
@@ -192,7 +189,7 @@ Session Caching]</p></td>
 </tbody>
 </table>
 
-Table 1. Example Spring Boot applications using VMware GemFire
+Table 1. Example Spring Boot applications using [vmware-gemfire-name]
 
 
 

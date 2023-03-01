@@ -22,7 +22,7 @@ Title: Pivotal CloudFoundry
 As of the VMware, Inc. acquisition of Pivotal
 Software, Inc., Pivotal CloudFoundry (PCF) is now known as VMware Tanzu
 Application Service (TAS) for VMs. Also, Pivotal Cloud Cache (PCC) has
-been rebranded as VMware Tanzu GemFire for VMS. This documentation will
+been rebranded as [vmware-gemfire-name] for VMS. This documentation will
 eventually be updated to reflect the rebranding.
 </p>
 
@@ -32,11 +32,11 @@ one or more instances of the Pivotal Cloud Cache (PCC) service.
 
 In a nutshell, https://pivotal.io/pivotal-cloud-cache\[Pivotal Cloud Cache\] (PCC)
 is a managed version of
-[VMware GemFire](https://pivotal.io/pivotal-gemfire) that runs in
+[[vmware-gemfire-name]](https://pivotal.io/pivotal-gemfire) that runs in
 [Pivotal CloudFoundry](https://pivotal.io/platform\) (PCF). When
 running in or across cloud environments (such as AWS, Azure, GCP, or
 PWS), PCC with PCF offers several advantages over trying to run and
-manage your own standalone VMware GemFire clusters. It handles
+manage your own standalone [vmware-gemfire-name] clusters. It handles
 many of the infrastructure-related, operational concerns so that you
 need not do so.
 
@@ -74,7 +74,7 @@ class SpringBootApacheGeodeClientCacheApplication {  }
 
 With `@EnableClusterConfiguration`, Region and OQL Index configuration
 metadata that is defined on the client can be sent to servers in the PCC
-cluster. VMware GemFire requires matching Regions by name on
+cluster. [vmware-gemfire-name] requires matching Regions by name on
 both the client and the servers in order for clients to send and receive
 data to and from the cluster.
 
@@ -82,7 +82,7 @@ For example, when you declare the Region where an application entity is
 persisted by using the `@Region` mapping annotation and declare the
 `@EnableEntityDefinedRegions` annotation on the main
 `@SpringBootApplication` class in conjunction with the
-`@EnableClusterConfiguration` annotation, not only does SBDG create the
+`@EnableClusterConfiguration` annotation, not only does [spring-boot-gemfire-name] create the
 required client Region, but it also sends the configuration metadata for
 this Region to the servers in the cluster to create the matching,
 required server Region, where the data for your application entity is
@@ -171,17 +171,17 @@ spring.data.gemfire.security.username=guest
 
 The
 <code>spring.data.gemfire.security.username</code> property corresponds
-directly to the SDG <code>@EnableSecurity</code> annotation’s
+directly to the [spring-data-gemfire-name] <code>@EnableSecurity</code> annotation’s
 <code>securityUsername</code> attribute. See the
 [Javadoc](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#securityUsername--)
 for more details.
 
 The `spring.data.gemfire.security.username` property is the same
-property used by Spring Data for VMware GemFire (SDG) to
+property used by [spring-data-gemfire-name] to
 configure the runtime user of your Spring Data application when you
-connect to an externally managed VMware GemFire cluster.
+connect to an externally managed [vmware-gemfire-name] cluster.
 
-In this case, SBDG uses the configured username to look up the
+In this case, [spring-boot-gemfire-name] uses the configured username to look up the
 authentication credentials of the user to set the username and password
 used by the Spring Boot `ClientCache` application when connecting to PCC
 while running in PCF.
@@ -191,7 +191,7 @@ If the username is not valid, an `IllegalStateException` is thrown.
 By using [Spring profiles](https://docs.spring.io/spring-boot/docs/current/reference/html/#boot-features-profiles), it would be a simple matter to configure the Spring Boot
 application to run with a different user depending on environment.
 
-See the VMware GemFire for TAS documentation on
+See the [vmware-gemfire-name] for TAS documentation on
 [security](https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-VMs/1.14/tgf-vms/GUID-content-security.html) for configuring
 users with assigned roles and permissions.
 
@@ -218,7 +218,7 @@ spring.data.gemfire.security.username=MyUser
 spring.data.gemfire.security.password=MyPassword
 ```
 
-In this case, SBDG’s auto-configuration for authentication is
+In this case, [spring-boot-gemfire-name]’s auto-configuration for authentication is
 effectively disabled and security credentials are not extracted from the
 environment.
 
@@ -229,17 +229,17 @@ It is possible to provision multiple instances of the Pivotal Cloud
 Cache service in your Pivotal CloudFoundry environment. You can then
 bind multiple PCC service instances to your Spring Boot application.
 
-However, Spring Boot for VMware GemFire (SBDG) only
+However, [spring-boot-gemfire-name] only
 auto-configures one PCC service instance for your Spring Boot
 application. This does not mean that it is not possible to use multiple
-PCC service instances with your Spring Boot application, just that SBDG
+PCC service instances with your Spring Boot application, just that [spring-boot-gemfire-name]
 only auto-configures one service instance for you.
 
 You must select which PCC service instance your Spring Boot application
 automatically auto-configures for you when you have multiple instances
 and want to target a specific PCC service instance to use.
 
-To do so, declare the following SBDG property in Spring Boot
+To do so, declare the following [spring-boot-gemfire-name] property in Spring Boot
 `application.properties`:
 
 Example 5. Spring Boot application.properties targeting a specific PCC
@@ -254,18 +254,18 @@ spring.boot.data.gemfire.cloud.cloudfoundry.service.cloudcache.name=pccServiceIn
 
 The
 `spring.boot.data.gemfire.cloud.cloudfoundry.service.cloudcache.name`
-property tells SBDG which PCC service instance to auto-configure.
+property tells [spring-boot-gemfire-name] which PCC service instance to auto-configure.
 
 If the PCC service instance identified by the property does not exist,
-SBDG throws an `IllegalStateException` stating the PCC service instance
+[spring-boot-gemfire-name] throws an `IllegalStateException` stating the PCC service instance
 by name could not be found.
 
 If you did not set the property and your Spring Boot application is
-bound to multiple PCC service instances, SBDG auto-configures the first
+bound to multiple PCC service instances, [spring-boot-gemfire-name] auto-configures the first
 PCC service instance it finds by name, alphabetically.
 
 If you did not set the property and no PCC service instance is found,
-SBDG logs a warning.
+[spring-boot-gemfire-name] logs a warning.
 
 ### Using Multiple Pivotal Cloud Cache Service Instances
 
@@ -349,7 +349,7 @@ needs. Again, the `Pool` determines the Pivotal Cloud Cache service
 instance and cluster in which the data for the client Region resides.
 
 <p class="note"><strong>Note:</strong>
-By default, SBDG configures all <code>Pools</code>
+By default, [spring-boot-gemfire-name] configures all <code>Pools</code>
 declared in a Spring Boot <code>ClientCache</code> application to
 connect to and use a single PCC service instance. This may be a targeted
 PCC service instance when you use the
@@ -358,14 +358,14 @@ property as discussed <a
 href="#cloudfoundry-cloudcache-multiinstance-using">earlier</a>.
 </p>
 
-### Hybrid Pivotal CloudFoundry and VMware GemFire Spring Boot Applications
+### Hybrid Pivotal CloudFoundry and [vmware-gemfire-name] Spring Boot Applications
 
 Sometimes, it is desirable to deploy (that is, `cf push`) and run your
 Spring Boot applications in Pivotal CloudFoundry but still connect your
 Spring Boot applications to an externally managed, standalone
-VMware GemFire cluster.
+[vmware-gemfire-name] cluster.
 
-Spring Boot for VMware GemFire (SBDG) makes this a non-event and
+[spring-boot-gemfire-name] makes this a non-event and
 honors its "*little to no code or configuration changes necessary*"
 goal. Regardless of your runtime choice, it should just work!
 
@@ -373,7 +373,7 @@ To help guide you through this process, we cover the following topics:
 
 1.  Install and Run PCFDev.
 
-2.  Start an VMware GemFire cluster.
+2.  Start an [vmware-gemfire-name] cluster.
 
 3.  Create a User-Provided Service (CUPS).
 
@@ -398,7 +398,7 @@ services to accomplish its tasks.
 However, PCF Dev lacks the Pivotal Cloud Cache service that is available
 in PCF. This is actually ideal for this exercise since we are trying to
 build and run Spring Boot applications in a PCF environment but connect
-to an externally managed, standalone VMware GemFire cluster.
+to an externally managed, standalone [vmware-gemfire-name] cluster.
 
 As a prerequisite, you need to follow the steps outlined in the
 [tutorial](https://pivotal.io/platform/pcf-tutorials/getting-started-with-pivotal-cloud-foundry-dev/introduction)
@@ -481,18 +481,18 @@ apps. It lets you push and update apps, create services, bind apps to
 the services, and start and stop your deployed applications, among many
 other things.
 
-#### Running an VMware GemFire Cluster
+#### Running an [vmware-gemfire-name] Cluster
 
 Now that PCF Dev is set up and running, you need to start an external,
-standalone VMware GemFire cluster to which our Spring Boot
+standalone [vmware-gemfire-name] cluster to which our Spring Boot
 application connects and uses to manage its data.
 
 You need to install a {apache-geode-website}/releases/\[distribution\]
-of VMware GemFire on your computer. Then you must set the
+of [vmware-gemfire-name] on your computer. Then you must set the
 `$GEODE` environment variable. It is also convenient to add `$GEODE/bin`
 to your system `$PATH`.
 
-Afterward, you can launch the Geode Shell (*Gfsh*) tool:
+Afterward, you can launch the [vmware-gemfire-short-name] Shell (*Gfsh*) tool:
 
 Example 12. Running Gfsh
 
@@ -508,33 +508,33 @@ $ gfsh
  / /__/ / ____/  _____/ / /    / /
 /______/_/      /______/_/    /_/    1.6.0
 
-Monitor and Manage Apache Geode
+Monitor and Manage [vmware-gemfire-name]
 gfsh>
 ```
 
 We have provided the Gfsh shell script that you can use to start the
-VMware GemFire cluster:
+[vmware-gemfire-name] cluster:
 
-Example 13. Gfsh shell script to start the VMware GemFire
+Example 13. Gfsh shell script to start the [vmware-gemfire-name]
 cluster
 
 
 ``` highlight
 #!/bin/gfsh
-# Gfsh shell script to configure and bootstrap an Apache Geode cluster.
+# Gfsh shell script to configure and bootstrap a [vmware-gemfire-name] cluster.
 
 start locator --name=LocatorOne --log-level=config --classpath=@project-dir@/apache-geode-extensions/build/libs/apache-geode-extensions-@project-version@.jar --J=-Dgemfire.security-manager=org.springframework.geode.security.TestSecurityManager --J=-Dgemfire.http-service-port=8080
 
 start server --name=ServerOne --log-level=config --user=admin --password=admin --classpath=@project-dir@/apache-geode-extensions/build/libs/apache-geode-extensions-@project-version@.jar
 ```
 
-The `start-cluster.gfsh` shell script starts one Geode Locator and one
-Geode server.
+The `start-cluster.gfsh` shell script starts one [vmware-gemfire-short-name] Locator and one
+[vmware-gemfire-short-name] server.
 
 A Locator is used by clients to discover and connect to servers in a
 cluster to manage its data. A Locator is also used by new servers that
 join a cluster as peer members, which lets the cluster be elastically
-scaled out (or scaled down, as needed). A Geode server stores the data
+scaled out (or scaled down, as needed). A [vmware-gemfire-short-name] server stores the data
 for the application.
 
 You can start as many Locators or servers as necessary to meet the
@@ -546,17 +546,17 @@ needs, since there is overhead relative to the cluster size.
 You see output similar to the following when starting the Locator and
 server:
 
-Example 14. Starting the VMware GemFire cluster
+Example 14. Starting the [vmware-gemfire-name] cluster
 
 
 ``` highlight
 gfsh>start locator --name=LocatorOne --log-level=config --classpath=/Users/jblum/pivdev/spring-boot-data-geode/apache-geode-extensions/build/libs/apache-geode-extensions-1.1.0.BUILD-SNAPSHOT.jar --J=-Dgemfire.security-manager=org.springframework.geode.security.TestSecurityManager --J=-Dgemfire.http-service-port=8080
-Starting a Geode Locator in /Users/jblum/pivdev/lab/LocatorOne...
+Starting a [vmware-gemfire-short-name] Locator in /Users/jblum/pivdev/lab/LocatorOne...
 ..
 Locator in /Users/jblum/pivdev/lab/LocatorOne on 10.99.199.24[10334] as LocatorOne is currently online.
 Process ID: 14358
 Uptime: 1 minute 1 second
-Geode Version: 1.6.0
+GemFire Version: 1.6.0
 Java Version: 1.8.0_192
 Log File: /Users/jblum/pivdev/lab/LocatorOne/LocatorOne.log
 JVM Arguments: -Dgemfire.enable-cluster-configuration=true -Dgemfire.load-cluster-configuration-from-dir=false -Dgemfire.log-level=config -Dgemfire.security-manager=org.springframework.geode.security.TestSecurityManager -Dgemfire.http-service-port=8080 -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
@@ -574,12 +574,12 @@ password: *****
 Successfully connected to: [host=10.99.199.24, port=1099]
 
 gfsh>start server --name=ServerOne --log-level=config --user=admin --password=admin --classpath=/Users/jblum/pivdev/spring-boot-data-geode/apache-geode-extensions/build/libs/apache-geode-extensions-1.1.0.BUILD-SNAPSHOT.jar
-Starting a Geode Server in /Users/jblum/pivdev/lab/ServerOne...
+Starting a [vmware-gemfire-short-name] Server in /Users/jblum/pivdev/lab/ServerOne...
 ....
 Server in /Users/jblum/pivdev/lab/ServerOne on 10.99.199.24[40404] as ServerOne is currently online.
 Process ID: 14401
 Uptime: 3 seconds
-Geode Version: 1.6.0
+GemFire Version: 1.6.0
 Java Version: 1.8.0_192
 Log File: /Users/jblum/pivdev/lab/ServerOne/ServerOne.log
 JVM Arguments: -Dgemfire.default.locators=10.99.199.24[10334] -Dgemfire.security-username=admin -Dgemfire.start-dev-rest-api=false -Dgemfire.security-password=******** -Dgemfire.use-cluster-configuration=true -Dgemfire.log-level=config -XX:OnOutOfMemoryError=kill -KILL %p -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
@@ -618,16 +618,16 @@ chapter.
 
 #### Creating a User-Provided Service
 
-Now that we have PCF Dev and a small VMware GemFire cluster up
+Now that we have PCF Dev and a small [vmware-gemfire-name] cluster up
 and running, it is time to create a user-provided service to the
-external, standalone VMware GemFire cluster that we started in
+external, standalone [vmware-gemfire-name] cluster that we started in
 [step 2](#cloudfoundry-geode-cluster).
 
 As mentioned, PCF Dev offers MySQL, Redis and RabbitMQ services (among
-others). However, to use VMware GemFire in the same capacity as
+others). However, to use [vmware-gemfire-name] in the same capacity as
 you would Pivotal Cloud Cache when running in a production-grade PCF
 environment, you need to create a user-provided service for the
-standalone VMware GemFire cluster.
+standalone [vmware-gemfire-name] cluster.
 
 To do so, run the following `cf` CLI command:
 
@@ -672,7 +672,7 @@ cf cups apacheGeodeService -t "gemfire, cloudcache, database, pivotal" \
 ```
 
 We replaced the `<hostname>` placeholder with the IP address of our
-standalone VMware GemFire Locator. You can find the IP address
+standalone [vmware-gemfire-name] Locator. You can find the IP address
 in the Gfsh `start locator` command output shown in the preceding
 example.
 
@@ -681,7 +681,7 @@ default Locator port, `10334`,
 
 Finally, we set the `username` and `password` accordingly.
 
-Spring Boot for VMware GemFire (SBDG)
+[spring-boot-gemfire-name]
 provides template files in the
 <code>{docs-dir}/src/main/resources</code> directory.
 
@@ -740,7 +740,7 @@ documentation].
 Now it is time to push a Spring Boot application to PCF Dev and bind the
 application to the `apacheGeodeService`.
 
-Any Spring Boot `ClientCache` application that uses SBDG works for this
+Any Spring Boot `ClientCache` application that uses [spring-boot-gemfire-name] works for this
 purpose. For this example, we use the
 [PCCDemo](https://github.com/jxblum/PCCDemo/tree/sbdg-doc-ref)
 application, which is available in GitHub.
@@ -861,7 +861,7 @@ boilerplate code and configuration changes when you migrate between
 different CloudFoundry environments, even [Open Source
 CloudFoundry](https://www.cloudfoundry.org/).
 
-Again, SBDG’s goal is to simply the effort for you to build, run, and
+Again, [spring-boot-gemfire-name]’s goal is to simply the effort for you to build, run, and
 manage your application, in whatever context your application lands,
 even if it changes later. If you follow the steps in this documentation,
 you can realize that goal.
@@ -948,9 +948,9 @@ Rows   : 1
 
 ### Summary
 
-The ability to deploy Spring Boot, VMware GemFire `ClientCache`
+The ability to deploy Spring Boot, [vmware-gemfire-name] `ClientCache`
 applications to Pivotal CloudFoundry yet connect your application to an
-externally managed, standalone VMware GemFire cluster is
+externally managed, standalone [vmware-gemfire-name] cluster is
 powerful.
 
 Indeed, this is a useful arrangement and stepping stone for many users
@@ -959,7 +959,7 @@ Pivotal CloudFoundry and using services such as Pivotal Cloud Cache.
 
 Later, when you need to work with real (rather than sample)
 applications, you can migrate your Spring Boot applications to a fully
-managed and production-grade Pivotal CloudFoundry environment, and SBDG
+managed and production-grade Pivotal CloudFoundry environment, and [spring-boot-gemfire-name]
 figures out what to do, leaving you to focus entirely on your
 application.
 

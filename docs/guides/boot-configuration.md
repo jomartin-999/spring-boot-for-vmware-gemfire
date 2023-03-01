@@ -1,4 +1,4 @@
-# Spring Boot Auto-configuration for VMware GemFire
+# Spring Boot Auto-configuration for [vmware-gemfire-name]
 
 <!-- 
  Copyright (c) VMware, Inc. 2022. All rights reserved.
@@ -25,14 +25,14 @@ Table of Contents
   - [`CustomerServiceApplication` (Spring Boot main
     class)](#_customerserviceapplication_spring_boot_main_class)
 - [Running the Example](#geode-samples-boot-configuration-run)
-- [Auto-configuration for VMware GemFire, Take
+- [Auto-configuration for [vmware-gemfire-name], Take
   One](#geode-samples-boot-configuration-autoconfig)
   - [Cache instance](#_cache_instance)
   - [Repository instance](#_repository_instance)
   - [Entity-defined Regions](#_entity_defined_regions)
 - [Switching to
   Client/Server](#geode-samples-boot-configuration-clientserver)
-- [Auto-configuration for VMware GemFire, Take
+- [Auto-configuration for [vmware-gemfire-name], Take
   Two](#geode-samples-boot-configuration-clientserver-autoconfig)
 - [Securing the Client &
   Server](#geode-samples-boot-configuration-clientserver-security)
@@ -43,11 +43,11 @@ Table of Contents
 - [Conclusion](#geode-samples-boot-configuration-conclusion)
 
 This guide walks you through building a simple Customer Service, Spring
-Boot application using VMware GemFire to manage Customer interactions.
-You should already be familiar with Spring Boot and VMware GemFire.
+Boot application using [vmware-gemfire-name] to manage Customer interactions.
+You should already be familiar with Spring Boot and [vmware-gemfire-name].
 
 By the end of this lesson, you should have a better understanding of
-what Spring Boot for VMware GemFire’s (SBDG) *auto-configuration*
+what [spring-boot-gemfire-name]’s  *auto-configuration*
 support actually does.
 
 This guide compliments the [Auto-configuration vs. Annotation-based
@@ -58,11 +58,11 @@ Let’s begin.
 
 This guide builds on the <a
 href="https://www.youtube.com/watch?v=OvY5wzCtOV0"><em>Simplifying
-VMware GemFire with Spring Data</em></a> presentation by John Blum
+[vmware-gemfire-name] with Spring Data</em></a> presentation by John Blum
 during the 2017 SpringOne Platform conference. While this example as
 well as the example presented in the talk both use Spring Boot, only
-this example is using Spring Boot for VMware GemFire (SBDG). This guide
-improves on the example from the presentation by using SBDG.
+this example is using [spring-boot-gemfire-name]. This guide
+improves on the example from the presentation by using [spring-boot-gemfire-name].
 
 Refer to the <a
 href="../index.html#geode-configuration-auto">Auto-configuration</a>
@@ -104,9 +104,9 @@ about. Lombok is useful for testing or prototyping purposes. However,
 using Project Lombok is optional and in most production applications,
 and I would not recommend it.
 
-Additionally, the `Customer` class is annotated with Spring Data Geode’s
-(SDG) `@Region` annotation. `@Region` is a mapping annotation declaring
-the VMware GemFire cache `Region` in which `Customer` data will be
+Additionally, the `Customer` class is annotated with [spring-data-gemfire-name]’s
+ `@Region` annotation. `@Region` is a mapping annotation declaring
+the [vmware-gemfire-name] cache `Region` in which `Customer` data will be
 persisted.
 
 Finally, the `org.springframework.data.annotation.Id` annotation was
@@ -116,7 +116,7 @@ in the "Customers"\`Region\`. A `Region` is a distributed version of
 `java.util.Map`.
 
 If the <code>@Region</code> annotation is not
-explicitly declared, then SDG uses the simple name of the class, which
+explicitly declared, then [spring-data-gemfire-name] uses the simple name of the class, which
 in this case is "Customer", to identify the <code>Region</code>.
 However, there is another reason we explicitly annotated the
 <code>Customer</code> class with <code>@Region</code>, which we will
@@ -125,7 +125,7 @@ cover below.
 ### `CustomerRepository` interface
 
 Next, we create a *Data Access Object* (DAO) to persist `Customers` to
-VMware GemFire. We create the DAO using Spring Data’s *Repository*
+[vmware-gemfire-name]. We create the DAO using Spring Data’s *Repository*
 abstraction:
 
 CustomerRepository inteface
@@ -143,7 +143,7 @@ provides basic CRUD (CREATE, READ, UPDATE, and DELETE) data access
 operations along with the ability to define simple queries on
 `Customers`.
 
-Spring Data Geode will create a proxy implementation for your
+[spring-data-gemfire-name] will create a proxy implementation for your
 application-specific *Repository* interfaces, implementing any query
 methods you may have explicitly defined on the interface in addition to
 the data access operations provided in the `CrudRepository` interface
@@ -151,18 +151,18 @@ extension.
 
 In addition to the base `CrudRepository` operations,
 `CustomerRepository` has additionally defined a
-`findByNameLike(:String):Customer` query method. The VMware GemFire OQL
+`findByNameLike(:String):Customer` query method. The [vmware-gemfire-name] OQL
 query is derived from the method declaration.
 
 <p class="note"><strong>Note:</strong>
 Though it is beyond the scope of this document,
 Spring Data’s <em>Repository</em> infrastructure is capable of
-generating data store specific queries (e.g. VMware GemFire OQL) for
+generating data store specific queries (e.g. [vmware-gemfire-name] OQL) for
 <em>Repository</em> interface query method declarations just by
 introspecting the method signature. The query methods must conform to
 specific conventions. Alternatively, users may use <code>@Query</code>
 to annotate query methods to specify the raw query instead (i.e. OQL for
-VMware GemFire, SQL for JDBC, possibly HQL for JPA, and so on).
+[vmware-gemfire-name], SQL for JDBC, possibly HQL for JPA, and so on).
 </p>
 
 ### `CustomerServiceApplication` (Spring Boot main class)
@@ -254,7 +254,7 @@ There is also nothing special about running the
 
 `$ gradlew :spring-geode-samples-boot-configuration:bootRun`
 
-If you wish to adjust the log levels for either VMware GemFire or Spring
+If you wish to adjust the log levels for either [vmware-gemfire-name] or Spring
 Boot while running the example, then you can set the log level for the
 individual Loggers (i.e. `org.apache` or `org.springframework`) in
 `src/main/resources/logback.xml`:
@@ -286,16 +286,16 @@ spring-geode-samples/boot/configuration/src/main/resources/logback.xml
 </configuration>
 ```
 
-## Auto-configuration for VMware GemFire, Take One
+## Auto-configuration for [vmware-gemfire-name], Take One
 
 "*With great power comes great responsibility.*" - Uncle Ben
 
 While it is not apparent (yet), there is a lot of hidden, intrinsic
-power provided by Spring Boot Data Geode (SBDG) in this example.
+power provided by [spring-boot-gemfire-name]  in this example.
 
 ### Cache instance
 
-First, in order to put anything into VMware GemFire you need a cache
+First, in order to put anything into [vmware-gemfire-name] you need a cache
 instance. A cache instance is also required to create `Regions` which
 ultimately store the application’s data (state). Again, a `Region` is
 just a Key/Value data structure, like `java.util.Map`, mapping a Key to
@@ -306,16 +306,16 @@ a Value, or an Object. A `Region` is actually much more than a simple
 <p class="note"><strong>Note:</strong>
 A complete discussion of <code>Region</code> and it
 concepts are beyond the scope of this document. You may learn more by
-reading VMware GemFire’s User Guide on <a
+reading [vmware-gemfire-name]’s User Guide on <a
 href="https://geode.apache.org/docs/guide/1.15/developing/region_options/chapter_overview.html">Regions</a>.
 </p>
 
-SBDG is opinionated and assumes most VMware GemFire applications will be
-client applications in VMware GemFire’s [client/server
+[spring-boot-gemfire-name] is opinionated and assumes most [vmware-gemfire-name] applications will be
+client applications in [vmware-gemfire-name]’s [client/server
 topology](https://geode.apache.org/docs/guide/1.15/topologies_and_comm/cs_configuration/chapter_overview.html).
-Therefore, SBDG auto-configures a `ClientCache` instance by default.
+Therefore, [spring-boot-gemfire-name] auto-configures a `ClientCache` instance by default.
 
-The intrinsic `ClientCache` *auto-configuration* provided by SBDG can be
+The intrinsic `ClientCache` *auto-configuration* provided by [spring-boot-gemfire-name] can be
 made apparent by disabling it:
 
 Disabling ClientCache Auto-configuration
@@ -377,11 +377,11 @@ public class CustomerServiceApplication {
 ```
 
 That is, you would need to explicitly declare the
-`@ClientCacheApplication` annotation if you were not using SBDG.
+`@ClientCacheApplication` annotation if you were not using [spring-boot-gemfire-name].
 
 ### Repository instance
 
-We are also using the Spring Data (Geode) *Repository* infrastructure in
+We are also using the Spring Data ([vmware-gemfire-short-name]) *Repository* infrastructure in
 the Customer Service application. This should be evident from our
 declaration and definition of the application-specific
 `CustomerRepository` interface.
@@ -446,7 +446,7 @@ That is, you would need to explicitly declare the
 `@EnableGemfireRepositories` annotation and set the `basePackages`
 attribute, or the equivalent, type-safe `basePackageClasses` attribute,
 to the package containing your application *Repository* interfaces, if
-you were not using SBDG.
+you were not using [spring-boot-gemfire-name].
 
 ### Entity-defined Regions
 
@@ -486,7 +486,7 @@ XML Bean Definition for the "Customers" Region
 <gfe:client-region id="Customers" shortcut="LOCAL"/>
 ```
 
-But, using SDG’s `@EnableEntityDefinedRegions` annotation is very
+But, using [spring-data-gemfire-name]’s `@EnableEntityDefinedRegions` annotation is very
 convenient and can scan for the Regions (whether client or server (peer)
 Regions) required by your application based the entity classes
 themselves (e.g. `Customer`):
@@ -500,9 +500,9 @@ class CustomerServiceApplication { }
 
 The `basePackageClasses` attribute is an alternative to `basePackages`,
 and a type-safe way to target the packages (and subpackages) containing
-the entity classes that your application will persist to VMware GemFire.
+the entity classes that your application will persist to [vmware-gemfire-name].
 You only need to choose one class from each top-level package for where
-you want the scan to begin. Spring Data Geode uses this class to
+you want the scan to begin. [spring-data-gemfire-name] uses this class to
 determine the package to begin the scan. 'basePackageClasses\` accepts
 an array of `Class` types so you can specify multiple independent
 top-level packages. The annotation also includes the ability to filter
@@ -583,18 +583,18 @@ demonstrated
 [here](../index.html#geode-cluster-configuration-bootstrapping).
 
 Although, for this example, we are going to use the tools provided with
-VMware GemFire, i.e. *Gfsh* (VMware GemFire Shell) for reasons that will
+[vmware-gemfire-name], i.e. *Gfsh* ([vmware-gemfire-name] Shell) for reasons that will
 become apparent later.
 
 You need to <a
 href="https://geode.apache.org/releases/">download</a> and <a
 href="https://geode.apache.org/docs/guide/18/prereq_and_install.html">install</a>
-a full distribution of VMware GemFire to make use of the provided tools.
+a full distribution of [vmware-gemfire-name] to make use of the provided tools.
 After installation, you will need to set the <code>GEODE</code>
 environment variable to the location of your installation. Additionally,
 add <code>$GEODE/bin</code> to your system <code>$PATH</code>.
 
-Once VMware GemFire has been successfully installed, you can open a
+Once [vmware-gemfire-name] has been successfully installed, you can open a
 command prompt (terminal) and do:
 
 Running Gfsh
@@ -611,7 +611,7 @@ $ gfsh
  / /__/ / ____/  _____/ / /    / /
 /______/_/      /______/_/    /_/    1.2.1
 
-Monitor and Manage VMware GemFire
+Monitor and Manage [vmware-gemfire-name]
 gfsh>
 ```
 
@@ -623,7 +623,7 @@ cluster:
 Gfsh shell script
 
 ``` highlight
-# Gfsh shell script to start a simple GemFire/Geode cluster
+# Gfsh shell script to start a simple [vmware-gemfire-name]/[vmware-gemfire-short-name] cluster
 
 start locator --name=LocatorOne --log-level=config
 start server --name=ServerOne --log-level=config
@@ -640,12 +640,12 @@ Run Gfsh shell script
 gfsh>run --file=/path/to/spring-boot-data-geode/samples/boot/configuration/src/main/resources/geode/bin/start-simple-cluster.gfsh
 1. Executing - start locator --name=LocatorOne --log-level=config
 
-Starting a Geode Locator in /Users/jblum/pivdev/lab/LocatorOne...
+Starting a [vmware-gemfire-short-name] Locator in /Users/jblum/pivdev/lab/LocatorOne...
 ....
 Locator in /Users/jblum/pivdev/lab/LocatorOne on 10.99.199.24[10334] as LocatorOne is currently online.
 Process ID: 68425
 Uptime: 2 seconds
-Geode Version: 1.2.1
+GemFire Version: 1.2.1
 Java Version: 1.8.0_192
 Log File: /Users/jblum/pivdev/lab/LocatorOne/LocatorOne.log
 JVM Arguments: -Dgemfire.log-level=config -Dgemfire.enable-cluster-configuration=true -Dgemfire.load-cluster-configuration-from-dir=false -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
@@ -657,12 +657,12 @@ Cluster configuration service is up and running.
 
 2. Executing - start server --name=ServerOne --log-level=config
 
-Starting a Geode Server in /Users/jblum/pivdev/lab/ServerOne...
+Starting a [vmware-gemfire-short-name] Server in /Users/jblum/pivdev/lab/ServerOne...
 .....
 Server in /Users/jblum/pivdev/lab/ServerOne on 10.99.199.24[40404] as ServerOne is currently online.
 Process ID: 68434
 Uptime: 2 seconds
-Geode Version: 1.2.1
+GemFire Version: 1.2.1
 Java Version: 1.8.0_192
 Log File: /Users/jblum/pivdev/lab/ServerOne/ServerOne.log
 JVM Arguments: -Dgemfire.default.locators=10.99.199.24[10334] -Dgemfire.use-cluster-configuration=true -Dgemfire.start-dev-rest-api=false -Dgemfire.log-level=config -XX:OnOutOfMemoryError=kill -KILL %p -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
@@ -675,7 +675,7 @@ in the <code>run --file=…​</code> <em>Gfsh</em> command above based on
 where you git cloned the <code>spring-boot-data-geode</code> project to
 your computer.
 
-Now, our simple cluster with an VMware GemFire Locator and (Cache)
+Now, our simple cluster with an [vmware-gemfire-name] Locator and (Cache)
 Server is running. We can verify by listing and describing the members:
 
 List and Describe Members
@@ -788,8 +788,8 @@ But, what if you have hundreds of application domain objects each
 requiring a Region for persistence? It is not an unusual or unreasonable
 requirement in any practical enterprise scale application.
 
-While it is not a "convention" in Spring Boot for VMware GemFire (SBDG),
-Spring Data for VMware GemFire (SDG) comes to our rescue. We simply only
+While it is not a "convention" in [spring-boot-gemfire-name],
+[spring-data-gemfire-name] comes to our rescue. We simply only
 need to enable cluster configuration from the client:
 
 Enable Cluster Configuration
@@ -804,37 +804,37 @@ public class CustomerServiceApplication {
 ```
 
 That is, we additionally annotate our Customer Service application class
-with SDG’s `@EnableClusterConfiguration` annotation. We have also set
+with [spring-data-gemfire-name]’s `@EnableClusterConfiguration` annotation. We have also set
 the `useHttp` attribute to `true`. This sends the configuration metadata
-from the client to the cluster via VMware GemFire’s Management REST API.
+from the client to the cluster via [vmware-gemfire-name]’s Management REST API.
 
-This is useful when your VMware GemFire cluster may be running behind a
+This is useful when your [vmware-gemfire-name] cluster may be running behind a
 firewall, such as on public cloud infrastructure. However, there are
 other benefits to using HTTP as well. As stated, the client sends
-configuration metadata to VMware GemFire’s Management REST interface,
+configuration metadata to [vmware-gemfire-name]’s Management REST interface,
 which is a facade for the server-side Cluster Configuration Service. If
 another peer (e.g. server) is added to the cluster as a member, then
 this member will get the same configuration. If the entire cluster goes
 down, it will have the same configuration when it is restarted.
 
-SDG is careful not to stomp on existing Regions since those Regions may
+[spring-data-gemfire-name] is careful not to stomp on existing Regions since those Regions may
 have data already. Declaring the `@EnableClusterConfiguration`
 annotation is a useful development-time feature, but it is recommended
 that you explicitly define and declare your Regions in production
 environments, either using *Gfsh* or Spring confg.
 
 <p class="note"><strong>Note:</strong>
-It is now possible to replace the SDG
-<code>@EnableClusterConfiguration</code> annotation with SBDG’s
+It is now possible to replace the [spring-data-gemfire-name]
+<code>@EnableClusterConfiguration</code> annotation with [spring-boot-gemfire-name]’s
 <code>@EnableClusterAware</code> annotation, which has the same effect
 of pushing configuration metadata from the client to the server (or
-cluster). Additionally, SBDG’s <code>@EnableClusterAware</code>
+cluster). Additionally, [spring-boot-gemfire-name]’s <code>@EnableClusterAware</code>
 annotation makes it unnecessary to explicitly have to configure the
-<code>clientRegionShortcut</code> on the SDG
+<code>clientRegionShortcut</code> on the [spring-data-gemfire-name]
 <code>@EnableEntityDefinedRegions</code> annotation (or similar
-annotation, e.g. SDG’s <code>@EnableCachingDefinedRegions</code>).
-Finally, because the SBDG <code>@EnableClusterAware</code> annotation is
-meta-annotated with SDG’s
+annotation, e.g. [spring-data-gemfire-name]’s <code>@EnableCachingDefinedRegions</code>).
+Finally, because the [spring-boot-gemfire-name] <code>@EnableClusterAware</code> annotation is
+meta-annotated with [spring-data-gemfire-name]’s
 <code>@EnableClusterConfiguration annotation</code> is automatically
 configures the <code>useHttp</code> attribute to <code>true</code>.
 </p>
@@ -907,7 +907,7 @@ That was easy!
 
 
 
-## Auto-configuration for VMware GemFire, Take Two
+## Auto-configuration for [vmware-gemfire-name], Take Two
 
 What may not be apparent in this example up to this point is how the
 data got from the client to the server. Certainly, our client did send
@@ -946,7 +946,7 @@ So, how was the data sent then? How were we able to access the data
 stored in the server(s) on the cluster with the OQL query
 `SELECT customer.name FROM /Customers customer` as seen above?
 
-Well, VMware GemFire provides 2 proprietary serialization formats in
+Well, [vmware-gemfire-name] provides 2 proprietary serialization formats in
 addition to *Java Serialization*: [Data
 Serialization](https://geode.apache.org/docs/guide/1.15/developing/data_serialization/gemfire_data_serialization.html)
 and
@@ -956,17 +956,16 @@ or *Portable Data Exchange*.
 While *Data Serialization* is more efficient, PDX is more flexible (i.e.
 "portable"). PDX enables data to be queried in serialized form and is
 the format used to support both Java and Native Clients (C++, C#)
-simultaneously. Therefore, PDX is auto-configured in Spring Boot Data
-Geode (SBDG) by default.
+simultaneously. Therefore, PDX is auto-configured in [spring-boot-gemfire-name]  by default.
 
 This is convenient since you may not want to implement
 `java.io.Serializable` for all your application domain model types that
-you store in VMware GemFire. In other cases, you may not even have
+you store in [vmware-gemfire-name]. In other cases, you may not even have
 control over the types referred to by your application domain model
 types to make them `Serializable`, such as when using a 3rd party
 library.
 
-So, SBDG auto-configures PDX and uses Spring Data Geode’s
+So, [spring-boot-gemfire-name] auto-configures PDX and uses [spring-data-gemfire-name]’s
 `MappingPdxSerializer` as the `PdxSerializer` to de/serialize all
 application domain model types.
 
@@ -1060,15 +1059,15 @@ Region | size        | 0
        | data-policy | PARTITION
 ```
 
-So, SBDG takes care of all your serialization needs without you having
+So, [spring-boot-gemfire-name] takes care of all your serialization needs without you having
 to configure serialization or implement `java.io.Serializable` in all
 your application domain model types, including types your application
 domain model types might refer to, which may not be possible.
 
-If you were not using SBDG, then you would need to enable PDX
+If you were not using [spring-boot-gemfire-name], then you would need to enable PDX
 serialization explicitly.
 
-The PDX *auto-configuration* provided by SBDG is equivalent to:
+The PDX *auto-configuration* provided by [spring-boot-gemfire-name] is equivalent to:
 
 Equivalent PDX Configuration
 
@@ -1084,21 +1083,21 @@ public class CustomerServiceApplication {
 ```
 
 In addition to the `@ClientCacheApplication` annotation, you would need
-to annotate the `CustomerServiceApplication` class with SDG’s
+to annotate the `CustomerServiceApplication` class with [spring-data-gemfire-name]’s
 `@EnablePdx` annotation, which is responsible for configuring PDX
-serialization and registering SDG’s `MappingPdxSerializer`.
+serialization and registering [spring-data-gemfire-name]’s `MappingPdxSerializer`.
 
 
 
 ## Securing the Client & Server
 
-The last bit of *auto-configuration* provided by SBDG that we will look
+The last bit of *auto-configuration* provided by [spring-boot-gemfire-name] that we will look
 at in this guide involves Security, and specifically,
 Authentication/Authorization (Auth) along with Transport Layer Security
 (TLS) using SSL.
 
 In today’s age, Security is no laughing matter and making sure your
-applications are secure is a first-class concern. This is why SBDG takes
+applications are secure is a first-class concern. This is why [spring-boot-gemfire-name] takes
 Security very seriously and attempts to make this as simple as possible.
 You are definitely encouraged to read the relevant
 [chapter](../security.html#geode-security) in this
@@ -1106,21 +1105,21 @@ Reference Documentation on the provided Security \_auto-configuration
 support.
 
 We will now expand on our example to secure the client and server
-processes, with both Auth and TLS using SSL, and then see how SBDG helps
+processes, with both Auth and TLS using SSL, and then see how [spring-boot-gemfire-name] helps
 us properly configure these concerns, easily and reliably.
 
 ### Securing the server
 
 First, we must secure the cluster (i.e. the Locator and Server).
 
-In a nutshell, when using the VMware GemFire API (with no help from
+In a nutshell, when using the [vmware-gemfire-name] API (with no help from
 Spring), you must do the following:
 
 1.  (Auth) Implement the `org.apache.geode.security.SecurityManager`
     interface.
 
 2.  (Auth) Configure your custom `SecurityManager` using the VMware
-    GemFire `security-manager` property in `gemfire.properties`.
+    [vmware-gemfire-short-name] `security-manager` property in `gemfire.properties`.
 
 3.  (Auth) Either create a `gfsecurity.properties` file and set the
     `security-username` and `security-password` properties, or…​
@@ -1129,12 +1128,12 @@ Spring), you must do the following:
     interface and set the `security-peer-auth-init` property in
     `gemfire.properties` as described in [Implementing
     Authentication](https://geode.apache.org/docs/guide/1.15/managing/security/implementing_authentication.html)
-    of the VMware GemFire User Guide.
+    of the [vmware-gemfire-name] User Guide.
 
 5.  (SSL) Then, you must create Java KeyStore (jks) files for both the
     keystore and truststore used to configure the SSL Socket.
 
-6.  (SSL) Configure the Java KeyStores using the VMware GemFire
+6.  (SSL) Configure the Java KeyStores using the [vmware-gemfire-name]
     `ssl-keystore` and `ssl-truststore` properties in
     `gemfire.properties`.
 
@@ -1142,7 +1141,7 @@ Spring), you must do the following:
     additionally set the `ssl-keystore-password` and
     `ssl-truststore-password` properties.
 
-8.  (SSL) Optionally, configure the VMware GemFire components that
+8.  (SSL) Optionally, configure the [vmware-gemfire-name] components that
     should be enabled with SSL using the `ssl-enabled-components`
     property (e.g. `locator` and `server` for client/server and Locator
     connections).
@@ -1159,10 +1158,10 @@ Fortunately, this sample provides *Gfsh* shell scripts to get you going:
 Gfsh shell script to start a secure cluster
 
 ``` highlight
-# Gfsh shell script to start a secure GemFire/Geode cluster
+# Gfsh shell script to start a secure [vmware-gemfire-name]/[vmware-gemfire-short-name] cluster
 
-set variable --name=CLASSPATH --value=${SBDG_HOME}/apache-geode-extensions/build/libs/apache-geode-extensions-@project-version@.jar
-set variable --name=GEMFIRE_PROPERTIES --value=${SBDG_HOME}/spring-geode-samples/boot/configuration/build/resources/main/geode/config/gemfire.properties
+set variable --name=CLASSPATH --value=${[spring-boot-gemfire-name]_HOME}/apache-geode-extensions/build/libs/apache-geode-extensions-@project-version@.jar
+set variable --name=GEMFIRE_PROPERTIES --value=${[spring-boot-gemfire-name]_HOME}/spring-geode-samples/boot/configuration/build/resources/main/geode/config/gemfire.properties
 
 start locator --name=LocatorOne --classpath=${CLASSPATH} --properties-file=${GEMFIRE_PROPERTIES}
 connect --user=test --password=test
@@ -1170,10 +1169,10 @@ start server --name=ServerOne --classpath=${CLASSPATH} --properties-file=${GEMFI
 ```
 
 <p class="note"><strong>Note:</strong>
-SBDG does provide server-side, peer Security
+[spring-boot-gemfire-name] does provide server-side, peer Security
 <em>auto-configuration</em> support. However, you must then configure
-and bootstrap your VMware GemFire servers with Spring. Again, an example
-of configuring/bootstrapping VMware GemFire servers with Spring is
+and bootstrap your [vmware-gemfire-name] servers with Spring. Again, an example
+of configuring/bootstrapping [vmware-gemfire-name] servers with Spring is
 provided <a
 href="../configuration-auto.html#geode-cluster-configuration-bootstrapping">here</a>.
 </p>
@@ -1218,18 +1217,18 @@ Caused by: org.apache.geode.security.AuthenticationRequiredException: No securit
     ...
 ```
 
-Even though SBDG provides *auto-configuration* support for client
+Even though [spring-boot-gemfire-name] provides *auto-configuration* support for client
 Security, and specifically Auth in this case, you still must supply a
 username and password, minimally.
 
 This is as easy as setting a username/password in Spring Boot
-`application.properties` using Spring Data Geode’s (SDG) well-known and
+`application.properties` using [spring-data-gemfire-name]’s  well-known and
 documented properties:
 
 Application security configuration properties
 
 ``` highlight
-# Security configuration for Apache Geode using Spring Boot and Spring Data for Apache Geode (SDG) properties
+# Security configuration for [vmware-gemfire-name] using Spring Boot and [spring-data-gemfire-name] properties
 
 spring.boot.data.gemfire.security.ssl.keystore.name=example-trusted-keystore.jks
 spring.data.gemfire.security.username=test
@@ -1239,8 +1238,8 @@ spring.data.gemfire.security.ssl.truststore.password=s3cr3t
 ```
 
 The act of setting a username and password triggers the client Security
-*auto-configuration* provided by SBDG. There are many steps to
-configuring client Security in VMware GemFire properly, as there was on
+*auto-configuration* provided by [spring-boot-gemfire-name]. There are many steps to
+configuring client Security in [vmware-gemfire-name] properly, as there was on
 the server. All you need to worry about is supplying the credentials.
 Easy!
 
@@ -1286,7 +1285,7 @@ Caused by: org.apache.geode.security.AuthenticationRequiredException: No securit
     ....
 ```
 
-Without the support of SBDG’s client Security *auto-configuration*, you
+Without the support of [spring-boot-gemfire-name]’s client Security *auto-configuration*, you
 would need to explicitly enable Security:
 
 Explicitly Enable Security
@@ -1307,14 +1306,14 @@ would still need to 1) set the username/password properties in Spring
 Boot `application.properties` and 2) explicitly declare the
 `@EnableSecurity` annotation.
 
-Therefore, SBDG (with help from SDG, under-the-hood) does the heavy
+Therefore, [spring-boot-gemfire-name] (with help from [spring-data-gemfire-name], under-the-hood) does the heavy
 lifting, automatically for you.
 
 #### TLS with SSL
 
 What about SSL?
 
-With either SBDG SSL *auto-configuration* disabled:
+With either [spring-boot-gemfire-name] SSL *auto-configuration* disabled:
 
 Disable SSL Auto-configuration
 
@@ -1330,7 +1329,7 @@ public class CustomerServiceApplication {
 Or optionally, no explicit Java KeyStore configuration, iff necessary,
 such as:
 
-Java KeyStore Configuration for SSL using SBDG
+Java KeyStore Configuration for SSL using [spring-boot-gemfire-name]
 
 ``` highlight
 spring.boot.data.gemfire.security.ssl.keystore.name=myTrustedKeyStore.jks
@@ -1340,7 +1339,7 @@ spring.data.gemfire.security.ssl.truststore.password=s3cr3t
 
 Or possibly:
 
-Java KeyStore Configuration for SSL using SDG
+Java KeyStore Configuration for SSL using [spring-data-gemfire-name]
 
 ``` highlight
 spring.data.gemfire.security.ssl.keystore=/file/system/path/to/trusted-keystore.jks
@@ -1374,7 +1373,7 @@ Caused by: org.apache.geode.security.AuthenticationRequiredException: Server exp
     at org.apache.geode.cache.client.ClientCacheFactory.create(ClientCacheFactory.java:212) ~[geode-core-1.2.1.jar:?]
 ```
 
-With very minimal to no configuration, SBDG can automatically configure
+With very minimal to no configuration, [spring-boot-gemfire-name] can automatically configure
 SSL, as explained in [Transport Layer Security using
 SSL](../index.html#geode-security-ssl) section under Security. In fact,
 no configuration is actually required if the trusted Java KeyStore file
@@ -1394,7 +1393,7 @@ spring.boot.data.gemfire.security.ssl.keystore.name=myTrustedKeyStore.jks
 If you Java KeyStore (JKS) file is secure, then you can specify the
 password:
 
-Java KeyStore Configuration for SSL using SBDG
+Java KeyStore Configuration for SSL using [spring-boot-gemfire-name]
 
 ``` highlight
 spring.data.gemfire.security.ssl.keystore.password=s3cr3t
@@ -1404,7 +1403,7 @@ spring.data.gemfire.security.ssl.truststore.password=s3cr3t
 Or, if the Java KeyStore files for SSL are completely of a different
 variety:
 
-Complete Java KeyStore Configuration for SSL using SDG
+Complete Java KeyStore Configuration for SSL using [spring-data-gemfire-name]
 
 ``` highlight
 spring.data.gemfire.security.ssl.keystore=/file/system/path/to/trusted-keystore.pks11
@@ -1415,11 +1414,11 @@ spring.data.gemfire.security.ssl.truststore.password=differentS3cr3t
 ```
 
 Again, you can customize your configuration as much as needed or let
-SBDG handle things by following the defaults.
+[spring-boot-gemfire-name] handle things by following the defaults.
 
-The SBDG SSL *auto-configuration* is equivalent to the following in SDG:
+The [spring-boot-gemfire-name] SSL *auto-configuration* is equivalent to the following in [spring-data-gemfire-name]:
 
-SDG SSL Configuration
+[spring-data-gemfire-name] SSL Configuration
 
 ``` highlight
 @SpringBootApplication
@@ -1447,12 +1446,11 @@ requirements grow.
 ## Conclusion
 
 Hopefully this guide has now given you a better understanding of what
-the *auto-configuration* support provided by Spring Boot for VMware
-GemFire (SBDG) is giving you when developing VMware GemFire applications
+the *auto-configuration* support provided by [spring-boot-gemfire-name]  is giving you when developing [vmware-gemfire-name] applications
 with Spring.
 
-In this guide, we have seen that SBDG provides *auto-configuration*
-support for the following Spring Data for VMware GemFire’s (SDG)
+In this guide, we have seen that [spring-boot-gemfire-name] provides *auto-configuration*
+support for the following [spring-data-gemfire-name]’s 
 annotations:
 
 - `@ClientCacheApplication`
@@ -1465,8 +1463,8 @@ annotations:
 
 - `@EnableSsl`
 
-While we also presented these additional SDG annotations, which are not
-auto-configured by SDG:
+While we also presented these additional [spring-data-gemfire-name] annotations, which are not
+auto-configured by [spring-data-gemfire-name]:
 
 - `@EnableEntityDefinedRegions`
 
@@ -1474,7 +1472,7 @@ auto-configured by SDG:
 
 They are optional and were shown for pure convenience.
 
-Technically, the only annotation you are required to declare when SBDG
+Technically, the only annotation you are required to declare when [spring-boot-gemfire-name]
 is on the classpath, is `@SpringBootApplication`, leaving our Customer
 Service application declaration as simple as:
 
@@ -1489,8 +1487,8 @@ public class CustomerServiceApplication {
 
 That is it! That is all! However, this guide is by no means complete.
 
-This guide does not cover all the *auto-configuration* provided by SBDG.
-SBDG additionally provides *auto-configuration* for Spring’s Cache
+This guide does not cover all the *auto-configuration* provided by [spring-boot-gemfire-name].
+[spring-boot-gemfire-name] additionally provides *auto-configuration* for Spring’s Cache
 Abstraction, Continuous Query (CQ), Function Execution &
 Implementations, `GemfireTemplates` and Spring Session. However, the
 concepts and effects are similar to what has been presented above.

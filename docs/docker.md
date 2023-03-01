@@ -71,18 +71,18 @@ to Containers”] to learn more.</td>
 
 
 
-VMware GemFire can also run in a controlled, containerized
+[vmware-gemfire-name] can also run in a controlled, containerized
 environment. The goal of this chapter is to get you started running
-VMware GemFire in a container and interfacing to a containerized
-VMware GemFire cluster from your Spring Boot,
-VMware GemFire client applications.
+[vmware-gemfire-name] in a container and interfacing to a containerized
+[vmware-gemfire-name] cluster from your Spring Boot,
+[vmware-gemfire-name] client applications.
 
 
 
 
 
 This chapter does not cover how to run your Spring Boot,
-VMware GemFire client applications in a container, since that is
+[vmware-gemfire-name] client applications in a container, since that is
 already covered by Spring Boot (again, see the Spring Boot documentation
 for
 https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#building-docker-images\[Docker
@@ -90,8 +90,8 @@ images\] and
 https://docs.spring.io/spring-boot/docs/current/reference/html/deployment.html#containers-deployment\[container
 deployment\], along with Docker’s
 [documentation](https://docs.docker.com/get-started/overview/)).
-Instead, our focus is on how to run an VMware GemFire cluster in
-a container and connect to it from a Spring Boot, VMware GemFire
+Instead, our focus is on how to run an [vmware-gemfire-name] cluster in
+a container and connect to it from a Spring Boot, [vmware-gemfire-name]
 client application, regardless of whether the application runs in a
 container or not.
 
@@ -99,23 +99,23 @@ container or not.
 
 
 
-### Acquiring the VMware GemFire Docker Image
+### Acquiring the [vmware-gemfire-name] Docker Image
 
 
 
-To run an VMware GemFire cluster inside a Docker container, you
+To run an [vmware-gemfire-name] cluster inside a Docker container, you
 must first acquire the Docker image. You can get the
-VMware GemFire Docker image from [Docker
+[vmware-gemfire-name] Docker image from [Docker
 Hub](https://hub.docker.com/r/apachegeode/geode/).
 
 
 
 
 
-While VMware GemFire's https://geode.apache.org/docs/guide/115\[official
-documentation\] is less than clear on how to use VMware GemFire
+While [vmware-gemfire-name]'s https://geode.apache.org/docs/guide/115\[official
+documentation\] is less than clear on how to use [vmware-gemfire-name]
 in Docker, we find a bit of relief in the
-{apache-geode-wiki}/How+to+use+Geode+on+Docker\[Wiki\]. However, for a
+{apache-geode-wiki}/How+to+use+[vmware-gemfire-short-name]+on+Docker\[Wiki\]. However, for a
 complete and comprehensive write up, see the instructions in the
 [README](https://github.com/markito/geode-docker#building-the-container-image)
 from this [GitHub Repo](https://github.com/markito/geode-docker).
@@ -151,7 +151,7 @@ Effectively, the high-level steps are as follows:
 
 
 
-1\) Acquire the VMware GemFire Docker image from Docker Hub by
+1\) Acquire the [vmware-gemfire-name] Docker image from Docker Hub by
 using the `docker pull` command (shown with typical output) from the
 command-line:
 
@@ -161,7 +161,7 @@ command-line:
 
 
 
-Example 1. Download/Install the VMware GemFire Docker Image
+Example 1. Download/Install the [vmware-gemfire-name] Docker Image
 
 
 
@@ -192,14 +192,14 @@ docker.io/apachegeode/geode:latest
 
 Instead of pulling from the `nightly` tag as suggested, the Spring team
 highly recommends that you pull from the `latest` tag, which pulls a
-stable, production-ready VMware GemFire Docker image based on
-the latest VMware GemFire GA version.
+stable, production-ready [vmware-gemfire-name] Docker image based on
+the latest [vmware-gemfire-name] GA version.
 
 
 
 
 
-2\) Verify that the VMware GemFire Docker image was downloaded
+2\) Verify that the [vmware-gemfire-name] Docker image was downloaded
 and installed successfully:
 
 
@@ -232,7 +232,7 @@ tomee                            11-jre-8.0.0-M3-webprofile   0d03e4d395e6      
 
 
 
-Now you are ready to run VMware GemFire in a Docker container.
+Now you are ready to run [vmware-gemfire-name] in a Docker container.
 
 
 
@@ -240,13 +240,13 @@ Now you are ready to run VMware GemFire in a Docker container.
 
 
 
-### Running VMware GemFire in a Docker Container
+### Running [vmware-gemfire-name] in a Docker Container
 
 
 
-Now that you have acquired the VMware GemFire Docker image, you
-can run VMware GemFire in a Docker container. Use the following
-`docker run` command to start VMware GemFire in a Docker
+Now that you have acquired the [vmware-gemfire-name] Docker image, you
+can run [vmware-gemfire-name] in a Docker container. Use the following
+`docker run` command to start [vmware-gemfire-name] in a Docker
 container:
 
 
@@ -255,7 +255,7 @@ container:
 
 
 
-Example 2. Start the VMware GemFire Docker Container
+Example 2. Start the [vmware-gemfire-name] Docker Container
 
 
 
@@ -273,7 +273,7 @@ $ docker run -it -p 10334:10334 -p 40404:40404 -p 1099:1099 -p 7070:7070 -p 7575
  / /__/ / ____/  _____/ / /    / /
 /______/_/      /______/_/    /_/    1.12.0
 
-Monitor and Manage Apache Geode
+Monitor and Manage [vmware-gemfire-name]
 gfsh>
 ```
 
@@ -287,9 +287,9 @@ gfsh>
 
 
 
-Since the VMware GemFire Docker container was started in
+Since the [vmware-gemfire-name] Docker container was started in
 interactive mode, you must open a separate command-line shell to verify
-that the VMware GemFire Docker container is in fact running:
+that the [vmware-gemfire-name] Docker container is in fact running:
 
 
 
@@ -297,7 +297,7 @@ that the VMware GemFire Docker container is in fact running:
 
 
 
-Example 3. Verify the VMware GemFire Docker Container is Running
+Example 3. Verify the [vmware-gemfire-name] Docker Container is Running
 
 
 
@@ -323,7 +323,7 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 
 
 
-You know that the VMware GemFire Docker container is running
+You know that the [vmware-gemfire-name] Docker container is running
 since we ended up at a Gfsh command prompt in the interactive shell.
 
 
@@ -331,13 +331,13 @@ since we ended up at a Gfsh command prompt in the interactive shell.
 
 
 We also mapped ports between the Docker container and the host system,
-exposing well-known ports used by VMware GemFire server-side
+exposing well-known ports used by [vmware-gemfire-name] server-side
 cluster processes, such as Locators and CacheServers:
 
 
 
 <table class="tableblock frame-all grid-all" style="width: 30%;">
-<caption>Table 1. VMware GemFire Ports</caption>
+<caption>Table 1. [vmware-gemfire-name] Ports</caption>
 <colgroup>
 <col style="width: 66%" />
 <col style="width: 33%" />
@@ -368,14 +368,14 @@ cluster processes, such as Locators and CacheServers:
 </tbody>
 </table>
 
-Table 1. VMware GemFire Ports
+Table 1. [vmware-gemfire-name] Ports
 
 
 
-It is unfortunate that the VMware GemFire Docker image gives you
+It is unfortunate that the [vmware-gemfire-name] Docker image gives you
 only a Gfsh command prompt, leaving you with the task of provisioning a
 cluster. It would have been more useful to provide preconfigured Docker
-images with different VMware GemFire cluster configurations,
+images with different [vmware-gemfire-name] cluster configurations,
 such as one Locator and one server or two Locators and four servers, and
 so on. However, we can start the cluster ourselves.
 
@@ -385,11 +385,11 @@ so on. However, we can start the cluster ourselves.
 
 
 
-### Start an VMware GemFire Cluster in Docker
+### Start an [vmware-gemfire-name] Cluster in Docker
 
 
 
-From inside the VMware GemFire Docker container, we can start a
+From inside the [vmware-gemfire-name] Docker container, we can start a
 Locator and a server:
 
 
@@ -398,7 +398,7 @@ Locator and a server:
 
 
 
-Example 4. Start VMware GemFire Locator & Server
+Example 4. Start [vmware-gemfire-name] Locator & Server
 
 
 
@@ -410,12 +410,12 @@ Example 4. Start VMware GemFire Locator & Server
 
 ``` highlight
 gfsh>start locator --name=LocatorOne --log-level=config --hostname-for-clients=localhost
-Starting a Geode Locator in /LocatorOne...
+Starting a [vmware-gemfire-short-name] Locator in /LocatorOne...
 .........
 Locator in /LocatorOne on 3b30b9ffc5dc[10334] as LocatorOne is currently online.
 Process ID: 167
 Uptime: 9 seconds
-Geode Version: 1.12.0
+GemFire Version: 1.12.0
 Java Version: 1.8.0_212
 Log File: /LocatorOne/LocatorOne.log
 JVM Arguments: -Dgemfire.enable-cluster-configuration=true -Dgemfire.load-cluster-configuration-from-dir=false -Dgemfire.log-level=config -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
@@ -427,12 +427,12 @@ Cluster configuration service is up and running.
 
 
 gfsh>start server --name=ServerOne --log-level=config --hostname-for-clients=localhost
-Starting a Geode Server in /ServerOne...
+Starting a [vmware-gemfire-short-name] Server in /ServerOne...
 .......
 Server in /ServerOne on 3b30b9ffc5dc[40404] as ServerOne is currently online.
 Process ID: 267
 Uptime: 7 seconds
-Geode Version: 1.12.0
+GemFire Version: 1.12.0
 Java Version: 1.8.0_212
 Log File: /ServerOne/ServerOne.log
 JVM Arguments: -Dgemfire.default.locators=172.17.0.2[10334] -Dgemfire.start-dev-rest-api=false -Dgemfire.use-cluster-configuration=true -Dgemfire.log-level=config -Dgemfire.launcher.registerSignalHandlers=true -Djava.awt.headless=true -Dsun.rmi.dgc.server.gcInterval=9223372036854775806
@@ -493,7 +493,7 @@ Client Connections : 0
 
 
 
-We now have an VMware GemFire cluster running with one Locator
+We now have an [vmware-gemfire-name] cluster running with one Locator
 and one server inside a Docker container. We deliberately started the
 cluster with a minimal configuration. For example, we have no Regions in
 which to store data:
@@ -523,9 +523,9 @@ No Regions Found
 
 
 
-However, that is OK. Once more, we want to show the full power of SBDG
+However, that is OK. Once more, we want to show the full power of [spring-boot-gemfire-name]
 and let the Spring Boot application drive the configuration of the
-VMware GemFire cluster that runs in the Docker container, as
+[vmware-gemfire-name] cluster that runs in the Docker container, as
 required by the application.
 
 
@@ -540,12 +540,12 @@ Let’s have a quick look at our Spring Boot application.
 
 
 
-### Spring Boot, VMware GemFire Client Application Explained
+### Spring Boot, [vmware-gemfire-name] Client Application Explained
 
 
 
-The Spring Boot, VMware GemFire `ClientCache` application we use
-to connect to our VMware GemFire cluster that runs in the Docker
+The Spring Boot, [vmware-gemfire-name] `ClientCache` application we use
+to connect to our [vmware-gemfire-name] cluster that runs in the Docker
 container appears as follows:
 
 
@@ -554,7 +554,7 @@ container appears as follows:
 
 
 
-Example 5. Spring Boot, VMware GemFire Docker client application
+Example 5. Spring Boot, [vmware-gemfire-name] Docker client application
 
 
 
@@ -722,9 +722,9 @@ a proper Spring Boot application.
 
 
 
-We additionally annotate the main class with SBDG’s
+We additionally annotate the main class with [spring-boot-gemfire-name]’s
 `@EnableClusterAware` annotation to automatically detect the
-VMware GemFire cluster that runs in the Docker container and to
+[vmware-gemfire-name] cluster that runs in the Docker container and to
 push cluster configuration metadata from the application to the cluster
 as required by the application.
 
@@ -741,14 +741,14 @@ store `Customer` data.
 
 
 
-We use the SDG `@EnableEntityDefinedRegions` annotation to define the
+We use the [spring-data-gemfire-name] `@EnableEntityDefinedRegions` annotation to define the
 matching client `PROXY` “Customers” Region.
 
 
 
 
 
-Optionally, we have also annotated our main class with SBDG’s
+Optionally, we have also annotated our main class with [spring-boot-gemfire-name]’s
 `@UseMemberName` annotation to give the `ClientCache` a name, which we
 assert in the
 `assertClientCacheAndConfigureMappingPdxSerializer(:ClientCache)`
@@ -777,11 +777,11 @@ application in action.
 
 
 
-### Running the Spring Boot, VMware GemFire client application
+### Running the Spring Boot, [vmware-gemfire-name] client application
 
 
 
-When you run the Spring Boot, VMware GemFire client application,
+When you run the Spring Boot, [vmware-gemfire-name] client application,
 you should see output similar to the following:
 
 
@@ -931,19 +931,19 @@ Our application ran successfully.
 
 
 In this chapter, we saw how to connect a Spring Boot,
-VMware GemFire `ClientCache` application to an
-VMware GemFire cluster that runs in a Docker container.
+[vmware-gemfire-name] `ClientCache` application to an
+[vmware-gemfire-name] cluster that runs in a Docker container.
 
 
 
 
 
 Later, we provide more information on how to scale up, or rather scale
-out, our VMware GemFire cluster that runs in Docker.
+out, our [vmware-gemfire-name] cluster that runs in Docker.
 Additionally, we provide details on how you can use
-VMware GemFire's Docker image with Testcontainers when you write
+[vmware-gemfire-name]'s Docker image with Testcontainers when you write
 integration tests, which formally became part of the Spring Test for
-VMware GemFire (STDG) project.
+[vmware-gemfire-name] (STDG) project.
 
 
 

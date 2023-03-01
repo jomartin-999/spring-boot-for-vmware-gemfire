@@ -27,9 +27,9 @@ Table of Contents
     class](#geode-samples-caching-multisite-example-customerservice)
   - [`CustomerController`
     class](#geode-samples-caching-multisite-example-customercontroller)
-  - [Spring Boot, VMware GemFire `ClientCache`
+  - [Spring Boot, [vmware-gemfire-name] `ClientCache`
     application](#geode-samples-caching-multisite-example-client-app)
-  - [Spring Boot, VMware GemFire `CacheServer`
+  - [Spring Boot, [vmware-gemfire-name] `CacheServer`
     application](#geode-samples-caching-multisite-example-server-app)
   - [Cluster/Server
     Configuration](#geode-samples-caching-multisite-example-server-configuration)
@@ -44,12 +44,12 @@ Table of Contents
 This guide walks you through building a simple Spring Boot application
 using [Spring’s Cache
 Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache)
-backed by VMware GemFire as the *caching provider* for *Multi-Site
+backed by [vmware-gemfire-name] as the *caching provider* for *Multi-Site
 Caching*.
 
 It is assumed that the reader is familiar with the Spring *programming
 model*. While a user only requires a cursory knowledge of Spring’s
-*Cache Abstraction*, thorough knowledge of VMware GemFire’s multi-site
+*Cache Abstraction*, thorough knowledge of [vmware-gemfire-name]’s multi-site
 data management capabilities using a [WAN
 topology](https://geode.apache.org/docs/guide/1.15/topologies_and_comm/multi_site_configuration/chapter_overview.html)
 would be beneficial.
@@ -65,8 +65,7 @@ Let’s begin.
 Refer to the <a
 href="../index.html#geode-caching-provider-multi-site-caching">Multi-Site
 Caching</a> section in the <a
-href="../index.html#geode-caching-provider">Caching with VMware
-GemFire</a> chapter in the reference documentation for more
+href="../index.html#geode-caching-provider">Caching with [vmware-gemfire-name]</a> chapter in the reference documentation for more
 information.
 
 
@@ -166,7 +165,7 @@ allowing you to use any *caching provider* implementation you want,
 matching the unique requirements (or SLAs) of your use case.
 
 Various caching providers include, but are not limited to:
-`java.util.concurrent.ConcurrentMap`, VMware GemFire, Caffeine,
+`java.util.concurrent.ConcurrentMap`, [vmware-gemfire-name], Caffeine,
 Couchbase, Ehcache, Hazelcast, Infinispan, Redis, or any *JCache*
 (JSR-107) provider implementation. See the core Spring Framework’s
 documentation on [Configuring the Cache
@@ -182,22 +181,22 @@ also a simple matter to change the underlying <em>System of Record</em>
 (SOR), or persistent, data management technology given the Spring Data
 <em>Repository</em> interface is a common abstraction for persistent
 storage (e.g. JDBC, JPA or R2DBC for an RDBMS, MongoDB for Document
-store, Neo4j for a Graph store, VMware GemFire for a Key/Value store,
+store, Neo4j for a Graph store, [vmware-gemfire-name] for a Key/Value store,
 and so on). Some data management technologies can be used as both a
 <em>System or Record</em> (i.e. persistent data store) as well as a
-<em>Cache</em>, e.g. VMware GemFire.
+<em>Cache</em>, e.g. [vmware-gemfire-name].
 </p>
 
-See the Spring Boot for VMware GemFire (SBDG)
+See the [spring-boot-gemfire-name]
 chapter on <a href="../index.html#geode-caching-provider">Caching</a>
-for more information on how VMware GemFire can be used to enable
+for more information on how [vmware-gemfire-name] can be used to enable
 different caching patterns in your Spring Boot applications.
 
 ### WAN Topology
 
-Not all *caching providers* are equal. As noted above, VMware GemFire
+Not all *caching providers* are equal. As noted above, [vmware-gemfire-name]
 can be used as a *System of Record* (SOR; i.e. persistent data store) as
-well as a *Cache*. Not only that, but VMware GemFire can be configured
+well as a *Cache*. Not only that, but [vmware-gemfire-name] can be configured
 to run in different topologies: client/server, peer-to-peer (P2P) and
 WAN, or a multi-site configuration.
 
@@ -206,13 +205,13 @@ of caching, it can also be easily extended or composed with other
 caching patterns, typically without any code changes to the application.
 Of course, this all depends on the capabilities of the underlying
 *caching provider*, or more generally, data management technology. With
-VMware GemFire, this is very easy.
+[vmware-gemfire-name], this is very easy.
 
 When *Look-Aside Caching* is extended or combined with other caching
 patterns (e.g. *Inline*, *Near*, *Multi-Site*, or a combination of), the
 value realized from your caching solution is greatly enhanced.
 
-By implementing *Multi-Site Caching* with VMware GemFire’s WAN topology
+By implementing *Multi-Site Caching* with [vmware-gemfire-name]’s WAN topology
 and configuration, your application’s data is geographically
 distributed.
 
@@ -227,8 +226,7 @@ default, it uses asynchronous communication across sites. Guaranteed
 message delivery along with persistent message queues can be configured.
 From a Spring Boot application’s perspective, this simply appears as
 <em>Look-Aside Caching</em>, but all the logistics of data replication
-and sharing between the sites over WAN is managed by VMware
-GemFire.
+and sharing between the sites over WAN is managed by [vmware-gemfire-name].
 </p>
 
 You can imagine that having data redundantly distributed geographical is
@@ -304,7 +302,7 @@ href="https://projectlombok.org/">Project Lombok</a> to simplify the
 implementation.
 </p>
 
-The `Customer` class is mapped to the "Customers" `Region` using the SDG
+The `Customer` class is mapped to the "Customers" `Region` using the [spring-data-gemfire-name]
 `@Region` mapping annotation. The `@Region` annotation is very similar
 in purpose to the JPA `@Entity` and `@Table` annotations. A `Customer`
 is very simply defined in terms of an `id` and `name`, which will be
@@ -475,7 +473,7 @@ The `CustomerController` is a Spring Web MVC `@RestController`, which
 uses the `CustomerService` class, and allows users to search for
 `Customers` by "name" using a Web browser.
 
-### Spring Boot, VMware GemFire `ClientCache` application
+### Spring Boot, [vmware-gemfire-name] `ClientCache` application
 
 So far so good, but we need a Spring Boot, Java main class to configure
 and bootstrap our application:
@@ -499,8 +497,8 @@ public class BootGeodeMultiSiteCachingClientApplication {
 ```
 
 The main Java class is annotated with `@SpringBootApplication` making it
-a proper Spring Boot application. Additionally, we declare SDG’s
-`@EnableCachingDefinedRegions` annotation to create VMware GemFire
+a proper Spring Boot application. Additionally, we declare [spring-data-gemfire-name]’s
+`@EnableCachingDefinedRegions` annotation to create [vmware-gemfire-name]
 `Regions` to back the caches used by the application (e.g.
 "CustomersByName"), which are declared on the application’s components
 (e.g. `CustomerService`) using Spring’s caching annotations, such as
@@ -512,8 +510,8 @@ since Spring recognizes <em>JCache</em> annotations as well. See the <a
 href="https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache-jsr-107">reference
 documentation</a> for further guidance.
 
-Since SBDG’s `org.springframework.geode:spring-geode-starter` is on the
-application classpath, SBDG will auto-configure a `ClientCache` instance
+Since [spring-boot-gemfire-name]’s `org.springframework.geode:spring-geode-starter` is on the
+application classpath, [spring-boot-gemfire-name] will auto-configure a `ClientCache` instance
 by default, as
 [documented](../index.html#geode-clientcache-applications).
 
@@ -556,7 +554,7 @@ server port of the embedded Web Server, which runs Apache Tomcat by
 default when `org.springframework.boot:spring-boot-starter-web` is added
 to the application classpath.
 
-### Spring Boot, VMware GemFire `CacheServer` application
+### Spring Boot, [vmware-gemfire-name] `CacheServer` application
 
 Of course, to make *Multi-Site Caching* possible, we need to employ the
 client/server and WAN topologies.
@@ -567,8 +565,7 @@ Configuration</a> as well as <a
 href="https://geode.apache.org/docs/guide/1.15/topologies_and_comm/multi_site_configuration/chapter_overview.html">Multi-site
 (WAN) Configuration</a> for more details.
 
-Naturally, we use Spring Boot to configure and bootstrap an VMware
-GemFire server:
+Naturally, we use Spring Boot to configure and bootstrap an [vmware-gemfire-name] server:
 
 `CacheServer` application
 
@@ -632,7 +629,7 @@ public class BootGeodeMultiSiteCachingServerApplication {
                 assertThat(cache.getGatewaySenders().stream().map(GatewaySender::getId).collect(Collectors.toSet()))
                     .containsExactly(gatewaySender.getId());
 
-                System.err.printf("Apache Geode Cluster [%s] configured and bootstrapped successfully!%n",
+                System.err.printf("[vmware-gemfire-name] Cluster [%s] configured and bootstrapped successfully!%n",
                     environment.getProperty("spring.application.name", "UNKNOWN"));
             };
         }
@@ -746,13 +743,13 @@ cache instance and member of the cluster. This is especially necessary
 when running the Locator and CacheServer as standalone processes in the
 same cluster.
 
-To allow us to connect to the cluster from *Gfsh* (VMware GemFire Shell
+To allow us to connect to the cluster from *Gfsh* ([vmware-gemfire-name] Shell
 tool), we additionally configure the Manager port. Technically, the
 Manager allows any JMX compliant application (e.g. *JConsole*,
 *JVisualVM*, etc) to connect to the cluster. The Manager, like the
 Locator, is an embedded service, which could also be configured to run
 as standalone JVM process (recommended). By default, in most production
-VMware GemFire clusters, the standalone Locators also serve as Managers.
+[vmware-gemfire-name] clusters, the standalone Locators also serve as Managers.
 
 Until cluster \#2 comes online and cluster \#1 is able to connect to
 cluster \#2, you will see messages in the log file like:
@@ -844,7 +841,7 @@ CacheServer & Region
                 assertThat(cache.getGatewaySenders().stream().map(GatewaySender::getId).collect(Collectors.toSet()))
                     .containsExactly(gatewaySender.getId());
 
-                System.err.printf("Apache Geode Cluster [%s] configured and bootstrapped successfully!%n",
+                System.err.printf("[vmware-gemfire-name] Cluster [%s] configured and bootstrapped successfully!%n",
                     environment.getProperty("spring.application.name", "UNKNOWN"));
             };
         }
@@ -903,7 +900,7 @@ WAN.
 
 The final bit of configuration configures a `GatewaySender` for sending
 `Region` events from this cluster (i.e. cluster \#1) to a remote cluster
-(e.g. cluster \#2). VMware GemFire Gateways are the essential component
+(e.g. cluster \#2). [vmware-gemfire-name] Gateways are the essential component
 for enabling *Multi-Site Caching* using a WAN topology:
 
 Gateway Sender & Receiver
@@ -982,7 +979,7 @@ Gateways you can control, different configurations you can use, conflict
 resolution policies, etc, in order to properly address the unique
 requirements (or SLAs) of your application use case(s), that are quite
 frankly, well beyond the scope of this guide. Therefore, you are
-encouraged to follow the VMware GemFire [User
+encouraged to follow the [vmware-gemfire-name] [User
 Guide](https://geode.apache.org/docs/guide/1.15/topologies_and_comm/multi_site_configuration/chapter_overview.html)
 for further guidance.
 
@@ -1015,12 +1012,11 @@ run the example and have a look at the cluster using *Gfsh*.
 
 ## Run the Example
 
-For this exercise, it would be helpful to have an installation of VMware
-GemFire installed on your system. Follow the instructions in the [User
+For this exercise, it would be helpful to have an installation of [vmware-gemfire-name] installed on your system. Follow the instructions in the [User
 Guide](https://geode.apache.org/docs/guide/1.15/prereq_and_install.html)
 to get started.
 
-Once you have installed VMware GemFire and set your environment
+Once you have installed [vmware-gemfire-name] and set your environment
 variables accordingly, you can start *Gfsh*:
 
 Starting & Using Gfsh
@@ -1036,7 +1032,7 @@ $ gfsh
  / /__/ / ____/  _____/ / /    / /
 /______/_/      /______/_/    /_/    1.12.0
 
-Monitor and Manage VMware GemFire
+Monitor and Manage [vmware-gemfire-name]
 gfsh>
 ```
 
@@ -1115,7 +1111,7 @@ Build-Id: echobravo 0
 Build-Java-Vendor: AdoptOpenJDK
 Build-Java-Version: 1.8.0_242
 Build-Platform: Mac OS X 10.14.6 x86_64
-Product-Name: VMware GemFire
+Product-Name: [vmware-gemfire-name]
 Product-Version: 1.12.0
 Source-Date: 2020-03-26 14:00:52 -0700
 Source-Repository: release/1.12.0
@@ -1197,7 +1193,7 @@ Log4J 2 Configuration:
 ---------------------------------------------------------------------------
 
 ....  Startup Configuration:
-### GemFire Properties defined with api ###
+### [vmware-gemfire-short-name] Properties defined with api ###
 disable-auto-reconnect=true
 distributed-system-id=10
 jmx-manager=true
@@ -1210,14 +1206,14 @@ name=BootGeodeMultiSiteCachingServerApplication-Site1
 remote-locators=localhost[12480]
 start-locator=localhost[11235]
 use-cluster-configuration=false
-### GemFire Properties using default values ###
+### [vmware-gemfire-short-name] Properties using default values ###
 ....
 
 ....  initializing InternalDataSerializer with 4 services
 ....  Starting peer location for Distribution Locator on localhost/127.0.0.1
 ....  Locator was created at Sun Apr 19 12:16:31 PDT 2020
 ....  Listening on port 11235 bound on address localhost/127.0.0.1
-....  GemFire peer location service starting.  Other locators: localhost[11235]  Locators preferred as coordinators:...
+....  [vmware-gemfire-short-name] peer location service starting.  Other locators: localhost[11235]  Locators preferred as coordinators:...
 ....  Peer locator attempting to recover from localhost/127.0.0.1:11235
 ....  Peer locator was unable to recover state from this locator
 ....  Peer locator recovering from /Users/jblum/pivdev/spring-boot-data-geode/spring-geode-samples/caching/multi-site/..
@@ -1227,7 +1223,7 @@ use-cluster-configuration=false
 ....  Established local address 10.99.199.24(BootGeodeMultiSiteCachingServerApplication-Site1:47528)<ec>:41000
 ....  This member is hosting a locator will be preferred as a membership coordinator
 ....  JGroups channel created (took 93ms)
-....  GemFire P2P Listener started on /10.99.199.24:53169
+....  [vmware-gemfire-short-name] P2P Listener started on /10.99.199.24:53169
 ....  Started failure detection server thread on /10.99.199.24:53490.
 ....  Peer locator is connecting to local membership services with ID 10.99.199.24...
 ....  Peer locator: coordinator from view is null
@@ -1250,7 +1246,6 @@ use-cluster-configuration=false
 ....  DistributionManager 10.99.199.24(BootGeodeMultiSiteCachingServerApplication-Site1:47528)<ec><v0>:41000...
 ....  Starting server location for Distribution Locator on localhost/127.0.0.1[11235]
 ....  Disabling statistic archival.
-....  Initialized cache service org.apache.geode.cache.lucene.internal.LuceneServiceImpl
 ....  Initialized cache service org.apache.geode.management.internal.cli.remote.OnlineCommandProcessor
 ....  Initialized cache service org.apache.geode.cache.query.internal.QueryConfigurationServiceImpl
 ....  Initializing region _monitoringRegion_10.99.199.24<v0>41000
@@ -1271,7 +1266,7 @@ use-cluster-configuration=false
 ....  Connected to Distributed System [BootGeodeMultiSiteCachingServerApplication-Site1]
       as Member [10.99.199.24(BootGeodeMultiSiteCachingServerApplication-Site1:47528)<ec><v0>:41000]
       in Group(s) [[]] with Role(s) [[]] on Host [10.99.199.24] having PID [47528]
-....  Created new VMware GemFire version [1.12.0] Cache [BootGeodeMultiSiteCachingServerApplication-Site1]
+....  Created new [vmware-gemfire-name] version [1.12.0] Cache [BootGeodeMultiSiteCachingServerApplication-Site1]
 ....  Cache server connection listener bound to address 10.99.199.24-0.0.0.0/0.0.0.0:27566 with backlog 1280.
 ....  ClientHealthMonitorThread maximum allowed time between pings: 60000
 ....  Handshaker max Pool size: 4
@@ -1309,7 +1304,7 @@ use-cluster-configuration=false
       eviction-policy=none capacity=1 overflow directory=. groups=[] loadProbe=ConnectionCountProbe
       loadPollInterval=5000 tcpNoDelay=true
 ....  Started BootGeodeMultiSiteCachingServerApplication in 5.543 seconds (JVM running for 6.26)
-VMware GemFire Cluster [BootGeodeMultiSiteCachingServerApplication-Site1] configured and bootstrapped successfully!
+[vmware-gemfire-name] Cluster [BootGeodeMultiSiteCachingServerApplication-Site1] configured and bootstrapped successfully!
 ```
 
 You should see similar output when you start cluster \#2.
@@ -1466,7 +1461,7 @@ Build-Id: echobravo 0
 Build-Java-Vendor: AdoptOpenJDK
 Build-Java-Version: 1.8.0_242
 Build-Platform: Mac OS X 10.14.6 x86_64
-Product-Name: VMware GemFire
+Product-Name: [vmware-gemfire-name]
 Product-Version: 1.12.0
 Source-Date: 2020-03-26 14:00:52 -0700
 Source-Repository: release/1.12.0
@@ -1549,12 +1544,12 @@ Log4J 2 Configuration:
 ---------------------------------------------------------------------------
 
 ....  Startup Configuration:
-### GemFire Properties defined with api ###
+### [vmware-gemfire-short-name] Properties defined with api ###
 locators=
 log-level=config
 mcast-port=0
 name=BootGeodeMultiSiteCachingClientApplication-Site1
-### GemFire Properties using default values ###
+### [vmware-gemfire-short-name] Properties using default values ###
 ...
 
 ....  initializing InternalDataSerializer with 4 services
@@ -1562,13 +1557,12 @@ name=BootGeodeMultiSiteCachingClientApplication-Site1
 
 ....  Disabling statistic archival.
 ....  Running in client mode
-....  Initialized cache service org.apache.geode.cache.lucene.internal.LuceneServiceImpl
 ....  Initialized cache service org.apache.geode.management.internal.cli.remote.OnlineCommandProcessor
 ....  Initialized cache service org.apache.geode.cache.query.internal.QueryConfigurationServiceImpl
 ....  Connected to Distributed System [BootGeodeMultiSiteCachingClientApplication-Site1]
       as Member [10.99.199.24(BootGeodeMultiSiteCachingClientApplication-Site1:47756:loner):0:333e0094:...
       in Group(s) [[]] with Role(s) [[]] on Host [10.99.199.24] having PID [47756]
-....  Created new VMware GemFire version [1.12.0] Cache [BootGeodeMultiSiteCachingClientApplication-Site1]
+....  Created new [vmware-gemfire-name] version [1.12.0] Cache [BootGeodeMultiSiteCachingClientApplication-Site1]
 ....  Falling back to creating Region [CustomersByName] in Cache [BootGeodeMultiSiteCachingClientApplication-Site1]
 ....  Falling back to creating Region [CustomersByName] in Cache [BootGeodeMultiSiteCachingClientApplication-Site1]
 ....  Creating client Region [CustomersByName]
@@ -1703,8 +1697,8 @@ instance of `Customer` as a `Customer` on the servers in the cluster.
 
 Not having to implement `java.io.Serializable` nor include your
 application domain model types on the servers' classpath is actually a
-powerful feature of VMware GemFire. When no de/serialization strategy
-has been explicitly configured, SBDG will configure VMware GemFire’s PDX
+powerful feature of [vmware-gemfire-name]. When no de/serialization strategy
+has been explicitly configured, [spring-boot-gemfire-name] will configure [vmware-gemfire-name]’s PDX
 Serialization framework.
 
 PDX allows you to query objects in serialized form, without causing a
@@ -1713,10 +1707,10 @@ domain model types. Using PDX can be helpful in situations where your
 application domain model types refer to 3rd party library types you
 cannot control, and that may not implement `java.io.Serializable`.
 
-You should refer to the VMware GemFire User Guide on
+You should refer to the [vmware-gemfire-name] User Guide on
 more details on <a
 href="https://geode.apache.org/docs/guide/1.15/developing/data_serialization/gemfire_pdx_serialization.html">PDX</a>.
-You can also refer to SBDG’s support of <a
+You can also refer to [spring-boot-gemfire-name]’s support of <a
 href="../index.html#geode-data-serialization">PDX
 Serialization</a>.
 
@@ -1728,7 +1722,7 @@ for the curious reader.
 
 You have now just learned and witnessed first-hand the power of
 *Look-Aside Caching* enhanced with *Multi-Site Caching*, implemented
-with VMware GemFire WAN Gateway functionality. This is but a simple
+with [vmware-gemfire-name] WAN Gateway functionality. This is but a simple
 example. WAN Gateway functionality can accommodate a wide-range of
 different use cases and complex configuration.
 

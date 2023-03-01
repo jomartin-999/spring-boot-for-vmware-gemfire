@@ -27,12 +27,11 @@ Table of Contents
 This guide walks you through building a simple Spring Boot application
 using [Spring’s Cache
 Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache)
-backed by [VMware GemFire](https://geode.apache.org/) as the caching
+backed by [[vmware-gemfire-name]](https://geode.apache.org/) as the caching
 provider for Asynchronous Inline Caching.
 
 It is assumed that the reader is familiar with the Spring *programming
-model*. No prior knowledge of Spring’s *Cache Abstraction* or VMware
-GemFire is required to utilize caching in your Spring Boot applications.
+model*. No prior knowledge of Spring’s *Cache Abstraction* or [vmware-gemfire-name] is required to utilize caching in your Spring Boot applications.
 
 Additionally, this Sample builds on the concepts from the [Inline
 Caching with Spring](caching-inline.html) and [Look-Aside Caching with
@@ -46,8 +45,7 @@ href="../index.html#geode-caching-provider-inline-caching">Inline
 Caching</a> section, and specifically, <a
 href="../index.html#geode-caching-provider-inline-caching-asynchronous">Asynchronous
 Inline Caching</a>, in the <a
-href="../index.html#geode-caching-provider">Caching with VMware
-GemFire</a> chapter of the reference documentation for more
+href="../index.html#geode-caching-provider">Caching with [vmware-gemfire-name]</a> chapter of the reference documentation for more
 information.
 
 
@@ -105,7 +103,7 @@ system/application architecture would instead appear as:
 IMPLEMENTATION
 
 As readers should know or will learn, the application cache is backed by
-an VMware GemFire Region.
+an [vmware-gemfire-name] Region.
 
 In *Synchronous*, *Read-Through* and/or *Write-Through*, *Inline
 Caching*, a `CacheLoader` is configured for the Region and used to
@@ -156,7 +154,7 @@ hole is calculated. At the end of the round, each golfer’s final score
 is calculated relative to par for the golf course (72).
 
 The Golf Tournament application is a Spring Boot application using
-VMware GemFire to cache the golfers score in realtime as the players
+[vmware-gemfire-name] to cache the golfers score in realtime as the players
 complete each hole. However, to make the play "official", the golfer’s
 score is recorded to a backend database (RDBMS), asynchronously using
 *Asynchronous*, *Write-Behind*, *Inline Caching*. It is assumed that
@@ -274,7 +272,7 @@ clear that the <code>Golfer</code> state will be persisted to a backend
 database (RDBMS) with JPA using Hibernate as the provider.
 </p>
 
-The `GolferRepository` will be used by SBDG’s *Asynchronous Inline
+The `GolferRepository` will be used by [spring-boot-gemfire-name]’s *Asynchronous Inline
 Caching* framework and infrastructure components.
 
 The *Repository* is injected into and used by the `AsyncEventListener`
@@ -283,7 +281,7 @@ registered on the AEQ attached to the "Golfers" Region to perform
 backend database and *System of Record* (SOR).
 
 We’ll see in a moment how this association is made and how *Asynchronous
-Inline Caching* is setup, made simple by SBDG.
+Inline Caching* is setup, made simple by [spring-boot-gemfire-name].
 
 To encapsulate the application logic and provide a (possibly
 transactional) facade to the `Golfer’s` state, a `GolferService` class
@@ -301,7 +299,7 @@ class GolferService {
     }
 
     public List<Golfer> getAllGolfersFromCache() {
-        // Use SDG GemfireTemplate to access the "Golfers" Region
+        // Use [spring-data-gemfire-name] GemfireTemplate to access the "Golfers" Region
     }
 
     public List<Golfer> getAllGolfersFromDatabase() {
@@ -437,7 +435,7 @@ This service method simply "puts" the `Golfer` in the cache (i.e.
 entry).
 
 The cache/Region entry `put` operation results in cache event being
-added to the AEQ, which will eventually trigger the SBDG
+added to the AEQ, which will eventually trigger the [spring-boot-gemfire-name]
 framework-provided `AsyncEventListener` with our injected
 `GolferRepository` to write the `Golfer’s` state to the backend
 database.
@@ -526,14 +524,14 @@ AEQ batch time interval configuration
 
 <p class="note"><strong>Note:</strong>
 The default AEQ <em>batch time interval</em> in
-VMware GemFire is <strong>5 milliseconds</strong> (5 ms). However, to
+[vmware-gemfire-name] is <strong>5 milliseconds</strong> (5 ms). However, to
 demonstrate the asynchronous nature of the cache to database updates, a
 much longer delay was used. Likewise, the default AEQ <em>batch
-size</em> in VMware GemFire is <strong>100</strong>.
+size</em> in [vmware-gemfire-name] is <strong>100</strong>.
 </p>
 
 In both AEQ configurations and bean definitions, the *batch size* and
-*batch time interval* have been set (overriding the VMware GemFire
+*batch time interval* have been set (overriding the [vmware-gemfire-name]
 defaults) in order to show the effects of each AEQ configuration
 independently. As you can imagine, particularly in a highly concurrent
 and transactional application with frequent updates, it would be hard to
@@ -603,7 +601,7 @@ periodic HTTP requests to refresh the page.
 To run the example, there are few more configuration details we need to
 cover.
 
-While it is possible to run this example using an VMware GemFire
+While it is possible to run this example using an [vmware-gemfire-name]
 client/server topology, we keep things simple by running the example
 using a single Spring Boot application class, namely the
 `BootGeodeAsyncInlineCachingClientApplication` along with a peer cache
@@ -623,14 +621,14 @@ Spring Profile, "*peer-cache*":
 ```
 
 It should be noted that AEQs can only be created and registered on
-Regions existing on the server-side of an VMware GemFire system. That
+Regions existing on the server-side of an [vmware-gemfire-name] system. That
 is, you cannot add an AEQ to a client-side Region. Therefore, in all
 your *Async Inline Caching* Uses Cases (UC), synchronous or
-asynchronous, it will be the servers in an VMware GemFire cluster that
+asynchronous, it will be the servers in an [vmware-gemfire-name] cluster that
 are responsible for *Write-Behind* functionality to the backend data
-store, not a Spring Boot, VMware GemFire client application.
+store, not a Spring Boot, [vmware-gemfire-name] client application.
 
-However, for demonstration purposes, we override SBDG’s
+However, for demonstration purposes, we override [spring-boot-gemfire-name]’s
 *auto-configuration* providing a `ClientCache` instance by default
 simply by enabling the "*peer-cache*" Spring Profile, which replaces the
 `ClientCache` instance with a peer `Cache` instance instead.
@@ -673,7 +671,7 @@ You should see a web page similar to:
 ![Asynchronous Inline Caching
 Application](./images/Asynchronous-Inline-Caching-Application.png)
 
-You can also run this example using the SBDG Gradle build from the
+You can also run this example using the [spring-boot-gemfire-name] Gradle build from the
 command-line like so:
 
 Run the example using Gradle
@@ -707,7 +705,7 @@ There are many factors to consider in the configuration of the AEQ that
 is at the heart of the *Asynchronous Inline Caching* pattern, such as
 the appropriate **batch size** and **batch time interval**. Neither
 setting is exclusive from the other, in fact. Both settings are
-considered when VMware GemFire makes a decision of when to trigger the
+considered when [vmware-gemfire-name] makes a decision of when to trigger the
 listener registered on the AEQ to process the events for operations
 originating from the Region to which the AEQ is attached.
 

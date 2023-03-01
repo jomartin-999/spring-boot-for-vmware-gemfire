@@ -1,4 +1,4 @@
-# Spring Boot Actuator for VMware GemFire
+# Spring Boot Actuator for [vmware-gemfire-name]
 
 <!-- 
  Copyright (c) VMware, Inc. 2022. All rights reserved.
@@ -18,20 +18,20 @@
 
 This guide walks through using
 [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready.html) to
-assess the state of your running VMware GemFire, Spring Boot application.
+assess the state of your running [vmware-gemfire-name], Spring Boot application.
 
 
-The goal for SBDG’s Spring Boot Actuator integration is to enable users
+The goal for [spring-boot-gemfire-name]’s Spring Boot Actuator integration is to enable users
 to effectively manage and monitor their Spring Boot applications using
-VMware GemFire in a production environment.
+[vmware-gemfire-name] in a production environment.
 
-In particular, SBDG’s integration with Spring Boot Actuator currently focuses on enabling [Health
+In particular, [spring-boot-gemfire-name]’s integration with Spring Boot Actuator currently focuses on enabling [Health
 Information](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html#production-ready-health)
-for your application. In the future, SBDG will provide dedicated support for
+for your application. In the future, [spring-boot-gemfire-name] will provide dedicated support for
 [Micrometer](https://micrometer.io/) metrics.
 
 This guide assumes you are already familiar with Spring Boot and
-VMware GemFire.
+[vmware-gemfire-name].
 
 Refer to the <a href="../index.html#actuator">Spring
 Boot Actuator</a> chapter in the reference documentation for more
@@ -109,7 +109,7 @@ public class TemperatureReading {
 ```
 
 The `TemperatureReading` class is annotated with SDG’s `@Region` mapping
-annotation to declare the VMware GemFire Region in which
+annotation to declare the [vmware-gemfire-name] Region in which
 `TemperatureReadings` will be persisted.
 
 
@@ -179,11 +179,11 @@ The *Repository* showcases a an example, derived query methods,
 
 
 To receive temperature change events, we need a class to monitor
-changes. This capability is built on VMware GemFire's
+changes. This capability is built on [vmware-gemfire-name]'s
 [Continuous Query (CQ)](https://geode.apache.org/docs/guide/1.15/developing/continuous_querying/chapter_overview.html) functionality.
 
 
-With VMware GemFire you can register an (OQL) Query with the servers in
+With [vmware-gemfire-name] you can register an (OQL) Query with the servers in
 the cluster that runs continuously, sending notifications back to the
 client anytime data changes to match the predicate in our query, or
 queries.
@@ -326,7 +326,7 @@ operations.
 Now, we need a couple of main application classes to actually have the
 application do something useful.
 
-We start with an Spring Boot, VMware GemFire Server application
+We start with an Spring Boot, [vmware-gemfire-name] Server application
 functioning as the temperature sensor (device) using the
 `TemperatureSensor` class:
 
@@ -407,17 +407,17 @@ Spring Boot application. It uses Spring Boot’s
 application.
 
 This class is also annotated with SDG’s `@CacheServerApplication` making
-it a proper VMware GemFire Server with a peer `Cache` instance along with
+it a proper [vmware-gemfire-name] Server with a peer `Cache` instance along with
 a `CacheServer` to accept client connections. This effectively overrides
-SBDG’s default `ClientCache` instance.
+[spring-boot-gemfire-name]’s default `ClientCache` instance.
 
 Additionally, the class enables several other features, such as Spring’s
-*Scheduling Service*, VMware GemFire Statistics, and entity-defined
+*Scheduling Service*, [vmware-gemfire-name] Statistics, and entity-defined
 Regions making the creation of our server-side, partitioned
 "TemperatureReadings" Region simple.
 
-By enabling VMware GemFire statistics, we allow Spring Boot’s Actuator,
-`HealthIndicators` to collect metrics about our running VMware GemFire
+By enabling [vmware-gemfire-name] statistics, we allow Spring Boot’s Actuator,
+`HealthIndicators` to collect metrics about our running [vmware-gemfire-name]
 Server as well.
 
 Because we have enabled scheduling (with `@EnableScheduling`) and
@@ -426,7 +426,7 @@ application context, the application will immediately start generating
 temperature readings, which are recorded to the "TemperatureReadings"
 Region.
 
-Finally, our class registers a couple VMware GemFire Region Indexes to
+Finally, our class registers a couple [vmware-gemfire-name] Region Indexes to
 make the Actuator `HealthIndicator` information more interesting,
 particularly since we are running continuous queries.
 
@@ -434,7 +434,7 @@ This is a Servlet-based application as well since our Actuator,
 `HealthIndicator` endpoints are exposed via HTTP.
 
 There are multiple ways to configure and bootstrap
-an VMware GemFire Server, and the server-side of our application. Using
+an [vmware-gemfire-name] Server, and the server-side of our application. Using
 Spring Boot is one of the easier ways.
 
 ### Client
@@ -481,8 +481,8 @@ it a proper Spring Boot application. It too uses Spring Boot’s
 `SpringApplicationBuilder` class to configure and bootstrap the client
 application.
 
-Unlike our server, this class is not annotated with any SDG
-`@*Cache*Application` annotations since SBDG provides us a `ClientCache`
+Unlike our server, this class is not annotated with any [spring-data-gemfire-name]
+`@*Cache*Application` annotations since [spring-boot-gemfire-name] provides us a `ClientCache`
 instance by default. We want this application to be a client in our
 setup.
 
@@ -521,7 +521,7 @@ The `gradlew` command and `runServer` Gradle Task sets the configuration
 directory where you cloned the `spring-boot-data-geode` project (**not**
 in `spring-boot-data-geode/spring-geode-samples/boot/actuator/`).
 
-If you wish to adjust the log levels of VMware GemFire or Spring Boot
+If you wish to adjust the log levels of [vmware-gemfire-name] or Spring Boot
 while running the client and server applications, then you can set the
 log levels of the individual Loggers (i.e. `org.apache` and
 `org.springframework`) in `src/main/resources/logback.xml`:
@@ -642,9 +642,9 @@ temperatures, until you stop the JVM processes.
 ## Monitoring our Example with Spring Boot Actuator, HealthIndicator Endpoints
 
 After the application has been running for some time, we can inspect the
-Spring Boot Actuator, HealthIndicator Endpoints provided by SBDG to
+Spring Boot Actuator, HealthIndicator Endpoints provided by [spring-boot-gemfire-name] to
 monitor our application’s health and runtime performance in addition to
-basic configuration meta-data used to configure VMware GemFire at runtime.
+basic configuration meta-data used to configure [vmware-gemfire-name] at runtime.
 
 ### Client Health Information
 
@@ -727,12 +727,12 @@ management.endpoint.health.show-details=always
 ## Conclusion
 
 Hopefully this guide has shown you how to use the Spring Boot Actuator
-feature for VMware GemFire.
+feature for [vmware-gemfire-name].
 
 You are encouraged to read more about
 [Spring Boot’s Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready.html)
 functionality.
 
-Additionally, you can find out more about VMware GemFire Statistics in the
+Additionally, you can find out more about [vmware-gemfire-name] Statistics in the
 [User Guide](https://geode.apache.org/docs/guide/1.15/managing/statistics/chapter_overview.html).
 

@@ -17,17 +17,17 @@
 -->
 
 [Spring Test for
-VMware GemFire](https://github.com/spring-projects/spring-test-data-geode)
+[vmware-gemfire-name]](https://github.com/spring-projects/spring-test-data-geode)
 (STDG) is a relatively new project to help you write both unit and
-integration tests when you use VMware GemFire in a Spring context.
+integration tests when you use [vmware-gemfire-name] in a Spring context.
 In fact, the entire
 [test suite](https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/tree/master/spring-geode-autoconfigure/src/test/java/org/springframework/geode/boot/autoconfigure)
-in Spring Boot for VMware GemFire is based on this project.
+in [spring-boot-gemfire-name] is based on this project.
 
-All Spring projects that integrate with VMware GemFire will use
+All Spring projects that integrate with [vmware-gemfire-name] will use
 this new test framework for all their testing needs, making this new
-test framework for VMware GemFire a proven and reliable solution
-for all your VMware GemFire application testing needs when using
+test framework for [vmware-gemfire-name] a proven and reliable solution
+for all your [vmware-gemfire-name] application testing needs when using
 Spring as well.
 
 In future versions, this reference guide will include an entire chapter

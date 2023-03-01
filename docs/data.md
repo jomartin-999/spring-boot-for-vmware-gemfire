@@ -32,13 +32,13 @@ with which to work.
 For those of you already familiar with Spring Boot’s support for
 https://docs.spring.io/spring-boot/docs/current/reference/html/howto.html#howto-initialize-a-database-using-spring-jdbc\[SQL
 database initialization\], the approach when using
-VMware GemFire should be easy to understand.
+[vmware-gemfire-name] should be easy to understand.
 
 
 
 
 
-VMware GemFire provides built-in support, similar in function to
+[vmware-gemfire-name] provides built-in support, similar in function to
 Spring Boot’s SQL database initialization, by using:
 
 
@@ -69,7 +69,7 @@ and restore\] persistent `DiskStore` files from one cluster to another.
 
 
 
-Alternatively, using VMware GemFire's Snapshot Service, you can
+Alternatively, using [vmware-gemfire-name]'s Snapshot Service, you can
 export data contained in targeted `Regions` from one cluster during
 shutdown and import the data into another cluster on startup. The
 Snapshot Service lets you filter data while it is being imported and
@@ -79,7 +79,7 @@ exported.
 
 
 
-Finally, you can use VMware GemFire shell (Gfsh) commands to
+Finally, you can use [vmware-gemfire-name] shell (Gfsh) commands to
 https://docs.spring.io/spring-data/geode/docs/current/reference/html/tools_modules/gfsh/command-pages/export.html#topic_263B70069BFC4A7185F86B3272011734\[export
 data\] and
 https://geode.apache.org/docs/guide/115/tools_modules/gfsh/command-pages/import.html#topic_jw2_2ld_2l\[import
@@ -99,7 +99,7 @@ data\].
 <td class="icon">
 Tip
 </td>
-<td class="content">Spring Data for VMware GemFire (SDG)
+<td class="content">[spring-data-gemfire-name]
 contains dedicated support for
 https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap:region:persistence[persistence]
 and the https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap:snapshot[Snapshot
@@ -120,15 +120,14 @@ and Gfsh’s `export` command are in a proprietary binary format.
 
 
 Furthermore, none of these approaches are as convenient as Spring Boot’s
-database initialization automation. Therefore, Spring Boot for
-VMware GemFire (SBDG) offers support to import data from JSON
-into VMware GemFire as PDX.
+database initialization automation. Therefore, [spring-boot-gemfire-name] offers support to import data from JSON
+into [vmware-gemfire-name] as PDX.
 
 
 
 
 
-Unlike Spring Boot, SBDG offers support to export data as well. By
+Unlike Spring Boot, [spring-boot-gemfire-name] offers support to export data as well. By
 default, data is imported and exported in JSON format.
 
 
@@ -145,9 +144,9 @@ default, data is imported and exported in JSON format.
 <td class="icon">
 Note
 </td>
-<td class="content">SBDG does not provide an equivalent to Spring Boot’s
+<td class="content">[spring-boot-gemfire-name] does not provide an equivalent to Spring Boot’s
 <code>schema.sql</code> file. The best way to define the data structures
-(the <code>Region</code> instances) that manage your data is with SDG’s
+(the <code>Region</code> instances) that manage your data is with [spring-data-gemfire-name]’s
 annotation-based configuration support for defining cache
 <code>Region</code> instances from your application’s
 https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-regions[entity
@@ -172,7 +171,7 @@ annotations].</td>
 <td class="icon">
 Tip
 </td>
-<td class="content">See SBDG’s <a
+<td class="content">See [spring-boot-gemfire-name]’s <a
 href="#geode-configuration-declarative-annotations-productivity-regions">documentation</a>
 on the same.</td>
 </tr>
@@ -422,7 +421,7 @@ object model and JSON shown [earlier](#geode-data-using-import).
 First, we declared a `@type` JSON metadata field. This field does not
 map to any specific field or property of the application domain model
 class (such as `PurchaseOrder`). Rather, it tells the framework and
-VMware GemFire's JSON/PDX converter the type of object the JSON
+[vmware-gemfire-name]'s JSON/PDX converter the type of object the JSON
 data would map to if you were to request an object (by calling
 `PdxInstance.getObject()`).
 
@@ -485,7 +484,7 @@ would silently return a `PdxInstance`.
 
 
 
-It is possible for VMware GemFire's PDX serialization framework
+It is possible for [vmware-gemfire-name]'s PDX serialization framework
 to return a `PurchaseOrder` from `Region.get(key)` as well, but it
 depends on the value of PDX’s `read-serialized`, cache-level
 configuration setting, among other factors.
@@ -532,7 +531,7 @@ Tip
 </td>
 <td class="content">You may need to proxy <code>Region</code> read data
 access operations (such as <code>Region.get(key)</code>) by setting the
-SBDG property
+[spring-boot-gemfire-name] property
 <code>spring.boot.data.gemfire.cache.region.advice.enabled</code> to
 <code>true</code>. When this property is set, <code>Region</code>
 instances are proxied to wrap a <code>PdxInstance</code> in a
@@ -608,7 +607,7 @@ back to searching for a field or property named `id`.
 
 
 
-In Spring Data for VMware GemFire, this `@Id`-annotated or
+In [spring-data-gemfire-name], this `@Id`-annotated or
 `id`-named field or property is used as the identifier and as the key
 for the object when storing it into a `Region`.
 
@@ -681,8 +680,8 @@ You might be tempted to argue that if the `@type` metadata field is set,
 we would know the class type and could load the class definition to
 learn about the identifier. That is all fine until the class is not
 actually on the application classpath in the first place. This is one of
-the reasons why SBDG’s JSON support serializes JSON to
-VMware GemFire's PDX format. There might not be a class
+the reasons why [spring-boot-gemfire-name]’s JSON support serializes JSON to
+[vmware-gemfire-name]'s PDX format. There might not be a class
 definition, which would lead to a `NoClassDefFoundError` or
 `ClassNotFoundException`.
 
@@ -696,7 +695,7 @@ So, what then?
 
 
 
-In this case, SBDG lets you declare the `@identifier` JSON metadata
+In this case, [spring-boot-gemfire-name] lets you declare the `@identifier` JSON metadata
 field to inform the framework what to use as the identifier for the
 object.
 
@@ -763,7 +762,7 @@ The `@identifier` JSON metadata field informs the framework that the
 
 While the Spring team recommends that users should only use this feature
 when developing and testing their Spring Boot applications with
-VMware GemFire, you may still occasionally use this feature in
+[vmware-gemfire-name], you may still occasionally use this feature in
 production.
 
 
@@ -925,8 +924,8 @@ spring.boot.data.gemfire.cache.data.export.enabled=true
 
 
 
-SBDG is careful to export data to JSON in a format that
-VMware GemFire expects on import and includes things such as
+[spring-boot-gemfire-name] is careful to export data to JSON in a format that
+[vmware-gemfire-name] expects on import and includes things such as
 `@type` metadata fields.
 
 
@@ -981,14 +980,14 @@ Warning
 <code>-Dgemfire.disableShutdownHook</code> JVM System property to
 <code>true</code> before your Spring Boot application starts up when
 using export. Unfortunately, this Java runtime shutdown hook is
-registered and enabled in VMware GemFire by default, which
-results in the cache and the Regions being closed before the SBDG Export
+registered and enabled in [vmware-gemfire-name] by default, which
+results in the cache and the Regions being closed before the [spring-boot-gemfire-name] Export
 functionality can export the data, thereby resulting in a
-<code>CacheClosedException</code>. SBDG
+<code>CacheClosedException</code>. [spring-boot-gemfire-name]
 {github-url}/spring-geode-autoconfigure/src/main/java/org/springframework/geode/boot/autoconfigure/DataImportExportAutoConfiguration.java#L173-L183[makes
-a best effort] to disable the VMware GemFire JVM shutdown hook
+a best effort] to disable the [vmware-gemfire-name] JVM shutdown hook
 when export is enabled, but it is at the mercy of the JVM
-<code>ClassLoader</code>, since VMware GemFire's JVM shutdown
+<code>ClassLoader</code>, since [vmware-gemfire-name]'s JVM shutdown
 hook
 {apache-geode-src}/geode-core/src/main/java/org/apache/geode/distributed/internal/InternalDistributedSystem.java#L2185-L2223[registration]
 is declared in a <code>static</code> initializer.</td>
@@ -1006,7 +1005,7 @@ is declared in a <code>static</code> initializer.</td>
 
 
 
-The API in SBDG for import and export functionality is separated into
+The API in [spring-boot-gemfire-name] for import and export functionality is separated into
 the following concerns:
 
 
@@ -1033,7 +1032,7 @@ developer can customize each aspect of the import and export functions.
 
 
 For example, you could import XML from the filesystem and then export
-JSON to a REST-based Web Service. By default, SBDG imports JSON from the
+JSON to a REST-based Web Service. By default, [spring-boot-gemfire-name] imports JSON from the
 classpath and exports JSON to the filesystem.
 
 
@@ -1175,7 +1174,7 @@ does its job.
 
 
 For convenience, when you want to implement both import and export
-functionality, SBDG provides the `CacheDataImporterExporter` interface,
+functionality, [spring-boot-gemfire-name] provides the `CacheDataImporterExporter` interface,
 which extends both `CacheDataImporter` and `CacheDataExporter`:
 
 
@@ -1208,7 +1207,7 @@ interface CacheDataImporterExporter extends CacheDataExporter, CacheDataImporter
 
 
 
-For added support, SBDG also provides the
+For added support, [spring-boot-gemfire-name] also provides the
 `AbstractCacheDataImporterExporter` abstract base class to simplify the
 implementation of your importer/exporter.
 
@@ -1237,7 +1236,7 @@ the dependencies were loosely defined.
 
 
 
-Controlling the import is also important when you use SBDG’s
+Controlling the import is also important when you use [spring-boot-gemfire-name]’s
 `@EnableClusterAware` annotation to push configuration metadata from the
 client to the cluster in order to define server-side `Region` instances
 that match the client-side `Region` instances, especially client
@@ -1249,7 +1248,7 @@ on the server side must exist before data is imported into client
 
 
 
-In all cases, SBDG provides the
+In all cases, [spring-boot-gemfire-name] provides the
 `LifecycleAwareCacheDataImporterExporter` class to wrap your
 `CacheDataImporterExporter` implementation. This class implements
 Spring’s
@@ -1261,7 +1260,7 @@ interface.
 
 
 By implementing the `SmartLifecycle` interface, you can control in which
-`phase` of the Spring container the import occurs. SBDG also exposes two
+`phase` of the Spring container the import occurs. [spring-boot-gemfire-name] also exposes two
 more properties to control the lifecycle:
 
 
@@ -1368,7 +1367,7 @@ operation.
 
 
 
-SBDG encapsulates the algorithm for resolving `Resources` in the
+[spring-boot-gemfire-name] encapsulates the algorithm for resolving `Resources` in the
 `ResourceResolver`
 ([Strategy](https://en.wikipedia.org/wiki/Strategy_pattern)) interface:
 
@@ -1410,7 +1409,7 @@ interface ResourceResolver {
 
 
 
-Additionally, SBDG provides the `ImportResourceResolver` and
+Additionally, [spring-boot-gemfire-name] provides the `ImportResourceResolver` and
 `ExportResourceResolver` marker interfaces and the
 `AbstractImportResourceResolver` and `AbstractExportResourceResolver`
 abstract base classes for implementing the resource resolution logic
@@ -1429,7 +1428,7 @@ which provides the aforementioned interfaces and base classes.
 
 
 
-As stated earlier, SBDG resolves resources on import from the classpath
+As stated earlier, [spring-boot-gemfire-name] resolves resources on import from the classpath
 and resources on export to the filesystem.
 
 
@@ -1511,7 +1510,7 @@ software design pattern</a>.</td>
 
 If you are content with the provided defaults but want to target
 specific locations on the classpath or filesystem used by the import or
-export, SBDG additionally provides the following properties:
+export, [spring-boot-gemfire-name] additionally provides the following properties:
 
 
 
@@ -1564,7 +1563,7 @@ example, https://) by changing the prefix (or protocol).
 
 
 Import/export resource location properties can refer to other properties
-through property placeholders, but SBDG further lets you use SpEL inside
+through property placeholders, but [spring-boot-gemfire-name] further lets you use SpEL inside
 the property values.
 
 
@@ -1613,7 +1612,7 @@ sophisticated resource string by using a complex SpEL expression.
 
 
 
-SBDG populates the SpEL `EvaluationContext` with three sources of
+[spring-boot-gemfire-name] populates the SpEL `EvaluationContext` with three sources of
 information:
 
 
@@ -1725,7 +1724,7 @@ initialized.</td>
 
 
 
-SBDG also sets the `#regionName` variable in the `EvaluationContext` to
+[spring-boot-gemfire-name] also sets the `#regionName` variable in the `EvaluationContext` to
 the name of the `Region`, as determined by
 https://geode.apache.org/releases/latest/javadoc/https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/Region.html#getName--\[`Region.getName()`\],
 targeted for import and export.
@@ -1838,7 +1837,7 @@ read or write any content to the `Resource`.
 
 
 
-SBDG separates these concerns into two interfaces: `ResourceReader` and
+[spring-boot-gemfire-name] separates these concerns into two interfaces: `ResourceReader` and
 `ResourceWriter`, respectively. The design follows the same pattern used
 by Java’s `InputStream/OutputStream` and `Reader/Writer` classes in the
 `java.io` package.
@@ -1940,7 +1939,7 @@ invocations in the composition.
 
 
 
-To override the default export/import reader and writer used by SBDG,
+To override the default export/import reader and writer used by [spring-boot-gemfire-name],
 you can implement the `ResourceReader` or `ResourceWriter` interfaces as
 appropriate and declare instances of these classes as beans in the
 Spring container:

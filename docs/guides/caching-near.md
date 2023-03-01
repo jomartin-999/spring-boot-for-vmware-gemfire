@@ -39,11 +39,10 @@ Table of Contents
 This guide walks you through building a simple Spring Boot application
 using [Spring’s Cache
 Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache)
-backed by VMware GemFire as the caching provider for Near Caching.
+backed by [vmware-gemfire-name] as the caching provider for Near Caching.
 
 It is assumed that the reader is familiar with the Spring *programming
-model*. No prior knowledge of Spring’s *Cache Abstraction* nor VMware
-GemFire is required to utilize caching in your Spring Boot applications.
+model*. No prior knowledge of Spring’s *Cache Abstraction* nor [vmware-gemfire-name] is required to utilize caching in your Spring Boot applications.
 
 Additionally, this Sample builds on the concepts introduced in both
 [Look-Aside Caching](caching-look-aside.html) as well as [Inline
@@ -56,8 +55,7 @@ Let’s begin.
 Refer to the <a
 href="../index.html#geode-caching-provider-near-caching">Near
 Caching</a> section in the <a
-href="../index.html#geode-caching-provider">Caching with VMware
-GemFire</a> chapter in the reference documentation for more
+href="../index.html#geode-caching-provider">Caching with [vmware-gemfire-name]</a> chapter in the reference documentation for more
 information.
 
 
@@ -180,10 +178,10 @@ information, such as an email address and phone number.
 
 ### Server-side Configuration
 
-First, we will configure and bootstrap an VMware GemFire, peer
+First, we will configure and bootstrap an [vmware-gemfire-name], peer
 `CacheServer` node using Spring Boot:
 
-SpringBootApplication for an VMware GemFire `CacheServer`
+SpringBootApplication for an [vmware-gemfire-name] `CacheServer`
 
 ``` highlight
 @SpringBootApplication
@@ -319,8 +317,7 @@ Asserting Server-side Configuration
 ```
 
 And finally, we include a Spring `@Profile` to enable an embedded
-Locator and Manager, allowing us to connect to our Spring Boot, VMware
-GemFire `CacheServer` application using *Gfsh* (Geode Shell). Enabling
+Locator and Manager, allowing us to connect to our Spring Boot, [vmware-gemfire-name] `CacheServer` application using *Gfsh* ([vmware-gemfire-short-name] Shell). Enabling
 the embedded Locator and Manager are not necessary when starting the
 server or to run our application, but can be useful when debugging.
 
@@ -335,20 +332,19 @@ Embedded Locator & Manager Configuration
 ```
 
 For more information on configurating and
-bootstrapping a small cluster of VMware GemFire servers using Spring
+bootstrapping a small cluster of [vmware-gemfire-name] servers using Spring
 Boot, see <a
 href="../index.html#geode-cluster-configuration-bootstrapping">Running
-an VMware GemFire cluster using Spring Boot</a>.
+an [vmware-gemfire-name] cluster using Spring Boot</a>.
 
 ### Client-side Configuration
 
-Next, we will create and start 2 instances of our Spring Boot, VMware
-GemFire `ClientCache` application, which will use the *Look-Aside
+Next, we will create and start 2 instances of our Spring Boot, [vmware-gemfire-name] `ClientCache` application, which will use the *Look-Aside
 Caching* pattern enhanced with_Near Caching\_.
 
 We start with the `@SpringBootApplication` main class:
 
-SpringBootApplication for Geode `ClientCache`
+SpringBootApplication for [vmware-gemfire-short-name] `ClientCache`
 
 ``` highlight
 @SpringBootApplication
@@ -387,14 +383,14 @@ configuration is correct.
 
 Our configuration appears as follows:
 
-Application Geode Configuration
+Application [vmware-gemfire-short-name] Configuration
 
 ``` highlight
 @Configuration
 //@EnableCachingDefinedRegions(clientRegionShortcut = ClientRegionShortcut.CACHING_PROXY)
 public class GeodeConfiguration {
 
-    // TODO: Replace with the SDG `@EnableCachingDefineRegions annotation declared above (and currently commented out,
+    // TODO: Replace with the [spring-data-gemfire-name] `@EnableCachingDefineRegions annotation declared above (and currently commented out,
     //  because...) once DATAGEODE-219 is resolved. :(
     @Bean("YellowPages")
     public ClientRegionFactoryBean<Object, Object> yellowPagesRegion(GemFireCache gemfireCache) {
@@ -550,7 +546,7 @@ occurred. Of course, keep in mind that durable clients use up system
 resources on the server (e.g. memory).
 
 To learn more about durable subscriptions, see the
-VMware GemFire <a
+[vmware-gemfire-name] <a
 href="https://geode.apache.org/docs/guide/%7Bapache-geode-doc-version%7D/developing/events/implementing_durable_client_server_messaging.html">documentation</a>
 
 The `receiveValues` boolean parameter determines whether the client will
@@ -573,14 +569,14 @@ href="https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/Re
 
 There is one final bit of configuration on the client-side that we need,
 and that is to enable subscriptions. We do so by setting the appropriate
-Spring Data for VMware GemFire (SDG) property (e.g.
+[spring-data-gemfire-name] property (e.g.
 `spring.data.gemfire.pool.subscriptions-enabled`) in
 `application.properties`, like so:
 
 Common Client `application.properties`
 
 ``` highlight
-# Spring Boot application.properties for the Apache Geode ClientCache application
+# Spring Boot application.properties for the [vmware-gemfire-name] ClientCache application
 
 spring.application.name=ClientApplication
 spring.data.gemfire.pool.subscription-enabled=true
@@ -593,7 +589,7 @@ clients we want to start) each have their own client specific
 Common Client `application.properties`
 
 ``` highlight
-# Spring Boot application.properties for the Apache Geode ClientCache One application.
+# Spring Boot application.properties for the [vmware-gemfire-name] ClientCache One application.
 
 server.port=8181
 spring.application.name=ClientApplicationOne
@@ -786,10 +782,10 @@ of ***Near Caching***.
 ### Run the Server
 
 First, we must start our Spring Boot application that configures and
-bootstraps the VMware GemFire `CacheServer`.
+bootstraps the [vmware-gemfire-name] `CacheServer`.
 
 If you want to connect to the server with
-<em>Gfsh</em>, you must have a distribution of VMware GemFire installed
+<em>Gfsh</em>, you must have a distribution of [vmware-gemfire-name] installed
 on your system and you must enable the "<em>locator-manager</em>"
 profile. The "<em>locator-manager</em>" profile can be enabled using the
 <code>-Dspring.profiles.active=server,locator-manager</code> Java System
@@ -831,7 +827,7 @@ run the <code>BootGeodeNearCachingClientCacheApplication</code> class,
 not the server.
 </p>
 
-Now that the server is running, if you installed VMware GemFire on your
+Now that the server is running, if you installed [vmware-gemfire-name] on your
 system and set the `$PATH` to include `$GEODE/bin`, then you can run
 *Gfsh* and connect to the server:
 
@@ -848,7 +844,7 @@ $ gfsh
  / /__/ / ____/  _____/ / /    / /
 /______/_/      /______/_/    /_/    1.6.0
 
-Monitor and Manage VMware GemFire
+Monitor and Manage [vmware-gemfire-name]
 
 gfsh>connect
 Connecting to Locator at [host=localhost, port=10334] ..
@@ -909,7 +905,7 @@ gfsh>
 
 ### Run the Client Application
 
-Now it is time to start 2 instances of the Spring Boot, VMware GemFire
+Now it is time to start 2 instances of the Spring Boot, [vmware-gemfire-name]
 `ClientCache` application hosting our *Yellow Pages* service.
 
 <p class="note"><strong>Note:</strong>
@@ -1047,7 +1043,7 @@ Presto! You have now just created a Spring Boot application using the
 ## Summary
 
 In this guide, we learned how to create a Spring Boot application using
-Spring’s Cache Abstraction backed by VMware GemFire using the
+Spring’s Cache Abstraction backed by [vmware-gemfire-name] using the
 *Look-Aside Caching* pattern in our application service methods. We
 further enhanced the caching ability of our application with ***Near
 Caching***.

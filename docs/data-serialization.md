@@ -23,7 +23,7 @@ Title: Data Serialization with PDX
 Anytime data is overflowed or persisted to disk, transferred between
 clients and servers, transferred between peers in a cluster or between
 different clusters in a multi-site WAN topology, all data stored in
-VMware GemFire must be serializable.
+[vmware-gemfire-name] must be serializable.
 
 
 
@@ -34,7 +34,7 @@ To serialize objects in Java, object types must implement the
 application domain object types that currently do not implement
 `java.io.Serializable`, refactoring hundreds or even thousands of class
 types to implement `java.io.Serializable` would be a tedious task just
-to store and manage those objects in VMware GemFire.
+to store and manage those objects in [vmware-gemfire-name].
 
 
 
@@ -43,7 +43,7 @@ to store and manage those objects in VMware GemFire.
 Additionally, it is not only your application domain object types you
 necessarily need to consider. If you used third-party libraries in your
 application domain model, any types referred to by your application
-domain object types stored in VMware GemFire must also be
+domain object types stored in [vmware-gemfire-name] must also be
 serializable. This type explosion may bleed into class types for which
 you may have no control over.
 
@@ -60,7 +60,7 @@ adds a great deal of overhead.
 
 
 
-Then, along came serialization using VMware GemFire's
+Then, along came serialization using [vmware-gemfire-name]'s
 https://geode.apache.org/docs/guide/115/developing/data_serialization/gemfire_pdx_serialization.html\[PDX\]
 format. PDX stands for Portable Data Exchange and achieves four goals:
 
@@ -69,7 +69,7 @@ format. PDX stands for Portable Data Exchange and achieves four goals:
 
 
 - Separates type metadata from the data itself, streamlining the bytes
-  during transfer. VMware GemFire maintains a type registry that
+  during transfer. [vmware-gemfire-name] maintains a type registry that
   stores type metadata about the objects serialized with PDX.
 
 - Supports versioning as your application domain types evolve. It is
@@ -117,7 +117,7 @@ Also, PDX cannot handle field type changes.
 
 
 
-Furthermore, while VMware GemFire's general
+Furthermore, while [vmware-gemfire-name]'s general
 https://geode.apache.org/docs/guide/115/developing/data_serialization/gemfire_data_serialization.html\[Data
 Serialization\] handles
 https://geode.apache.org/docs/guide/115/developing/delta_propagation/chapter_overview.html\[Deltas\],
@@ -141,7 +141,7 @@ You need do nothing special. You can code your domain types and rest
 assured that objects of those domain types are properly serialized when
 overflowed and persisted to disk, transferred between clients and
 servers, transferred between peers in a cluster, and even when data is
-transferred over the network when you use VMware GemFire's
+transferred over the network when you use [vmware-gemfire-name]'s
 multi-site WAN topology.
 
 
@@ -188,7 +188,7 @@ class EligibilityDecision {
 <td class="icon">
 Note
 </td>
-<td class="content">VMware GemFire does
+<td class="content">[vmware-gemfire-name] does
 https://geode.apache.org/docs/guide/115/developing/data_serialization/java_serialization.html[support]
 the standard Java Serialization format.</td>
 </tr>
@@ -199,13 +199,13 @@ the standard Java Serialization format.</td>
 
 
 
-### SDG `MappingPdxSerializer` vs. VMware GemFire's `ReflectionBasedAutoSerializer`
+### [spring-data-gemfire-name] `MappingPdxSerializer` vs. [vmware-gemfire-name]'s `ReflectionBasedAutoSerializer`
 
 
 
-Under-the-hood, Spring Boot for VMware GemFire
+Under-the-hood, [spring-boot-gemfire-name]
 https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-pdx\[enables\]
-and uses Spring Data for VMware GemFire's
+and uses [spring-data-gemfire-name]'s
 https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/mapping/MappingPdxSerializer.html\[`MappingPdxSerializer`\]
 to serialize your application domain objects with PDX.
 
@@ -223,7 +223,7 @@ to serialize your application domain objects with PDX.
 <td class="icon">
 Tip
 </td>
-<td class="content">See the SDG
+<td class="content">See the [spring-data-gemfire-name]
 https://docs.spring.io/spring-data/geode/docs/current/reference/html/#mapping.pdx-serializer[Reference Guide]
 for more details on the <code>MappingPdxSerializer</code> class.</td>
 </tr>
@@ -235,7 +235,7 @@ for more details on the <code>MappingPdxSerializer</code> class.</td>
 
 
 The `MappingPdxSerializer` class offers several advantages above and
-beyond VMware GemFire's own
+beyond [vmware-gemfire-name]'s own
 https://geode.apache.org/releases/latest/javadoc/org/apache/geode/pdx/ReflectionBasedAutoSerializer.html\[`ReflectionBasedAutoSerializer`\]
 class.
 
@@ -253,7 +253,7 @@ class.
 <td class="icon">
 Tip
 </td>
-<td class="content">See VMware GemFire's
+<td class="content">See [vmware-gemfire-name]'s
 https://geode.apache.org/docs/guide/115/developing/data_serialization/auto_serialization.html[User
 Guide] for more details about the
 <code>ReflectionBasedAutoSerializer</code>.</td>
@@ -265,7 +265,7 @@ Guide] for more details about the
 
 
 
-The SDG `MappingPdxSerializer` class offers the following benefits and
+The [spring-data-gemfire-name] `MappingPdxSerializer` class offers the following benefits and
 capabilities:
 
 
@@ -279,7 +279,7 @@ capabilities:
   https://docs.spring.io/spring-data/geode/docs/current/reference/html/#mapping.pdx-serializer.type-filtering\[type
   filtering\]. Additionally, you can implement type filters by using
   Java’s `java.util.function.Predicate` interface as opposed to the
-  limited regex capabilities provided by VMware GemFire's
+  limited regex capabilities provided by [vmware-gemfire-name]'s
   `ReflectionBasedAutoSerializer` class. By default,
   `MappingPdxSerializer` excludes all types in the following packages:
   `java`, `org.apache.geode`, `org.springframework` and
@@ -309,7 +309,7 @@ capabilities:
 
 The support for `includes` and `excludes` deserves special attention,
 since the `MappingPdxSerializer` excludes all Java, Spring, and
-VMware GemFire types, by default. However, what happens when you
+[vmware-gemfire-name] types, by default. However, what happens when you
 need to serialize one of those types?
 
 
@@ -377,7 +377,7 @@ class SpringBootApacheGeodeClientCacheApplication {
 <td class="icon">
 Tip
 </td>
-<td class="content">Normally, you need not explicitly declare SDG’s
+<td class="content">Normally, you need not explicitly declare [spring-data-gemfire-name]’s
 <code>@EnablePdx</code> annotation to enable and configure PDX. However,
 if you want to override auto-configuration, as we have demonstrated
 above, you must do this.</td>

@@ -1,4 +1,4 @@
-# Spring Boot Security for VMware GemFire
+# Spring Boot Security for [vmware-gemfire-name]
 
 <!-- 
  Copyright (c) VMware, Inc. 2022. All rights reserved.
@@ -28,7 +28,7 @@ Table of Contents
 
 This guide walks you through building a simple Spring Boot application
 enabled with Security, specifically Auth and TLS using SSL. You should
-already be familiar with Spring Boot and VMware GemFire.
+already be familiar with Spring Boot and [vmware-gemfire-name].
 
 Refer to the <a
 href="../index.html#geode-security">Security</a> chapter in the
@@ -54,14 +54,14 @@ to encrypt the information as it is transmitted. Now, our applications
 are secure.
 
 <p class="caution"><strong>Caution:</strong>
-Neither VMware GemFire nor SBDG provides any support for
+Neither [vmware-gemfire-name] nor [spring-boot-gemfire-name] provides any support for
 <em>securing</em> <a
 href="https://en.wikipedia.org/wiki/Data_at_rest"><em>data at
 rest</em></a>, such as with <em>disk encryption</em>. This concern is
 typically left to hardware-based solutions.
 </p>
 
-See the Spring Boot for VMware GemFire (SBDG)
+See the [spring-boot-gemfire-name]
 chapter on <a href="../index.html#geode-security">Security</a> for more
 information.
 
@@ -92,7 +92,7 @@ Spring Boot `application.properties` file. You can generate a Keystore
 using [Java
 Keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html).
 
-See Spring Boot for VMware GemFire’s (SBDG) chapter
+See [spring-boot-gemfire-name]’s  chapter
 on <a href="../index.html#geode-security-auth-clients">Auth for
 Clients</a> for more information.
 
@@ -104,7 +104,7 @@ the server as it does on the client. In order to enable auth, you need
 to do two things.
 
 First, annotate your configuration class with `@EnableSecurity`. Second,
-because VMware GemFire’s security is integrated with Apache Shiro,
+because [vmware-gemfire-name]’s security is integrated with Apache Shiro,
 define at least one Shiro Realm as a bean in your Spring
 `ApplicationContext`.
 
@@ -136,7 +136,7 @@ Spring Boot `application.properties` file. You can generate a Keystore
 using [Java
 Keytool](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html).
 
-See Spring Boot for VMware GemFire’s (SBDG) chapter
+See [spring-boot-gemfire-name]’s  chapter
 on <a href="../index.html#geode-security-auth-servers">Auth for
 Servers</a> for more information.
 
@@ -172,7 +172,7 @@ succeeding.
 
 #### BootGeodeSecurityClientApplication
 
-Spring Boot, VMware GemFire Client Application
+Spring Boot, [vmware-gemfire-name] Client Application
 
 ``` highlight
 @SpringBootApplication
@@ -214,12 +214,12 @@ public class BootGeodeSecurityClientApplication {
 }
 ```
 
-This class is a Spring Boot, VMware GemFire client application (i.e.
+This class is a Spring Boot, [vmware-gemfire-name] client application (i.e.
 `ClientCache`) configured to authenticate when connecting to a cluster
 of servers using connections secured with SSL.
 
 The `@SpringBootApplication` annotation declares the application to be a
-Spring Boot application. With SBDG on the application classpath, a
+Spring Boot application. With [spring-boot-gemfire-name] on the application classpath, a
 `ClientCache` instance will be auto-configured automatically, making the
 application a cache client capable of connecting to the cluster.
 
@@ -230,20 +230,20 @@ security.
 Because SDBG auto-configures a
 <code>ClientCache</code> instance by default, you do not need to
 explicitly annotate your <code>@SpringBootApplication</code> class with
-SDG’s <code>@ClientCacheApplication</code> annotation. In fact doing so
-disables some of the auto-configuration, like security, applied by SBDG
+[spring-data-gemfire-name]’s <code>@ClientCacheApplication</code> annotation. In fact doing so
+disables some of the auto-configuration, like security, applied by [spring-boot-gemfire-name]
 OOTB. The same is true when you declare one of the
 [<code>@PeerCacheApplication</code>,
 <code>@CacheServerApplication</code>] annotations, which changes your
 <code>@SpringBootApplication</code> class completely, from a client to a
-server-side VMware GemFire process. Therefore, be careful! See the
+server-side [vmware-gemfire-name] process. Therefore, be careful! See the
 relevant <a
 href="../index.html#geode-clientcache-applications">chapter</a> in the
 reference documentation for more details.
 
 #### BootGeodeSecurityServerApplication
 
-Spring Boot, VMware GemFire Server Application
+Spring Boot, [vmware-gemfire-name] Server Application
 
 ``` highlight
 @SpringBootApplication
@@ -272,18 +272,18 @@ public class BootGeodeSecurityServerApplication {
 }
 ```
 
-This class is a Spring Boot, VMware GemFire server application (i.e.
+This class is a Spring Boot, [vmware-gemfire-name] server application (i.e.
 `CacheServer`) that requires clients (i.e. `ClientCache`) to
 authenticate when connecting to the server and to communicate using SSL.
 
 Unlike the client application class above, we annotate this
 `@SpringBootApplication` class with `@CacheServerApplication` to
-override the default `ClientCache` auto-configured by SBDG OOTB. This
-makes the application a VMware GemFire server on startup, capable of
+override the default `ClientCache` auto-configured by [spring-boot-gemfire-name] OOTB. This
+makes the application a [vmware-gemfire-name] server on startup, capable of
 serving clients.
 
-We must additionally annotate the server application class with SBDG’s
-`@EnableSecurity` annotation to enable VMware GemFire Security on the
+We must additionally annotate the server application class with [spring-boot-gemfire-name]’s
+`@EnableSecurity` annotation to enable [vmware-gemfire-name] Security on the
 server-side. By explicitly declaring a `PropertiesRealm` bean, we are
 using Apache Shiro as the auth provider, supplying the security
 credentials (users, roles and permissions) via a Java Properties file:
@@ -301,7 +301,7 @@ In addition to the auth (authentication/authorization) configuration, we
 must additionally supply a Java Keystore file to encrypt the connection
 between the client and server using SSL, as discussed above. All you
 need to do is create a Java Keystore file and put it in your application
-classpath root. SBDG will [take care of the
+classpath root. [spring-boot-gemfire-name] will [take care of the
 rest](../index.html#geode-security-ssl).
 
 Of course, if you have secured your Java Keystore file with a password
@@ -343,7 +343,7 @@ public class Customer {
 ```
 
 This is a simple application domain class to represent a customer. The
-`Customer` class is annotated with SDG’s `@Region` mapping annotation to
+`Customer` class is annotated with [spring-data-gemfire-name]’s `@Region` mapping annotation to
 declare that the "*Customers*" `Region` will contain `Customer` objects
 that will be accessed securely from the client.
 
@@ -391,11 +391,11 @@ You can also hit the endpoint at
 [localhost:8080/message](http://localhost:8080/message) to verify the
 application is using SSL.
 
-#### Running on VMware Tanzu GemFire \[VMs\]
+#### Running on [vmware-gemfire-name] \[VMs\]
 
-In order for this sample to work, your VMware Tanzu GemFire \[VMs\] tile
+In order for this sample to work, your [vmware-gemfire-name] \[VMs\] tile
 must be setup to work with TLS. Instructions to enable TLS for the
-VMware Tanzu GemFire \[VMs\] tile can be found
+[vmware-gemfire-name] \[VMs\] tile can be found
 [here](https://docs.pivotal.io/p-cloud-cache/1-11/prepare-TLS.html).
 
 Once TLS has been enabled, create your service instance with the
@@ -520,6 +520,6 @@ Replace `<cf-instance>` with the name of your CloudFoundry instance to
 verify that the application is using SSL.
 
 Congratulations! You have taken your first steps towards securing an
-VMware GemFire application with Spring Boot.
+[vmware-gemfire-name] application with Spring Boot.
 
 

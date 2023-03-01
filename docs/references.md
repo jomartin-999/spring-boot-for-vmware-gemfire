@@ -24,17 +24,17 @@
 
 3.  Spring Data Commons [Reference Guide](https://docs.spring.io/spring-data/commons/docs/current/reference/html) | [Javadoc](https://docs.spring.io/spring-data/commons/docs/current/api)
 
-4.  Spring Data for VMware GemFire
+4.  [spring-data-gemfire-name]
     [Reference Guide](https://docs.spring.io/spring-data/geode/docs/current/reference/html) |
     [Javadoc](https://docs.spring.io/spring/docs/current/javadoc-api)
 
-5.  Spring Session for VMware GemFire
+5.  [spring-session-gemfire-name]
     [Reference Guide](https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/reference/html5) |
     [Javadoc](https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/api)
 
-6.  Spring Test for VMware GemFire
+6.  Spring Test for [vmware-gemfire-name]
     [README](https://github.com/spring-projects/spring-test-data-geode#spring-test-framework-for-apache-geode%E2%80%94%E2%80%8Bvmware-tanzu-gemfire)
 
-7.  VMware GemFire [User Guide](https://geode.apache.org/docs/guide/115) |
+7. [vmware-gemfire-name] [User Guide](https://geode.apache.org/docs/guide/115) |
     [Javadoc](https://geode.apache.org/releases/latest/javadoc)
 

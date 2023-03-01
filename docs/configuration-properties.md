@@ -19,15 +19,13 @@ Title: Configuration Metadata Reference
 -->
 
 The following reference sections cover documented and well-known
-properties recognized and processed by Spring Data for
-VMware GemFire (SDG) and Spring Session for VMware GemFire
-(SSDG).
+properties recognized and processed by [spring-data-gemfire-name] and [spring-session-gemfire-name].
 
 These properties may be used in Spring Boot `application.properties` or
 as JVM System properties, to configure different aspects of or enable
-individual features of VMware GemFire in a Spring application. When
+individual features of [vmware-gemfire-name] in a Spring application. When
 combined with the power of Spring Boot, they give you the ability to
-quickly create an application that uses VMware GemFire.
+quickly create an application that uses [vmware-gemfire-name].
 
 ### Spring Data Based Properties
 
@@ -58,7 +56,7 @@ properties</caption>
 <td
 class="tableblock halign-left valign-top"><p><code>name</code></p></td>
 <td class="tableblock halign-left valign-top"><p>Name of the
-VMware GemFire server.</p></td>
+[vmware-gemfire-name] server.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>SpringBasedCacheClientApplication</code></p></td>
 <td
@@ -76,10 +74,10 @@ class="tableblock halign-left valign-top"><p><a href="https://docs.spring.io/spr
 <tr class="odd">
 <td
 class="tableblock halign-left valign-top"><p><code>use-bean-factory-locator</code></p></td>
-<td class="tableblock halign-left valign-top"><p>Enable the SDG
+<td class="tableblock halign-left valign-top"><p>Enable the [spring-data-gemfire-name]
 <code>BeanFactoryLocator</code> when mixing Spring config with
-VMware GemFire native config (such as <code>cache.xml</code>) and
-you wish to configure VMware GemFire objects declared in
+[vmware-gemfire-name] native config (such as <code>cache.xml</code>) and
+you wish to configure [vmware-gemfire-name] objects declared in
 <code>cache.xml</code> with Spring.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
@@ -145,7 +143,7 @@ class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/
 <td
 class="tableblock halign-left valign-top"><p><code>cache.enable-auto-region-lookup</code></p></td>
 <td class="tableblock halign-left valign-top"><p>Whether to lookup
-Regions configured in VMware GemFire native configuration and
+Regions configured in [vmware-gemfire-name] native configuration and
 declare them as Spring beans.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
@@ -176,7 +174,7 @@ class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/
 <td
 class="tableblock halign-left valign-top"><p><code>cache.log-level</code></p></td>
 <td class="tableblock halign-left valign-top"><p>Configure the log-level
-of a VMware GemFire cache.</p></td>
+of a [vmware-gemfire-name] cache.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>config</code></p></td>
 <td
@@ -216,7 +214,7 @@ class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/
 <td
 class="tableblock halign-left valign-top"><p>cache.off-heap.memory-size</p></td>
 <td class="tableblock halign-left valign-top"><p>Determines the size of
-off-heap memory used by VMware GemFire in megabytes (m) or
+off-heap memory used by [vmware-gemfire-name] in megabytes (m) or
 gigabytes (g) — for example, <code>120g</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
@@ -856,7 +854,7 @@ properties</caption>
 <td
 class="tableblock halign-left valign-top"><p><code>logging.level</code></p></td>
 <td class="tableblock halign-left valign-top"><p>The log level of an
-VMware GemFire cache. Alias for
+[vmware-gemfire-name] cache. Alias for
 'spring.data.gemfire.cache.log-level'.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>config</code></p></td>
@@ -917,7 +915,7 @@ properties</caption>
 <td
 class="tableblock halign-left valign-top"><p><code>management.use-http</code></p></td>
 <td class="tableblock halign-left valign-top"><p>Whether to use the HTTP
-protocol to communicate with a VMware GemFire Manager.</p></td>
+protocol to communicate with a [vmware-gemfire-name] Manager.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
@@ -927,7 +925,7 @@ class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/
 <td
 class="tableblock halign-left valign-top"><p><code>management.http.host</code></p></td>
 <td class="tableblock halign-left valign-top"><p>The IP address or
-hostname of the VMware GemFire Manager that runs the HTTP
+hostname of the [vmware-gemfire-name] Manager that runs the HTTP
 service.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
@@ -937,7 +935,7 @@ class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/
 <td
 class="tableblock halign-left valign-top"><p><code>management.http.port</code></p></td>
 <td class="tableblock halign-left valign-top"><p>The port used by the
-VMware GemFire Manager’s HTTP service to listen for
+[vmware-gemfire-name] Manager’s HTTP service to listen for
 connections.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>7070</code></p></td>
@@ -1525,10 +1523,10 @@ class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/
 <tr class="even">
 <td
 class="tableblock halign-left valign-top"><p><code>security.shiro.ini-resource-path</code></p></td>
-<td class="tableblock halign-left valign-top"><p>The VMware GemFire
+<td class="tableblock halign-left valign-top"><p>The [vmware-gemfire-name]
 System property that refers to the location of an Apache Shiro INI file
 that configures the Apache Shiro Security Framework in order to secure
-VMware GemFire.</p></td>
+[vmware-gemfire-name].</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
 class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#shiroIniResourcePath--[<code>EnableSecurity.shiroIniResourcePath</code>]</p></td>
@@ -1570,7 +1568,7 @@ class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/
 class="tableblock halign-left valign-top"><p><code>security.ssl.certificate.alias.default-alias</code></p></td>
 <td class="tableblock halign-left valign-top"><p>The default alias to
 the stored SSL certificate used to secure communications across the
-entire VMware GemFire system.</p></td>
+entire [vmware-gemfire-name] system.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
 class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#defaultCertificateAlias--[<code>EnableSsl.defaultCertificateAlias</code>]</p></td>
@@ -1637,7 +1635,7 @@ class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/
 <td
 class="tableblock halign-left valign-top"><p><code>security.ssl.components</code></p></td>
 <td class="tableblock halign-left valign-top"><p>Comma-delimited list of
-VMware GemFire components (for example, WAN) to be configured for
+[vmware-gemfire-name] components (for example, WAN) to be configured for
 SSL communication.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
@@ -1784,7 +1782,7 @@ class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/
 class="tableblock halign-left valign-top"><p><code>service.http.dev-rest-api-start</code></p></td>
 <td class="tableblock halign-left valign-top"><p>Whether to start the
 Developer REST API web service. A full installation of
-VMware GemFire is required, and you must set the
+[vmware-gemfire-name] is required, and you must set the
 <code>$GEODE</code> environment variable.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
@@ -1810,26 +1808,6 @@ the embedded Memcached server (service).</p></td>
 class="tableblock halign-left valign-top"><p><code>ASCII</code></p></td>
 <td
 class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableMemcachedServer.html#protocol--[<code>EnableMemcachedServer.protocol</code>]</p></td>
-</tr>
-<tr class="odd">
-<td
-class="tableblock halign-left valign-top"><p><code>service.redis.bind-address</code></p></td>
-<td class="tableblock halign-left valign-top"><p>The IP address or
-hostname of the system NIC used by the embedded Redis server to bind and
-listen for connections.</p></td>
-<td class="tableblock halign-left valign-top"></td>
-<td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableRedisServer.html#bindAddress--[<code>EnableRedis.bindAddress</code>]</p></td>
-</tr>
-<tr class="even">
-<td
-class="tableblock halign-left valign-top"><p><code>service.redis.port</code></p></td>
-<td class="tableblock halign-left valign-top"><p>The port used by the
-embedded Redis server to listen for connections.</p></td>
-<td
-class="tableblock halign-left valign-top"><p><code>6479</code></p></td>
-<td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableRedisServer.html#port--[<code>EnableRedisServer.port</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -1939,17 +1917,17 @@ class="tableblock halign-left valign-top"><p>https://docs.spring.io/autorepo/doc
 
 Table 18. `spring.session.data.gemfire.*` properties
 
-### VMware GemFire Properties
+### [vmware-gemfire-name] Properties
 
-While we do not recommend using VMware GemFire properties directly
-in your Spring applications, SBDG does not prevent you from doing so.
+While we do not recommend using [vmware-gemfire-name] properties directly
+in your Spring applications, [spring-boot-gemfire-name] does not prevent you from doing so.
 See the
-[complete reference to the VMware GemFire specific properties](https://geode.apache.org/docs/guide/115/reference/topics/gemfire_properties.html).
+[complete reference to the [vmware-gemfire-name] specific properties](https://geode.apache.org/docs/guide/115/reference/topics/gemfire_properties.html).
 
 <p class="warning"><strong>Warning:</strong>
-VMware GemFire is very strict about the
+[vmware-gemfire-name] is very strict about the
 properties that may be specified in a <code>gemfire.properties</code>
 file. You cannot mix Spring properties with <code>gemfire.*</code>
-properties in a VMware GemFire <code>gemfire.properties</code>
+properties in a [vmware-gemfire-name] <code>gemfire.properties</code>
 file.
 </p>

@@ -1,5 +1,5 @@
 ---
-Title: Using Geode Properties
+Title: Using [vmware-gemfire-short-name] Properties
 ---
 
 <!-- 
@@ -20,8 +20,8 @@ Title: Using Geode Properties
 
 
 
-As of Spring Boot for VMware GemFire (SBDG) 1.3, you can declare
-VMware GemFire properties from `gemfire.properties` in Spring
+As of [spring-boot-gemfire-name] 1.3, you can declare
+[vmware-gemfire-name] properties from `gemfire.properties` in Spring
 Boot `application.properties`.
 
 
@@ -40,7 +40,7 @@ Tip
 </td>
 <td class="content">See the
 https://geode.apache.org/docs/guide/115/reference/topics/gemfire_properties.html[User Guide]
-for a complete list of valid VMware GemFire properties.</td>
+for a complete list of valid [vmware-gemfire-name] properties.</td>
 </tr>
 </tbody>
 </table>
@@ -49,7 +49,7 @@ for a complete list of valid VMware GemFire properties.</td>
 
 
 
-Note that you can declare only valid Geode properties in
+Note that you can declare only valid [vmware-gemfire-short-name] properties in
 `gemfire.properties` or, alternatively, `gfsecurity.properties`.
 
 
@@ -76,7 +76,7 @@ Example 1. Valid `gemfire.properties`
 
 
 ``` highlight
-# Geode Properties in gemfire.properties
+# [vmware-gemfire-short-name] Properties in gemfire.properties
 
 name=ExampleCacheName
 log-level=TRACE
@@ -96,10 +96,10 @@ durable-client-id=123
 
 
 All of the properties declared in the preceding example correspond to
-valid Geode properties. It is illegal to declare properties in
-`gemfire.properties` that are not valid Geode properties, even if those
+valid [vmware-gemfire-short-name] properties. It is illegal to declare properties in
+`gemfire.properties` that are not valid [vmware-gemfire-short-name] properties, even if those
 properties are prefixed with a different qualifier (such as `spring.*`).
-VMware GemFire throws an `IllegalArgumentException` for invalid
+[vmware-gemfire-name] throws an `IllegalArgumentException` for invalid
 properties.
 
 
@@ -126,7 +126,7 @@ Example 2. Invalid `gemfire.properties`
 
 
 ``` highlight
-# Geode Properties in gemfire.properties
+# [vmware-gemfire-short-name] Properties in gemfire.properties
 
 name=ExampleCacheName
 invalid-property=TEST
@@ -142,7 +142,7 @@ invalid-property=TEST
 
 
 
-VMware GemFire throws an `IllegalArgumentException`:
+[vmware-gemfire-name] throws an `IllegalArgumentException`:
 
 
 
@@ -150,7 +150,7 @@ VMware GemFire throws an `IllegalArgumentException`:
 
 
 
-Example 3. `IllegalArgumentException` thrown by VMware GemFire
+Example 3. `IllegalArgumentException` thrown by [vmware-gemfire-name]
 for Invalid Property (Full Text Omitted)
 
 
@@ -192,9 +192,9 @@ Valid attribute names are: ack-severe-alert-threshold ack-wait-threshold archive
 
 
 
-It is inconvenient to have to separate VMware GemFire properties
+It is inconvenient to have to separate [vmware-gemfire-name] properties
 from other application properties, or to have to declare only
-VMware GemFire properties in a `gemfire.properties` file and
+[vmware-gemfire-name] properties in a `gemfire.properties` file and
 application properties in a separate properties file, such as Spring
 Boot `application.properties`.
 
@@ -202,7 +202,7 @@ Boot `application.properties`.
 
 
 
-Additionally, because of VMware GemFire's constraint on
+Additionally, because of [vmware-gemfire-name]'s constraint on
 properties, you cannot use the full power of Spring Boot when you
 compose `application.properties`.
 
@@ -218,24 +218,24 @@ environment- or context-specific.
 
 
 
-Spring Data for VMware GemFire already provides a wide range of
-properties mapping to VMware GemFire properties.
+[spring-data-gemfire-name] already provides a wide range of
+properties mapping to [vmware-gemfire-name] properties.
 
 
 
 
 
-For example, the SDG `spring.data.gemfire.locators` property maps to the
+For example, the [spring-data-gemfire-name] `spring.data.gemfire.locators` property maps to the
 `gemfire.locators` property (`locators` in `gemfire.properties`) from
-VMware GemFire. Likewise, there are a full set of SDG properties
-that map to the corresponding VMware GemFire properties in the
+[vmware-gemfire-name]. Likewise, there are a full set of [spring-data-gemfire-name] properties
+that map to the corresponding [vmware-gemfire-name] properties in the
 [Appendix](#geode-configuration-metadata-springdata).
 
 
 
 
 
-You can express the Geode properties shown earlier as SDG properties in
+You can express the [vmware-gemfire-short-name] properties shown earlier as [spring-data-gemfire-name] properties in
 Spring Boot `application.properties`, as follows:
 
 
@@ -244,7 +244,7 @@ Spring Boot `application.properties`, as follows:
 
 
 
-Example 4. Configuring Geode Properties using SDG Properties
+Example 4. Configuring [vmware-gemfire-short-name] Properties using [spring-data-gemfire-name] Properties
 
 
 
@@ -255,7 +255,7 @@ Example 4. Configuring Geode Properties using SDG Properties
 
 
 ``` highlight
-# Spring Data for VMware GemFire properties in application.properties
+# [spring-data-gemfire-name] properties in application.properties
 
 spring.data.gemfire.name=ExampleCacheName
 spring.data.gemfire.cache.log-level=TRACE
@@ -274,9 +274,9 @@ spring.data.gemfire.stats.enable-time-statistics=true
 
 
 
-However, some VMware GemFire properties have no equivalent SDG
+However, some [vmware-gemfire-name] properties have no equivalent [spring-data-gemfire-name]
 property, such as `gemfire.groups` (`groups` in `gemfire.properties`).
-This is partly due to the fact that many VMware GemFire
+This is partly due to the fact that many [vmware-gemfire-name]
 properties are applicable only when configured on the server (such as
 `groups` or `enforce-unique-host`).
 
@@ -297,8 +297,8 @@ Tip
 <td class="content">See the <code>@EnableGemFireProperties</code>
 annotation
 (https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableGemFireProperties.html[attributes])
-from SDG for a complete list of VMware GemFire properties with
-no corresponding SDG property.</td>
+from [spring-data-gemfire-name] for a complete list of [vmware-gemfire-name] properties with
+no corresponding [spring-data-gemfire-name] property.</td>
 </tr>
 </tbody>
 </table>
@@ -307,7 +307,7 @@ no corresponding SDG property.</td>
 
 
 
-Furthermore, many of the SDG properties also correspond to API calls.
+Furthermore, many of the [spring-data-gemfire-name] properties also correspond to API calls.
 
 
 
@@ -324,7 +324,7 @@ API call.
 
 
 Still, it would be convenient to be able to declare application and
-VMware GemFire properties together, in a single properties file,
+[vmware-gemfire-name] properties together, in a single properties file,
 such as Spring Boot `application.properties`. After all, it is not
 uncommon to declare JDBC Connection properties in a Spring Boot
 `application.properties` file.
@@ -333,7 +333,7 @@ uncommon to declare JDBC Connection properties in a Spring Boot
 
 
 
-Therefore, as of SBDG 1.3, you can now declare VMware GemFire
+Therefore, as of [spring-boot-gemfire-name] 1.3, you can now declare [vmware-gemfire-name]
 properties in Spring Boot `application.properties` directly, as follows:
 
 
@@ -342,7 +342,7 @@ properties in Spring Boot `application.properties` directly, as follows:
 
 
 
-Example 5. Geode Properties declared in Spring Boot
+Example 5. [vmware-gemfire-short-name] Properties declared in Spring Boot
 `application.properties`
 
 
@@ -378,19 +378,19 @@ This is convenient and ideal for several reasons:
 
 
 
-- If you already have a large number of VMware GemFire
+- If you already have a large number of [vmware-gemfire-name]
   properties declared as `gemfire.` properties (either in
   `gemfire.properties` or `gfsecurity.properties`) or declared on the
   Java command-line as JVM System properties (such as
   `-Dgemfire.name=ExampleCacheName`), you can reuse these property
   declarations.
 
-- If you are unfamiliar with SDG’s corresponding properties, you can
-  declare Geode properties instead.
+- If you are unfamiliar with [spring-data-gemfire-name]’s corresponding properties, you can
+  declare [vmware-gemfire-short-name] properties instead.
 
 - You can take advantage of Spring features, such as Spring profiles.
 
-- You can also use property placeholders with Geode properties (such as
+- You can also use property placeholders with [vmware-gemfire-short-name] properties (such as
   `gemfire.log-level=${external.log-level.property}`).
 
 
@@ -407,8 +407,8 @@ This is convenient and ideal for several reasons:
 <td class="icon">
 Tip
 </td>
-<td class="content">We encourage you to use the SDG properties, which
-cover more than VMware GemFire properties.</td>
+<td class="content">We encourage you to use the [spring-data-gemfire-name] properties, which
+cover more than [vmware-gemfire-name] properties.</td>
 </tr>
 </tbody>
 </table>
@@ -417,26 +417,26 @@ cover more than VMware GemFire properties.</td>
 
 
 
-However, SBDG requires that the Geode property must have the `gemfire.`
+However, [spring-boot-gemfire-name] requires that the [vmware-gemfire-short-name] property must have the `gemfire.`
 prefix in Spring Boot `application.properties`. This indicates that the
-property belongs to VMware GemFire. Without the `gemfire.`
+property belongs to [vmware-gemfire-name]. Without the `gemfire.`
 prefix, the property is not appropriately applied to the
-VMware GemFire cache instance.
+[vmware-gemfire-name] cache instance.
 
 
 
 
 
 It would be ambiguous if your Spring Boot applications integrated with
-several technologies, including VMware GemFire, and they too had
+several technologies, including [vmware-gemfire-name], and they too had
 matching properties, such as `bind-address` or `log-file`.
 
 
 
 
 
-SBDG makes a best attempt to log warnings when a Geode property is
-invalid or is not set. For example, the following Geode property would
+[spring-boot-gemfire-name] makes a best attempt to log warnings when a [vmware-gemfire-short-name] property is
+invalid or is not set. For example, the following [vmware-gemfire-short-name] property would
 result in logging a warning:
 
 
@@ -445,7 +445,7 @@ result in logging a warning:
 
 
 
-Example 6. Invalid VMware GemFire Property
+Example 6. Invalid [vmware-gemfire-name] Property
 
 
 
@@ -480,7 +480,7 @@ The resulting warning in the log would read:
 
 
 
-Example 7. Invalid Geode Property Warning Message
+Example 7. Invalid [vmware-gemfire-short-name] Property Warning Message
 
 
 
@@ -491,7 +491,7 @@ Example 7. Invalid Geode Property Warning Message
 
 
 ``` highlight
-[gemfire.non-existing-property] is not a valid Apache Geode property
+[gemfire.non-existing-property] is not a valid [vmware-gemfire-name] property
 ```
 
 
@@ -504,7 +504,7 @@ Example 7. Invalid Geode Property Warning Message
 
 
 
-If a Geode Property is not properly set, the following warning is
+If a [vmware-gemfire-short-name] Property is not properly set, the following warning is
 logged:
 
 
@@ -513,7 +513,7 @@ logged:
 
 
 
-Example 8. Invalide Geode Property Value Warning Message
+Example 8. Invalide [vmware-gemfire-short-name] Property Value Warning Message
 
 
 
@@ -524,7 +524,7 @@ Example 8. Invalide Geode Property Value Warning Message
 
 
 ``` highlight
-Apache Geode Property [gemfire.security-manager] was not set
+[vmware-gemfire-name] Property [gemfire.security-manager] was not set
 ```
 
 
@@ -538,7 +538,7 @@ Apache Geode Property [gemfire.security-manager] was not set
 
 
 With regards to the third point mentioned earlier, you can now compose
-and declare Geode properties based on a context (such as your
+and declare [vmware-gemfire-short-name] properties based on a context (such as your
 application environment) using Spring profiles.
 
 
@@ -665,8 +665,8 @@ more than one profile at a time with
 
 
 If both `spring.data.gemfire.*` properties and the matching
-VMware GemFire properties are declared in Spring Boot
-`application.properties`, the SDG properties take precedence.
+[vmware-gemfire-name] properties are declared in Spring Boot
+`application.properties`, the [spring-data-gemfire-name] properties take precedence.
 
 
 
@@ -718,17 +718,17 @@ spring.data.gemfire.cache.client.durable-client-id=987
 
 
 
-The `durable-client-id` is `987`. It does not matter which order the SDG
-or VMware GemFire properties are declared in Spring Boot
-`application.properties`. The matching SDG property overrides the
-VMware GemFire property when duplicates are found.
+The `durable-client-id` is `987`. It does not matter which order the [spring-data-gemfire-name]
+or [vmware-gemfire-name] properties are declared in Spring Boot
+`application.properties`. The matching [spring-data-gemfire-name] property overrides the
+[vmware-gemfire-name] property when duplicates are found.
 
 
 
 
 
-Finally, you cannot refer to Geode properties declared in Spring Boot
-`application.properties` with the SBDG `GemFireProperties` class (see
+Finally, you cannot refer to [vmware-gemfire-short-name] properties declared in Spring Boot
+`application.properties` with the [spring-boot-gemfire-name] `GemFireProperties` class (see
 the
 {spring-boot-data-geode-javadoc}/org/springframework/geode/boot/autoconfigure/configuration/GemFireProperties.html\[Javadoc\]).
 
@@ -744,7 +744,7 @@ Consider the following example:
 
 
 
-Example 13. Geode Properties declared in Spring Boot
+Example 13. [vmware-gemfire-short-name] Properties declared in Spring Boot
 `application.properties`
 
 
@@ -834,7 +834,7 @@ Spring Boot <code>application.properties</code> file.</td>
 
 
 
-Only `spring.data.gemfire.*` prefixed properties are mapped to the SBDG
+Only `spring.data.gemfire.*` prefixed properties are mapped to the [spring-boot-gemfire-name]
 `GemFireProperties` class hierarchy.
 
 
@@ -851,8 +851,8 @@ Only `spring.data.gemfire.*` prefixed properties are mapped to the SBDG
 <td class="icon">
 Tip
 </td>
-<td class="content">Prefer SDG properties over Geode properties. See the
-SDG properties reference in the <a
+<td class="content">Prefer [spring-data-gemfire-name] properties over [vmware-gemfire-short-name] properties. See the
+[spring-data-gemfire-name] properties reference in the <a
 href="#geode-configuration-metadata-springdata">Appendix</a>.</td>
 </tr>
 </tbody>

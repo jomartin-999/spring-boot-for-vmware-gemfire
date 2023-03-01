@@ -18,10 +18,10 @@ Title: Auto-configuration
  the License.
 -->
 
-The following Spring Framework, Spring Data for VMware GemFire
-(SDG) and Spring Session for VMware GemFire (SSDG) annotations
-are implicitly declared by Spring Boot for VMware GemFire's
-(SBDG) auto-configuration.
+The following Spring Framework, [spring-data-gemfire-name]
+ and [spring-session-gemfire-name] annotations
+are implicitly declared by [spring-boot-gemfire-name]'s
+ auto-configuration.
 
 - `@ClientCacheApplication`
 
@@ -48,17 +48,16 @@ are implicitly declared by Spring Boot for VMware GemFire's
 
 This means that you need not explicitly declare any
 of these annotations on your <code>@SpringBootApplication</code> class,
-since they are provided by SBDG already. The only reason you would
+since they are provided by [spring-boot-gemfire-name] already. The only reason you would
 explicitly declare any of these annotations is to override Spring
-Boot’s, and in particular, SBDG’s auto-configuration. Otherwise, doing
+Boot’s, and in particular, [spring-boot-gemfire-name]’s auto-configuration. Otherwise, doing
 so is unnecessary.
 
 You should read the chapter in Spring Boot’s
 reference documentation on
 [auto-configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/#using-boot-auto-configuration).
 
-You should review the chapter in Spring Data for
-VMware GemFire's (SDG) reference documentation on
+You should review the chapter in [spring-data-gemfire-name]'s  reference documentation on
 [annotation-based configuration](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config). For a quick reference and overview of annotation-based
 configuration, see the
 [annotations quickstart](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstap-annotations-quickstart).
@@ -66,23 +65,23 @@ configuration, see the
 See the corresponding sample
 [guide](guides/boot-configuration.html) and
 [code](https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/boot/configuration) to see Spring Boot
-auto-configuration for VMware GemFire in action.
+auto-configuration for [vmware-gemfire-name] in action.
 
 ### Customizing Auto-configuration
 
 You might ask, “How do I customize the auto-configuration provided by
-SBDG if I do not explicitly declare the annotation?”
+[spring-boot-gemfire-name] if I do not explicitly declare the annotation?”
 
 For example, you may want to customize the member’s name. You know that
 the
 [`@ClientCacheApplication`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html)
 annotation provides the
 [`name`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableGemFireProperties.html#name--)
-attribute so that you can set the client member’s name. However, SBDG
+attribute so that you can set the client member’s name. However, [spring-boot-gemfire-name]
 has already implicitly declared the `@ClientCacheApplication` annotation
 through auto-configuration on your behalf. What do you do?
 
-In this case, SBDG supplies a few additional annotations.
+In this case, [spring-boot-gemfire-name] supplies a few additional annotations.
 
 For example, to set the (client or peer) member’s name, you can use the
 `@UseMemberName` annotation:
@@ -131,11 +130,11 @@ or peer member node).
 </p>
 
 In general, there are three ways to customize configuration, even in the
-context of SBDG’s auto-configuration:
+context of [spring-boot-gemfire-name]’s auto-configuration:
 
 - Using
   [annotations](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/config/annotation/package-summary.html)
-  provided by SBDG for common and popular concerns (such as naming
+  provided by [spring-boot-gemfire-name] for common and popular concerns (such as naming
   client or peer members with the `@UseMemberName` annotation or
   enabling durable clients with the `@EnableDurableClient` annotation).
 
@@ -159,10 +158,10 @@ Spring Boot’s reference documentation explains how to
 [deactivate Spring Boot auto-configuration](./configuration-deactivate.html).
 
 [Deactivating Auto-configuration](./configuration-deactivate.html)
-also explains how to deactivate SBDG auto-configuration.
+also explains how to deactivate [spring-boot-gemfire-name] auto-configuration.
 
 In a nutshell, if you want to deactivate any auto-configuration provided by
-either Spring Boot or SBDG, declare your intent in the
+either Spring Boot or [spring-boot-gemfire-name], declare your intent in the
 `@SpringBootApplication` annotation:
 
 Example 4. Deactivating Specific Auto-configuration Classes
@@ -186,14 +185,14 @@ deactivate auto-configuration.
 ### Overriding Auto-configuration
 
 [Overriding](./configuration-annotations.html#auto-configuration-annotations-overriding)
-explains how to override SBDG auto-configuration.
+explains how to override [spring-boot-gemfire-name] auto-configuration.
 
 In a nutshell, if you want to override the default auto-configuration
-provided by SBDG, you must annotate your `@SpringBootApplication` class
+provided by [spring-boot-gemfire-name], you must annotate your `@SpringBootApplication` class
 with your intent.
 
 For example, suppose you want to configure and bootstrap an
-VMware GemFire `CacheServer` application (a peer, not a client):
+[vmware-gemfire-name] `CacheServer` application (a peer, not a client):
 
 Example 5. Overriding the default `ClientCache` *Auto-Configuration* by
 configuring & bootstrapping a `CacheServer` application
@@ -221,7 +220,7 @@ class SpringBootApacheGeodeClientCacheApplication {
 }
 ```
 
-You are overriding SBDG’s auto-configuration of the `ClientCache`
+You are overriding [spring-boot-gemfire-name]’s auto-configuration of the `ClientCache`
 instance. As a result, you have now also implicitly consented to being
 responsible for other aspects of the configuration (such as security).
 
@@ -245,34 +244,34 @@ See the Spring Boot reference documentation on
 
 ### Understanding Auto-configuration
 
-This section covers the SBDG provided auto-configuration classes that
-correspond to the SDG annotations in more detail.
+This section covers the [spring-boot-gemfire-name] provided auto-configuration classes that
+correspond to the [spring-data-gemfire-name] annotations in more detail.
 
-To review the complete list of SBDG auto-configuration classes, see
+To review the complete list of [spring-boot-gemfire-name] auto-configuration classes, see
 [Complete Set of Auto-configuration Classes](./configuration-deactivate.html#auto-configuration-deactivate-classes).
 
 #### `@ClientCacheApplication`
 
-The SBDG
+The [spring-boot-gemfire-name]
 [<code>ClientCacheAutoConfiguration</code>](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/ClientCacheAutoConfiguration.html)
-class corresponds to the SDG
+class corresponds to the [spring-data-gemfire-name]
 [<code>@ClientCacheApplication</code>](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html)
 annotation.
 
-As explained in [Getting Started](./index.html#getting-started) SBDG starts with
+As explained in [Getting Started](./index.html#getting-started) [spring-boot-gemfire-name] starts with
 the opinion that application developers primarily build
-VMware GemFire [client
+[vmware-gemfire-name] [client
 applications](./clientcache-applications.html) by using Spring Boot.
 
 Technically, this means building Spring Boot applications with an
-VMware GemFire `ClientCache` instance connected to a dedicated
-cluster of VMware GemFire servers that manage the data as part
+[vmware-gemfire-name] `ClientCache` instance connected to a dedicated
+cluster of [vmware-gemfire-name] servers that manage the data as part
 of a
 [client/server](https://geode.apache.org/docs/guide/115/topologies_and_comm/cs_configuration/chapter_overview.html)
 topology.
 
 By way of example, this means that you need not explicitly declare and
-annotate your `@SpringBootApplication` class with SDG’s
+annotate your `@SpringBootApplication` class with [spring-data-gemfire-name]’s
 `@ClientCacheApplication` annotation, as the following example shows:
 
 Example 7. Do Not Do This
@@ -286,8 +285,8 @@ class SpringBootApacheGeodeClientCacheApplication {
 }
 ```
 
-SBDG’s provided auto-configuration class is already meta-annotated with
-SDG’s `@ClientCacheApplication` annotation. Therefore, you need only do:
+[spring-boot-gemfire-name]’s provided auto-configuration class is already meta-annotated with
+[spring-data-gemfire-name]’s `@ClientCacheApplication` annotation. Therefore, you need only do:
 
 Example 8. Do This
 
@@ -299,21 +298,21 @@ class SpringBootApacheGeodeClientCacheApplication {
 }
 ```
 
-See SDG’s reference documentation for more details
-on VMware GemFire
+See [spring-data-gemfire-name]’s reference documentation for more details
+on [vmware-gemfire-name]
 [cache applications](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-geode-applications) and
 [client/server applications](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-client-server-applications) in particular.
 
 #### `@EnableGemfireCaching`
 
-The SBDG
+The [spring-boot-gemfire-name]
 [<code>CachingProviderAutoConfiguration</code>](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/CachingProviderAutoConfiguration.html)
-class corresponds to the SDG
+class corresponds to the [spring-data-gemfire-name]
 [<code>@EnableGemfireCaching</code>](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/cache/config/EnableGemfireCaching.html)
 annotation.
 
 If you used the core Spring Framework to configure
-VMware GemFire as a caching provider in
+[vmware-gemfire-name] as a caching provider in
 [Spring’s Cache Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache), you need to:
 
 Example 9. Configuring caching using the Spring Framework
@@ -336,12 +335,11 @@ class CachingUsingApacheGeodeConfiguration {
 }
 ```
 
-If you use Spring Data for VMware GemFire's
+If you use [spring-data-gemfire-name]'s
 `@EnableGemfireCaching` annotation, you can simplify the preceding
 configuration:
 
-Example 10. Configuring caching using Spring Data for
-VMware GemFire
+Example 10. Configuring caching using [spring-data-gemfire-name]
 
 
 ``` highlight
@@ -352,10 +350,9 @@ class CachingUsingApacheGeodeConfiguration {
 }
 ```
 
-Also, if you use SBDG, you need only do:
+Also, if you use [spring-boot-gemfire-name], you need only do:
 
-Example 11. Configuring caching using Spring Boot for
-VMware GemFire
+Example 11. Configuring caching using [spring-boot-gemfire-name]
 
 
 ``` highlight
@@ -384,21 +381,21 @@ class CustomerService {
 }
 ```
 
-See [Caching with VMware GemFire](./caching.html) for more details.
+See [Caching with [vmware-gemfire-name]](./caching.html) for more details.
 
 #### `@EnableContinuousQueries`
 
-The SBDG
+The [spring-boot-gemfire-name]
 [<code>ContinuousQueryAutoConfiguration</code>](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/ContinuousQueryAutoConfiguration.html)
-class corresponds to the SDG
+class corresponds to the [spring-data-gemfire-name]
 [<code>@EnableContinuousQueries</code>])(https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableContinuousQueries.html)
 annotation.
 
 Without having to enable anything, you can annotate your application
-(POJO) component method(s) with the SDG
+(POJO) component method(s) with the [spring-data-gemfire-name]
 [`@ContinuousQuery`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/listener/annotation/ContinuousQuery.html)
 annotation to register a CQ and start receiving events. The method acts
-as a `CqEvent` handler or, in VMware GemFire's terminology, the
+as a `CqEvent` handler or, in [vmware-gemfire-name]'s terminology, the
 method is an implementation of the
 [`CqListener`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/query/CqListener.html)
 interface.
@@ -431,18 +428,18 @@ details.
 
 #### `@EnableGemfireFunctionExecutions` & `@EnableGemfireFunctions`
 
-The SBDG
+The [spring-boot-gemfire-name]
 https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/FunctionExecutionAutoConfiguration.html[<code>FunctionExecutionAutoConfiguration</code>]
-class corresponds to both the SDG
+class corresponds to both the [spring-data-gemfire-name]
 https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/function/config/EnableGemfireFunctionExecutions.html[<code>@EnableGemfireFunctionExecutions</code>]
-and SDG
+and [spring-data-gemfire-name]
 https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/function/config/EnableGemfireFunctions.html[<code>@EnableGemfireFunctions</code>]
 annotations.
 
 Whether you need to
 [execute](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#function-execution) or
 [implement](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#function-implementation) a
-`Function`, SBDG detects the Function definition and auto-configures it
+`Function`, [spring-boot-gemfire-name] detects the Function definition and auto-configures it
 appropriately for use in your Spring Boot application. You need only
 define the Function execution or implementation in a package below the
 main `@SpringBootApplication` class:
@@ -488,12 +485,12 @@ class CustomerService {
 ```
 
 The same pattern basically applies to Function implementations, except
-in the implementation case, SBDG registers the Function implementation
+in the implementation case, [spring-boot-gemfire-name] registers the Function implementation
 for use (that is, to be called by a Function execution).
 
 Doing so lets you focus on defining the logic required by your
 application and not worry about how Functions are registered, called,
-and so on. SBDG handles this concern for you.
+and so on. [spring-boot-gemfire-name] handles this concern for you.
 
 <p class="note"><strong>Note:</strong>
 Function implementations are typically defined and
@@ -505,9 +502,9 @@ for more details.
 
 #### `@EnableGemfireRepositories`
 
-The SBDG
+The [spring-boot-gemfire-name]
 [<code>GemFireRepositoriesAutoConfigurationRegistrar</code>](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/GemFireRepositoriesAutoConfigurationRegistrar.html)
-class corresponds to the SDG
+class corresponds to the [spring-data-gemfire-name]
 [<code>@EnableGemfireRepositories</code>](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/repository/config/EnableGemfireRepositories.html)
 annotation.
 
@@ -567,21 +564,21 @@ for more details.
 
 #### `@EnableLogging`
 
-The SBDG
+The [spring-boot-gemfire-name]
 [<code>LoggingAutoConfiguration</code>](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/LoggingAutoConfiguration.html)
-class corresponds to the SDG
+class corresponds to the [spring-data-gemfire-name]
 [<code>@EnableLogging</code>](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableLogging.html)
 annotation.
 
 Logging is an essential application concern to understand what is
 happening in the system along with when and where the events occurred.
-By default, SBDG auto-configures logging for VMware GemFire with
+By default, [spring-boot-gemfire-name] auto-configures logging for [vmware-gemfire-name] with
 the default log-level, “config”.
 
 You can change any aspect of logging, such as the log-level, in Spring
 Boot `application.properties`:
 
-Example 18. Change the log-level for VMware GemFire
+Example 18. Change the log-level for [vmware-gemfire-name]
 
 ``` highlight
 # Spring Boot application.properites.
@@ -596,10 +593,10 @@ an alias for <code>spring.data.gemfire.cache.log-level</code>.
 
 You can also configure other aspects, such as the log file size and disk
 space limits for the filesystem location used to store the
-VMware GemFire log files at runtime.
+[vmware-gemfire-name] log files at runtime.
 
-Under the hood, VMware GemFire's logging is based on Log4j.
-Therefore, you can configure VMware GemFire logging to use any
+Under the hood, [vmware-gemfire-name]'s logging is based on Log4j.
+Therefore, you can configure [vmware-gemfire-name] logging to use any
 logging provider (such as Logback) and configuration metadata
 appropriate for that logging provider so long as you supply the
 necessary adapter between Log4j and whatever logging system you use. For
@@ -610,9 +607,9 @@ adapter.
 
 #### `@EnablePdx`
 
-The SBDG
+The [spring-boot-gemfire-name]
 [<code>PdxSerializationAutoConfiguration</code>](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/PdxSerializationAutoConfiguration.html)
-class corresponds to the SDG
+class corresponds to the [spring-data-gemfire-name]
 [<code>@EnablePdx</code>](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePdx.html)
 annotation.
 
@@ -632,7 +629,7 @@ In these situations, you need to be able to send your object anywhere,
 anytime without unduly requiring the class type to be serializable and
 exist on the classpath in every place it is sent. Indeed, the final
 destination may not even be a Java application. This is where
-VMware GemFire
+[vmware-gemfire-name]
 [PDX Serialization](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-data_serialization-gemfire_pdx_serialization.html) steps in to help.
 
 However, you need not figure out how to configure PDX to identify the
@@ -655,25 +652,25 @@ class Customer {
 }
 ```
 
-SBDG’s auto-configuration handles the rest.
+[spring-boot-gemfire-name]’s auto-configuration handles the rest.
 
 See [Data Serialization with PDX](data-serialization.html) for more
 details.
 
 #### `@EnableSecurity`
 
-The SBDG
+The [spring-boot-gemfire-name]
 [<code>ClientSecurityAutoConfiguration</code>](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/ClientSecurityAutoConfiguration.html)
 class and
 [<code>PeerSecurityAutoConfiguration</code>](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/PeerSecurityAutoConfiguration.html)
-class correspond to the SDG
+class correspond to the [spring-data-gemfire-name]
 [<code>@EnableSecurity</code>](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSecurity.html)
 annotation, but they apply security (specifically, authentication and
 authorization (auth) configuration) for both clients and servers.
 
-Configuring your Spring Boot, VMware GemFire `ClientCache`
+Configuring your Spring Boot, [vmware-gemfire-name] `ClientCache`
 application to properly authenticate with a cluster of secure
-VMware GemFire servers is as simple as setting a username and a
+[vmware-gemfire-name] servers is as simple as setting a username and a
 password in Spring Boot `application.properties`:
 
 Example 20. Supplying Authentication Credentials
@@ -692,30 +689,30 @@ anything.
 </p>
 
 Authorization is configured on the server-side and is made simple with
-SBDG and the help of [Apache Shiro](https://shiro.apache.org/). Of
-course, this assumes you use SBDG to configure and bootstrap your
-VMware GemFire cluster in the first place, which is even easier
-with SBDG. See [Running a VMware GemFire cluster with Spring Boot from your IDE](./configuration-bootstrapping.html).
+[spring-boot-gemfire-name] and the help of [Apache Shiro](https://shiro.apache.org/). Of
+course, this assumes you use [spring-boot-gemfire-name] to configure and bootstrap your
+[vmware-gemfire-name] cluster in the first place, which is even easier
+with [spring-boot-gemfire-name]. See [Running a [vmware-gemfire-name] cluster with Spring Boot from your IDE](./configuration-bootstrapping.html).
 
 See [Security](security.html) for more details.
 
 #### `@EnableSsl`
 
-The SBDG
+The [spring-boot-gemfire-name]
 [<code>SslAutoConfiguration</code>](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/SslAutoConfiguration.html)
-class corresponds to the SDG
+class corresponds to the [spring-data-gemfire-name]
 [<code>@EnableSsl</code>](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html)
 annotation.
 
 Configuring SSL for secure transport (TLS) between your Spring Boot,
-VMware GemFire `ClientCache` application and an
-VMware GemFire cluster can be a real problem, especially to get
-right from the start. So, it is something that SBDG makes as simple as
+[vmware-gemfire-name] `ClientCache` application and an
+[vmware-gemfire-name] cluster can be a real problem, especially to get
+right from the start. So, it is something that [spring-boot-gemfire-name] makes as simple as
 possible.
 
 You can supply a `trusted.keystore` file containing the certificates in
 a well-known location (such as the root of your application classpath),
-and SBDG’s auto-configuration steps in to handle the rest.
+and [spring-boot-gemfire-name]’s auto-configuration steps in to handle the rest.
 
 This is useful during development, but we highly recommend using a more
 secure procedure (such as integrating with a secure credential store
@@ -727,13 +724,13 @@ details.
 
 #### `@EnableGemFireHttpSession`
 
-The SBDG
+The [spring-boot-gemfire-name]
 [<code>SpringSessionAutoConfiguration</code>](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/SpringSessionAutoConfiguration.html)
-class corresponds to the SSDG
+class corresponds to the [spring-session-gemfire-name]
 [<code>@EnableGemFireHttpSession</code>](https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/api/org/springframework/session/data/gemfire/config/annotation/EnableGemFireHttpSession.html)
 annotation.
 
-Configuring VMware GemFire to serve as the (HTTP) session state
+Configuring [vmware-gemfire-name] to serve as the (HTTP) session state
 caching provider by using Spring Session requires that you only include
 the correct starter, that is `spring-geode-starter-session`:
 
@@ -745,23 +742,22 @@ Example 21. Using Spring Session
         <version>{revnumber}</version>
     </dependency>
 
-With Spring Session — and specifically Spring Session for
-VMware GemFire (SSDG) — on the classpath of your Spring Boot,
-VMware GemFire `ClientCache` Web application, you can manage
-your (HTTP) session state with VMware GemFire. No further
-configuration is needed. SBDG auto-configuration detects Spring Session
+With Spring Session — and specifically [spring-boot-gemfire-name] — on the classpath of your Spring Boot,
+[vmware-gemfire-name] `ClientCache` Web application, you can manage
+your (HTTP) session state with [vmware-gemfire-name]. No further
+configuration is needed. [spring-boot-gemfire-name] auto-configuration detects Spring Session
 on the application classpath and does the rest.
 
 See [Spring Session](session.html) for more details.
 
 #### <a id=regiontemplateautoconfiguration></a>RegionTemplateAutoConfiguration
 
-The SBDG
+The [spring-boot-gemfire-name]
 [`RegionTemplateAutoConfiguration`](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/RegionTemplateAutoConfiguration.html)
-class has no corresponding SDG annotation. However, the
+class has no corresponding [spring-data-gemfire-name] annotation. However, the
 auto-configuration of a `GemfireTemplate` for every
-VMware GemFire `Region` defined and declared in your Spring Boot
-application is still supplied by SBDG.
+[vmware-gemfire-name] `Region` defined and declared in your Spring Boot
+application is still supplied by [spring-boot-gemfire-name].
 
 For example, you can define a Region by using:
 
@@ -798,7 +794,7 @@ class GeodeConfiguration {
 }
 ```
 
-Then SBDG supplies a `GemfireTemplate` instance that you can use to
+Then [spring-boot-gemfire-name] supplies a `GemfireTemplate` instance that you can use to
 perform low-level data-access operations (indirectly) on the `Customers`
 Region:
 

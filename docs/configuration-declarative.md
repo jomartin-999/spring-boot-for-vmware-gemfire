@@ -64,33 +64,31 @@ especially when things are ambiguous. The framework gives you choice.
 
 Keeping our goals in mind, this chapter:
 
-- Refers you to the SDG annotations covered by SBDG’s
+- Refers you to the [spring-data-gemfire-name] annotations covered by [spring-boot-gemfire-name]’s
   auto-configuration.
 
-- Lists all SDG annotations not covered by SBDG’s auto-configuration.
+- Lists all [spring-data-gemfire-name] annotations not covered by [spring-boot-gemfire-name]’s auto-configuration.
 
-- Covers the SBDG, SSDG and SDG annotations that you must explicitly
+- Covers the [spring-boot-gemfire-name], [spring-session-gemfire-name] and [spring-data-gemfire-name] annotations that you must explicitly
   declare and that provide the most value and productivity when getting
-  started with VMware GemFire in Spring \[Boot\] applications.
+  started with [vmware-gemfire-name] in Spring \[Boot\] applications.
 
 <p class="note"><strong>Note:</strong>
-SDG refers to https://spring.io/projects/spring-data-gemfire[Spring
-Data for VMware GemFire]. SSDG refers to
-[Spring Session for VMware GemFire](https://spring.io/projects/spring-session-data-geode). SBDG refers to Spring Boot for
-VMware GemFire (this project).
+[spring-data-gemfire-name] refers to https://spring.io/projects/spring-data-gemfire[[spring-data-gemfire-name]]. [spring-session-gemfire-name] refers to
+[[spring-session-gemfire-name]](https://spring.io/projects/spring-session-data-geode). [spring-boot-gemfire-name] refers to [spring-session-gemfire-name] (this project).
 </p>
 
-The list of SDG annotations covered by SBDG’s
+The list of [spring-data-gemfire-name] annotations covered by [spring-boot-gemfire-name]’s
 auto-configuration is discussed in detail in the [Appendix: Auto-configuration vs.
 Annotation-based configuration](./configuration-annotations.html).
 
-To be absolutely clear about which SDG annotations we are referring to,
-we mean the SDG annotations in the
+To be absolutely clear about which [spring-data-gemfire-name] annotations we are referring to,
+we mean the [spring-data-gemfire-name] annotations in the
 [`org.springframework.data.gemfire.config.annotation`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/package-summary.html)
 package.
 
 In subsequent sections, we also cover which annotations are added by
-SBDG.
+[spring-boot-gemfire-name].
 
 ### Auto-configuration
 
@@ -99,7 +97,7 @@ We explained auto-configuration in detail in the
 
 ### Annotations Not Covered by Auto-configuration
 
-The following SDG annotations are not implicitly applied by SBDG’s
+The following [spring-data-gemfire-name] annotations are not implicitly applied by [spring-boot-gemfire-name]’s
 auto-configuration:
 
 - `@EnableAutoRegionLookup`
@@ -146,8 +144,6 @@ auto-configuration:
 
 - `@EnablePool(s)`
 
-- `@EnableRedisServer`
-
 - `@EnableStatistics`
 
 - `@UseGemFireProperties`
@@ -157,7 +153,7 @@ This content was also covered in
 [Explicit Annotations](./appendix.html#geode-autoconfiguration-annotations-explicit).
 </p>
 
-One reason SBDG does not provide auto-configuration for several of the
+One reason [spring-boot-gemfire-name] does not provide auto-configuration for several of the
 annotations is because the annotations are server-specific:
 
 - `@EnableCacheServer(s)`
@@ -174,16 +170,14 @@ annotations is because the annotations are server-specific:
 
 - `@EnableMemcachedServer`
 
-- `@EnableRedisServer`
-
-Also, we [already stated](clientcache-applications.html) that SBDG is
+Also, we [already stated](clientcache-applications.html) that [spring-boot-gemfire-name] is
 opinionated about providing a `ClientCache` instance.
 
 Other annotations are driven by need, including:
 
 - `@EnableAutoRegionLookup` and `@EnableBeanFactoryLocator`: Really
   useful only when mixing configuration metadata formats, such as Spring
-  config with VMware GemFire `cache.xml`. This is usually the
+  config with [vmware-gemfire-name] `cache.xml`. This is usually the
   case only if you have legacy `cache.xml` config to begin with.
   Otherwise, you should not use these annotations.
 
@@ -194,7 +188,7 @@ Other annotations are driven by need, including:
 
 - `@EnableOffHeap`: Enables data to be stored in main memory, which is
   useful only when your application data (that is, objects stored in
-  VMware GemFire) are generally uniform in size.
+ [vmware-gemfire-name]) are generally uniform in size.
 
 - `@EnableGemFireAsLastResource`: Needed only in the context of JTA
   Transactions.
@@ -227,9 +221,9 @@ developer to use when needed.
 
 This section calls out the annotations we believe to be most beneficial
 for your application development purposes when using
-VMware GemFire in Spring \[Boot\] applications.
+[vmware-gemfire-name] in Spring \[Boot\] applications.
 
-#### `@EnableClusterAware` (SBDG)
+#### `@EnableClusterAware` 
 
 The `@EnableClusterAware` annotation is arguably the most powerful and
 valuable annotation.
@@ -243,20 +237,20 @@ class SpringBootApacheGeodeClientCacheApplication {  }
 ```
 
 When you annotate your main `@SpringBootApplication` class with
-`@EnableClusterAware`, your Spring Boot, VMware GemFire
+`@EnableClusterAware`, your Spring Boot, [vmware-gemfire-name]
 `ClientCache` application is able to seamlessly switch between
 client/server and local-only topologies with no code or configuration
 changes, regardless of the runtime environment (such as local/standalone
 versus cloud-managed environments).
 
-When a cluster of VMware GemFire servers is detected, the client
+When a cluster of [vmware-gemfire-name] servers is detected, the client
 application sends and receives data to and from the
-VMware GemFire cluster. If a cluster is not available, the
+[vmware-gemfire-name] cluster. If a cluster is not available, the
 client automatically switches to storing data locally on the client by
 using `LOCAL` Regions.
 
 Additionally, the `@EnableClusterAware` annotation is meta-annotated
-with SDG’s
+with [spring-data-gemfire-name]’s
 [`@EnableClusterConfiguration`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableClusterConfiguration.html).
 annotation.
 
@@ -282,7 +276,7 @@ non-secure HTTP connection. However, you can configure HTTPS, change the
 host and port, and configure the data management policy used by the
 servers when creating Regions.
 
-See the section in the SDG reference documentation
+See the section in the [spring-data-gemfire-name] reference documentation
 on
 [Configuring Cluster Configuration Push](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-cluster) for more details.
 
@@ -293,14 +287,14 @@ annotation to enable fail-fast behavior. `strictMatch` is set to `false`
 by default.
 
 Essentially, when you set `strictMatch` to `true`, your Spring Boot,
-VMware GemFire `ClientCache` application requires an
-VMware GemFire cluster to exist. That is, the application
+[vmware-gemfire-name] `ClientCache` application requires an
+[vmware-gemfire-name] cluster to exist. That is, the application
 requires a client/server topology to operate, and the application should
 fail to start if a cluster is not present. The application should not
 startup in a local-only capacity.
 
-When `strictMatch` is set to `true` and an VMware GemFire
-cluster is not available, your Spring Boot, VMware GemFire
+When `strictMatch` is set to `true` and an [vmware-gemfire-name]
+cluster is not available, your Spring Boot, [vmware-gemfire-name]
 `ClientCache` application fails to start with a
 `ClusterNotFoundException`. The application does not attempt to start in
 a local-only capacity.
@@ -334,7 +328,7 @@ When you adjust the log level of the
 `org.springframework.geode.config.annotation.ClusterAwareConfiguration`
 logger to `INFO`, you get more details from the `@EnableClusterAware`
 functionality when applying the logic to determine the presence of an
-VMware GemFire cluster, such as which explicitly or implicitly
+[vmware-gemfire-name] cluster, such as which explicitly or implicitly
 configured connections were successful.
 
 The following example shows typical output:
@@ -346,7 +340,7 @@ Example 4. `@EnableClusterAware` INFO log output
 2021-01-20 14:02:28,745  INFO fig.annotation.ClusterAwareConfiguration: 476 - Failed to connect to localhost[10334]
 2021-01-20 14:02:28,746  INFO fig.annotation.ClusterAwareConfiguration: 470 - Successfully connected to localhost[57649]
 2021-01-20 14:02:28,746  INFO fig.annotation.ClusterAwareConfiguration: 576 - Cluster was found; Auto-configuration made [1] successful connection(s);
-2021-01-20 14:02:28,746  INFO fig.annotation.ClusterAwareConfiguration: 586 - Spring Boot application is running in a client/server topology, using a standalone Apache Geode-based cluster
+2021-01-20 14:02:28,746  INFO fig.annotation.ClusterAwareConfiguration: 586 - Spring Boot application is running in a client/server topology, using a standalone [vmware-gemfire-name]-based cluster
 ```
 
 <p class="note"><strong>Note:</strong>
@@ -361,7 +355,7 @@ You can force a successful match by setting the
 to <code>true</code> in Spring Boot <code>application.properties</code>.
 This is sometimes useful for testing purposes.
 
-#### `@EnableCachingDefinedRegions`, `@EnableClusterDefinedRegions` and `@EnableEntityDefinedRegions` (SDG)
+#### `@EnableCachingDefinedRegions`, `@EnableClusterDefinedRegions` and `@EnableEntityDefinedRegions` 
 
 These annotations are used to create Regions in the cache to manage your
 application data.
@@ -440,9 +434,9 @@ Example 8. Using `@EnableCachingDefinedRegions`
 class SpringBootApacheGeodeClientCacheApplication {  }
 ```
 
-With this setup, SBDG would create a client `PROXY` Region (or
+With this setup, [spring-boot-gemfire-name] would create a client `PROXY` Region (or
 `PARTITION_REGION` if your application were a peer member of the
-VMware GemFire cluster) with a name of
+[vmware-gemfire-name] cluster) with a name of
 “CustomersByAccountNumber”, as though you created the Region by using
 either the Java configuration or XML approaches shown earlier.
 
@@ -460,7 +454,7 @@ As with `@EnableCachingDefinedRegions`, `@EnableEntityDefinedRegions`
 lets you create Regions based on the entity classes you have defined in
 your application domain model.
 
-For instance, consider an entity class annotated with SDG’s
+For instance, consider an entity class annotated with [spring-data-gemfire-name]’s
 https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/mapping/annotation/Region.html\[`@Region`\]
 mapping annotation:
 
@@ -479,7 +473,7 @@ class Customer {
 }
 ```
 
-For this class, SBDG creates Regions from the name specified in the
+For this class, [spring-boot-gemfire-name] creates Regions from the name specified in the
 `@Region` mapping annotation on the entity class. In this case, the
 `Customer` application-defined entity class results in the creation of a
 Region named “Customers” when the main `@SpringBootApplication` class is
@@ -562,7 +556,7 @@ Additionally, the `@EnableEntityDefinedRegions` annotation provides
 include and exclude filters, the same as the core Spring Frameworks
 `@ComponentScan` annotation.
 
-See the SDG reference documentation on
+See the [spring-data-gemfire-name] reference documentation on
 [Configuring Regions](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-regions) for more details.
 
 ##### `@EnableClusterDefinedRegions`
@@ -583,7 +577,7 @@ Example 13. Using `@EnableClusterDefinedRegions`
 class SpringBootApacheGeodeClientCacheApplication {  }
 ```
 
-Every Region that exists on the servers in the VMware GemFire
+Every Region that exists on the servers in the [vmware-gemfire-name]
 cluster will have a corresponding `PROXY` Region defined and created on
 the client as a bean in your Spring Boot application.
 
@@ -611,7 +605,7 @@ class SomeApplicationComponent {
 }
 ```
 
-SBDG auto-configures a `GemfireTemplate` for the “ServerRegion” Region
+[spring-boot-gemfire-name] auto-configures a `GemfireTemplate` for the “ServerRegion” Region
 (see
 [RegionTemplateAutoConfiguration](configuration-auto.html#regiontemplateautoconfiguration),
 so a better way to interact with the client `PROXY` Region that
@@ -639,29 +633,22 @@ class SomeApplicationComponent {
 }
 ```
 
-See the SDG reference documentation on
+See the [spring-data-gemfire-name] reference documentation on
 [Configuring Cluster-defined Regions](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-region-cluster-defined) for more details.
 
-#### `@EnableIndexing` (SDG)
+#### `@EnableIndexing` 
 
 You can also use the `@EnableIndexing` annotation — but only when you
 use `@EnableEntityDefinedRegions`. This is because `@EnableIndexing`
 requires the entities to be scanned and analyzed for mapping metadata
 (defined on the class type of the entity). This includes annotations
 such as the Spring Data Commons `@Id` annotation and the annotations
-provided by SDG, such as `@Indexed` and `@LuceneIndexed`.
+provided by [spring-data-gemfire-name], such as `@Indexed`.
 
 The `@Id` annotation identifies the (primary) key of the entity. The
 `@Indexed` annotation defines OQL indexes on object fields, which can be
-used in the predicates of your OQL queries. The `@LuceneIndexed`
-annotation is used to define the Apache Lucene Indexes required for
-searches.
+used in the predicates of your OQL queries.
 
-<p class="note"><strong>Note:</strong>
-Lucene Indexes can only be created on
-<code>PARTITION</code> Regions, and <code>PARTITION</code> Regions can
-only be defined on the server side.
-</p>
 
 You may have noticed that the `Customer` entity class’s `name` field was
 annotated with `@Indexed`.
@@ -684,7 +671,7 @@ class Customer {
 ```
 
 As a result, when our main `@SpringBootApplication` class is annotated
-with `@EnableIndexing`, an VMware GemFire OQL Index for the
+with `@EnableIndexing`, an [vmware-gemfire-name] OQL Index for the
 `Customer.name` field is created, allowing OQL queries on customers by
 name to use this Index:
 
@@ -699,7 +686,7 @@ class SpringBootApacheGeodeClientCacheApplication {  }
 
 <p class="note"><strong>Note:</strong>
 Keep in mind that OQL Indexes are not persistent
-between restarts (that is, VMware GemFire maintains Indexes in
+between restarts (that is, [vmware-gemfire-name] maintains Indexes in
 memory only). An OQL Index is always rebuilt when the node is
 restarted.
 </p>
@@ -709,31 +696,31 @@ When you combine `@EnableIndexing` with either
 definitions are pushed to the server-side Regions where OQL queries are
 generally executed.
 
-See the SDG reference documentation on
+See the [spring-data-gemfire-name] reference documentation on
 [Configuring Indexes](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-region-indexes) for more details.
 
-#### `@EnableExpiration` (SDG)
+#### `@EnableExpiration` 
 
 It is often useful to define both eviction and expiration policies,
-particularly with a system like VMware GemFire, because it
+particularly with a system like [vmware-gemfire-name], because it
 primarily keeps data in memory (on the JVM Heap). Your data volume size
 may far exceed the amount of available JVM Heap memory, and keeping too
 much data on the JVM Heap can cause Garbage Collection (GC) issues.
 
 You can enable off-heap (or main memory usage)
-capabilities by declaring SDG’s <code>@EnableOffHeap</code> annotation.
-See the SDG reference documentation on
+capabilities by declaring [spring-data-gemfire-name]’s <code>@EnableOffHeap</code> annotation.
+See the [spring-data-gemfire-name] reference documentation on
 [Configuring Off-Heap Memory](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-region-off-heap) for more details.
 
 Defining eviction and expiration policies lets you limit what is kept in
 memory and for how long.
 
 While
-[configuring eviction](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-region-eviction\) is easy with SDG, we particularly want to call out expiration
+[configuring eviction](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-region-eviction\) is easy with [spring-data-gemfire-name], we particularly want to call out expiration
 since
-[configuring expiration](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-region-expiration\) has special support in SDG.
+[configuring expiration](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-region-expiration\) has special support in [spring-data-gemfire-name].
 
-With SDG, you can define the expiration policies associated with a
+With [spring-data-gemfire-name], you can define the expiration policies associated with a
 particular application class type on the class type itself, by using the
 [`@Expiration`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/expiration/Expiration.html),
 [`@IdleTimeoutExpiration`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/expiration/IdleTimeoutExpiration.html)
@@ -741,7 +728,7 @@ and
 [`@TimeToLiveExpiration`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/expiration/TimeToLiveExpiration.html)
 annotations.
 
-See the VMware GemFire
+See the [vmware-gemfire-name]
 [User Guide](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-expiration-how_expiration_works.html)
 for more details on the different expiration types — that is
 <em>Idle Timeout</em> (TTI) versus <em>Time-to-Live</em> (TTL).
@@ -785,12 +772,12 @@ class SpringBootApacheGeodeApplication {  }
 <p class="note"><strong>Note:</strong>
 Technically, this entity-class-specific
 annotation-based expiration policy is implemented by using
-VMware GemFire's
+[vmware-gemfire-name]'s
 [<code>CustomExpiry</code>](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/CustomExpiry.html)
 interface.
 </p>
 
-See the SDG reference doccumentation for more
+See the [spring-data-gemfire-name] reference doccumentation for more
 details on
 [configuring expiration](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-region-expiration), along with
 [annotation-based data expiration](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap:region:expiration:annotation) in particular.
@@ -801,27 +788,27 @@ Software testing in general and unit testing in particular are a very
 important development tasks to ensure the quality of your Spring Boot
 applications.
 
-VMware GemFire can make testing difficult in some cases,
+[vmware-gemfire-name] can make testing difficult in some cases,
 especially when tests have to be written as integration tests to assert
 the correct behavior. This can be very costly and lengthens the feedback
 cycle. Fortunately, you can write unit tests as well.
 
 Spring provides a framework for testing Spring Boot applications that
-use VMware GemFire. This is where the
-[Spring Test for VMware GemFire (STDG)](https://github.com/spring-projects/spring-test-data-geode#spring-test-framework-for-apache-geode%E2%80%94%E2%80%8Bvmware-tanzu-gemfire) project can help, particularly with unit
+use [vmware-gemfire-name]. This is where the
+[Spring Test for [vmware-gemfire-name] (STDG)](https://github.com/spring-projects/spring-test-data-geode#spring-test-framework-for-apache-geode%E2%80%94%E2%80%8Bvmware-tanzu-gemfire) project can help, particularly with unit
 testing.
 
-For example, if you do not care what VMware GemFire would
+For example, if you do not care what [vmware-gemfire-name] would
 actually do in certain cases and only care about the “contract”, which
 is what mocking a collaborator is all about, you could effectively mock
-VMware GemFire objects to isolate the SUT, or “Subject Under
+[vmware-gemfire-name] objects to isolate the SUT, or “Subject Under
 Test”, and focus on the interactions or outcomes you expect to happen.
 
 With STDG, you need not change a bit of configuration to enable mock
 objects in the unit tests for your Spring Boot applications. You need
 only annotate the test class with `@EnableGemFireMockObjects`:
 
-Example 20. Using Mock VMware GemFire Objects
+Example 20. Using Mock [vmware-gemfire-name] Objects
 
 ``` highlight
 @RunWith(SpringRunner.class)
@@ -840,13 +827,13 @@ class MyApplicationTestClass {
 }
 ```
 
-Your Spring Boot configuration of VMware GemFire returns mock
-objects for all VMware GemFire objects, such as Regions.
+Your Spring Boot configuration of [vmware-gemfire-name] returns mock
+objects for all [vmware-gemfire-name] objects, such as Regions.
 
-Mocking VMware GemFire objects even works for objects created
+Mocking [vmware-gemfire-name] objects even works for objects created
 from the productivity annotations discussed in the previous sections.
 
-For example, consider the following Spring Boot, VMware GemFire
+For example, consider the following Spring Boot, [vmware-gemfire-name]
 `ClientCache` application class:
 
 Example 21. Main `@SpringBootApplication` class under test
@@ -864,7 +851,7 @@ Region and not an actual Region. You can still inject the Region in your
 test and assert interactions on the Region based on your application
 workflows:
 
-Example 22. Using Mock VMware GemFire Objects
+Example 22. Using Mock [vmware-gemfire-name] Objects
 
 ``` highlight
 @RunWith(SpringRunner.class)

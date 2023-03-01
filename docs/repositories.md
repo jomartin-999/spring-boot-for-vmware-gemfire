@@ -20,8 +20,8 @@ Title: Spring Data Repositories
 
 
 
-Using Spring Data Repositories with VMware GemFire makes short
-work of data access operations when you use VMware GemFire as
+Using Spring Data Repositories with [vmware-gemfire-name] makes short
+work of data access operations when you use [vmware-gemfire-name] as
 your System of Record (SoR) to persist your application’s state.
 
 
@@ -37,8 +37,7 @@ of those data access operations in a Java interface.
 
 
 
-Spring Boot for VMware GemFire auto-configures the Spring Data
-for VMware GemFire
+[spring-boot-gemfire-name] auto-configures the [spring-data-gemfire-name]
 https://docs.spring.io/spring-data/geode/docs/current/reference/html/#gemfire-repositories\[Repository
 extension\] when either is declared on your application’s classpath. You
 need not do anything special to enable it. You can start coding your
@@ -49,7 +48,7 @@ application-specific Repository interfaces.
 
 
 The following example defines a `Customer` class to model customers and
-map it to the VMware GemFire `Customers` Region by using the SDG
+map it to the [vmware-gemfire-name] `Customers` Region by using the [spring-data-gemfire-name]
 https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/mapping/annotation/Region.html\[`@Region`\]
 mapping annotation:
 
@@ -187,7 +186,7 @@ class SpringBootApacheGeodeClientCacheApplication {
 
 See Spring Data Commons'
 https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories\[Repositories
-abstraction\] and Spring Data for VMware GemFire's
+abstraction\] and [spring-data-gemfire-name]'s
 https://docs.spring.io/spring-data/geode/docs/current/reference/html/#gemfire-repositories\[Repositories
 extension\] for more detail.
 

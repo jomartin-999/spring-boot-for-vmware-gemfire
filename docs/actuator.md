@@ -18,29 +18,29 @@ title: Spring Boot Actuator
  the License.
 -->
 
-Spring Boot for VMware GemFire (SBDG) adds
+[spring-boot-gemfire-name] adds
 [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready.html)
-support and dedicated `HealthIndicators` for VMware GemFire.
+support and dedicated `HealthIndicators` for [vmware-gemfire-name].
 Equally, the provided `HealthIndicators` even work with Tanzu Cache
-(which is backed by VMware GemFire) when you push your Spring
-Boot applications using VMware GemFire to VMware Tanzu
+(which is backed by [vmware-gemfire-name]) when you push your Spring
+Boot applications using [vmware-gemfire-name] to VMware Tanzu
 Application Service (TAS) platform.
 
 Spring Boot `HealthIndicators` provide details about the runtime
-operation and behavior of your VMware GemFire-based Spring Boot
+operation and behavior of your [vmware-gemfire-name]-based Spring Boot
 applications. For instance, by querying the right `HealthIndicator`
 endpoint, you can get the current hit/miss count for your
 `Region.get(key)` data access operations.
 
-In addition to vital health information, SBDG provides basic,
-pre-runtime configuration metadata about the VMware GemFire
+In addition to vital health information, [spring-boot-gemfire-name] provides basic,
+pre-runtime configuration metadata about the [vmware-gemfire-name]
 components that are monitored by Spring Boot Actuator. This makes it
 easier to see how the application was configured all in one place,
 rather than in properties files, Spring configuration, XML, and so on.
 
 The provided Spring Boot `HealthIndicators` fall into three categories:
 
-- Base `HealthIndicators` that apply to all VMware GemFire,
+- Base `HealthIndicators` that apply to all [vmware-gemfire-name],
   Spring Boot applications, regardless of cache type, such as `Regions`,
   `Indexes`, and `DiskStores`.
 
@@ -53,24 +53,24 @@ The provided Spring Boot `HealthIndicators` fall into three categories:
   `Pools`.
 
 The following sections give a brief overview of all the available Spring
-Boot `HealthIndicators` provided for VMware GemFire.
+Boot `HealthIndicators` provided for [vmware-gemfire-name].
 
 See the corresponding sample <a
 href="guides/boot-actuator.html">guide</a> and
  https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/boot/actuator[code] to see Spring Boot Actuator for
-VMware GemFire in action.
+[vmware-gemfire-name] in action.
 
 
 ### Base HealthIndicators
 
 This section covers Spring Boot `HealthIndicators` that apply to both
-VMware GemFire peer `Cache` and `ClientCache`, Spring Boot
+[vmware-gemfire-name] peer `Cache` and `ClientCache`, Spring Boot
 applications. That is, these `HealthIndicators` are not specific to the
 cache type.
 
-In VMware GemFire, the cache instance is either a peer `Cache`
+In [vmware-gemfire-name], the cache instance is either a peer `Cache`
 instance (which makes your Spring Boot application part of a
-VMware GemFire cluster) or, more commonly, a `ClientCache`
+[vmware-gemfire-name] cluster) or, more commonly, a `ClientCache`
 instance (which talks to an existing cluster). Your Spring Boot
 application can only be one cache type or the other and can only have a
 single instance of that cache type.
@@ -854,7 +854,7 @@ qualified by this CQ.</p></td>
 
 Table 13. Continuous Query(CQ), Statistic Details
 
-The VMware GemFire Continuous Query system is also tracked with
+The [vmware-gemfire-name] Continuous Query system is also tracked with
 the following additional details on the client:
 
 <table class="tableblock frame-all grid-all" style="width: 90%;">
@@ -1097,8 +1097,7 @@ specifically for Spring Boot peer cache member applications. These
 creates a peer `Cache` instance.
 
 <p class="note><strong>Note:</strong>
-The default cache instance created by Spring Boot
-for VMware GemFire is a <code>ClientCache</code> instance.
+The default cache instance created by [spring-boot-gemfire-name] is a <code>ClientCache</code> instance.
 </p>
 
 To control what type of cache instance is created,
@@ -1111,7 +1110,7 @@ such as a “peer”, you can explicitly declare either the
 #### GeodeCacheServersHealthIndicator
 
 The `GeodeCacheServersHealthIndicator` provides details about the
-configured VMware GemFire `CacheServer` instances. `CacheServer`
+configured [vmware-gemfire-name] `CacheServer` instances. `CacheServer`
 instances are required to enable clients to connect to the servers in
 the cluster.
 
@@ -1408,7 +1407,7 @@ Table 18. AsyncEventQueue Details
 
 `GeodeGatewayReceiversHealthIndicator` provides details about the
 configured (WAN) `GatewayReceivers`, which are capable of receiving
-events from remote clusters when using VMware GemFire's
+events from remote clusters when using [vmware-gemfire-name]'s
 [multi-site, WAN topology](https://geode.apache.org/docs/guide/115/topologies_and_comm/multi_site_configuration/chapter_overview.html).
 
 This `HealthIndicator` captures configuration metadata along with the
@@ -1498,7 +1497,7 @@ Table 19. GatewayReceiver Details
 The `GeodeGatewaySendersHealthIndicator` provides details about the
 configured `GatewaySenders`. `GatewaySender` instances are attached to
 Regions in order to send Region events to remote clusters in
-VMware GemFire's
+[vmware-gemfire-name]'s
 [multi-site, WAN topology](https://geode.apache.org/docs/guide/115/topologies_and_comm/multi_site_configuration/chapter_overview.html).
 
 This `HealthIndicator` captures essential configuration metadata and

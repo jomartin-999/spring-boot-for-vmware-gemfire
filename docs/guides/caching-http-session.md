@@ -32,12 +32,12 @@ Table of Contents
 
 This guide walks you through building a simple Spring Boot application
 using [Spring Session](https://spring.io/projects/spring-session) backed
-by [VMware GemFire](https://geode.apache.org/) to manage HTTP Session
+by [[vmware-gemfire-name]](https://geode.apache.org/) to manage HTTP Session
 state.
 
 It is assumed that the reader is familiar with the Spring *programming
 model* as well as the *Java Servlet* API. No prior knowledge of Spring
-Session or VMware GemFire is required to utilize HTTP Session State
+Session or [vmware-gemfire-name] is required to utilize HTTP Session State
 Caching in your Spring Boot applications.
 
 Let’s begin.
@@ -88,7 +88,7 @@ application architecture that 1) makes the HTTP Session highly available
 and 2) makes the HTTP Session resilient to failures in the system
 architecture.
 
-VMware GemFire is ideal for managing HTTP Session state given that it
+[vmware-gemfire-name] is ideal for managing HTTP Session state given that it
 can distribute data/state across a scaled-out, highly-available
 architecture by replicating data in a redundant and organized
 (partitioned) manner, thereby making the data resilient to network and
@@ -132,8 +132,7 @@ Again, the `SessionRepository` interface is the central component of the
 framework enabling any backend data store to be adapted and serve as a
 provider for managing the HTTP Sessions.
 
-This is effectively how [Spring Session for VMware
-GemFire](https://github.com/spring-projects/spring-session-data-geode)
+This is effectively how [[spring-session-gemfire-name]](https://github.com/spring-projects/spring-session-data-geode)
 works.
 
 
@@ -252,7 +251,7 @@ timeout regardless of whether the HTTP Session is being managed by the
 Servlet Container or by Spring Session.
 
 Though not strictly necessary, we configured name for the Pool of
-connections used by Spring Session Data Geode in case the application is
+connections used by [spring-session-gemfire-name] in case the application is
 switched to a client/server topology to the "*DEFAULT*" Pool. We also
 explicitly named the Region used to store HTTP Session state as
 "*Sessions*" (default name is "*ClusteredSpringSessions*").
@@ -260,7 +259,7 @@ explicitly named the Region used to store HTTP Session state as
 <p class="note"><strong>Note:</strong>
 In most production deployments, you will likely be
 using a client/server topology, where the HTTP Session is managed by a
-cluster of VMware GemFire servers so that the HTTP Session can be shared
+cluster of [vmware-gemfire-name] servers so that the HTTP Session can be shared
 across multiple instances of the Spring Boot, Web application. This
 would be especially true in a cloud environment when utilizing a
 Microservices architecture. However, for example purposes, we tried to
@@ -323,7 +322,7 @@ public class BootGeodeHttpSessionCachingApplication {
 //end::class[]
 ```
 
-Refer to SBDG’s documentation to learn about the
+Refer to [spring-boot-gemfire-name]’s documentation to learn about the
 [`@EnableClusterAware`](../index.html#geode-configuration-declarative-annotations-productivity-enableclusteraware)
 annotation.
 
@@ -421,10 +420,10 @@ dependency to the classpath of our example application:
 ```
 
 The `spring-geode-starter-session` dependency adds Spring Session to the
-application’s classpath at runtime and positions VMware GemFire as the
+application’s classpath at runtime and positions [vmware-gemfire-name] as the
 provider used to manage the HTTP Session state.
 
-With VMware GemFire, we gain all the benefits of using a highly
+With [vmware-gemfire-name], we gain all the benefits of using a highly
 concurrent, highly distributed data management solution that provides
 high availability (HA) and resiliency in a cloud environment.
 
@@ -447,7 +446,7 @@ Easy!
 
 Of course, the ability to scale-out and optimize the data management
 policies for HTTP Session management is very provider-specific (e.g.
-VMware GemFire) and highly dependent on the use case as well a
+[vmware-gemfire-name]) and highly dependent on the use case as well a
 application requirements, therefore is beyond the scope of this guide.
 
 ## Summary
@@ -456,8 +455,7 @@ Spring Session is a powerful framework for managing your HTTP Session
 state. Not only does it allow you to plugin different backend data
 management providers (as of this writing):
 
-- [*VMware
-  GemFire*](https://github.com/spring-projects/spring-session-data-geode#spring-session-for-apache-geode—​pivotal-gemfire)
+- [* [vmware-gemfire-name]*](https://github.com/spring-projects/spring-session-data-geode#spring-session-for-apache-geode—​pivotal-gemfire)
 
 - [*Hazelast*](https://spring.io/projects/spring-session)
 

@@ -1,5 +1,5 @@
 ---
-title: Spring Boot for VMware GemFire Reference Guide
+title: [spring-boot-gemfire-name] Reference Guide
 ---
 
 <!-- 
@@ -19,16 +19,15 @@ title: Spring Boot for VMware GemFire Reference Guide
 -->
 Version 1.27
 
-Spring Boot for VMware GemFire provides the convenience of Spring Boot’s
+[spring-boot-gemfire-name] provides the convenience of Spring Boot’s
 *convention over configuration* approach by using *auto-configuration*
 with Spring Framework’s powerful abstractions and highly consistent
-programming model to simplify the development of VMware GemFire
+programming model to simplify the development of [vmware-gemfire-name]
 applications in a Spring context.
 
 
-Secondarily, Spring Boot for VMware GemFire provides developers with a
-consistent experience whether building and running Spring Boot/VMware
-GemFire applications locally or in a managed environment, such as with
+Secondarily, [spring-boot-gemfire-name] provides developers with a
+consistent experience whether building and running Spring Boot/[vmware-gemfire-name] applications locally or in a managed environment, such as with
 [VMware Tanzu Application Service](https://tanzu.vmware.com/tanzu)
 (TAS).
 
@@ -38,29 +37,29 @@ for VMware GemFire’s [Annotation-based configuration
 model](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config),
 and the goals set forth in that model: *To enable application developers
 to **get up and running** as **quickly**, **reliably**, and as
-**easily** as possible*. In fact, Spring Boot for VMware GemFire builds
+**easily** as possible*. In fact, [spring-boot-gemfire-name] builds
 on this very
 [foundation](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config)
-cemented in Spring Data for VMware GemFire since the Spring Data Kay
+cemented in [spring-data-gemfire-name] since the Spring Data Kay
 (2.0) Release Train.
 
 
 ## Introduction
 
-Spring Boot for VMware GemFire automatically applies
+[spring-boot-gemfire-name] automatically applies
 *auto-configuration* to several key application concerns (*use cases*)
 including, but not limited to:
 
 
 - *Look-Aside, \[Async\] Inline, Near* and *Multi-Site Caching*, by
-  using VMware GemFire as a caching provider in [Spring’s Cache
+  using [vmware-gemfire-name] as a caching provider in [Spring’s Cache
   Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache).
   For more information, see
-  [Caching with VMware GemFire](./caching.html).
+  [Caching with [vmware-gemfire-name]](./caching.html).
 
 - [*System of Record*
   (SOR)](https://en.wikipedia.org/wiki/System_of_record), persisting
-  application state in VMware GemFire by using [Working with Spring Data
+  application state in [vmware-gemfire-name] by using [Working with Spring Data
   Repositories](https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories).
   For more information, see
   [Spring Data Repositories](./repositories.html).
@@ -95,7 +94,7 @@ including, but not limited to:
   CQ support. For more information, see
   [Continuous Query](./continuous-query.md).
 
-- *Data Serialization* using VMware GemFire
+- *Data Serialization* using [vmware-gemfire-name]
   [PDX](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-data_serialization-gemfire_pdx_serialization.html)
   with first-class
   [configuration](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-pdx)
@@ -113,7 +112,7 @@ including, but not limited to:
   your cache, whether a client or a peer. For more information, see
   [Spring Boot Actuator](./actuator.md).
 
-- *Logging*, to quickly and conveniently enable or adjust VMware GemFire
+- *Logging*, to quickly and conveniently enable or adjust [vmware-gemfire-name]
   log levels in your Spring Boot application to gain insight into the
   runtime operations of the application as they occur. For more
   information, see [Logging](./logging.md).
@@ -122,47 +121,42 @@ including, but not limited to:
   [Authentication](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-managing-security-authentication_overview.html)
   &
   [Authorization](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-managing-security-authorization_overview.html),
-  and Transport Layer Security (TLS) with VMware GemFire [Secure Socket
+  and Transport Layer Security (TLS) with [vmware-gemfire-name] [Secure Socket
   Layer
   (SSL)](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-managing-security-ssl_overview.html).
-  Once more, Spring Data for VMware GemFire includes first-class support
+  Once more, [spring-data-gemfire-name] includes first-class support
   for configuring
   [Auth](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-security)
   and
   [SSL](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-ssl).
   For more information, see [Security](./security.md).
 
-- *HTTP Session state management*, by including Spring Session for
-  VMware GemFire on your application’s classpath. For more information,
+- *HTTP Session state management*, by including [spring-session-gemfire-name] on your application’s classpath. For more information,
   see [Spring Session](./session.md).
 
-- *Testing*. Whether you write Unit or Integration Tests for Apache
-  Geode in a Spring context, SBDG covers all your testing needs with the
+- *Testing*. Whether you write Unit or Integration Tests for [vmware-gemfire-name] in a Spring context, [spring-boot-gemfire-name] covers all your testing needs with the
   help of
   [STDG](https://github.com/spring-projects/spring-test-data-geode#spring-test-framework-for-apache-geode—​vmware-tanzu-gemfire).
 
 
-While Spring Data for VMware GemFire offers a simple, consistent,
+While [spring-data-gemfire-name] offers a simple, consistent,
 convenient and declarative approach to configure all these powerful
-VMware GemFire features, Spring Boot for VMware GemFire makes it even
+[vmware-gemfire-name] features, [spring-boot-gemfire-name] makes it even
 easier to do, as we will explore throughout this reference
 documentation.
 
 
 ### Goals
 
-While the SBDG project has many goals and objectives, the primary goals
-of this project center around three key principles:
+While the [spring-boot-gemfire-name] project has many goals and objectives, the primary goals
+of this project center around two key principles:
 
 
-1.  From ***Open Source*** (Apache Geode) to ***Commercial*** (VMware
-    GemFire).
+1. From ***Non-Managed*** (self-managed/self-hosted or on-premise
+    installations) to ***Managed*** ([vmware-gemfire-name] for VMs,
+   [vmware-gemfire-name] for K8S) environments.
 
-2.  From ***Non-Managed*** (self-managed/self-hosted or on-premise
-    installations) to ***Managed*** (VMware Tanzu GemFire for VMs,
-    VMware Tanzu GemFire for K8S) environments.
-
-3.  With **little to no code or configuration changes** necessary.
+2. With **little to no code or configuration changes** necessary.
 
 
 It is also possible to go in the reverse direction, from *Managed* back
@@ -170,14 +164,13 @@ to a *Non-Managed* environment and even from *Commercial* back to the
 *Open Source* offering, again, with *little to no code or configuration*
 changes.
 
-SBDG’s promise is to deliver on these principles as
-much as is technically possible and as is technically allowed by VMware
-GemFire.
+[spring-boot-gemfire-name]’s promise is to deliver on these principles as
+much as is technically possible and as is technically allowed by [vmware-gemfire-name].
 
 ## <a id='getting-started'></a>Getting Started
 
 To be immediately productive and as effective as possible when you use
-Spring Boot for VMware GemFire, it helps to understand the foundation on
+[spring-boot-gemfire-name], it helps to understand the foundation on
 which this project is built.
 
 
@@ -187,8 +180,7 @@ concepts](https://docs.spring.io/spring/docs/current/spring-framework-reference/
 built into the Spring container.
 
 
-Then our journey continues with the extensions built into Spring Data
-for VMware GemFire to simplify the development of VMware GemFire
+Then our journey continues with the extensions built into [spring-data-gemfire-name] to simplify the development of [vmware-gemfire-name]
 applications in a Spring context, using Spring’s powerful abstractions
 and highly consistent programming model. This part of the story was
 greatly enhanced in Spring Data Kay, with the [Annotation-based
@@ -196,15 +188,15 @@ configuration
 model](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config).
 Though this new configuration approach uses annotations and provides
 sensible defaults, its use is also very explicit and assumes nothing. If
-any part of the configuration is ambiguous, SDG will fail fast. SDG
-gives you choice, so you still must tell SDG what you want.
+any part of the configuration is ambiguous, [spring-data-gemfire-name] will fail fast. [spring-data-gemfire-name]
+gives you choice, so you still must tell [spring-data-gemfire-name] what you want.
 
 
 Next, we venture into Spring Boot and all of its wonderfully expressive
 and highly opinionated “convention over configuration” approach for
-getting the most out of your Spring VMware GemFire applications in the
+getting the most out of your Spring [vmware-gemfire-name] applications in the
 easiest, quickest, and most reliable way possible. We accomplish this by
-combining Spring Data for VMware GemFire’s [annotation-based
+combining [spring-data-gemfire-name]’s [annotation-based
 configuration](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config)
 with Spring Boot’s
 [auto-configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/#using-boot-auto-configuration)
@@ -217,16 +209,15 @@ with [Spring Boot’s
 documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/#getting-started).
 
 
-Finally, we arrive at Spring Boot for VMware GemFire (SBDG).
+Finally, we arrive at [spring-boot-gemfire-name].
 
 See the corresponding Sample
 [Guide](guides/getting-started.html) and
-[Code](https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started) to see Spring Boot for
-VMware GemFire in action.
+[Code](https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started) to see [spring-boot-gemfire-name] in action.
 
-## Using Spring Boot for VMware GemFire
+## Using [spring-boot-gemfire-name]
 
-To use Spring Boot for VMware GemFire, declare the
+To use [spring-boot-gemfire-name], declare the
 `spring-geode-starter` on your Spring Boot application classpath:
 
 
@@ -261,8 +252,8 @@ dependencies {
 ### Maven BOM
 
 
-If you anticipate using more than one Spring Boot for VMware GemFire
-(SBDG) module in your Spring Boot application, you can also declare the
+If you anticipate using more than one [spring-boot-gemfire-name]
+ module in your Spring Boot application, you can also declare the
 new `org.springframework.geode:spring-geode-bom` Maven BOM in your
 application Maven POM.
 
@@ -270,13 +261,13 @@ application Maven POM.
 Your application use case may require more than one module if (for
 example, you need (HTTP) Session state management and replication with,
 for example, `spring-geode-starter-session`), if you need to enable
-Spring Boot Actuator endpoints for VMware GemFire (for example,
+Spring Boot Actuator endpoints for [vmware-gemfire-name] (for example,
 `spring-geode-starter-actuator`), or if you need assistance writing
 complex Unit and (Distributed) Integration Tests with Spring Test for
-Apache Geode (STDG) (for example, `spring-geode-starter-test`).
+[vmware-gemfire-name] (STDG) (for example, `spring-geode-starter-test`).
 
 
-You can declare and use any one of the SBDG modules:
+You can declare and use any one of the [spring-boot-gemfire-name] modules:
 
 
 - `spring-geode-starter`
@@ -290,7 +281,7 @@ You can declare and use any one of the SBDG modules:
 - `spring-geode-starter-test`
 
 
-When more than one SBDG module is in use, it makes sense to declare the
+When more than one [spring-boot-gemfire-name] module is in use, it makes sense to declare the
 `spring-geode-bom` to manage all the dependencies such that the versions
 and transitive dependencies necessarily align properly.
 
@@ -364,18 +355,18 @@ Notice that:
 - None of the `spring-geode-starter[-xyz]` dependencies explicitly
   specify a `<version>`. The version is managed by the
   `spring-geode.version` property, making it easy to switch between
-  versions of SBDG as needed and use it in all the SBDG modules declared
+  versions of [spring-boot-gemfire-name] as needed and use it in all the [spring-boot-gemfire-name] modules declared
   and used in your application Maven POM.
 
 
-If you change the version of SBDG, be sure to change the
+If you change the version of [spring-boot-gemfire-name], be sure to change the
 `org.springframework.boot:spring-boot-starter-parent` POM version to
-match. SBDG is always one `major` version behind but matches on `minor`
+match. [spring-boot-gemfire-name] is always one `major` version behind but matches on `minor`
 version and `patch` version (and `version qualifier` — `SNAPSHOT`, `M#`,
 `RC#`, or `RELEASE`, if applicable).
 
 
-For example, SBDG `1.4.0` is based on Spring Boot `2.4.0`. SBDG
+For example, [spring-boot-gemfire-name] `1.4.0` is based on Spring Boot `2.4.0`. [spring-boot-gemfire-name]
 `1.3.5.RELEASE` is based on Spring Boot `2.3.5.RELEASE`, and so on. It
 is important that the versions align.
 
@@ -392,7 +383,7 @@ to get started.
 Using Gradle is similar to using Maven.
 
 
-Again, if you declare and use more than one SBDG module in your Spring
+Again, if you declare and use more than one [spring-boot-gemfire-name] module in your Spring
 Boot application (for example, the `spring-geode-starter` along with the
 `spring-geode-starter-session` dependency), declaring the
 `spring-geode-bom` inside your application Gradle build file helps.
@@ -450,7 +441,7 @@ dependencies and managing (compatible) versions easier.
 
 
 Again, you do not need to explicitly declare the version when adding a
-dependency, including a new SBDG module dependency (for example,
+dependency, including a new [spring-boot-gemfire-name] module dependency (for example,
 `spring-geode-starter-session`), since this has already been determined
 for you. You can declare the dependency as follows:
 
@@ -463,19 +454,19 @@ implementation 'org.springframework.geode:spring-geode-starter-session'
 ```
 
 
-The version of SBDG is controlled by the extension property
+The version of [spring-boot-gemfire-name] is controlled by the extension property
 (`springGeodeVersion`) in the application Gradle build file.
 
 
-To use a different version of SBDG, set the `springGeodeVersion`
+To use a different version of [spring-boot-gemfire-name], set the `springGeodeVersion`
 property to the desired version (for example, `1.3.5.RELEASE`). Remember
 to be sure that the version of Spring Boot matches.
 
 
-SBDG is always one `major` version behind but matches on `minor` version
+[spring-boot-gemfire-name] is always one `major` version behind but matches on `minor` version
 and `patch` version (and `version qualifier`, such as `SNAPSHOT`, `M#`,
-`RC#`, or `RELEASE`, if applicable). For example, SBDG `1.4.0` is based
-on Spring Boot `2.4.0`, SBDG `1.3.5.RELEASE` is based on Spring Boot
+`RC#`, or `RELEASE`, if applicable). For example, [spring-boot-gemfire-name] `1.4.0` is based
+on Spring Boot `2.4.0`, [spring-boot-gemfire-name] `1.3.5.RELEASE` is based on Spring Boot
 `2.3.5.RELEASE`, and so on. It is important that the versions align.
 
 
@@ -488,7 +479,7 @@ to get started.
 
 ## Primary Dependency Versions
 
-Spring Boot for VMware GemFire 1.27 builds and depends on the following
+[spring-boot-gemfire-name] 1.27 builds and depends on the following
 versions of the base projects listed below:
 
 <table class="tableblock frame-all grid-all stretch">
@@ -509,7 +500,7 @@ versions of the base projects listed below:
 <td class="tableblock halign-left valign-top"><p>17</p></td>
 </tr>
 <tr class="even">
-<td class="tableblock halign-left valign-top"><p>VMware GemFire</p></td>
+<td class="tableblock halign-left valign-top"><p>[vmware-gemfire-name]</p></td>
 <td
 class="tableblock halign-left valign-top"><p>1.14.4</p></td>
 </tr>
@@ -525,20 +516,17 @@ class="tableblock halign-left valign-top"><p>5.3.23</p></td>
 class="tableblock halign-left valign-top"><p>2.7.4</p></td>
 </tr>
 <tr class="odd">
-<td class="tableblock halign-left valign-top"><p>Spring Data for VMware
-GemFire</p></td>
+<td class="tableblock halign-left valign-top"><p>[spring-data-gemfire-name]</p></td>
 <td
 class="tableblock halign-left valign-top"><p>2.7.3</p></td>
 </tr>
 <tr class="even">
-<td class="tableblock halign-left valign-top"><p>Spring Session for
-VMware GemFire</p></td>
+<td class="tableblock halign-left valign-top"><p>[spring-session-gemfire-name]</p></td>
 <td
 class="tableblock halign-left valign-top"><p>2.7.1</p></td>
 </tr>
 <tr class="odd">
-<td class="tableblock halign-left valign-top"><p>Spring Test for VMware
-GemFire</p></td>
+<td class="tableblock halign-left valign-top"><p>Spring Test for [vmware-gemfire-name]</p></td>
 <td
 class="tableblock halign-left valign-top"><p>0.3.1-RAJ</p></td>
 </tr>
@@ -555,8 +543,7 @@ could behave unpredictably from its specified contract.
 
 
 Please follow dependency versions listed in the table above and use it
-as a guide when setting up your Spring Boot projects using VMware
-GemFire.
+as a guide when setting up your Spring Boot projects using [vmware-gemfire-name].
 
 
 Again, the best way to setup your Spring Boot projects is by first,
@@ -598,13 +585,12 @@ plugins {
 ```
 
 
-And then, use the Spring Boot for VMware GemFire, `spring-geode-bom`.
+And then, use the [spring-boot-gemfire-name], `spring-geode-bom`.
 For example, with Maven:
 
 
 
-Example 6. Spring Boot application using the Spring Boot for VMware
-GemFire, `spring-geode-bom` BOM in Maven
+Example 6. Spring Boot application using the [spring-boot-gemfire-name], `spring-geode-bom` BOM in Maven
 
 
 
@@ -639,8 +625,7 @@ Or, with Gradle:
 
 
 
-Example 7. Spring Boot application using the Spring Boot for VMware
-GemFire, `spring-geode-bom` BOM in Gradle
+Example 7. Spring Boot application using the [spring-boot-gemfire-name], `spring-geode-bom` BOM in Gradle
 
 
 
@@ -664,13 +649,13 @@ dependencyManagement {
 
 All of this is made simple by going to
 [start.spring.io](https://start.spring.io) and creating a Spring Boot
-`2.7.4` project using VMware GemFire.
+`2.7.4` project using [vmware-gemfire-name].
 
 
 ### Overriding Dependency Versions
 
 
-While Spring Boot for VMware GemFire requires baseline versions of the
+While [spring-boot-gemfire-name] requires baseline versions of the
 [primary dependencies](#sbdg-dependency-versions) listed above, it is
 possible, using Spring Boot’s dependency management capabilities, to
 override the versions of 3rd-party Java libraries and dependencies
@@ -925,12 +910,12 @@ For more details on Gradle dependency management, please refer to the
 
 
 Sometimes, though rarely, it may be necessary to exclude a (transitive)
-dependency included by a Spring Boot, or Spring Boot for Apache Geode,
+dependency included by a Spring Boot, or [spring-boot-gemfire-name],
 starter.
 
 
 Perhaps a transitive dependency, such as Apache Log4j or Jackson, is
-pulled in by an underlying data store dependency, such as Apache Geode
+pulled in by an underlying data store dependency, such as [vmware-gemfire-name]
 or Redis, when using a starter (for example:
 `spring-boot-starter-data-redis`, or `spring-geode-starter`), that could
 cause a conflict with your Spring Boot application. Or, maybe the
@@ -948,174 +933,3 @@ You should be absolutely certain that removing the
 href="#sbdg-dependency-version-overrides">overridding</a> the
 (transitive) dependency is the correct course of action.
 </p>
-
-For example, when you include the `spring-geode-starter` (the base
-starter of Spring Boot for Apache Geode), you notice that Apache Lucene
-is transitively included by `org.apache.geode:geode-lucene`:
-
-
-
-#### Analyzing Dependencies using Gradle
-
-
-``` prettyprint
-$ gradlew :spring-geode-starter:dependencies
-
-...
-compileClasspath - Compile classpath for source set 'main'.
-+--- org.springframework.boot:spring-boot-starter -> 3.0.0-M5
-|    +--- org.springframework.boot:spring-boot:3.0.0-M5
-|    |    +--- org.springframework:spring-core:6.0.0-M6
-...
-+--- project :spring-geode
-|    +--- project :apache-geode-extensions
-|    |    +--- org.apache.geode:geode-core:1.15.0
-|    |    |    +--- antlr:antlr:2.7.7
-...
-|    |    +--- org.apache.geode:geode-lucene:1.15.0
-|    |    |    +--- org.apache.geode:geode-core:1.15.0 (*)
-|    |    |    \--- org.apache.lucene:lucene-core:6.6.6
-...
-|    |    \--- org.apache.geode:geode-wan:1.15.0
-...
-```
-
-
-
-#### Analyzing Dependencies using Maven
-
-
-``` prettyprint
-$ mvn dependency:tree
-
-...
-[INFO] --- maven-dependency-plugin:3.3.0:tree (default-cli) @ spring-geode-app ---
-[INFO] org.example.app:spring-geode-app:jar:0.0.1-SNAPSHOT
-[INFO] +- org.springframework.geode:spring-geode-starter:jar:1.7.4:compile
-[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:2.7.1:compile
-[INFO] |  |  +- org.springframework.boot:spring-boot:jar:2.7.1:compile
-...
-[INFO] |  +- org.springframework.geode:spring-geode:jar:1.7.4:compile
-[INFO] |  |  +- org.springframework.data:spring-data-geode:jar:2.7.1:compile
-[INFO] |  |  |  +- org.apache.geode:geode-core:jar:1.14.4:compile
-...
-[INFO] |  |  |  +- org.apache.geode:geode-lucene:jar:1.14.4:compile
-[INFO] |  |  |  |  +- org.apache.lucene:lucene-core:jar:6.6.6:compile
-[INFO] |  |  |  |  +- org.apache.geode:geode-gfsh:jar:1.14.4:runtime
-[INFO] |  |  |  |  +- org.apache.lucene:lucene-analyzers-common:jar:6.6.6:runtime
-[INFO] |  |  |  |  +- org.apache.lucene:lucene-queryparser:jar:6.6.6:runtime
-[INFO] |  |  |  |  |  \- org.apache.lucene:lucene-queries:jar:6.6.6:runtime
-[INFO] |  |  |  |  +- mx4j:mx4j:jar:3.0.2:runtime
-[INFO] |  |  |  |  \- org.apache.lucene:lucene-analyzers-phonetic:jar:6.6.6:runtime
-[INFO] |  |  |  |     \- commons-codec:commons-codec:jar:1.15:runtime
-...
-[INFO] |  |  |  +- org.apache.geode:geode-wan:jar:1.14.4:compile
-```
-
-
-However, you do not have any "search" use cases in your Spring Boot
-application that would require Apache Geode’s integration with Apache
-Lucene.
-
-
-Using your build tool, such as Gradle or Maven, you can add an exclusion
-on the `org.apache.geode:geode-lucene` transitive dependency pulled in
-and included by Spring Boot for Apache Geode’s `spring-geode-starter`,
-like so:
-
-
-#### Declaring Exclusions with Gradle
-
-
-``` prettyprint
-implementation("org.springframework.geode:spring-geode-starter:1.27") {
-  exclude group: "org.apache.geode", module: "geode-lucene"
-}
-```
-
-
-
-Declaring Exclusions with Maven
-
-
-``` prettyprint
-<?xml version="1.0" encoding="UTF-8"?>
-<pom>
-  <dependencies>
-    <dependency>
-      <groupId>org.springframework.geode</groupId>
-      <artifactId>spring-geode-starter</artifactId>
-      <version>1.27</version>
-      <exclusions>
-        <exclusion>
-          <groupId>org.apache.geode</groupId>
-          <artifactId>geode-lucene</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-  </dependencies>
-</pom>
-```
-
-
-After the appropriate exclusion is declared, the resulting dependencies
-(or dependency tree) should look like the following:
-
-
-
-#### Analyzing Dependencies using Gradle after Exclusions
-
-
-``` prettyprint
-$ gradlew :spring-geode-starter:dependencies
-
-...
-compileClasspath - Compile classpath for source set 'main'.
-+--- org.springframework.boot:spring-boot-starter -> 3.0.0-M5
-|    +--- org.springframework.boot:spring-boot:3.0.0-M5
-|    |    +--- org.springframework:spring-core:6.0.0-M6
-...
-+--- project :spring-geode
-|    +--- project :apache-geode-extensions
-|    |    +--- org.apache.geode:geode-core:1.15.0
-|    |    |    +--- antlr:antlr:2.7.7
-...
-|    |    \--- org.apache.geode:geode-wan:1.15.0
-...
-```
-
-
-
-#### Analyzing Dependencies using Maven
-
-
-``` prettyprint
-$ mvn dependency:tree
-
-...
-[INFO] --- maven-dependency-plugin:3.3.0:tree (default-cli) @ spring-geode-app ---
-[INFO] org.example.app:spring-geode-app:jar:0.0.1-SNAPSHOT
-[INFO] +- org.springframework.geode:spring-geode-starter:jar:1.7.4:compile
-[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:2.7.1:compile
-[INFO] |  |  +- org.springframework.boot:spring-boot:jar:2.7.1:compile
-...
-[INFO] |  +- org.springframework.geode:spring-geode:jar:1.7.4:compile
-[INFO] |  |  +- org.springframework.data:spring-data-geode:jar:2.7.1:compile
-[INFO] |  |  |  +- org.apache.geode:geode-core:jar:1.14.4:compile
-...
-[INFO] |  |  |  +- org.apache.geode:geode-wan:jar:1.14.4:compile
-```
-
-
-Again, we cannot overstate the importance of being careful when declaring exclusions.
-
-
-Please refer to the appropriate documentation in <a
-href="https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html">Maven</a>
-and <a
-href="https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html">Gradle</a>
-to declare exclusions.</td>
-
-
-Version 1.27  
-Last updated 2022-10-10 14:40:33 -0700

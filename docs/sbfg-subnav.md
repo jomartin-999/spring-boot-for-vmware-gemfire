@@ -1,4 +1,4 @@
-# Spring Boot GemFire Documentation
+#  [spring-boot-gemfire-name] Documentation
 <!-- 
  Copyright (c) VMware, Inc. 2022. All rights reserved.
  Licensed to the Apache Software Foundation (ASF) under one or more contributor license
@@ -16,13 +16,13 @@
 -->
 
 
-*    [Spring Boot GemFire](/spring-boot/index.html)
+*    [ [spring-boot-gemfire-name]](/spring-boot/index.html)
     *   [Building `ClientCache` Applications](/spring-boot/clientcache-applications.html)
     *   [Auto-configuration](/spring-boot/configuration-auto.html)
     *   [Declarative Configuration](/spring-boot/configuration-declarative.html)
     *   [Externalized Configuration](/spring-boot/configuration-externalized.html)
-    *   [Using GemFire Properties](/spring-boot/gemfire-properties.html)
-    *   [Caching with VMware GemFire](/spring-boot/caching.html)
+    *   [Using [vmware-gemfire-short-name] Properties](/spring-boot/gemfire-properties.html)
+    *   [Caching with [vmware-gemfire-name]](/spring-boot/caching.html)
     *   [Data Access with GemfireTemplate](/spring-boot/templates.html)
     *   [Spring Data Repositories](/spring-boot/repositories.html)
     *   [Function Implementations & Executions](/spring-boot/functions.html)
@@ -32,18 +32,17 @@
     *   [Logging](/spring-boot/logging.html)
     *   [Security](/spring-boot/security.html)
     *   [Testing](/spring-boot/testing.html)
-    *   [VMware GemFire API Extensions](/spring-boot/geode-api-ext.html)
+    *   [[vmware-gemfire-name] API Extensions](/spring-boot/geode-api-ext.html)
     *   [Spring Boot Actuator](/spring-boot/actuator.html)
     *   [Spring Session](/spring-boot/session.html)
-    *   [VMware GemFire for VMs](/spring-boot/cloudfoundry.html)
+    *   [[vmware-gemfire-name] for VMs](/spring-boot/cloudfoundry.html)
     *   [Docker](/spring-boot/docker.html)
     *   [Samples](/spring-boot/samples.html)
     *   [Appendices](/spring-boot/appendices.html)
         *   [Auto-configuration vs. Annotation-based configuration](/spring-boot/configuration-annotations.html)
         *   [Configuration Metadata Reference](/spring-boot/configuration-properties.html)
         *   [Deactivating Auto-configuration](/spring-boot/configuration-deactivate.html)
-        *   [Switching from Apache Geode to VMware GemFire or VMware GemFire for TAS](/spring-boot/switching-to-gemfire.html)
-        *   [Running a VMware GemFire cluster with Spring Boot from your IDE](/spring-boot/configuration-bootstrapping.html)
+        *   [Running a [vmware-gemfire-name] cluster with Spring Boot from your IDE](/spring-boot/configuration-bootstrapping.html)
         *   [Testing](/spring-boot/testing-support.html)
         *   [Examples](/spring-boot/examples.html)
         *   [References](/spring-boot/references.html)

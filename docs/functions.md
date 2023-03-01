@@ -20,7 +20,7 @@ Title: Function Implementations & Executions
 
 
 
-This chapter is about using VMware GemFire in a Spring context
+This chapter is about using [vmware-gemfire-name] in a Spring context
 for distributed computing use cases.
 
 
@@ -62,7 +62,7 @@ the data set across the cluster.
 
 
 
-VMware GemFire addresses this very important application concern
+[vmware-gemfire-name] addresses this very important application concern
 in its
 https://geode.apache.org/docs/guide/115/developing/function_exec/chapter_overview.html\[Function
 execution\] framework.
@@ -71,12 +71,12 @@ execution\] framework.
 
 
 
-Spring Data for VMware GemFire
+[spring-data-gemfire-name]
 https://docs.spring.io/spring-data/geode/docs/current/reference/html/#function-annotations\[builds\] on this
 Function execution framework by letting developers
 https://docs.spring.io/spring-data/geode/docs/current/reference/html/#function-implementation\[implement\] and
 https://docs.spring.io/spring-data/geode/docs/current/reference/html/#function-execution\[execute\]
-VMware GemFire functions with a simple POJO-based annotation
+[vmware-gemfire-name] functions with a simple POJO-based annotation
 configuration model.
 
 
@@ -105,7 +105,7 @@ Function implementation and execution.</td>
 
 
 
-Taking this a step further, Spring Boot for VMware GemFire
+Taking this a step further, [spring-boot-gemfire-name]
 auto-configures and enables both Function implementation and execution
 out-of-the-box. Therefore, you can immediately begin writing Functions
 and invoking them without having to worry about all the necessary
@@ -158,7 +158,7 @@ involved in a single decision, as is typically the case.
 
 
 We can implement an `EligibilityDeterminationFunction` class by using
-SDG:
+[spring-data-gemfire-name]:
 
 
 
@@ -197,11 +197,11 @@ class EligibilityDeterminationFunction {
 
 
 
-By using the SDG
+By using the [spring-data-gemfire-name]
 https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/function/annotation/GemfireFunction.html\[`@GemfireFunction`\]
-annotation, we can implement our Function as a POJO method. SDG
+annotation, we can implement our Function as a POJO method. [spring-data-gemfire-name]
 appropriately handles registering this POJO method as a proper Function
-with VMware GemFire.
+with [vmware-gemfire-name].
 
 
 
@@ -297,7 +297,7 @@ class FinancialLoanApplicationService {
 
 As with caching, no additional configuration is required to enable and
 find your application Function implementations and executions. You can
-simply build and run. Spring Boot for VMware GemFire handles the
+simply build and run. [spring-boot-gemfire-name] handles the
 rest.
 
 

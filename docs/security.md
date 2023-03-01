@@ -20,7 +20,7 @@ Title: Security
 
 
 
-This chapter covers security configuration for VMware GemFire,
+This chapter covers security configuration for [vmware-gemfire-name],
 which includes both authentication and authorization (collectively,
 auth) as well as Transport Layer Security (TLS) using SSL.
 
@@ -39,7 +39,7 @@ auth) as well as Transport Layer Security (TLS) using SSL.
 Note
 </td>
 <td class="content">Securing data at rest is not supported by
-VMware GemFire.</td>
+[vmware-gemfire-name].</td>
 </tr>
 </tbody>
 </table>
@@ -61,7 +61,7 @@ Tip
 <td class="content">See the corresponding sample <a
 href="guides/boot-security.html">guide</a> and
  https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/boot/security[code] to see Spring Boot Security for
-VMware GemFire in action.</td>
+[vmware-gemfire-name] in action.</td>
 </tr>
 </tbody>
 </table>
@@ -74,7 +74,7 @@ VMware GemFire in action.</td>
 
 
 
-VMware GemFire employs username- and password-based
+[vmware-gemfire-name] employs username- and password-based
 https://geode.apache.org/docs/guide/115/managing/security/authentication_overview.html\[authentication\]
 and role-based
 https://geode.apache.org/docs/guide/115/managing/security/authorization_overview.html\[authorization\]
@@ -84,12 +84,12 @@ to secure your client to server data exchanges and operations.
 
 
 
-Spring Data for VMware GemFire provides
+[spring-data-gemfire-name] provides
 https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-security\[first-class
-support\] for VMware GemFire's Security framework, which is
+support\] for [vmware-gemfire-name]'s Security framework, which is
 based on the
 https://geode.apache.org/releases/latest/javadoc/org/apache/geode/security/SecurityManager.html\[`SecurityManager`\]
-interface. Additionally, VMware GemFire's Security framework is
+interface. Additionally, [vmware-gemfire-name]'s Security framework is
 integrated with [Apache Shiro](https://shiro.apache.org/).
 
 
@@ -106,7 +106,7 @@ integrated with [Apache Shiro](https://shiro.apache.org/).
 <td class="icon">
 Note
 </td>
-<td class="content">SBDG will eventually provide support for and
+<td class="content">[spring-boot-gemfire-name] will eventually provide support for and
 integration with <a
 href="https://spring.io/projects/spring-security">Spring
 Security</a>.</td>
@@ -118,8 +118,7 @@ Security</a>.</td>
 
 
 
-When you use Spring Boot for VMware GemFire, which builds Spring
-Data for VMware GemFire, it makes short work of enabling auth in
+When you use [spring-boot-gemfire-name], which builds [spring-data-gemfire-name], it makes short work of enabling auth in
 both your clients and servers.
 
 
@@ -183,7 +182,7 @@ class ApacheGeodeSecurityConfiguration {
 When an Apache Shiro Realm (such as `DefaultLdapRealm`) is declared and
 registered in the Spring `ApplicationContext` as a Spring bean, Spring
 Boot automatically detects this `Realm` bean (or `Realm` beans if more
-than one is configured), and the servers in the VMware GemFire
+than one is configured), and the servers in the [vmware-gemfire-name]
 cluster are automatically configured with authentication and
 authorization enabled.
 
@@ -192,7 +191,7 @@ authorization enabled.
 
 
 Alternatively, you can provide a custom, application-specific
-implementation of VMware GemFire's
+implementation of [vmware-gemfire-name]'s
 https://geode.apache.org/releases/latest/javadoc/org/apache/geode/security/SecurityManager.html\[`SecurityManager`\]
 interface, declared and registered as a bean in the Spring
 `ApplicationContext`:
@@ -203,7 +202,7 @@ interface, declared and registered as a bean in the Spring
 
 
 
-Example 2. Declaring a custom VMware GemFire `SecurityManager`
+Example 2. Declaring a custom [vmware-gemfire-name] `SecurityManager`
 
 
 
@@ -238,7 +237,7 @@ class ApacheGeodeSecurityConfiguration {
 
 Spring Boot discovers your custom, application-specific
 `SecurityManager` implementation and configures the servers in the
-VMware GemFire cluster with authentication and authorization
+[vmware-gemfire-name] cluster with authentication and authorization
 enabled.
 
 
@@ -257,7 +256,7 @@ Tip
 </td>
 <td class="content">The Spring team recommends that you use Apache Shiro
 to manage the authentication and authorization of your servers over
-implementing VMware GemFire's <code>SecurityManager</code>
+implementing [vmware-gemfire-name]'s <code>SecurityManager</code>
 interface.</td>
 </tr>
 </tbody>
@@ -273,7 +272,7 @@ interface.</td>
 
 
 
-When servers in an VMware GemFire cluster have been configured
+When servers in an [vmware-gemfire-name] cluster have been configured
 with authentication and authorization enabled, clients must authenticate
 when connecting.
 
@@ -281,7 +280,7 @@ when connecting.
 
 
 
-Spring Boot for VMware GemFire makes this easy, regardless of
+[spring-boot-gemfire-name] makes this easy, regardless of
 whether you run your Spring Boot `ClientCache` applications in a local,
 non-managed environment or run in a cloud-managed environment.
 
@@ -294,7 +293,7 @@ non-managed environment or run in a cloud-managed environment.
 
 
 To enable auth for clients that connect to a secure
-VMware GemFire cluster, you need only set a username and
+[vmware-gemfire-name] cluster, you need only set a username and
 password in Spring Boot `application.properties`:
 
 
@@ -330,7 +329,7 @@ spring.data.gemfire.security.password = p@55w0rd
 
 
 
-Spring Boot for VMware GemFire handles the rest.
+[spring-boot-gemfire-name] handles the rest.
 
 
 
@@ -350,9 +349,8 @@ easier: You need do nothing.
 
 
 
-If your Spring Boot application uses SBDG and is bound to PCC, when you
-deploy (that is, `cf push`) your application to PCF, Spring Boot for
-VMware GemFire extracts the required auth credentials from the
+If your Spring Boot application uses [spring-boot-gemfire-name] and is bound to PCC, when you
+deploy (that is, `cf push`) your application to PCF, [spring-boot-gemfire-name] extracts the required auth credentials from the
 environment that you set up when you provisioned a PCC service instance
 in your PCF organization and space. PCC automatically assigns two users
 with roles of `cluster_operator` and `developer`, respectively, to any
@@ -362,7 +360,7 @@ Spring Boot application bound to the PCC service instance.
 
 
 
-By default, SBDG auto-configures your Spring Boot application to run
+By default, [spring-boot-gemfire-name] auto-configures your Spring Boot application to run
 with the user that has the `cluster_operator` role. This ensures that
 your Spring Boot application has the necessary permission
 (authorization) to perform all data access operations on the servers in
@@ -421,7 +419,7 @@ to send other sensitive data over those same connections.
 
 
 
-Therefore, VMware GemFire supports SSL between clients and
+Therefore, [vmware-gemfire-name] supports SSL between clients and
 servers, between JMX clients (such as Gfsh) and the Manager, between
 HTTP clients when you use the Developer REST API or Pulse, between peers
 in the cluster, and when you use the WAN Gateway to connect multiple
@@ -431,7 +429,7 @@ sites (clusters).
 
 
 
-Spring Data for VMware GemFire provides [first-class
+[spring-data-gemfire-name] provides [first-class
 support](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-ssl)
 for configuring and enabling SSL as well. Still, Spring Boot makes it
 even easier to configure and enable SSL, especially during development.
@@ -440,7 +438,7 @@ even easier to configure and enable SSL, especially during development.
 
 
 
-VMware GemFire requires certain properties to be configured.
+[vmware-gemfire-name] requires certain properties to be configured.
 These properties translate to the appropriate `javax.net.ssl.*`
 properties required by the JRE to create secure socket connections by
 using
@@ -451,8 +449,7 @@ using
 
 
 However, ensuring that you have set all the required SSL properties
-correctly is an error prone and tedious task. Therefore, Spring Boot for
-VMware GemFire applies some basic conventions for you.
+correctly is an error prone and tedious task. Therefore, [spring-boot-gemfire-name] applies some basic conventions for you.
 
 
 
@@ -477,7 +474,7 @@ place it in one of three well-known locations:
 
 
 When this file is named `trusted.keystore` and is placed in one of these
-three well-known locations, Spring Boot for VMware GemFire
+three well-known locations, [spring-boot-gemfire-name]
 automatically configures your client to use SSL socket connections.
 
 
@@ -485,7 +482,7 @@ automatically configures your client to use SSL socket connections.
 
 
 If you use Spring Boot to configure and bootstrap an
-VMware GemFire server:
+[vmware-gemfire-name] server:
 
 
 
@@ -494,7 +491,7 @@ VMware GemFire server:
 
 
 Example 4. Spring Boot configured and bootstrapped
-VMware GemFire server
+[vmware-gemfire-name] server
 
 
 
@@ -626,7 +623,7 @@ spring.data.gemfire.security.ssl.truststore.password = truststorePassword
 
 
 
-See the SDG
+See the [spring-data-gemfire-name]
 https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html\[`EnableSsl`\]
 annotation for all the configuration attributes and the corresponding
 properties expressed in `application.properties`.
@@ -641,8 +638,7 @@ properties expressed in `application.properties`.
 
 
 
-Currently, neither VMware GemFire nor Spring Boot nor Spring
-Data for VMware GemFire offer any support for securing your data
+Currently, neither [vmware-gemfire-name] nor Spring Boot nor [spring-data-gemfire-name] offer any support for securing your data
 while at rest (for example, when your data has been overflowed or
 persisted to disk).
 
@@ -650,7 +646,7 @@ persisted to disk).
 
 
 
-To secure data at rest when using VMware GemFire, with or
+To secure data at rest when using [vmware-gemfire-name], with or
 without Spring, you must employ third-party solutions, such as disk
 encryption, which is usually highly contextual and technology-specific.
 

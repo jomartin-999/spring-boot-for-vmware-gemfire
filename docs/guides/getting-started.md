@@ -1,4 +1,4 @@
-# Getting Started Quickly, Easily and Reliably with Spring Boot for VMware GemFire & Pivotal Cloud Cache
+# Getting Started Quickly, Easily and Reliably with [spring-boot-gemfire-name] & Pivotal Cloud Cache
 
 <!-- 
  Copyright (c) VMware, Inc. 2022. All rights reserved.
@@ -25,7 +25,7 @@ Table of Contents
   start.spring.io](#geode-samples-getting-started-spring-initializer)
   - [Exploring the Source Code and Running the
     CrmApplication](#geode-samples-getting-started-spring-initializer-explore-run)
-- [Build a Spring Boot, VMware GemFire `ClientCache`
+- [Build a Spring Boot, [vmware-gemfire-name] `ClientCache`
   application](#spring-geode-samples-getting-started-build-app)
   - [`Customer`
     class](#spring-geode-samples-getting-started-build-app-model)
@@ -47,9 +47,8 @@ Table of Contents
 
 
 This guide walks you through building and running a simple Spring Boot,
-VMware GemFire `ClientCache` application using the Spring Boot for
-VMware GemFire (SBDG) framework. Later in this guide, we switch the
-application from [VMware GemFire](https://geode.apache.org/) to [Pivotal
+[vmware-gemfire-name] `ClientCache` application using the [spring-boot-gemfire-name] framework. Later in this guide, we switch the
+application from [[vmware-gemfire-name]](https://geode.apache.org/) to [Pivotal
 Cloud Cache](https://pivotal.io/pivotal-cloud-cache) and deploy (i.e
 *`push`*) the application up to [*Pivotal
 Platform*](https://pivotal.io/platform).
@@ -58,14 +57,14 @@ Platform*](https://pivotal.io/platform).
 Specifically, you will:
 
 
-1.  Create a new "*Spring for VMware GemFire*" project using *Spring
+1.  Create a new "*Spring for [vmware-gemfire-name]*" project using *Spring
     Initializer* at [start.spring.io](https://start.spring.io). Goto the
     [Spring
     Initializer](#geode-samples-getting-started-spring-initializer)
     topic.
 
-2.  Then, we build a simple Spring Boot, VMware GemFire `ClientCache`
-    application that can persist data locally in VMware GemFire. Goto
+2.  Then, we build a simple Spring Boot, [vmware-gemfire-name] `ClientCache`
+    application that can persist data locally in [vmware-gemfire-name]. Goto
     the [Build App](#spring-geode-samples-getting-started-build-app)
     topic.
 
@@ -93,12 +92,12 @@ configuration* changes. It should just work!
 It is also possible to migrate from a Commercial,
 Managed environment (running in <em>Pivotal Platform</em> using
 <em>Pivotal Cloud Cache</em> (PCC)) back to an Open Source, Non-Managed
-environment (i.e. running with an externally managed VMware GemFire
+environment (i.e. running with an externally managed [vmware-gemfire-name]
 cluster).
 </p>
 
 By the end of this guide, you should feel comfortable and ready to begin
-building Spring Boot applications using either VMware GemFire standalone
+building Spring Boot applications using either [vmware-gemfire-name] standalone
 or by deploying and running in *Pivotal Platform* using *Pivotal Cloud
 Cache* (PCC).
 
@@ -141,8 +140,8 @@ When creating the example app for this guide, we selected:
 
   
 
-- *Dependencies*: Add "**Spring for VMware GemFire**" by typing
-  "*Geode*" into the "*Search dependencies to add*" text field.
+- *Dependencies*: Add "**Spring for [vmware-gemfire-name]**" by typing
+  "*[vmware-gemfire-short-name]*" into the "*Search dependencies to add*" text field.
 
 - (Optional) *Dependencies*: Add "*Spring Web*" to pull in
   `org.springframework.boot:spring-boot-starter-web` if you want this
@@ -175,8 +174,7 @@ Your selections should look similar to:
 screenshot](./images/spring-initializer-screenshot.png)
 
 
-Be sure to click the "**+**" button next to the "*Spring for VMware
-GemFire*" dependency to select and add it to the generated project Maven
+Be sure to click the "**+**" button next to the "*Spring for [vmware-gemfire-name]*" dependency to select and add it to the generated project Maven
 POM file.
 
 You can explore the contents of the generated project by pressing the
@@ -198,7 +196,7 @@ IDEA](https://www.jetbrains.com/idea/) or [Spring Tool
 Suite](https://spring.io/tools) (STS)) to open the generated project.
 
 
-You are ready to begin developing your Spring Boot, VMware GemFire
+You are ready to begin developing your Spring Boot, [vmware-gemfire-name]
 `ClientCache` application.
 
 
@@ -214,11 +212,11 @@ versions are a moving target, and may change daily due to ongoing
 development.
 
 
-SBDG `minor` versions will always match `minor` versions of Spring Boot.
-The SBDG `major` version will always be one version behind the `major`
-version of Spring Boot. For example, SBDG 1.1 is based on Spring Boot
-2.1. SBDG 1.2 is based on Spring Boot 2.2. And, SBDG 1.3 will be based
-on Spring Boot 2.3. When Spring Boot reaches 3.0, SBDG will be at 2.0,
+[spring-boot-gemfire-name] `minor` versions will always match `minor` versions of Spring Boot.
+The [spring-boot-gemfire-name] `major` version will always be one version behind the `major`
+version of Spring Boot. For example, [spring-boot-gemfire-name] 1.1 is based on Spring Boot
+2.1. [spring-boot-gemfire-name] 1.2 is based on Spring Boot 2.2. And, [spring-boot-gemfire-name] 1.3 will be based
+on Spring Boot 2.3. When Spring Boot reaches 3.0, [spring-boot-gemfire-name] will be at 2.0,
 and so on.
 
 
@@ -251,13 +249,12 @@ public class CrmApplication {
 
 
 
-Additionally, in the project Maven POM file, we see the "*Spring Boot
-for VMware GemFire*" (SBDG) dependency
+Additionally, in the project Maven POM file, we see the "*[spring-boot-gemfire-name]*"  dependency
 (`org.springframework.geode:spring-geode-starter)`:
 
 
 
-#### Spring Boot for VMware GemFire dependency
+#### [spring-boot-gemfire-name] dependency
 
 ``` highlight
 <dependency>
@@ -267,10 +264,10 @@ for VMware GemFire*" (SBDG) dependency
 ```
 
 
-With the *Spring Boot for VMware GemFire* dependency (i.e.
+With the *[spring-boot-gemfire-name]* dependency (i.e.
 `org.springframework.geode:spring-geode-starter`) on the application
 classpath along with the main Java class being a proper Spring Boot
-application, this application will startup and run as an VMware GemFire
+application, this application will startup and run as an [vmware-gemfire-name]
 `ClientCache` application:
 
 
@@ -333,7 +330,7 @@ Build-Date: 2019-04-19 11:49:13 -0700
 Build-Id: onichols 0
 Build-Java-Version: 1.8.0_192
 Build-Platform: Mac OS X 10.14.4 x86_64
-Product-Name: VMware GemFire
+Product-Name: [vmware-gemfire-name]
 Product-Version: 1.9.0
 Source-Date: 2019-04-19 11:11:31 -0700
 Source-Repository: release/1.9.0
@@ -359,7 +356,6 @@ Class Path:
   .../7b533399d6f88039537bb757f25a2c90d46fcdc7/spring-boot-starter-2.2.0.BUILD-SNAPSHOT.jar
   .../spring-data-geode-2.2.0.RC3.jar
   .../geode-cq-1.9.0.jar
-  .../geode-lucene-1.9.0.jar
   .../geode-wan-1.9.0.jar
   .../geode-core-1.9.0.jar
   .../spring-shell-1.2.0.RELEASE.jar
@@ -446,9 +442,6 @@ Class Path:
   .../classgraph-4.0.6.jar
   .../rmiio-2.1.2.jar
   .../geode-common-1.9.0.jar
-  .../lucene-analyzers-common-6.6.2.jar
-  .../lucene-queryparser-6.6.2.jar
-  .../lucene-core-6.6.2.jar
   .../mx4j-3.0.2.jar
   .../jackson-core-2.9.9.jar
   .../accessors-smart-1.2.jar
@@ -463,7 +456,6 @@ Class Path:
   .../javax.transaction-api-1.3.jar
   .../jetty-http-9.4.20.v20190813.jar
   .../jetty-io-9.4.20.v20190813.jar
-  .../lucene-queries-6.6.2.jar
   .../asm-5.0.4.jar
   .../jetty-util-9.4.20.v20190813.jar
   .../httpcore-4.4.12.jar
@@ -471,7 +463,6 @@ Class Path:
   .../lombok-1.18.8.jar
   .../snakeyaml-1.25.jar
   .../junit-jupiter-engine-5.5.2.jar
-  .../lucene-analyzers-phonetic-6.6.2.jar
   /Applications/IntelliJ IDEA 19 CE.app/Contents/lib/idea_rt.jar
 Library Path:
   /Users/jblum/Library/Java/Extensions
@@ -552,12 +543,12 @@ Log4J 2 Configuration:
 ---------------------------------------------------------------------------
 
 2019-09-15 23:16:17.617  INFO 7156 --- [main] o.a.g.internal.logging.LoggingSession
-  : Startup Configuration: ### GemFire Properties defined with api ###
+  : Startup Configuration: ### [vmware-gemfire-short-name] Properties defined with api ###
 locators=
 log-level=config
 mcast-port=0
 name=SpringBasedCacheClientApplication
-### GemFire Properties using default values ###
+### [vmware-gemfire-short-name] Properties using default values ###
 ack-severe-alert-threshold=0
 ack-wait-threshold=15
 archive-disk-space-limit=0
@@ -650,9 +641,6 @@ memcached-bind-address=
 memcached-port=0
 memcached-protocol=ASCII
 off-heap-memory-size=
-redis-bind-address=
-redis-password=
-redis-port=0
 redundancy-zone=
 remote-locators=
 remove-unresponsive-client=false
@@ -724,14 +712,13 @@ validate-serializable-objects=false
 
 ... : Disabling statistic archival.
 ... : Running in client mode
-... : Initialized cache service org.apache.geode.cache.lucene.internal.LuceneServiceImpl
 ... : Connected to Distributed System [SpringBasedCacheClientApplication]
       as Member [*****(SpringBasedCacheClientApplication:7156:loner):0:e5f5b638:SpringBasedCacheClientApplication]
       in Group(s) [[]]
       with Role(s) [[]]
       on Host [10.99.199.24]
       having PID [7156]
-... : Created new VMware GemFire version [1.9.0] Cache [SpringBasedCacheClientApplication]
+... : Created new [vmware-gemfire-name] version [1.9.0] Cache [SpringBasedCacheClientApplication]
 ... : Started CrmApplication in 3.95474938 seconds (JVM running for 4.876)
 ... : VM is exiting - shutting down distributed system
 ... : GemFireCache[id = 1985175273; isClosing = true; isShutDownAll = false;
@@ -742,9 +729,7 @@ Process finished with exit code 0
 ```
 
 First, you see the JVM bootstrap Spring Boot, which in turn runs our
-`CrmApplication` and also auto-configures and bootstraps an VMware
-GemFire `ClientCache` instance. Most of the output comes from VMware
-GemFire.
+`CrmApplication` and also auto-configures and bootstraps an [vmware-gemfire-name] `ClientCache` instance. Most of the output comes from [vmware-gemfire-name].
 
 The application falls straight through because it is not doing anything
 interesting, and technically, because there are no non-daemon Threads
@@ -754,11 +739,11 @@ that prevents the "main" Java Thread from exiting immediately.
 
 
 
-## Build a Spring Boot, VMware GemFire `ClientCache` application
+## Build a Spring Boot, [vmware-gemfire-name] `ClientCache` application
 
 Our Spring Boot application is a simple *Customer Relationship
 Management* (CRM) application that allows users to persist `Customer`
-data in VMware GemFire and lookup `Customers` by name.
+data in [vmware-gemfire-name] and lookup `Customers` by name.
 
 ### `Customer` class
 
@@ -792,19 +777,19 @@ The CRM application defines a `Customer` in terms of an identifier (i.e.
 
 
 Additionally, we map `Customer` objects to the "*/Customers*" Region
-using Spring Data for VMware GemFire’s (SDG)
+using [spring-data-gemfire-name]’s 
 [`@Region`](https://docs.spring.io/spring-data/geode/docs/current/api/org/springframework/data/gemfire/mapping/annotation/Region.html)
 annotation.
 
 
 The `@Region` annotation tells Spring Data where to persist and access
-`Customer` objects in VMware GemFire. It is basically equivalent to
+`Customer` objects in [vmware-gemfire-name]. It is basically equivalent to
 JPA’s `@javax.persistence.Table` annotation.
 
 Additionally, we annotate the `Long id` field with Spring Data’s
 `@org.springframework.data.annotation.Id` annotation. This designates
-the `id` field as the identifier, or in VMware GemFire’s case, the "key"
-since a Region is a key/value store. In fact, VMware GemFire’s
+the `id` field as the identifier, or in [vmware-gemfire-name]’s case, the "key"
+since a Region is a key/value store. In fact, [vmware-gemfire-name]’s
 [`Region`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/Region.html)
 interface implements the `java.uti.Map` interface making it a `Map` data
 structure.
@@ -834,7 +819,7 @@ here.
 
 Now that we have defined a basic model for managing customer data, we
 can create a Spring Data `CrudRepository` used by our application to
-persist `Customer` objects to VMware GemFire. This same *Repository* can
+persist `Customer` objects to [vmware-gemfire-name]. This same *Repository* can
 be used to lookup, or query `Customers` by name.
 
 
@@ -862,8 +847,8 @@ entity (e.g. `Customer`).
 Review the Spring Data Commons Reference Guide for
 more details on <a
 href="https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories">Working
-with Spring Data Repositories</a> and Spring Data for VMware GemFire’s
-(SDG) <a
+with Spring Data Repositories</a> and [spring-data-gemfire-name]’s
+ <a
 href="https://docs.spring.io/spring-data/geode/docs/current/reference/html/#gemfire-repositories">extension
 and implementation</a> of Spring Data Commons Repository
 Abstraction.
@@ -981,8 +966,7 @@ Table 1. Customer Web service endpoints
 
 If you did not enable the Web components by adding
 the Spring Web dependency to your application classpath, then no
-worries, we will still be inspecting the application’s effects on VMware
-GemFire using <em>Gfsh</em> (VMware GemFire’s command-line shell tool).
+worries, we will still be inspecting the application’s effects on [vmware-gemfire-name] using <em>Gfsh</em> ([vmware-gemfire-name]’s command-line shell tool).
 Of course, you can just add the
 <code>org.springframework.boot:spring-boot-starter-web</code> dependency
 to your Maven POM file as well.
@@ -996,15 +980,15 @@ some boilerplate configuration.
 
 This will no doubt cause you to pause and think, why do I need any
 configuration at all if we are using Spring Boot? Doesn’t Spring Boot,
-and specifically SBDG, *Auto-configuration* take care of all our
+and specifically [spring-boot-gemfire-name], *Auto-configuration* take care of all our
 non-custom "configuration" needs?
 
 
 For the most part, YES, and we’ll be reviewing further below what is
-actually being handled by SBDG, and Spring Boot in general.
+actually being handled by [spring-boot-gemfire-name], and Spring Boot in general.
 
 
-But, there are certain cases that not even SBDG will take for granted
+But, there are certain cases that not even [spring-boot-gemfire-name] will take for granted
 and assume, which becomes part of your responsibility as the application
 developer. One example is Region configuration.
 
@@ -1016,7 +1000,7 @@ from application Use Case to application Use Case.
 
 First, there are different data management policies (e.g. `PARTITION` or
 `REPLICATE`) that might be applicable depending on the type of data you
-store in VMware GemFire (e.g. Transactional vs. Reference data). You
+store in [vmware-gemfire-name] (e.g. Transactional vs. Reference data). You
 might need different Eviction and Expiration policies depending on your
 user base or workloads. Some data is suited for Off-Heap memory.
 Depending on the data management policy of the Region (e.g. `PARTITION`)
@@ -1026,16 +1010,16 @@ Queries, etc.
 
 Still, we want the *getting started* experience to be as simple and as
 easy as possible, and to do so in a reliable way, especially during
-development. So, while SBDG may not provide implicit
+development. So, while [spring-boot-gemfire-name] may not provide implicit
 *auto-configuration* support for every concern, this does not mean you
 are left to figure it all out by yourself (e.g. Region configuration).
 
 During development, if you don’t care specifically "*how*" your data is
 stored and you just want to simply and rapidly iterate, putting and
-getting data into and out of VMware GemFire, then SBDG can help.
+getting data into and out of [vmware-gemfire-name], then [spring-boot-gemfire-name] can help.
 
 The first thing we will do is annotate our application configuration
-with SDG’s `@EnableEntityDefinedRegions` annotation and set the
+with [spring-data-gemfire-name]’s `@EnableEntityDefinedRegions` annotation and set the
 `basePackageClasses` attribute to our `Customer` class:
 
 
@@ -1071,7 +1055,7 @@ package is sufficient.
 
 
 `@EnableEntityDefinedRegions` creates Regions local to your application.
-By default, your SBDG based application is a `ClientCache` and therefore
+By default, your [spring-boot-gemfire-name] based application is a `ClientCache` and therefore
 will create client Regions for your entities.
 
 
@@ -1117,7 +1101,7 @@ You can also use Spring XML:
 
 
 The final bit of configuration helps determine whether the client
-application is by itself or whether a cluster of VMware GemFire servers
+application is by itself or whether a cluster of [vmware-gemfire-name] servers
 are available to manage the application’s data.
 
 
@@ -1126,7 +1110,7 @@ inside your IDE, debugging and testing new functions locally and then
 switch to a client/server environment for further integration testing.
 
 
-VMware GemFire requires 1) all client Regions that send data to/from the
+[vmware-gemfire-name] requires 1) all client Regions that send data to/from the
 cluster be `*PROXY` Regions and 2) that a server-side Region by the same
 name exists in the cluster.
 
@@ -1137,7 +1121,7 @@ IDE locally, where a cluster might not be available, and then having to
 remember to switch the data management policy back to `*PROXY` in
 addition to creating any new Regions when you add new entity classes
 before pushing back up to the client/server environment is a tedious and
-error-prone task. So, SBDG has introduced the new `@EnableClusterAware`
+error-prone task. So, [spring-boot-gemfire-name] has introduced the new `@EnableClusterAware`
 annotation for this very purpose.
 
 
@@ -1246,7 +1230,7 @@ class
 
 
 The runner creates a new `Customer` "*JonDoe*", persists "*JonDoe*" to
-VMware GemFire in the "*/Customers*" client `LOCAL` Region, runs an OQL
+[vmware-gemfire-name] in the "*/Customers*" client `LOCAL` Region, runs an OQL
 query to lookup "*JonDoe*" by name using a wildcard query with the LIKE
 operator and argument "*%Doe*", then asserts that the result is correct.
 
@@ -1274,13 +1258,13 @@ $ gradlew :spring-geode-samples-getting-started:bootRun
 
 
 The convenient thing about using Gradle is that you can run this from
-the SBDG project home directory, as in from
-`/path/to/spring-boot-data-geode`, where you cloned the SBDG project in
+the [spring-boot-gemfire-name] project home directory, as in from
+`/path/to/spring-boot-data-geode`, where you cloned the [spring-boot-gemfire-name] project in
 your local file sytem.
 
 
-The downside of using Gradle is that the SBDG project Gradle build will
-build (compile) most modules of the SBDG project.
+The downside of using Gradle is that the [spring-boot-gemfire-name] project Gradle build will
+build (compile) most modules of the [spring-boot-gemfire-name] project.
 
 
 Alternatively, you can now run this Getting Started Sample using Maven.
@@ -1324,18 +1308,18 @@ Customer was [Customer(name=JonDoe)]
 ```
 
 
-SBDG, with the help of `@EnableEntityDefinedRegions` and
+[spring-boot-gemfire-name], with the help of `@EnableEntityDefinedRegions` and
 `@EnableClusterAware`, along with Spring Data, has already done quite a
 bit of work for us:
 
 
-1.  SBDG *auto-configured* a `ClientCache` instance required to use
-    VMware GemFire in the application.
+1.  [spring-boot-gemfire-name] *auto-configured* a `ClientCache` instance required to use
+   [vmware-gemfire-name] in the application.
 
 2.  The `@EnableEntityDefinedRegion` annotation created the required
     "*/Customers*" client Region from our `Customer` entity class.
 
-3.  SBDG *auto-configured* the Spring Data Repository infrastructure and
+3.  [spring-boot-gemfire-name] *auto-configured* the Spring Data Repository infrastructure and
     supplied an implementation for the `CustomerRepository` interface.
 
 4.  The `CustomerRepository.findByName(:String)` derived query method
@@ -1347,7 +1331,7 @@ bit of work for us:
     of the application (e.g. local or client/server).
 
 
-To show one aspect of SBDG’s *auto-configuration* at play, what would
+To show one aspect of [spring-boot-gemfire-name]’s *auto-configuration* at play, what would
 happen if you did not annotate the application configuration with
 `@EnableClusterAware`?
 
@@ -1424,7 +1408,7 @@ jondoe](./images/customer-service-application-jondoe.png)
 ## Run the Application in a Client/Server Topology
 
 
-Now that we have a simple Spring Boot, VMware GemFire `ClientCache`
+Now that we have a simple Spring Boot, [vmware-gemfire-name] `ClientCache`
 application running locally inside our IDE, we want to expand on this
 bit and switch to a client/server topology.
 
@@ -1441,17 +1425,17 @@ in a Microservices landscape) would not be able to use this data, which
 is useless!
 
 To switch to a client/server topology, we need to first configure and
-bootstrap an VMware GemFire cluster.
+bootstrap an [vmware-gemfire-name] cluster.
 
-The Example Code for this Guide already provides the necessary Geode
+The Example Code for this Guide already provides the necessary [vmware-gemfire-short-name]
 shell script (*Gfsh*) to start a cluster:
 
 
-Gfsh shell script to start an VMware GemFire cluster
+Gfsh shell script to start an [vmware-gemfire-name] cluster
 
 
 ``` highlight
-# Gfsh shell script to start an Apache Geode cluster with 1 Locator and 2 Servers.
+# Gfsh shell script to start an [vmware-gemfire-name] cluster with 1 Locator and 2 Servers.
 
 start locator --name=LocatorOne --log-level=config
 start server --name=ServerOne --log-level=config
@@ -1466,17 +1450,17 @@ command:
 
 
 ``` highlight
-gfsh> run --file=@SBDG_HOME@/spring-geode-samples/intro/getting-started/src/main/resources/geode/bin/start-cluster.gfsh
+gfsh> run --file=@[spring-boot-gemfire-name]_HOME@/spring-geode-samples/intro/getting-started/src/main/resources/geode/bin/start-cluster.gfsh
 ```
 
 <p class="note><strong>Note: </strong>
 </td>
-<td class="content">Be sure to change the <code>@SBDG_HOME@</code>
-placeholder variable with the location of your cloned copy of SBDG.
+<td class="content">Be sure to change the <code>@[spring-boot-gemfire-name]_HOME@</code>
+placeholder variable with the location of your cloned copy of [spring-boot-gemfire-name].
 </p>
 
 
-The *Gfsh* shell script starts an VMware GemFire cluster with 1
+The *Gfsh* shell script starts an [vmware-gemfire-name] cluster with 1
 *Locator* and 2 *Servers*.
 
 The output from the shell script will look similar to:
@@ -1489,12 +1473,12 @@ The output from the shell script will look similar to:
 gfsh>run --file=.../spring-boot-data-geode/spring-geode-samples/intro/getting-started/src/main/resources/geode/bin/start-cluster.gfsh
 1. Executing - start locator --name=LocatorOne --log-level=config
 
-Starting a Geode Locator in /Users/jblum/pivdev/lab/LocatorOne...
+Starting a [vmware-gemfire-short-name] Locator in /Users/jblum/pivdev/lab/LocatorOne...
 .......
 Locator in /Users/jblum/pivdev/lab/LocatorOne on 10.99.199.24[10334] as LocatorOne is currently online.
 Process ID: 10429
 Uptime: 5 seconds
-Geode Version: 1.9.0
+GemFire Version: 1.9.0
 Java Version: 1.8.0_192
 Log File: /Users/jblum/pivdev/lab/LocatorOne/LocatorOne.log
 JVM Arguments: -Dgemfire.enable-cluster-configuration=true
@@ -1511,12 +1495,12 @@ Cluster configuration service is up and running.
 
 2. Executing - start server --name=ServerOne --log-level=config
 
-Starting a Geode Server in /Users/jblum/pivdev/lab/ServerOne...
+Starting a [vmware-gemfire-short-name] Server in /Users/jblum/pivdev/lab/ServerOne...
 ....
 Server in /Users/jblum/pivdev/lab/ServerOne on 10.99.199.24[40404] as ServerOne is currently online.
 Process ID: 10439
 Uptime: 3 seconds
-Geode Version: 1.9.0
+GemFire Version: 1.9.0
 Java Version: 1.8.0_192
 Log File: /Users/jblum/pivdev/lab/ServerOne/ServerOne.log
 JVM Arguments: -Dgemfire.default.locators=10.99.199.24[10334]
@@ -1532,12 +1516,12 @@ Class-Path: .../apache-geode-1.9.0/lib/geode-core-1.9.0.jar
 
 3. Executing - start server --name=ServerTwo --log-level=config --server-port=50505
 
-Starting a Geode Server in /Users/jblum/pivdev/lab/ServerTwo...
+Starting a [vmware-gemfire-short-name] Server in /Users/jblum/pivdev/lab/ServerTwo...
 ...
 Server in /Users/jblum/pivdev/lab/ServerTwo on 10.99.199.24[50505] as ServerTwo is currently online.
 Process ID: 10443
 Uptime: 2 seconds
-Geode Version: 1.9.0
+GemFire Version: 1.9.0
 Java Version: 1.8.0_192
 Log File: /Users/jblum/pivdev/lab/ServerTwo/ServerTwo.log
 JVM Arguments: -Dgemfire.default.locators=10.99.199.24[10334]
@@ -1715,8 +1699,8 @@ Region is being hosted on our 2 *Servers*, "ServerOne" and "ServerTwo".
 <p class="important"><strong>Important:</strong>
 You must have redundancy (and optionally,
 persistence) configured in your cluster to prevent (complete) data loss,
-which forms the basis for high-availability (HA) in VMware GemFire and
-VMware GemFire for TAS.
+which forms the basis for high-availability (HA) in [vmware-gemfire-name] and
+[vmware-gemfire-name] for TAS.
 </p>
 
 
@@ -1744,7 +1728,7 @@ seamlessly switched from local to a client/server topology without so
 much as a single line of code, or any configuration changes!
 
 
-Technically, SBDG identified the configuration of the client application
+Technically, [spring-boot-gemfire-name] identified the configuration of the client application
 and pushed configuration metadata for the required server-side,
 "*/Customers*" Region up to the cluster. Not only that, but the
 configuration metadata was sent in such a way that the cluster will
@@ -1761,12 +1745,12 @@ Add yet another server
 
 ``` highlight
 gfsh>start server --name=ServerThree --log-level=config --server-port=12345
-Starting a Geode Server in /Users/jblum/pivdev/lab/ServerThree...
+Starting a [vmware-gemfire-short-name] Server in /Users/jblum/pivdev/lab/ServerThree...
 ...
 Server in /Users/jblum/pivdev/lab/ServerThree on 10.99.199.24[12345] as ServerThree is currently online.
 Process ID: 10616
 Uptime: 3 seconds
-Geode Version: 1.9.0
+GemFire Version: 1.9.0
 Java Version: 1.8.0_192
 Log File: /Users/jblum/pivdev/lab/ServerThree/ServerThree.log
 JVM Arguments: -Dgemfire.default.locators=10.99.199.24[10334]
@@ -1817,7 +1801,7 @@ You can see that "ServerThree" is hosting the "*/Customers*" Region.
 You can still access this application from your Web
 client (e.g. Web browser) and view the data.
 
-Once again, SBDG is providing you with tremendous power and convenience
+Once again, [spring-boot-gemfire-name] is providing you with tremendous power and convenience
 that you may not be aware of.
 
 
@@ -1827,19 +1811,19 @@ non-apparent things happening as well. In addition to the aforementioned
 things in the last section, we are now benefiting from:
 
 
-1.  SBDG appropriately configured and relied on VMware GemFire internal
+1.  [spring-boot-gemfire-name] appropriately configured and relied on [vmware-gemfire-name] internal
     features to connect the client to the cluster.
 
 2.  Configuration metadata for our application’s required client Regions
     (e.g. "*/Customers*") was sent to the cluster and created on the
     servers to leverage the client/server topology.
 
-3.  SBDG *auto-configured* PDX, VMware GemFire’s highly powerful
+3.  [spring-boot-gemfire-name] *auto-configured* PDX, [vmware-gemfire-name]’s highly powerful
     Serialization framework and alternative to *Java Serialization*.
 
 
 Once we migrate to a managed cloud platform environment, we’ll see the
-full effects of SBDG’s *auto-configuration* at play.
+full effects of [spring-boot-gemfire-name]’s *auto-configuration* at play.
 
 
 
@@ -1849,7 +1833,7 @@ full effects of SBDG’s *auto-configuration* at play.
 Anytime you need to send data over the network, persist or overflow data
 to disk, your objects need to be serializable.
 
-SBDG employs VMware GemFire’s [PDX
+[spring-boot-gemfire-name] employs [vmware-gemfire-name]’s [PDX
 Serialization](https://geode.apache.org/docs/guide/%7Bapache-geode-doc-version%7D/developing/data_serialization/gemfire_pdx_serialization.html)
 framework so your application entity classes do not need to implement
 `java.io.Serializable`. In other cases, implementing
@@ -1861,7 +1845,7 @@ Perhaps you don’t want to use *Java Serialization* given the inherit
 overhead of the *Java Serialization* format.
 
 
-In any case, using VMware GemFire PDX Serialization is ideal if you have
+In any case, using [vmware-gemfire-name] PDX Serialization is ideal if you have
 large number of objects forming a complex graph where missing a type
 that needs to be serialized is easy to do. PDX allows you to query data
 in serialized form and even allows non-Java clients (e.g. native clients
@@ -1903,7 +1887,7 @@ implementing application domain class type of the object.
 
 
 
-If SBDG’s Auto-configuration for PDX was disabled, such as by doing:
+If [spring-boot-gemfire-name]’s Auto-configuration for PDX was disabled, such as by doing:
 
 
 
@@ -1991,7 +1975,7 @@ Caused by: java.io.NotSerializableException: example.app.crm.model.Customer
 #### Enabling Cluster Configuration
 
 
-Using SBDG cluster configuration from a client is convenient during
+Using [spring-boot-gemfire-name] cluster configuration from a client is convenient during
 development. However, the Spring team recommends users use explicit
 configuration when deploying their apps to production and setting up the
 environment.
@@ -2016,7 +2000,7 @@ gfsh> create region --name=Example --type=PARTITION ...
 While this can be scripted and the script can be checked into source
 control (a definitive plus) the same as the application code, you sill
 need to create matching Regions on the client, for which there is no
-assistance provided by VMware GemFire or Pivotal Cloud Cache.
+assistance provided by [vmware-gemfire-name] or Pivotal Cloud Cache.
 
 
 This is why `@EnableClusterAware` will help you be much more productive
@@ -2044,11 +2028,11 @@ managed cloud platform environment, like *Pivotal Platform* using
 *Pivotal Cloud Cache* (PCC).
 
 
-This is the final step in our journey to the cloud and SBDG makes this a
+This is the final step in our journey to the cloud and [spring-boot-gemfire-name] makes this a
 non-event!
 
 
-While SBDG handles most application development concerns, *Pivotal Cloud
+While [spring-boot-gemfire-name] handles most application development concerns, *Pivotal Cloud
 Cache* (PCC), in conjunction with *Pivotal Platform*, handles most
 operational concerns.
 
@@ -2088,7 +2072,7 @@ on making the switch.
 
 It is important to match versions when deploying to Pivotal Platform
 (formerly known as Pivotal CloudFoundry; PCF) using Pivotal Cloud Cache
-(PCC). This is technically a Pivotal GemFire restriction and has nothing
+(PCC). This is technically a Pivotal [vmware-gemfire-short-name] restriction and has nothing
 to do with Spring.
 
 
@@ -2108,7 +2092,7 @@ connect to and communicate with a 9.9, or earlier version of a, server.
 
 Use the following table to make sure your client and server versions are
 correct when deploying to Pivotal Platform (PCF) or similar cloud
-environment hosting and managing Pivotal GemFire:
+environment hosting and managing [vmware-gemfire-name]:
 
 
 
@@ -2123,10 +2107,10 @@ environment hosting and managing Pivotal GemFire:
 </colgroup>
 <thead>
 <tr class="header">
-<th class="tableblock halign-left valign-top">SBDG</th>
+<th class="tableblock halign-left valign-top">[spring-boot-gemfire-name]</th>
 <th class="tableblock halign-left valign-top">Spring Boot</th>
-<th class="tableblock halign-left valign-top">Pivotal GemFire</th>
-<th class="tableblock halign-left valign-top">VMware GemFire</th>
+<th class="tableblock halign-left valign-top"> [vmware-gemfire-name]</th>
+<th class="tableblock halign-left valign-top">[vmware-gemfire-name]</th>
 <th class="tableblock halign-left valign-top">Pivotal Cloud Cache</th>
 </tr>
 </thead>
@@ -2183,7 +2167,7 @@ Table 2. Client/Server Versions
 
 <p class="note"><strong>Note:</strong>
 Your Spring Boot application is the client and the
-cloud environment, hosting the Pivotal GemFire cluster, is the
+cloud environment, hosting the Pivotal [vmware-gemfire-short-name] cluster, is the
 server-side.
 </p>
 
@@ -2192,9 +2176,9 @@ server-side.
 
 
 
-As of VMware GemFire 1.9, upon which Pivotal Cloud Cache (PCC) 1.8 is
+As of [vmware-gemfire-name] 1.9, upon which Pivotal Cloud Cache (PCC) 1.8 is
 [based](https://docs.pivotal.io/p-cloud-cache/%7Bpivotal-cloudcache-doc-version%7D/product-snapshot.html),
-VMware GemFire requires you to declare Micrometer on the classpath as a
+[vmware-gemfire-name] requires you to declare Micrometer on the classpath as a
 compile-time dependency.
 
 
@@ -2219,7 +2203,7 @@ As of this writing, due to an
 [Issue](https://github.com/cloudfoundry/java-buildpack-metric-writer/issues/6)
 in the *Java buildpack* for CloudFoundry, you are also required to put
 Spring Boot Actuator on the classpath for your Spring Boot application
-using VMware GemFire or PCC:
+using [vmware-gemfire-name] or PCC:
 
 
 
@@ -2236,7 +2220,7 @@ using VMware GemFire or PCC:
 
 
 This is because the *Java buildpack* detects Micrometer on the
-application classpath, which Apach Geode or PCC depends on and pulls in,
+application classpath, which Apach [vmware-gemfire-short-name] or PCC depends on and pulls in,
 therefore the *Java buildpack* will enable Spring Boot’s Actuator
 functionality, which if not declared on your application classpath as
 well, will lead to the following Exception in a CloudFoudry environment
@@ -2257,8 +2241,7 @@ OUT     at o.s.c.a.TypeMappedAnnotation.getValue(TypeMappedAnnotation.java:403)
 
 
 
-On the other hand, if you try to exclude Micrometer from the VMware
-GemFire or PCC dependency, for example:
+On the other hand, if you try to exclude Micrometer from the [vmware-gemfire-name] or PCC dependency, for example:
 
 
 
@@ -2281,11 +2264,10 @@ GemFire or PCC dependency, for example:
 
 
 Then, you will get past the *Java buildpack* Exception, but you will
-encounter another Exception when Spring Boot tries to bootstrap VMware
-GemFire on startup:
+encounter another Exception when Spring Boot tries to bootstrap [vmware-gemfire-name] on startup:
 
 
-#### Exception in VMware GemFire
+#### Exception in [vmware-gemfire-name]
 
 
 ``` highlight
@@ -2585,7 +2567,7 @@ $ gfsh
  / /__/ / ____/  _____/ / /    / /
 /______/_/      /______/_/    /_/    9.8.4
 
-Monitor and Manage Pivotal GemFire
+Monitor and Manage [vmware-gemfire-name]
 
 gfsh>connect --url=https://cloudcache-fd422700-599b-4beb-bbbe-43d5540e80f6.run.*****/gemfire/v1
     --user=cluster_operator_cI8xe8EeD3Bb1ffAxavQyw --password=RzIpqp2pnLy2aBT4t3V4g
@@ -2599,7 +2581,7 @@ trust-store-type(default: JKS):
 ssl-ciphers(default: any):
 ssl-protocols(default: any):
 ssl-enabled-components(default: all):
-Successfully connected to: GemFire Manager HTTP service @ https://cloudcache-fd422700-599b-4beb-bbbe-43d5540e80f6.run.*****/gemfire/v1
+Successfully connected to: [vmware-gemfire-short-name] Manager HTTP service @ https://cloudcache-fd422700-599b-4beb-bbbe-43d5540e80f6.run.*****/gemfire/v1
 
 Cluster-0 gfsh>list members
                       Name                       | Id
@@ -2707,32 +2689,32 @@ id | name
 ```
 
 
-You successfully deployed the CRM, Spring Boot VMware GemFire/Pivotal
+You successfully deployed the CRM, Spring Boot [vmware-gemfire-name]/Pivotal
 Cloud Cache `ClientCache` application to the cloud!
 
-In this final incarnation of our CRM, Spring Boot application, SBDG yet
+In this final incarnation of our CRM, Spring Boot application, [spring-boot-gemfire-name] yet
 again handled many different concerns for us so we did not need to. This
 is in addition to all the things mentioned above when running the
 application locally as well as running the application using a
 client/server topology. Now, we also benefit from:
 
 
-1.  SBDG figures out the connection criteria needed to connect your
+1.  [spring-boot-gemfire-name] figures out the connection criteria needed to connect your
     client to the servers in the Pivotal Cloud Cache (PCC) cluster,
-    which is technically extracted from the VCAP environment. SBDG will
+    which is technically extracted from the VCAP environment. [spring-boot-gemfire-name] will
     connect the Spring Boot app to the PCC Locators.
 
-2.  SBDG automatically authenticates your Spring Boot app with the PCC
+2.  [spring-boot-gemfire-name] automatically authenticates your Spring Boot app with the PCC
     cluster providing your app was correctly bound to the PCC service
     instance so the app can access the servers in the cluster.
 
 3.  If Transport Layer Security (TLS) were required and SSL enabled, you
     could simply set the
     `spring.data.gemfire.security.ssl.use-default-context` property in
-    Spring Boot’s `application.properties` and SBDG would connect your
+    Spring Boot’s `application.properties` and [spring-boot-gemfire-name] would connect your
     client to the Locator(s) and Servers in the PCC cluster using SSL.
 
-4.  SBDG still sends configuration metadata to the PCC cluster to ensure
+4.  [spring-boot-gemfire-name] still sends configuration metadata to the PCC cluster to ensure
     the correct Region and Index configuration on the server-side to
     match your client app.
 
@@ -2752,7 +2734,7 @@ cover the details of doing so in this guide.
 Running in a Hybrid Cloud Environment specifically means deploying your
 CRM, Spring Boot `ClientCache` application to a managed cloud platform
 environment, such as Pivotal Platform, but connect the app to an
-externally managed VMware GemFire cluster, i.e. the VMware GemFire
+externally managed [vmware-gemfire-name] cluster, i.e. the [vmware-gemfire-name]
 cluster is running and managed off platform.
 
 
@@ -2764,7 +2746,7 @@ connecting those apps to managed data services (e.g. Pivotal Cloud Cache
 
 There may be cases where you are unable to move your data management
 architecture for your applications entirely to the cloud. In those
-cases, SBDG supports a Hybrid Cloud Architecture, that is both an
+cases, [spring-boot-gemfire-name] supports a Hybrid Cloud Architecture, that is both an
 on-prem and off-prem arrangement. Indeed, this is perhaps a crucial step
 in moving to the cloud, being able to migrate application services when
 it is applicable or possible to do so.
@@ -2776,22 +2758,21 @@ You can find more information on running in a Hybrid Cloud Environment,
 
 ## Summary
 
-In this guide, we saw first-hand the power of Spring Boot for VMware
-GemFire (SBDG) when building VMware GemFire powered Spring Boot
+In this guide, we saw first-hand the power of [spring-boot-gemfire-name]  when building [vmware-gemfire-name] powered Spring Boot
 applications.
 
 
-VMware GemFire can truly make your Spring Boot applications highly
+[vmware-gemfire-name] can truly make your Spring Boot applications highly
 resilient to failures, highly available, performant (i.e. high
 throughput and low latency), without sacrificing consistency, which is
 paramount to any data intensive application.
 
-SBDG handles a lot of low-level application concerns so you do not have
+[spring-boot-gemfire-name] handles a lot of low-level application concerns so you do not have
 to. Your focus, as an application developer, can remain on building the
 application to meet your customers' needs, collect feedback, iterate
 rapidly, and realize the value proposition sooner.
 
-Indeed, our intended goal is to make developing VMware GemFire
+Indeed, our intended goal is to make developing [vmware-gemfire-name]
 applications with Spring, and Spring Boot in particular, a highly
 productive and enjoyable experience.
 

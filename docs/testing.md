@@ -20,11 +20,11 @@ Title: Testing
 
 
 
-Spring Boot for VMware GemFire (SBDG), with help from [Spring
-Test for VMware GemFire
+[spring-boot-gemfire-name], with help from [Spring
+Test for [vmware-gemfire-name]
 (STDG)](https://github.com/spring-projects/spring-test-data-geode),
 offers first-class support for both unit and integration testing with
-VMware GemFire in your Spring Boot applications.
+[vmware-gemfire-name] in your Spring Boot applications.
 
 
 
@@ -40,7 +40,7 @@ VMware GemFire in your Spring Boot applications.
 <td class="icon">
 Tip
 </td>
-<td class="content">See the Spring Test for Apache Geode (STDG) <a
+<td class="content">See the Spring Test for [vmware-gemfire-name] (STDG) <a
 href="https://github.com/spring-projects/spring-test-data-geode/#stdg-in-a-nutshell">documentation</a>
 for more details.</td>
 </tr>
@@ -55,7 +55,7 @@ for more details.</td>
 
 
 
-Unit testing with VMware GemFire using mock objects in a Spring
+Unit testing with [vmware-gemfire-name] using mock objects in a Spring
 Boot Test requires only that you declare the STDG
 `@EnableGemFireMockObjects` annotation in your test configuration:
 
@@ -65,7 +65,7 @@ Boot Test requires only that you declare the STDG
 
 
 
-Example 1. Unit Test with VMware GemFire using Spring Boot
+Example 1. Unit Test with [vmware-gemfire-name] using Spring Boot
 
 
 
@@ -130,18 +130,18 @@ interface UserRepository extends CrudRepository<User, String> { }
 
 This test class is not a “pure” unit test, particularly since it
 bootstraps an actual Spring `ApplicationContext` using Spring Boot.
-However, it does mock all VMware GemFire objects, such as the
+However, it does mock all [vmware-gemfire-name] objects, such as the
 `Users` `Region` declared by the `User` application entity class, which
-was annotated with SDG’s `@Region` mapping annotation.
+was annotated with [spring-data-gemfire-name]’s `@Region` mapping annotation.
 
 
 
 
 
 This test class conveniently uses Spring Boot’s auto-configuration to
-auto-configure an VMware GemFire `ClientCache` instance. In
-addition, SDG’s `@EnableEntityDefinedRegions` annotation was used to
-conveniently create the VMware GemFire "Users\` `Region` to
+auto-configure an [vmware-gemfire-name] `ClientCache` instance. In
+addition, [spring-data-gemfire-name]’s `@EnableEntityDefinedRegions` annotation was used to
+conveniently create the [vmware-gemfire-name] "Users\` `Region` to
 store instances of `User`.
 
 
@@ -156,10 +156,10 @@ perform basic CRUD (such as `save`) and simple (OQL) query (such as
 
 
 
-Even though the VMware GemFire objects (such as the `Users`
+Even though the [vmware-gemfire-name] objects (such as the `Users`
 `Region`) are “mock objects”, you can still perform many of the data
 access operations required by your Spring Boot application’s components
-in an VMware GemFire API-agnostic way — that is, by using
+in an [vmware-gemfire-name] API-agnostic way — that is, by using
 Spring’s powerful programming model and constructs.
 
 
@@ -178,7 +178,7 @@ Tip
 </td>
 <td class="content">By extending STDG’s
 <code>org.springframework.data.gemfire.tests.integration.IntegrationTestSupport</code>
-class, you ensure that all VMware GemFire mock objects and
+class, you ensure that all [vmware-gemfire-name] mock objects and
 resources are properly released after the test class runs, thereby
 preventing any interference with downstream tests.</td>
 </tr>
@@ -209,7 +209,7 @@ operations](https://github.com/spring-projects/spring-test-data-geode/#mocking-u
 
 
 In general, STDG provides the following capabilities when mocking
-VMware GemFire objects:
+[vmware-gemfire-name] objects:
 
 
 
@@ -258,11 +258,11 @@ Testing with STDG</a> for more details.</td>
 
 
 
-Integration testing with VMware GemFire in a Spring Boot Test is
+Integration testing with [vmware-gemfire-name] in a Spring Boot Test is
 as simple as **not** declaring STDG’s `@EnableGemFireMockObjects`
-annotation in your test configuration. You may then want to use SBDG’s
+annotation in your test configuration. You may then want to use [spring-boot-gemfire-name]’s
 `@EnableClusterAware` annotation to conditionally detect the presence of
-a VMware GemFire cluster:
+a [vmware-gemfire-name] cluster:
 
 
 
@@ -297,7 +297,7 @@ static class TestConfiguration { }
 
 
 
-The SBDG `@EnableClusterAware` annotation conveniently toggles your
+The [spring-boot-gemfire-name] `@EnableClusterAware` annotation conveniently toggles your
 auto-configured `ClientCache` instance between local-only mode and
 client/server. It even pushes configuration metadata (such as `Region`
 definitions) up to the servers in the cluster that are required by the
@@ -307,10 +307,10 @@ application to store data.
 
 
 
-In most cases, in addition to testing with “live” VMware GemFire
+In most cases, in addition to testing with “live” [vmware-gemfire-name]
 objects (such as Regions), we also want to test in a client/server
 capacity. This unlocks the full capabilities of the
-VMware GemFire data management system in a Spring context and
+[vmware-gemfire-name] data management system in a Spring context and
 gets you as close as possible to production from the comfort of your
 IDE.
 
@@ -320,7 +320,7 @@ IDE.
 
 Building on our example from the section on [Unit
 Testing](#geode-testing-unit), you can modify the test to use “live”
-VMware GemFire objects in a client/server topology as follows:
+[vmware-gemfire-name] objects in a client/server topology as follows:
 
 
 
@@ -328,7 +328,7 @@ VMware GemFire objects in a client/server topology as follows:
 
 
 
-Example 3. Integration Test with VMware GemFire using Spring
+Example 3. Integration Test with [vmware-gemfire-name] using Spring
 Boot
 
 
@@ -415,7 +415,7 @@ interface UserRepository extends CrudRepository<User, String> { }
 
 The application client/server-based integration test class extend STDG’s
 `org.springframework.data.gemfire.tests.integration.ForkingClientServerIntegrationTestsSupport`
-class. This ensures that all VMware GemFire objects and
+class. This ensures that all [vmware-gemfire-name] objects and
 resources are properly cleaned up after the test class runs. In
 addition, it coordinates the client and server components of the test
 (for example connecting the client to the server using a random port).
@@ -424,7 +424,7 @@ addition, it coordinates the client and server components of the test
 
 
 
-The VMware GemFire server is started in a `@BeforeClass` setup
+The [vmware-gemfire-name] server is started in a `@BeforeClass` setup
 method:
 
 
@@ -433,7 +433,7 @@ method:
 
 
 
-Start the VMware GemFire server
+Start the [vmware-gemfire-name] server
 
 
 
@@ -455,10 +455,10 @@ class SpringBootApacheGeodeIntegrationTest extends ForkingClientServerIntegratio
 
 
 
-STDG lets you configure the VMware GemFire server with Spring
+STDG lets you configure the [vmware-gemfire-name] server with Spring
 configuration, specified in the `TestGeodeServerConfiguration` class.
 The Java class needs to provide a `main` method. It uses the
-`SpringApplicationBuilder` to bootstrap the VMware GemFire
+`SpringApplicationBuilder` to bootstrap the [vmware-gemfire-name]
 `CacheServer` application:
 
 
@@ -467,7 +467,7 @@ The Java class needs to provide a `main` method. It uses the
 
 
 
-Example 4. VMware GemFire server configuration
+Example 4. [vmware-gemfire-name] server configuration
 
 
 
@@ -506,7 +506,7 @@ static class TestGeodeServerConfiguration {
 In this case, we provide minimal configuration, since the configuration
 is determined and pushed up to the server by the client. For example, we
 do not need to explicitly create the `Users` `Region` on the server
-since it is implicitly handled for you by the SBDG/STDG frameworks from
+since it is implicitly handled for you by the [spring-boot-gemfire-name]/STDG frameworks from
 the client.
 
 
@@ -522,7 +522,7 @@ is the “client” in this arrangement.
 
 
 The STDG framework does what the supporting class demands: “forking” the
-Spring Boot-based, VMware GemFire `CacheServer` application in a
+Spring Boot-based, [vmware-gemfire-name] `CacheServer` application in a
 separate JVM process. Subsequently, the STDG framework stops the server
 upon completion of the tests in the test class.
 
@@ -555,7 +555,7 @@ scenarios.
 <td class="icon">
 Tip
 </td>
-<td class="content">Review SBDG’s test suite to witness the full power
+<td class="content">Review [spring-boot-gemfire-name]’s test suite to witness the full power
 and functionality of the STDG framework for yourself.</td>
 </tr>
 </tbody>

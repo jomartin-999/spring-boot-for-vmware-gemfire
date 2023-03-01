@@ -17,7 +17,7 @@
 -->
 
 If you would like to deactivate the auto-configuration of any feature
-provided by Spring Boot for VMware GemFire, you can specify the
+provided by [spring-boot-gemfire-name], you can specify the
 auto-configuration class in the `exclude` attribute of the
 `@SpringBootApplication` annotation:
 
@@ -52,8 +52,7 @@ public class MySpringBootApplication {
 
 #### <a id='auto-configuration-deactivate-classes'></a>Complete Set of Auto-configuration Classes
 
-The current set of auto-configuration classes in Spring Boot for
-VMware GemFire includes:
+The current set of auto-configuration classes in [spring-boot-gemfire-name] includes:
 
 - `CacheNameAutoConfiguration`
 

@@ -37,19 +37,17 @@ Table of Contents
 This guide walks you through building a simple Spring Boot application
 using [Spring’s Cache
 Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache)
-backed by VMware GemFire as the caching provider for Look-Aside Caching.
+backed by [vmware-gemfire-name] as the caching provider for Look-Aside Caching.
 
 It is assumed that the reader is familiar with the Spring *programming
-model*. No prior knowledge of Spring’s *Cache Abstraction* or VMware
-GemFire is required to utilize caching in your Spring Boot applications.
+model*. No prior knowledge of Spring’s *Cache Abstraction* or [vmware-gemfire-name] is required to utilize caching in your Spring Boot applications.
 
 Let’s begin.
 
 Refer to the <a
 href="../index.html#geode-caching-provider-look-aside-caching">Look-Aside
 Caching</a> section in the <a
-href="../index.html#geode-caching-provider">Caching with VMware
-GemFire</a> chapter in the reference documentation for more
+href="../index.html#geode-caching-provider">Caching with [vmware-gemfire-name]</a> chapter in the reference documentation for more
 information.
 
 <div id="index-link" class="paragraph">
@@ -125,8 +123,7 @@ diagram:
 
 ![Look Aside Caching Pattern](./images/Look-Aside-Caching-Pattern.png)
 
-In the diagram above, we see that the caching provider (e.g. VMware
-GemFire) is consulted first, \#2, after the client initiated the
+In the diagram above, we see that the caching provider (e.g. [vmware-gemfire-name]) is consulted first, \#2, after the client initiated the
 request, \#1. If the result of the cacheable operation for the given
 input has already been computed and stored in the cache (a *cache hit*),
 then the result is simply returned, \#3, and passed back to the caller,
@@ -174,7 +171,7 @@ caching providers</a>.
 
 ## Example (with additional background)
 
-To make the effects of Spring’s *Cache Abstraction* using VMware GemFire
+To make the effects of Spring’s *Cache Abstraction* using [vmware-gemfire-name]
 as the cache provider apparent in your application, we show how to
 enable and use caching with your application in a very small, simple
 example.
@@ -249,7 +246,7 @@ spring-goede-starter dependency
 
 And the `BootGeodeLookAsideCachingApplication` class annotated with
 `@SpringBootApplication`, you have everything you need to begin using
-Spring’s *Cache Abstraction* in your application with VMware GemFire as
+Spring’s *Cache Abstraction* in your application with [vmware-gemfire-name] as
 the caching provider.
 
 As an application developer, all you need do is focus on where in your
@@ -432,8 +429,8 @@ the content "**PONG**".
 
 ### Counter Service Configuration
 
-While Spring Boot for VMware GemFire, SBDG, takes care of enabling
-Spring’s caching infrastructure for you, configuring VMware GemFire as a
+While [spring-boot-gemfire-name], [spring-boot-gemfire-name], takes care of enabling
+Spring’s caching infrastructure for you, configuring [vmware-gemfire-name] as a
 caching provider, you still must define and declare your individual
 caches.
 
@@ -449,7 +446,7 @@ might need to configure things like conflation, filters, compression,
 security (e.g. SSL), and so on.
 
 However, this is a lot to think about and you may just simply want to
-get up and running as quickly as possible. While SBDG is not opinionated
+get up and running as quickly as possible. While [spring-boot-gemfire-name] is not opinionated
 about this out-of-the-box, we do provide assistance to make this task
 easy:
 
@@ -463,14 +460,13 @@ public class GeodeConfiguration { }
 ```
 
 The only thing of real significance here is the
-`@EnableCachingDefinedRegions` annotation. This Spring Data for VMware
-GemFire (SDG) annotation is responsible for introspecting our Spring
+`@EnableCachingDefinedRegions` annotation. This [spring-data-gemfire-name]  annotation is responsible for introspecting our Spring
 Boot application on Spring container startup, identifying all the
 caching annotations (both Spring Cache annotations as wells JSR-107,
 JCache annotations) used in our application components, and creating the
 appropriate caches.
 
-If you were not using SDG’s `@EnablingCachingDefinedRegions` annotation,
+If you were not using [spring-data-gemfire-name]’s `@EnablingCachingDefinedRegions` annotation,
 then you would need to define the Region using the equivalent
 *JavaConfig*:
 
@@ -501,10 +497,10 @@ Or using XML:
 <gfe:client-region id="Counters" shortcut="LOCAL"/>
 ```
 
-In VMware GemFire terminology, each cache identified in 1 of the caching
-annotations by name, will have an VMware GemFire Region created for it.
+In [vmware-gemfire-name] terminology, each cache identified in 1 of the caching
+annotations by name, will have an [vmware-gemfire-name] Region created for it.
 
-In our case, SBDG provides us a `ClientCache` instance by default, so we
+In our case, [spring-boot-gemfire-name] provides us a `ClientCache` instance by default, so we
 will be creating client `LOCAL` Regions. The client "Counters" Region is
 `LOCAL` since we do not (yet) have a cluster of servers running.
 
@@ -515,12 +511,12 @@ a client/server topology by simply starting a cluster of servers.
 
 To use the client/server topology, you need to start a cluster with 1 or
 more servers using the default configuration. You can start the cluster
-using the VMware GemFire Shell tool (*Gfsh*) and create the "Counters"
+using the [vmware-gemfire-name] Shell tool (*Gfsh*) and create the "Counters"
 Region on the servers.
 
 Of course, you technically do not even need to create the "Counters"
 Region on the server. The `@EnableClusterAware` annotation is
-meta-annotated with SDG’s `@EnableClusterConfiguration(..)` annotation,
+meta-annotated with [spring-data-gemfire-name]’s `@EnableClusterConfiguration(..)` annotation,
 which will create the necessary server-side, "Counters" Region for you.
 
 After starting a cluster with a Locator & Server using *Gfsh*:
@@ -533,15 +529,15 @@ $ gfsh
  / /__/ / ____/  _____/ / /    / /
 /______/_/      /______/_/    /_/    1.2.1
 
-Monitor and Manage VMware GemFire
+Monitor and Manage [vmware-gemfire-name]
 
 gfsh>start locator --name=LocatorOne --log-level=config
-Starting a Geode Locator in /Users/jblum/pivdev/lab/LocatorOne...
+Starting a [vmware-gemfire-short-name] Locator in /Users/jblum/pivdev/lab/LocatorOne...
 ....
 
 
 gfsh>start server --name=ServerOne --log-level=config
-Starting a Geode Server in /Users/jblum/pivdev/lab/ServerOne...
+Starting a [vmware-gemfire-short-name] Server in /Users/jblum/pivdev/lab/ServerOne...
 .....
 
 
@@ -598,14 +594,14 @@ Region | size        | 0
 We will refer to the client/server approach further below, when running
 the example.
 
-Refer to VMware GemFire’s documentation to learn more about the
+Refer to [vmware-gemfire-name]’s documentation to learn more about the
 [client/server
 topology](https://geode.apache.org/docs/guide/%7Bapache-geode-doc-version%7D/topologies_and_comm/cs_configuration/chapter_overview.html).
 
-Refer to SDG’s documentation to learn more about [Cluster
+Refer to [spring-data-gemfire-name]’s documentation to learn more about [Cluster
 Configuration](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-cluster).
 
-Refer to SBDG’s documentation to learn about the
+Refer to [spring-boot-gemfire-name]’s documentation to learn about the
 [`@EnableClusterAware`](../index.html#geode-configuration-declarative-annotations-productivity-enableclusteraware)
 annotation.
 
@@ -767,7 +763,7 @@ B   | 2
 As you have learned, Spring makes enabling and using caching in your
 application really easy.
 
-With SBDG, using VMware GemFire as your caching provider in Spring’s
+With [spring-boot-gemfire-name], using [vmware-gemfire-name] as your caching provider in Spring’s
 *Cache Abstraction* is as easy as making sure
 `org.springframework.geode:spring-geode-starter` is on your
 application’s classpath. You just need to focus on areas of your
