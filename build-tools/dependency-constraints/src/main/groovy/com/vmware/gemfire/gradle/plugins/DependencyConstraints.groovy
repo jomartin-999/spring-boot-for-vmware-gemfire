@@ -27,6 +27,9 @@ class DependencyConstraints {
     depVersionMapping.put("springShellVersion", "1.2.0.RELEASE")
     depVersionMapping.put("springFrameworkVersion", "5.3.25")
     depVersionMapping.put("testcontainersVersion", "1.17.5")
+    depVersionMapping.put("junitVersion", "4.13.2")
+    depVersionMapping.put("mockitoVersion", "4.4.0")
+    depVersionMapping.put("assertjVersion", "3.23.1")
 
     return depVersionMapping
   }
@@ -50,6 +53,9 @@ class DependencyConstraints {
         api(group: 'org.springframework.security', name: 'spring-security-web', version: '5.7.5' )
         api(group: 'org.springframework.session', name: 'spring-session-data-geode', version: '2.7.1' )
         api(group: 'org.testcontainers', name: 'testcontainers', version: get('testcontainersVersion'))
+        api(group: 'org.assertj', name: 'assertj-core', version: get('assertjVersion'))
+        api(group: 'org.mockito', name: 'mockito-core', version: get('mockitoVersion'))
+        api(group: 'junit', name: 'junit', version: get('junitVersion'))
       }
 
     }

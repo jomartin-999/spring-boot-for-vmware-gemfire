@@ -12,6 +12,6 @@ dependencies {
 	api project(':spring-gemfire-starter')
 
 	api "org.springframework.boot:spring-boot-starter-test"
-	api ("com.vmware.gemfire:spring-test-gemfire-10.0-2.7:1.0.0-build.2")
+	api ("com.vmware.gemfire:spring-test-gemfire-10.0-2.7:$springTestGemFireVersion")
 
 }
