@@ -25,11 +25,13 @@ dependencies {
   implementation "org.springframework.boot:spring-boot-autoconfigure-processor:$springBootVersion", optional
   implementation "com.vmware.gemfire:spring-session-2.7-gemfire-${gemfireBaseVersion}:$springSessionDataGemFireVersion", optional
 
+  implementation 'org.aspectj:aspectjweaver:1.9.19'
+
   testImplementation "jakarta.servlet:jakarta.servlet-api"
   testImplementation "junit:junit"
-  testImplementation "org.assertj:assertj-core"
-  testImplementation "org.mockito:mockito-core"
-  testImplementation "org.projectlombok:lombok"
+  testImplementation "org.assertj:assertj-core:3.24.1"
+  testImplementation "org.mockito:mockito-core:4.11.0"
+  testImplementation "org.projectlombok:lombok:1.18.26"
   testImplementation "org.springframework.boot:spring-boot-starter-test"
   testImplementation "org.springframework.boot:spring-boot-starter-web"
   testImplementation "com.vmware.gemfire:spring-test-gemfire-10.0-2.7:$springTestGemFireVersion"
