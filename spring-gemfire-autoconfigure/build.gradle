@@ -32,7 +32,7 @@ dependencies {
     testRuntimeOnly project(':spring-gemfire-jetty11')
 
     testRuntimeOnly "javax.cache:cache-api"
-    testRuntimeOnly "com.vmware.gemfire:geode-web"
+    testRuntimeOnly "com.vmware.gemfire:geode-web:$gemfireVersion"
     testRuntimeOnly "org.springframework.boot:spring-boot-starter-jetty"
     testRuntimeOnly "org.springframework.boot:spring-boot-starter-json"
     testRuntimeOnly "org.springframework.shell:spring-shell:$springShellVersion"
