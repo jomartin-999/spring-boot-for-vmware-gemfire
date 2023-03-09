@@ -1,5 +1,5 @@
 ---
-title: [spring-boot-gemfire-name] Reference Guide
+title: Spring Boot for VMware GemFire Reference Guide
 ---
 
 <!-- 
