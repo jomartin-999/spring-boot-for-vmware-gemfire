@@ -15,7 +15,7 @@
  the License.
 -->
 
-* [Spring Boot for VMware GemFire Quick Start](https://docs.vmware.com/en/Spring-Boot-for-VMware-GemFire/index.html)
+* [Spring Boot for VMware GemFire Quick Start](spring_boot_landing_page.html)
 
 ---
 
