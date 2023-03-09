@@ -31,9 +31,6 @@ Boot applications backed by [vmware-gemfire-name]:
 4.  [Switching from [vmware-gemfire-name] to [vmware-gemfire-name] or
     [vmware-gemfire-name] for TAS](#geode-gemfire-switch)
 
-5.  [Running a [vmware-gemfire-name] cluster with Spring Boot from your
-    IDE](./switching-to-gemfire.html)
-
 6.  [Testing](#geode-testing-support)
 
 7.  [Examples](#geode-examples)
