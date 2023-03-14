@@ -1,4 +1,5 @@
-# Look-Aside Caching with Spring
+  ,ll;;;pp[]
+  \\]bhhb# Look-Aside Caching with Spring
 
 <!-- 
  Copyright (c) VMware, Inc. 2022. All rights reserved.
@@ -36,7 +37,7 @@ Table of Contents
 
 This guide walks you through building a simple Spring Boot application
 using [Spring’s Cache
-Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache)
+Abstraction]([spring-framework-docs]/integration.html#cache)
 backed by [vmware-gemfire-name] as the caching provider for Look-Aside Caching.
 
 It is assumed that the reader is familiar with the Spring *programming
@@ -107,7 +108,7 @@ Cacheable CustomerService class
 class CustomerService {
 
   @Cacheable("CustomersByAccountNumber")
-  Customer findBy(AccountNumber accountNumber) {
+  public Customer findBy(AccountNumber accountNumber) {
     // ...
   }
 }
@@ -143,7 +144,7 @@ providing the cache entry (input→result) has not expired or been
 evicted.
 
 Spring’s [Cache
-Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache)
+Abstraction]([spring-framework-docs]/integration.html#cache)
 is just that, a very elegant implementation of the *Look-Aside Caching*
 pattern. Details of how Spring’s *Cache Abstraction* works
 under-the-hood is beyond the scope of this document. In a nutshell, it
@@ -157,16 +158,11 @@ If used appropriately, caching can greatly improve your application’s
 end-user experience.
 
 Instead of using <a
-href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/annotation/package-summary.html">Spring’s
+href="[spring-data-gemfire-javadoc]/org/springframework/cache/annotation/package-summary.html">Spring’s
 Cache Annotations</a>, you may instead use JSR-107, JCache API
 Annotations, which is <a
-href="https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache-jsr-107">supported</a>
+href="[spring-framework-docs]/integration.html#cache-jsr-107">supported</a>
 by Spring’s <em>Caching Abstraction</em>.
-
-See Spring Boot’s documentation for a complete list
-of <a
-href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-caching.html#boot-features-caching-provider">supported
-caching providers</a>.
 
 
 ## Example (with additional background)
@@ -220,11 +216,11 @@ SpringBootApplication
 
 ``` highlight
 @SpringBootApplication
-public class BootGeodeLookAsideCachingApplication {
+public class BootGemFireLookAsideCachingApplication {
 
     public static void main(String[] args) {
 
-        new SpringApplicationBuilder(BootGeodeLookAsideCachingApplication.class)
+        new SpringApplicationBuilder(BootGemFireLookAsideCachingApplication.class)
             .web(WebApplicationType.SERVLET)
             .build()
             .run(args);
@@ -244,7 +240,7 @@ spring-goede-starter dependency
 </dependency>
 ```
 
-And the `BootGeodeLookAsideCachingApplication` class annotated with
+And the `BootGemFireLookAsideCachingApplication` class annotated with
 `@SpringBootApplication`, you have everything you need to begin using
 Spring’s *Cache Abstraction* in your application with [vmware-gemfire-name] as
 the caching provider.
@@ -320,7 +316,7 @@ the named counter.
 
 Each of the Spring’s Cache annotations can be
 replaced with the corresponding JSR-107 - JCache API annotations as <a
-href="https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache-jsr-107">documented
+href="[spring-framework-docs]/integration.html#cache-jsr-107">documented
 here</a>, and the application will work just the same.
 
 ### CounterController
@@ -422,7 +418,7 @@ Table 1. Counter Web service endpoints
 The base URL is <a href="http://localhost:8080"
 class="bare"><code>http://localhost:8080</code></a>.
 
-After running the `BootGeodeLookAsideCachingApplication` class, if you
+After running the `BootGemFireLookAsideCachingApplication` class, if you
 open a Web browser and navigate to <a href="http://localhost:8080/ping"
 class="bare"><code>http://localhost:8080/ping</code></a>, you should see
 the content "**PONG**".
@@ -450,13 +446,13 @@ get up and running as quickly as possible. While [spring-boot-gemfire-name] is n
 about this out-of-the-box, we do provide assistance to make this task
 easy:
 
-GeodeConfiguration
+GemFireConfiguration
 
 ``` highlight
 @Configuration
 @EnableClusterAware
 @EnableCachingDefinedRegions
-public class GeodeConfiguration { }
+public class GemFireConfiguration { }
 ```
 
 The only thing of real significance here is the
@@ -474,7 +470,7 @@ then you would need to define the Region using the equivalent
 
 ``` highlight
 @Configuration
-class GeodeConfiguration {
+class GemFireConfiguration {
 
   @Bean("Counters")
   public ClientRegionFactoryBean<Object, Object> countersRegion(GemFireCache gemfireCache) {
@@ -552,7 +548,7 @@ gfsh>list regions
 No Regions Found
 ```
 
-The application configuration (i.e. `GeodeConfiguration`) is already set
+The application configuration (i.e. `GemFireConfiguration`) is already set
 to go:
 
 Using client/server
@@ -561,7 +557,7 @@ Using client/server
 @Configuration
 @EnableClusterAware
 @EnableCachingDefinedRegions
-public class GeodeConfiguration { }
+public class GemFireConfiguration { }
 ```
 
 After (re-)starting the application, we will see that the "Counters"
@@ -596,10 +592,10 @@ the example.
 
 Refer to [vmware-gemfire-name]’s documentation to learn more about the
 [client/server
-topology](https://geode.apache.org/docs/guide/%7Bapache-geode-doc-version%7D/topologies_and_comm/cs_configuration/chapter_overview.html).
+topology](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/topologies_and_comm-cs_configuration-chapter_overview.html).
 
 Refer to [spring-data-gemfire-name]’s documentation to learn more about [Cluster
-Configuration](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-cluster).
+Configuration]([spring-data-gemfire-docs]/#bootstrap-annotation-config-cluster).
 
 Refer to [spring-boot-gemfire-name]’s documentation to learn about the
 [`@EnableClusterAware`](../index.html#geode-configuration-declarative-annotations-productivity-enableclusteraware)
@@ -610,7 +606,7 @@ annotation.
 
 Now it is time to run the example.
 
-You can run the `BootGeodeLookAsideCachingApplication` class from your
+You can run the `BootGemFireLookAsideCachingApplication` class from your
 IDE (e.g. IntelliJ IDEA) by creating a simple run profile configuration.
 No additional JVM arguments, System Properties or program argument are
 required to run the example.
@@ -626,11 +622,11 @@ $ gradlew :spring-geode-samples-caching-lookaside:bootRun
 
 The program output will appear as follows:
 
-Run the `BootGeodeLookAsideCachingApplication` class
+Run the `BootGemFireLookAsideCachingApplication` class
 
 ``` highlight
 /Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/bin/java -server -ea ...
-    example.app.caching.lookaside.BootGeodeLookAsideCachingApplication
+    example.app.caching.lookaside.BootGemFireLookAsideCachingApplication
 
 [info 2019/05/06 12:09:57.356 PDT <background-preinit> tid=0xd] HV000001: Hibernate Validator 6.0.16.Final
 
@@ -643,7 +639,7 @@ Run the `BootGeodeLookAsideCachingApplication` class
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.0.9.RELEASE)
 
-[info 2019/05/06 12:09:57.531 PDT <main> tid=0x1] Starting BootGeodeLookAsideCachingApplication on jblum-mbpro-2.local with PID 40871...
+[info 2019/05/06 12:09:57.531 PDT <main> tid=0x1] Starting BootGemFireLookAsideCachingApplication on jblum-mbpro-2.local with PID 40871...
 
 [info 2019/05/06 12:09:57.532 PDT <main> tid=0x1] No active profile set, falling back to default profiles: default
 

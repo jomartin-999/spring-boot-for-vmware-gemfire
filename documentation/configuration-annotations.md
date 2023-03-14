@@ -33,7 +33,7 @@ action.
 To help answer this question, you must start by reviewing the complete
 collection of available [spring-data-gemfire-name]
 annotations. These annotations are provided in the
-[`org.springframework.data.gemfire.config.annotation`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/package-summary.html)
+[`org.springframework.data.gemfire.config.annotation`]([spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/package-summary.html)
 package. Most of the essential annotations begin with `@Enable…​`, except
 for the base annotations: `@ClientCacheApplication`,
 `@PeerCacheApplication` and `@CacheServerApplication`.
@@ -63,7 +63,7 @@ convenience and ease to move quickly and reliably.
 
 To learn more about the motivation behind [spring-data-gemfire-name]’s annotation-based
 configuration model, see the
-[Reference Documentation](https://docs.spring.io/spring-data/gemfire/docs/current/reference/html/#bootstrap-annotation-config-introduction/#bootstrap-annotation-config-introduction).
+[Reference Documentation]([spring-data-gemfire-docs]/#bootstrap-annotation-config-introduction/#bootstrap-annotation-config-introduction).
 
 ### Conventions
 
@@ -148,7 +148,7 @@ Example 1. Spring Boot, [vmware-gemfire-name] Peer `Cache` Application
 ``` highlight
 @SpringBootApplication
 @CacheServerApplication
-class SpringBootApacheGeodePeerCacheServerApplication {  }
+class SpringBootGemFirePeerCacheServerApplication {  }
 ```
 
 By declaring the `@CacheServerApplication` annotation, you effectively
@@ -174,7 +174,7 @@ The most ideal way to “customize” the configuration of any feature is by
 way of the well-known and documented
 [properties](#geode-configuration-metadata), specified in Spring Boot
 `application.properties` (the “convention”), or by using a
-[Configurer`](https://docs.spring.io/spring-data/gemfire/docs/current/reference/html/#bootstrap-annotation-config-introduction/#bootstrap-annotation-config-configurers).
+[Configurer`]([spring-data-gemfire-docs]/#bootstrap-annotation-config-introduction/#bootstrap-annotation-config-configurers).
 
 See the [Reference Guide](#geode-clientcache-applications) for more
 detail.

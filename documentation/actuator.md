@@ -57,7 +57,7 @@ Boot `HealthIndicators` provided for [vmware-gemfire-name].
 
 See the corresponding sample <a
 href="guides/boot-actuator.html">guide</a> and
- https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/boot/actuator[code] to see Spring Boot Actuator for
+ https://github.com/gemfire/spring-boot-for-vmware-gemfire/tree/9.15-2.7/spring-gemfire-samples/boot/actuator[code] to see Spring Boot Actuator for
 [vmware-gemfire-name] in action.
 
 
@@ -83,13 +83,13 @@ single instance of that cache type.
 of the `ResourceManager`.
 
 When your Spring Boot application creates an instance of a peer
-[`Cache`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/Cache.html), the
-[`DistributedMember`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/distributed/DistributedMember.html)
+[`Cache`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/Cache.html), the
+[`DistributedMember`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/distributed/DistributedMember.html)
 object represents your application as a peer member or node of the
-[`DistributedSystem`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/distributed/DistributedSystem.html).
+[`DistributedSystem`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/distributed/DistributedSystem.html).
 The distributed system (that is, the cluster) is formed from a
 collection of connected peers, to which your application also has
-[access](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/GemFireCache.html#getDistributedSystem) — indirectly,
+[access](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/GemFireCache.html#getDistributedSystem) — indirectly,
 through the cache instance.
 
 This is no different for a `ClientCache` even though the client is
@@ -221,14 +221,14 @@ cluster.</p></td>
 <td
 class="tableblock halign-center valign-top"><p>geode.distributed-system.properties-location</p></td>
 <td class="tableblock halign-left valign-top"><p>Location of the
-https://geode.apache.org/docs/guide/115/topics/gemfire_properties.html[standard
+https://docs.vmware.com/en/VMware-GemFire/9.15/gf/reference-topics-gemfire_properties.html[standard
 configuration properties].</p></td>
 </tr>
 <tr class="odd">
 <td
 class="tableblock halign-center valign-top"><p>geode.distributed-system.security-properties-location</p></td>
 <td class="tableblock halign-left valign-top"><p>Location of the
-https://geode.apache.org/docs/guide/115/topics/gemfire_properties.html[security
+https://docs.vmware.com/en/VMware-GemFire/9.15/gf/reference-topics-gemfire_properties.html[security
 configuration properties].</p></td>
 </tr>
 </tbody>
@@ -429,7 +429,7 @@ Table 6. Partition Region Details
 
 Finally, when statistics are enabled (for example, when you use
 `@EnableStatistics` — (see
-[doc](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-statistics)
+[doc]([spring-data-gemfire-docs]/#bootstrap-annotation-config-statistics)
 for more details), the following metadata is available:
 
 <table class="tableblock frame-all grid-all" style="width: 90%;">
@@ -535,7 +535,7 @@ Table 8. Index Details
 
 Additionally, when statistics are enabled (for example, when you use
 `@EnableStatistics` — see
-[Configuring Statistics](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-statistics)
+[Configuring Statistics]([spring-data-gemfire-docs]/#bootstrap-annotation-config-statistics)
 for more details), the following metadata is available:
 
 <table class="tableblock frame-all grid-all" style="width: 90%;">
@@ -1408,7 +1408,7 @@ Table 18. AsyncEventQueue Details
 `GeodeGatewayReceiversHealthIndicator` provides details about the
 configured (WAN) `GatewayReceivers`, which are capable of receiving
 events from remote clusters when using [vmware-gemfire-name]'s
-[multi-site, WAN topology](https://geode.apache.org/docs/guide/115/topologies_and_comm/multi_site_configuration/chapter_overview.html).
+[multi-site, WAN topology](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/topologies_and_comm-multi_site_configuration-setting_up_a_multisite_system.html).
 
 This `HealthIndicator` captures configuration metadata along with the
 running state for each `GatewayReceiver`:
@@ -1498,7 +1498,7 @@ The `GeodeGatewaySendersHealthIndicator` provides details about the
 configured `GatewaySenders`. `GatewaySender` instances are attached to
 Regions in order to send Region events to remote clusters in
 [vmware-gemfire-name]'s
-[multi-site, WAN topology](https://geode.apache.org/docs/guide/115/topologies_and_comm/multi_site_configuration/chapter_overview.html).
+[multi-site, WAN topology](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/topologies_and_comm-multi_site_configuration-setting_up_a_multisite_system.html).
 
 This `HealthIndicator` captures essential configuration metadata and
 runtime characteristics for each `GatewaySender`:

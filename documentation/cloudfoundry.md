@@ -30,12 +30,11 @@ In most cases, when you deploy (that is, `cf push`) your Spring Boot
 applications to Pivotal CloudFoundry (PCF), you bind your application to
 one or more instances of the Pivotal Cloud Cache (PCC) service.
 
-In a nutshell, https://pivotal.io/pivotal-cloud-cache\[Pivotal Cloud Cache\] (PCC)
+In a nutshell, https://www.vmware.com/products/gemfire.html\[Pivotal Cloud Cache\] (PCC)
 is a managed version of
-[[vmware-gemfire-name]](https://pivotal.io/pivotal-gemfire) that runs in
-[Pivotal CloudFoundry](https://pivotal.io/platform\) (PCF). When
-running in or across cloud environments (such as AWS, Azure, GCP, or
-PWS), PCC with PCF offers several advantages over trying to run and
+[[vmware-gemfire-name]](https://www.vmware.com/products/gemfire.html) that runs in
+[Pivotal CloudFoundry](https://tanzu.vmware.com/tanzu) (PCF). When
+running in or across cloud environments (such as AWS, Azure, or GCP), PCC with PCF offers several advantages over trying to run and
 manage your own standalone [vmware-gemfire-name] clusters. It handles
 many of the infrastructure-related, operational concerns so that you
 need not do so.
@@ -69,7 +68,7 @@ Example 1. Using `@EnableClusterConfiguration`
 ``` highlight
 @SpringBootApplication
 @EnableClusterConfiguration(useHttp = true)
-class SpringBootApacheGeodeClientCacheApplication {  }
+class SpringBootGemFireClientCacheApplication {  }
 ```
 
 With `@EnableClusterConfiguration`, Region and OQL Index configuration
@@ -173,7 +172,7 @@ The
 <code>spring.data.gemfire.security.username</code> property corresponds
 directly to the [spring-data-gemfire-name] <code>@EnableSecurity</code> annotation’s
 <code>securityUsername</code> attribute. See the
-[Javadoc](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#securityUsername--)
+[Javadoc]([spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#securityUsername--)
 for more details.
 
 The `spring.data.gemfire.security.username` property is the same
@@ -188,11 +187,11 @@ while running in PCF.
 
 If the username is not valid, an `IllegalStateException` is thrown.
 
-By using [Spring profiles](https://docs.spring.io/spring-boot/docs/current/reference/html/#boot-features-profiles), it would be a simple matter to configure the Spring Boot
+By using [Spring profiles](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.profiles), it would be a simple matter to configure the Spring Boot
 application to run with a different user depending on environment.
 
 See the [vmware-gemfire-name] for TAS documentation on
-[security](https://docs.vmware.com/en/VMware-Tanzu-GemFire-for-VMs/1.14/tgf-vms/GUID-content-security.html) for configuring
+[security](https://docs.vmware.com/en/VMware-GemFire-for-Tanzu-Application-Service/1.14/gf-tas/content-security.html) for configuring
 users with assigned roles and permissions.
 
 #### Overriding Authentication Auto-configuration
@@ -202,7 +201,7 @@ authentication is available only for managed environments, such as
 Pivotal CloudFoundry. When running in externally managed environments,
 you must explicitly set a username and password to authenticate, as
 described in
-[Non-Managed Auth for Clients](https://docs.spring.io/spring-boot/docs/current/reference/html/#boot-features-profiles).
+[Non-Managed Auth for Clients](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.profiles).
 
 To completely override the auto-configuration of client authentication,
 you can set both a username and a password:
@@ -327,7 +326,7 @@ Example 8. Assigning a Pool to a client Region
 
 ``` highlight
 @Configuration
-class GeodeConfiguration {
+class GemFireConfiguration {
 
   @Bean("Example")
   ClientRegionFactoryBean exampleRegion(GemFireCache gemfireCache,

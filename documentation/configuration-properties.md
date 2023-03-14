@@ -60,7 +60,7 @@ class="tableblock halign-left valign-top"><p><code>name</code></p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>SpringBasedCacheClientApplication</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p><a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#name--"><code>ClientCacheApplication.name</code></a></td></tr>
+class="tableblock halign-left valign-top"><p><a href="[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#name--"><code>ClientCacheApplication.name</code></a></td></tr>
 <tr class="even">
 <td
 class="tableblock halign-left valign-top"><p><code>locators</code></p></td>
@@ -69,7 +69,7 @@ Locator endpoints formatted as:
 <code>locator1[port1],...​,locatorN[portN]</code>.</p></td>
 <td class="tableblock halign-left valign-top"><p>[]</p></td>
 <td
-class="tableblock halign-left valign-top"><p><a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html#locators--"><code>PeerCacheApplication.locators</code></a></p></td>
+class="tableblock halign-left valign-top"><p><a href="[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html#locators--"><code>PeerCacheApplication.locators</code></a></p></td>
 </tr>
 <tr class="odd">
 <td
@@ -83,7 +83,7 @@ you wish to configure [vmware-gemfire-name] objects declared in
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
 <td
-class="tableblock halign-left valign-top"><p><a href="https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#useBeanFactoryLocator--"><code>ClientCacheApplication.useBeanFactoryLocator</code></a></p></td>
+class="tableblock halign-left valign-top"><p><a href="[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#useBeanFactoryLocator--"><code>ClientCacheApplication.useBeanFactoryLocator</code></a></p></td>
 </tr>
 </tbody>
 </table>
@@ -117,7 +117,7 @@ made.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#copyOnRead--[<code>ClientCacheApplication.copyOnRead</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#copyOnRead--[<code>ClientCacheApplication.copyOnRead</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -127,7 +127,7 @@ or above which the cache is considered in danger of becoming
 inoperable.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#criticalHeapPercentage--[<code>ClientCacheApplication.criticalHeapPercentage</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#criticalHeapPercentage--[<code>ClientCacheApplication.criticalHeapPercentage</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -137,7 +137,7 @@ at or above which the cache is considered in danger of becoming
 inoperable.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#criticalOffHeapPercentage--[<code>ClientCacheApplication.criticalOffHeapPercentage</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#criticalOffHeapPercentage--[<code>ClientCacheApplication.criticalOffHeapPercentage</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -148,7 +148,7 @@ declare them as Spring beans.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableAutoRegionLookup.html#enabled--[<code>EnableAutoRegionLookup.enable</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableAutoRegionLookup.html#enabled--[<code>EnableAutoRegionLookup.enable</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -158,7 +158,7 @@ or above which the eviction should begin on Regions configured for
 HeapLRU eviction.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#evictionHeapPercentage--[<code>ClientCacheApplication.evictionHeapPercentage</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#evictionHeapPercentage--[<code>ClientCacheApplication.evictionHeapPercentage</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -168,7 +168,7 @@ at or above which the eviction should begin on Regions configured for
 HeapLRU eviction.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#evictionOffHeapPercentage--[<code>ClientCacheApplication.evictionOffHeapPercentage</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#evictionOffHeapPercentage--[<code>ClientCacheApplication.evictionOffHeapPercentage</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -178,7 +178,7 @@ of a [vmware-gemfire-name] cache.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>config</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#logLevel--[<code>ClientCacheApplication.logLevel</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#logLevel--[<code>ClientCacheApplication.logLevel</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -188,7 +188,7 @@ class="tableblock halign-left valign-top"><p><code>cache.name</code></p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>SpringBasedCacheClientApplication</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#name--[<code>ClientCacheApplication.name</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#name--[<code>ClientCacheApplication.name</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -198,7 +198,7 @@ that implements
 <code>org.apache.geode.compression.Compressor</code>.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableCompression.html#compressorBeanName--[<code>EnableCompression.compressorBeanName</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableCompression.html#compressorBeanName--[<code>EnableCompression.compressorBeanName</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -208,7 +208,7 @@ Region names for which compression is configured.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>[]</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableCompression.html#RegionNames--[EnableCompression.RegionNames]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableCompression.html#RegionNames--[EnableCompression.RegionNames]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -218,7 +218,7 @@ off-heap memory used by [vmware-gemfire-name] in megabytes (m) or
 gigabytes (g) — for example, <code>120g</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableOffHeap.html#memorySize--[<code>EnableOffHeap.memorySize</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableOffHeap.html#memorySize--[<code>EnableOffHeap.memorySize</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -228,7 +228,7 @@ Region names for which off-heap is configured.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>[]</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableOffHeap.html#RegionNames--[<code>EnableOffHeap.RegionNames</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableOffHeap.html#RegionNames--[<code>EnableOffHeap.RegionNames</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -263,7 +263,7 @@ reestablish any messaging that was interrupted by client
 downtime.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#durableClientId--[<code>ClientCacheApplication.durableClientId</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#durableClientId--[<code>ClientCacheApplication.durableClientId</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -275,7 +275,7 @@ accumulate durable events for it.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>300</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#durableClientTimeout--[<code>ClientCacheApplication.durableClientTimeout</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#durableClientTimeout--[<code>ClientCacheApplication.durableClientTimeout</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -286,7 +286,7 @@ period.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#keepAlive--[<code>ClientCacheApplication.keepAlive</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#keepAlive--[<code>ClientCacheApplication.keepAlive</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -321,7 +321,7 @@ otherwise been shunned by other members.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html#enableAutoReconnect--[<code>PeerCacheApplication.enableAutoReconnect</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html#enableAutoReconnect--[<code>PeerCacheApplication.enableAutoReconnect</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -331,7 +331,7 @@ of distributed lock leases obtained by this cache.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>120</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html#lockLease--[<code>PeerCacheApplication.lockLease</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html#lockLease--[<code>PeerCacheApplication.lockLease</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -341,7 +341,7 @@ cache operation waits to obtain a distributed lock lease.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>60</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html#lockTimeout--[<code>PeerCacheApplication.lockTimeout</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html#lockTimeout--[<code>PeerCacheApplication.lockTimeout</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -352,7 +352,7 @@ the secondary cache-server nodes to remove the events that have already
 been dispatched from the queue.</p></td>
 <td class="tableblock halign-left valign-top"><p><code>1</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html#messageSyncInterval--[<code>PeerCacheApplication.messageSyncInterval</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html#messageSyncInterval--[<code>PeerCacheApplication.messageSyncInterval</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -362,7 +362,7 @@ cache get operation can spend searching for a value.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>300</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html#searchTimeout--[<code>PeerCacheApplication.searchTimeout</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html#searchTimeout--[<code>PeerCacheApplication.searchTimeout</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -373,7 +373,7 @@ cluster configuration service.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html#useClusterConfiguration--[<code>PeerCacheApplication.useClusterConfiguration</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html#useClusterConfiguration--[<code>PeerCacheApplication.useClusterConfiguration</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -407,7 +407,7 @@ runtime.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>true</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#autoStartup--[<code>CacheServerApplication.autoStartup</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#autoStartup--[<code>CacheServerApplication.autoStartup</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -416,7 +416,7 @@ class="tableblock halign-left valign-top"><p><code>cache.server.bind-address</co
 hostname on which this cache server listens.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#bindAddress--[<code>CacheServerApplication.bindAddress</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#bindAddress--[<code>CacheServerApplication.bindAddress</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -426,7 +426,7 @@ hostname that server locators tell to clients to indicate the IP address
 on which the cache server listens.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#hostnameForClients--[<code>CacheServerApplication.hostNameForClients</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#hostnameForClients--[<code>CacheServerApplication.hostNameForClients</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -437,7 +437,7 @@ server.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>5000</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#loadPollInterval--[<code>CacheServerApplication.loadPollInterval</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#loadPollInterval--[<code>CacheServerApplication.loadPollInterval</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -447,7 +447,7 @@ connections.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>800</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#maxConnections--[<code>CacheServerApplication.maxConnections</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#maxConnections--[<code>CacheServerApplication.maxConnections</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -457,7 +457,7 @@ messages that can be in a client queue.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>230000</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#maxMessageCount--[<code>CacheServerApplication.maxMessageCount</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#maxMessageCount--[<code>CacheServerApplication.maxMessageCount</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -467,7 +467,7 @@ threads allowed in this cache server to service client
 requests.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#maxThreads--[<code>CacheServerApplication.maxThreads</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#maxThreads--[<code>CacheServerApplication.maxThreads</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -477,7 +477,7 @@ time between client pings.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>60000</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#maxTimeBetweenPings--[<code>CacheServerApplication.maxTimeBetweenPings</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#maxTimeBetweenPings--[<code>CacheServerApplication.maxTimeBetweenPings</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -487,7 +487,7 @@ after which a message in the client queue expires.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>180</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#messageTimeToLive--[<code>CacheServerApplication.messageTimeToLive</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#messageTimeToLive--[<code>CacheServerApplication.messageTimeToLive</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -497,7 +497,7 @@ cache server listens for clients.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>40404</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#port--[<code>CacheServerApplication.port</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#port--[<code>CacheServerApplication.port</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -507,7 +507,7 @@ socket connection to this <code>CacheServer</code>.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>32768</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#socketBufferSize--[<code>CacheServerApplication.socketBufferSize</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#socketBufferSize--[<code>CacheServerApplication.socketBufferSize</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -516,7 +516,7 @@ class="tableblock halign-left valign-top"><p><code>cache.server.subscription-cap
 client queue.</p></td>
 <td class="tableblock halign-left valign-top"><p><code>1</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#subscriptionCapacity--[<code>CacheServerApplication.subscriptionCapacity</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#subscriptionCapacity--[<code>CacheServerApplication.subscriptionCapacity</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -525,7 +525,7 @@ class="tableblock halign-left valign-top"><p><code>cache.server.subscription-dis
 store for client subscription queue overflow.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#subscriptionDiskStoreName--[<code>CacheServerApplication.subscriptionDiskStoreName</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#subscriptionDiskStoreName--[<code>CacheServerApplication.subscriptionDiskStoreName</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -536,7 +536,7 @@ reached.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>none</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#subscriptionEvictionPolicy--[<code>CacheServerApplication.subscriptionEvictionPolicy</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#subscriptionEvictionPolicy--[<code>CacheServerApplication.subscriptionEvictionPolicy</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -546,7 +546,7 @@ connection tcp-no-delay setting.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>true</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#tcpNoDelay--[<code>CacheServerApplication.tcpNoDelay</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#tcpNoDelay--[<code>CacheServerApplication.tcpNoDelay</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -587,9 +587,9 @@ class="tableblock halign-left valign-top"><p><code>cluster.Region.type</code></p
 management policy used when creating Regions on the servers in the
 cluster.</p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/RegionShortcut.html#PARTITION[<code>RegionShortcut.PARTITION</code>]</p></td>
+class="tableblock halign-left valign-top"><p>https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/RegionShortcut.html#PARTITION[<code>RegionShortcut.PARTITION</code>]</p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableClusterConfiguration.html#serverRegionShortcut--[<code>EnableClusterConfiguration.serverRegionShortcut</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableClusterConfiguration.html#serverRegionShortcut--[<code>EnableClusterConfiguration.serverRegionShortcut</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -623,7 +623,7 @@ use a disk store.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#allowForceCompaction--[<code>EnableDiskStore.allowForceCompaction</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#allowForceCompaction--[<code>EnableDiskStore.allowForceCompaction</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -633,7 +633,7 @@ disk files to be automatically compacted.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>true</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#autoCompact--[<code>EnableDiskStore.autoCompact</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#autoCompact--[<code>EnableDiskStore.autoCompact</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -643,7 +643,7 @@ an oplog becomes compactible.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>50</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#compactionThreshold--[<code>EnableDiskStore.compactionThreshold</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#compactionThreshold--[<code>EnableDiskStore.compactionThreshold</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -653,7 +653,7 @@ where the <code>DiskStore</code> (oplog) files are stored.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>[]</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#diskDirectories--[<code>EnableDiskStore.diskDirectories.location</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#diskDirectories--[<code>EnableDiskStore.diskDirectories.location</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -663,7 +663,7 @@ space allowed to store disk store (oplog) files.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>21474883647</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#diskDirectories--[<code>EnableDiskStore.diskDirectories.size</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#diskDirectories--[<code>EnableDiskStore.diskDirectories.size</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -673,7 +673,7 @@ for disk usage as a percentage of the total disk volume.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>99.0</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#diskUsageCriticalPercentage--[<code>EnableDiskStore.diskUsageCriticalPercentage</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#diskUsageCriticalPercentage--[<code>EnableDiskStore.diskUsageCriticalPercentage</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -683,7 +683,7 @@ for disk usage as a percentage of the total disk volume.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>90.0</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#diskUsageWarningPercentage--[<code>EnableDiskStore.diskUsageWarningPercentage</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#diskUsageWarningPercentage--[<code>EnableDiskStore.diskUsageWarningPercentage</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -693,7 +693,7 @@ megabytes) a single oplog (operation log) can be.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>1024</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#maxOplogSize--[<code>EnableDiskStore.maxOplogSize</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#maxOplogSize--[<code>EnableDiskStore.maxOplogSize</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -702,7 +702,7 @@ class="tableblock halign-left valign-top"><p><code>disk.store.queue-size</code><
 operations that can be asynchronously queued.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#queueSize--[<code>EnableDiskStore.queueSize</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#queueSize--[<code>EnableDiskStore.queueSize</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -713,7 +713,7 @@ flushed to disk.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>1000</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#timeInterval--[<code>EnableDiskStore.timeInterval</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#timeInterval--[<code>EnableDiskStore.timeInterval</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -723,7 +723,7 @@ buffer size in bytes.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>32768</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#writeBufferSize--[<code>EnableDiskStore.writeBufferSize</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableDiskStore.html#writeBufferSize--[<code>EnableDiskStore.writeBufferSize</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -732,7 +732,7 @@ Table 7. `spring.data.gemfire.*` *DiskStore* properties
 
 `DiskStore` properties can be further targeted at specific `DiskStore`
 instances by setting the
-[`DiskStore.name`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/DiskStore.html#getName)
+[`DiskStore.name`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/DiskStore.html#getName)
 property.
 
 For example, you can specify directory location of the files for a
@@ -783,7 +783,7 @@ class="tableblock halign-left valign-top"><p><code>entities.base-packages</code>
 package names indicating the start points for the entity scan.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableEntityDefinedRegions.html#basePackages--[<code>EnableEntityDefinedRegions.basePackages</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableEntityDefinedRegions.html#basePackages--[<code>EnableEntityDefinedRegions.basePackages</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -816,7 +816,7 @@ hostname of the system NIC to which the embedded Locator is bound to
 listen for connections.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableLocator.html#host--[<code>EnableLocator.host</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableLocator.html#host--[<code>EnableLocator.host</code>]</p></td>
 </tr>
 <tr class="even">
 <td class="tableblock halign-left valign-top"><p>locator.port</p></td>
@@ -825,7 +825,7 @@ which the embedded Locator will listen for connections.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>10334</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableLocator.html#port--[<code>EnableLocator.port</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableLocator.html#port--[<code>EnableLocator.port</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -859,7 +859,7 @@ class="tableblock halign-left valign-top"><p><code>logging.level</code></p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>config</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableLogging.html#logLevel--[<code>EnableLogging.logLevel</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableLogging.html#logLevel--[<code>EnableLogging.logLevel</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -868,7 +868,7 @@ class="tableblock halign-left valign-top"><p><code>logging.log-disk-space-limit<
 space allowed to store log files.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableLogging.html#logDiskSpaceLimit--[<code>EnableLogging.logDiskSpaceLimit</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableLogging.html#logDiskSpaceLimit--[<code>EnableLogging.logDiskSpaceLimit</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -877,7 +877,7 @@ class="tableblock halign-left valign-top"><p><code>logging.log-file</code></p></
 file used to log messages.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableLogging.html#logFile--[<code>EnableLogging.logFile</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableLogging.html#logFile--[<code>EnableLogging.logFile</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -886,7 +886,7 @@ class="tableblock halign-left valign-top"><p><code>logging.log-file-size</code><
 log file before the log file is rolled.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableLogging.html#logFileSizeLimit--[<code>EnableLogging.logFileSize</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableLogging.html#logFileSizeLimit--[<code>EnableLogging.logFileSize</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -919,7 +919,7 @@ protocol to communicate with a [vmware-gemfire-name] Manager.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableClusterConfiguration.html#useHttp--[<code>EnableClusterConfiguration.useHttp</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableClusterConfiguration.html#useHttp--[<code>EnableClusterConfiguration.useHttp</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -929,7 +929,7 @@ hostname of the [vmware-gemfire-name] Manager that runs the HTTP
 service.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableClusterConfiguration.html#host--[<code>EnableClusterConfiguration.host</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableClusterConfiguration.html#host--[<code>EnableClusterConfiguration.host</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -940,7 +940,7 @@ connections.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>7070</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableClusterConfiguration.html#port--[<code>EnableClusterConfiguration.port</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableClusterConfiguration.html#port--[<code>EnableClusterConfiguration.port</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -973,7 +973,7 @@ class="tableblock halign-left valign-top"><p><code>manager.access-file</code></p
 the clients.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableManager.html#accessFile--[<code>EnableManager.accessFile</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableManager.html#accessFile--[<code>EnableManager.accessFile</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -983,7 +983,7 @@ hostname of the system NIC used by the Manager to bind and listen for
 JMX client connections.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableManager.html#bindAddress--[<code>EnableManager.bindAddress</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableManager.html#bindAddress--[<code>EnableManager.bindAddress</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -992,7 +992,7 @@ class="tableblock halign-left valign-top"><p><code>manager.hostname-for-clients<
 JMX clients to ask the Locator for the location of the Manager.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableManager.html#hostnameForClients--[<code>EnableManager.hostNameForClients</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableManager.html#hostnameForClients--[<code>EnableManager.hostNameForClients</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1003,7 +1003,7 @@ set to the name of a file, only clients that connect with credentials
 that match an entry in this file are allowed.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableManager.html#passwordFile--[<code>EnableManager.passwordFile</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableManager.html#passwordFile--[<code>EnableManager.passwordFile</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1013,7 +1013,7 @@ Manager to listen for JMX client connections.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>1099</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableManager.html#port--[<code>EnableManager.port</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableManager.html#port--[<code>EnableManager.port</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1023,7 +1023,7 @@ Manager service at runtime.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableManager.html#start--[<code>EnableManager.start</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableManager.html#start--[<code>EnableManager.start</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1034,7 +1034,7 @@ Managers.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>2000</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableManager.html#updateRate--[<code>EnableManager.updateRate</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableManager.html#updateRate--[<code>EnableManager.updateRate</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -1067,7 +1067,7 @@ class="tableblock halign-left valign-top"><p><code>pdx.disk-store-name</code></p
 is persistent.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePdx.html#diskStoreName--[<code>EnablePdx.diskStoreName</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePdx.html#diskStoreName--[<code>EnablePdx.diskStoreName</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1077,7 +1077,7 @@ fields that were unread during deserialization.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePdx.html#ignoreUnreadFields--[<code>EnablePdx.ignoreUnreadFields</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePdx.html#ignoreUnreadFields--[<code>EnablePdx.ignoreUnreadFields</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1087,7 +1087,7 @@ type metadata to disk.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePdx.html#persistent--[<code>EnablePdx.persistent</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePdx.html#persistent--[<code>EnablePdx.persistent</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1098,7 +1098,7 @@ object form on read.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePdx.html#readSerialized--[<code>EnablePdx.readSerialized</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePdx.html#readSerialized--[<code>EnablePdx.readSerialized</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1108,7 +1108,7 @@ Spring bean that implements
 <code>org.apache.geode.pdx.PdxSerializer</code>.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePdx.html#serializerBeanName--[<code>EnablePdx.serializerBeanName</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePdx.html#serializerBeanName--[<code>EnablePdx.serializerBeanName</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -1141,7 +1141,7 @@ acquire a free connection from a Pool.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>10000</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#freeConnectionTimeout--[<code>EnablePool.freeConnectionTimeout</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#freeConnectionTimeout--[<code>EnablePool.freeConnectionTimeout</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1152,7 +1152,7 @@ connection.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>5000</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#idleTimeout--[<code>EnablePool.idleTimeout</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#idleTimeout--[<code>EnablePool.idleTimeout</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1164,7 +1164,7 @@ balance.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>300000</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#loadConditioningInterval--[<code>EnablePool.loadConditioningInterval</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#loadConditioningInterval--[<code>EnablePool.loadConditioningInterval</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1174,7 +1174,7 @@ locator endpoints in the format of
 <code>locator1[port1],...​,locatorN[portN]</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#locators--[<code>EnablePool.locators</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#locators--[<code>EnablePool.locators</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1183,7 +1183,7 @@ class="tableblock halign-left valign-top"><p><code>pool.max-connections</code></
 client to server connections that a Pool will create.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#maxConnections--[EnablePool.maxConnections]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#maxConnections--[EnablePool.maxConnections]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1192,7 +1192,7 @@ class="tableblock halign-left valign-top"><p><code>pool.min-connections</code></
 client to server connections that a Pool maintains.</p></td>
 <td class="tableblock halign-left valign-top"><p><code>1</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#minConnections--[<code>EnablePool.minConnections</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#minConnections--[<code>EnablePool.minConnections</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1202,7 +1202,7 @@ Pool can be used by multiple authenticated users.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#multiUserAuthentication--[<code>EnablePool.multiUserAuthentication</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#multiUserAuthentication--[<code>EnablePool.multiUserAuthentication</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1212,7 +1212,7 @@ servers to verify that they are still alive.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>10000</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#pingInterval--[<code>EnablePool.pingInterval</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#pingInterval--[<code>EnablePool.pingInterval</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1225,7 +1225,7 @@ servers that host Regions with
 <td
 class="tableblock halign-left valign-top"><p><code>true</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#prSingleHopEnabled--[<code>EnablePool.prSingleHopEnabled</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#prSingleHopEnabled--[<code>EnablePool.prSingleHopEnabled</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1236,7 +1236,7 @@ operation and trying another server (if any are available).</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>10000</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#readTimeout--[<code>EnablePool.readTimeout</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#readTimeout--[<code>EnablePool.readTimeout</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1246,7 +1246,7 @@ server that the client is prepared and ready to receive events.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#readyForEvents--[<code>ClientCacheApplication.readyForEvents</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#readyForEvents--[<code>ClientCacheApplication.readyForEvents</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1255,7 +1255,7 @@ class="tableblock halign-left valign-top"><p><code>pool.retry-attempts</code></p
 retry a request after timeout/exception.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#retryAttempts--[<code>EnablePool.retryAttempts</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#retryAttempts--[<code>EnablePool.retryAttempts</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1264,7 +1264,7 @@ class="tableblock halign-left valign-top"><p><code>pool.server-group</code></p><
 servers to which a Pool connects must belong.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#serverGroup--[<code>EnablePool.serverGroup</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#serverGroup--[<code>EnablePool.serverGroup</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1274,7 +1274,7 @@ class="tableblock halign-left valign-top"><p><code>pool.servers</code></p></td>
 <code>server1[port1],...​,serverN[portN]</code></p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#servers--[<code>EnablePool.servers</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#servers--[<code>EnablePool.servers</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1284,7 +1284,7 @@ for each connection made in all Pools.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>32768</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#socketBufferSize--[<code>EnablePool.socketBufferSize</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#socketBufferSize--[<code>EnablePool.socketBufferSize</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1293,7 +1293,7 @@ class="tableblock halign-left valign-top"><p><code>pool.statistic-interval</code
 client statistics to the server.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#statisticInterval--[<code>EnablePool.statisticInterval</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#statisticInterval--[<code>EnablePool.statisticInterval</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1305,7 +1305,7 @@ subscriptions.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>100</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#subscriptionAckInterval--[<code>EnablePool.subscriptionAckInterval</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#subscriptionAckInterval--[<code>EnablePool.subscriptionAckInterval</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1315,7 +1315,7 @@ Pool has server-to-client subscriptions enabled.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#subscriptionEnabled--[<code>EnablePool.subscriptionEnabled</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#subscriptionEnabled--[<code>EnablePool.subscriptionEnabled</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1327,7 +1327,7 @@ from the server.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>900000</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#subscriptionMessageTrackingTimeout--[<code>EnablePool.subscriptionMessageTrackingTimeout</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#subscriptionMessageTrackingTimeout--[<code>EnablePool.subscriptionMessageTrackingTimeout</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1336,7 +1336,7 @@ class="tableblock halign-left valign-top"><p><code>pool.subscription-redundancy<
 for all Pools server-to-client subscriptions.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#subscriptionRedundancy--[<code>EnablePool.subsriptionRedundancy</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#subscriptionRedundancy--[<code>EnablePool.subsriptionRedundancy</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1346,7 +1346,7 @@ connections policy for all Pools.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnablePool.html#threadLocalConnections--[<code>EnablePool.threadLocalConnections</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnablePool.html#threadLocalConnections--[<code>EnablePool.threadLocalConnections</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -1378,7 +1378,7 @@ class="tableblock halign-left valign-top"><p><code>security.username</code></p><
 used to authenticate with the servers.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#securityUsername--[<code>EnableSecurity.securityUsername</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#securityUsername--[<code>EnableSecurity.securityUsername</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1387,7 +1387,7 @@ class="tableblock halign-left valign-top"><p><code>security.password</code></p><
 to authenticate with the servers.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#securityPassword--[<code>EnableSecurity.securityPassword</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#securityPassword--[<code>EnableSecurity.securityPassword</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1396,7 +1396,7 @@ class="tableblock halign-left valign-top"><p><code>security.properties-file</cod
 a properties file that contains security credentials.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableAuth.html#securityPropertiesFile--[<code>EnableAuth.propertiesFile</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableAuth.html#securityPropertiesFile--[<code>EnableAuth.propertiesFile</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1404,7 +1404,7 @@ class="tableblock halign-left valign-top"><p><code>security.client.accessor</cod
 <td class="tableblock halign-left valign-top"><p>X</p></td>
 <td class="tableblock halign-left valign-top"><p>X</p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableAuth.html#clientAccessor--[<code>EnableAuth.clientAccessor</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableAuth.html#clientAccessor--[<code>EnableAuth.clientAccessor</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1415,7 +1415,7 @@ operation has completed on the server but before the result is sent to
 the client.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableAuth.html#clientAccessorPostProcessor--[<code>EnableAuth.clientAccessorPostProcessor</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableAuth.html#clientAccessorPostProcessor--[<code>EnableAuth.clientAccessorPostProcessor</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1425,7 +1425,7 @@ that returns an <code>AuthInitialize</code> object, which obtains
 credentials for peers in a cluster.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#clientAuthenticationInitializer--[<code>EnableSecurity.clientAuthentiationInitializer</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#clientAuthenticationInitializer--[<code>EnableSecurity.clientAuthentiationInitializer</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1436,7 +1436,7 @@ member (Locator or Server) to verify the credentials of a connecting
 client.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableAuth.html#clientAuthenticator--[<code>EnableAuth.clientAuthenticator</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableAuth.html#clientAuthenticator--[<code>EnableAuth.clientAuthenticator</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1449,7 +1449,7 @@ Diffie-Hellman key-exchange algorithm. You can do so by setting the
 the name of a valid, symmetric key cipher supported by the JDK.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableAuth.html#clientDiffieHellmanAlgorithm--[<code>EnableAuth.clientDiffieHellmanAlgorithm</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableAuth.html#clientDiffieHellmanAlgorithm--[<code>EnableAuth.clientDiffieHellmanAlgorithm</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1458,7 +1458,7 @@ class="tableblock halign-left valign-top"><p><code>security.log.file</code></p><
 file used for security log messages.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableAuth.html#securityLogFile--[<code>EnableAuth.securityLogFile</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableAuth.html#securityLogFile--[<code>EnableAuth.securityLogFile</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1467,7 +1467,7 @@ class="tableblock halign-left valign-top"><p><code>security.log.level</code></p>
 security log messages.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableAuth.html#securityLogLevel--[<code>EnableAuth.securityLogLevel</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableAuth.html#securityLogLevel--[<code>EnableAuth.securityLogLevel</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1477,7 +1477,7 @@ that implements
 <code>org.apache.geode.security.SecurityManager</code>.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#securityManagerClassName--[<code>EnableSecurity.securityManagerClassName</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#securityManagerClassName--[<code>EnableSecurity.securityManagerClassName</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1487,7 +1487,7 @@ that returns an <code>AuthInitialize</code> object, which obtains
 credentials for peers in a cluster.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#peerAuthenticationInitializer--[<code>EnableSecurity.peerAuthenticationInitializer</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#peerAuthenticationInitializer--[<code>EnableSecurity.peerAuthenticationInitializer</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1497,7 +1497,7 @@ that returns an <code>Authenticator</code> object, which is used by a
 peer to verify the credentials of a connecting node.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableAuth.html#peerAuthenticator--[<code>EnableAuth.peerAuthenticator</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableAuth.html#peerAuthenticator--[<code>EnableAuth.peerAuthenticator</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1507,7 +1507,7 @@ milliseconds used by a peer to verify membership of an unknown
 authenticated peer requesting a secure connection.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableAuth.html#peerVerifyMemberTimeout--[<code>EnableAuth.peerVerifyMemberTimeout</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableAuth.html#peerVerifyMemberTimeout--[<code>EnableAuth.peerVerifyMemberTimeout</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1518,7 +1518,7 @@ interface that can be used to change the returned results of Region get
 operations.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#securityPostProcessorClassName--[<code>EnableSecurity.securityPostProcessorClassName</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#securityPostProcessorClassName--[<code>EnableSecurity.securityPostProcessorClassName</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1529,7 +1529,7 @@ that configures the Apache Shiro Security Framework in order to secure
 [vmware-gemfire-name].</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#shiroIniResourcePath--[<code>EnableSecurity.shiroIniResourcePath</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSecurity.html#shiroIniResourcePath--[<code>EnableSecurity.shiroIniResourcePath</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -1561,7 +1561,7 @@ class="tableblock halign-left valign-top"><p><code>security.ssl.certificate.alia
 SSL certificate used by the cluster to secure communications.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#componentCertificateAliases--[<code>EnableSsl.componentCertificateAliases</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#componentCertificateAliases--[<code>EnableSsl.componentCertificateAliases</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1571,7 +1571,7 @@ the stored SSL certificate used to secure communications across the
 entire [vmware-gemfire-name] system.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#defaultCertificateAlias--[<code>EnableSsl.defaultCertificateAlias</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#defaultCertificateAlias--[<code>EnableSsl.defaultCertificateAlias</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1581,7 +1581,7 @@ SSL certificate used by the WAN Gateway Senders/Receivers to secure
 communications.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#componentCertificateAliases--[<code>EnableSsl.componentCertificateAliases</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#componentCertificateAliases--[<code>EnableSsl.componentCertificateAliases</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1591,7 +1591,7 @@ SSL certificate used by the Manager’s JMX-based JVM MBeanServer and JMX
 clients to secure communications.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#componentCertificateAliases--[<code>EnableSsl.componentCertificateAliases</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#componentCertificateAliases--[<code>EnableSsl.componentCertificateAliases</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1600,7 +1600,7 @@ class="tableblock halign-left valign-top"><p><code>security.ssl.certificate.alia
 SSL certificate used by the Locator to secure communications.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#componentCertificateAliases--[<code>EnableSsl.componentCertificateAliases</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#componentCertificateAliases--[<code>EnableSsl.componentCertificateAliases</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1610,7 +1610,7 @@ SSL certificate used by clients and servers to secure
 communications.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#componentCertificateAliases--[<code>EnableSsl.componentCertificateAliases</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#componentCertificateAliases--[<code>EnableSsl.componentCertificateAliases</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1620,7 +1620,7 @@ SSL certificate used by the embedded HTTP server to secure
 communications (HTTPS).</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#componentCertificateAliases--[<code>EnableSsl.componentCertificateAliases</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#componentCertificateAliases--[<code>EnableSsl.componentCertificateAliases</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1629,7 +1629,7 @@ class="tableblock halign-left valign-top"><p><code>security.ssl.ciphers</code></
 SSL ciphers or <code>any</code>.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#ciphers--[<code>EnableSsl.ciphers</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#ciphers--[<code>EnableSsl.ciphers</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1639,7 +1639,7 @@ class="tableblock halign-left valign-top"><p><code>security.ssl.components</code
 SSL communication.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#components--[<code>EnableSsl.components</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#components--[<code>EnableSsl.components</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1648,7 +1648,7 @@ class="tableblock halign-left valign-top"><p><code>security.ssl.keystore</code><
 the Java KeyStore file storing certificates for SSL.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#keystore--[<code>EnableSsl.keystore</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#keystore--[<code>EnableSsl.keystore</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1657,7 +1657,7 @@ class="tableblock halign-left valign-top"><p><code>security.ssl.keystore.passwor
 access the Java KeyStore file.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#keystorePassword--[<code>EnableSsl.keystorePassword</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#keystorePassword--[<code>EnableSsl.keystorePassword</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1666,7 +1666,7 @@ class="tableblock halign-left valign-top"><p><code>security.ssl.keystore.type</c
 access the Java KeyStore file (for example, JKS).</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#keystoreType--[<code>EnableSsl.keystoreType</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#keystoreType--[<code>EnableSsl.keystoreType</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1675,7 +1675,7 @@ class="tableblock halign-left valign-top"><p><code>security.ssl.protocols</code>
 SSL protocols or <code>any</code>.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#protocols--[<code>EnableSsl.protocols</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#protocols--[<code>EnableSsl.protocols</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1684,7 +1684,7 @@ class="tableblock halign-left valign-top"><p><code>security.ssl.require-authenti
 authentication is required.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#requireAuthentication--[<code>EnableSsl.requireAuthentication</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#requireAuthentication--[<code>EnableSsl.requireAuthentication</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1694,7 +1694,7 @@ the trust store (Java KeyStore file) that stores certificates for
 SSL.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#truststore--[<code>EnableSsl.truststore</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#truststore--[<code>EnableSsl.truststore</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1703,7 +1703,7 @@ class="tableblock halign-left valign-top"><p><code>security.ssl.truststore.passw
 access the trust store (Java KeyStore file).</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#truststorePassword--[<code>EnableSsl.truststorePassword</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#truststorePassword--[<code>EnableSsl.truststorePassword</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1712,7 +1712,7 @@ class="tableblock halign-left valign-top"><p><code>security.ssl.truststore.type<
 access the trust store (Java KeyStore file — for example, JKS).</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#truststoreType--[<code>EnableSsl.truststoreType</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#truststoreType--[<code>EnableSsl.truststoreType</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1722,7 +1722,7 @@ authentication is required.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html#webRequireAuthentication--[<code>EnableSsl.webRequireAuthentication</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html#webRequireAuthentication--[<code>EnableSsl.webRequireAuthentication</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -1755,7 +1755,7 @@ hostname of the system NIC used by the embedded HTTP server to bind and
 listen for HTTP(S) connections.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableHttpService.html#bindAddress--[<code>EnableHttpService.bindAddress</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableHttpService.html#bindAddress--[<code>EnableHttpService.bindAddress</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1765,7 +1765,7 @@ embedded HTTP server to listen for HTTP(S) connections.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>7070</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableHttpService.html#port--[<code>EnableHttpService.port</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableHttpService.html#port--[<code>EnableHttpService.port</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1775,7 +1775,7 @@ authentication is required.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableHttpService.html#sslRequireAuthentication--[<code>EnableHttpService.sslRequireAuthentication</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableHttpService.html#sslRequireAuthentication--[<code>EnableHttpService.sslRequireAuthentication</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1787,7 +1787,7 @@ Developer REST API web service. A full installation of
 <td
 class="tableblock halign-left valign-top"><p><code>false</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableHttpService.html#startDeveloperRestApi--[<code>EnableHttpService.startDeveloperRestApi</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableHttpService.html#startDeveloperRestApi--[<code>EnableHttpService.startDeveloperRestApi</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1797,7 +1797,7 @@ embedded Memcached server (service).</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>11211</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableMemcachedServer.html#port--[<code>EnableMemcachedServer.port</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableMemcachedServer.html#port--[<code>EnableMemcachedServer.port</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1807,7 +1807,7 @@ the embedded Memcached server (service).</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>ASCII</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableMemcachedServer.html#protocol--[<code>EnableMemcachedServer.protocol</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableMemcachedServer.html#protocol--[<code>EnableMemcachedServer.protocol</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -1847,7 +1847,7 @@ to send data access operations between the client and servers.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>gemfirePool</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/api/org/springframework/session/data/gemfire/config/annotation/web/http/EnableGemFireHttpSession.html#poolName--[<code>EnableGemFireHttpSession.poolName</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-session-javadoc]/org/springframework/session/data/gemfire/config/annotation/web/http/EnableGemFireHttpSession.html#poolName--[<code>EnableGemFireHttpSession.poolName</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1856,9 +1856,9 @@ class="tableblock halign-left valign-top"><p><code>cache.client.Region.shortcut<
 <code>DataPolicy</code> used by the client Region to manage (HTTP)
 session state.</p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/client/ClientRegionShortcut.html#PROXY[<code>ClientRegionShortcut.PROXY</code>]</p></td>
+class="tableblock halign-left valign-top"><p>https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/client/ClientRegionShortcut.html#PROXY[<code>ClientRegionShortcut.PROXY</code>]</p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/api/org/springframework/session/data/gemfire/config/annotation/web/http/EnableGemFireHttpSession.html#clientRegionShortcut--[<code>EnableGemFireHttpSession.clientRegionShortcut</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-session-javadoc]/org/springframework/session/data/gemfire/config/annotation/web/http/EnableGemFireHttpSession.html#clientRegionShortcut--[<code>EnableGemFireHttpSession.clientRegionShortcut</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1867,9 +1867,9 @@ class="tableblock halign-left valign-top"><p><code>cache.server.Region.shortcut<
 <code>DataPolicy</code> used by the server Region to manage (HTTP)
 session state.</p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/RegionShortcut.html#PARTITION[<code>RegionShortcut.PARTITION</code>]</p></td>
+class="tableblock halign-left valign-top"><p>https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/RegionShortcut.html#PARTITION[<code>RegionShortcut.PARTITION</code>]</p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/api/org/springframework/session/data/gemfire/config/annotation/web/http/EnableGemFireHttpSession.html#serverRegionShortcut--[<code>EnableGemFireHttpSession.serverRegionShortcut</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-session-javadoc]/org/springframework/session/data/gemfire/config/annotation/web/http/EnableGemFireHttpSession.html#serverRegionShortcut--[<code>EnableGemFireHttpSession.serverRegionShortcut</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1879,7 +1879,7 @@ attributes for which an Index is created.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>[]</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/api/org/springframework/session/data/gemfire/config/annotation/web/http/EnableGemFireHttpSession.html#indexableSessionAttributes--[<code>EnableGemFireHttpSession.indexableSessionAttributes</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-session-javadoc]/org/springframework/session/data/gemfire/config/annotation/web/http/EnableGemFireHttpSession.html#indexableSessionAttributes--[<code>EnableGemFireHttpSession.indexableSessionAttributes</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1890,7 +1890,7 @@ expires.</p></td>
 <td
 class="tableblock halign-left valign-top"><p><code>1800</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/api/org/springframework/session/data/gemfire/config/annotation/web/http/EnableGemFireHttpSession.html#maxInactiveIntervalSeconds--[<code>EnableGemFireHttpSession.maxInactiveIntervalSeconds</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-session-javadoc]/org/springframework/session/data/gemfire/config/annotation/web/http/EnableGemFireHttpSession.html#maxInactiveIntervalSeconds--[<code>EnableGemFireHttpSession.maxInactiveIntervalSeconds</code>]</p></td>
 </tr>
 <tr class="even">
 <td
@@ -1900,7 +1900,7 @@ class="tableblock halign-left valign-top"><p><code>session.Region.name</code></p
 <td
 class="tableblock halign-left valign-top"><p><code>ClusteredSpringSessions</code></p></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/api/org/springframework/session/data/gemfire/config/annotation/web/http/EnableGemFireHttpSession.html#RegionName--[<code>EnableGemFireHttpSession.RegionName</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-session-javadoc]/org/springframework/session/data/gemfire/config/annotation/web/http/EnableGemFireHttpSession.html#RegionName--[<code>EnableGemFireHttpSession.RegionName</code>]</p></td>
 </tr>
 <tr class="odd">
 <td
@@ -1910,7 +1910,7 @@ bean that implements
 <code>org.springframework.session.data.gemfire.serialization.SessionSerializer</code>.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td
-class="tableblock halign-left valign-top"><p>https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/api/org/springframework/session/data/gemfire/config/annotation/web/http/EnableGemFireHttpSession.html#sessionSerializerBeanName--[<code>EnableGemFireHttpSession.sessionSerializerBeanName</code>]</p></td>
+class="tableblock halign-left valign-top"><p>[spring-session-javadoc]/org/springframework/session/data/gemfire/config/annotation/web/http/EnableGemFireHttpSession.html#sessionSerializerBeanName--[<code>EnableGemFireHttpSession.sessionSerializerBeanName</code>]</p></td>
 </tr>
 </tbody>
 </table>
@@ -1922,7 +1922,7 @@ Table 18. `spring.session.data.gemfire.*` properties
 While we do not recommend using [vmware-gemfire-name] properties directly
 in your Spring applications, [spring-boot-gemfire-name] does not prevent you from doing so.
 See the
-[complete reference to the [vmware-gemfire-name] specific properties](https://geode.apache.org/docs/guide/115/reference/topics/gemfire_properties.html).
+[complete reference to the [vmware-gemfire-name] specific properties](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/reference-topics-gemfire_properties.html).
 
 <p class="warning"><strong>Warning:</strong>
 [vmware-gemfire-name] is very strict about the

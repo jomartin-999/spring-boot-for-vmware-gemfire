@@ -26,8 +26,8 @@ Table of Contents
 
 This guide walks you through building a simple Spring Boot application
 using [Spring’s Cache
-Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache)
-backed by [[vmware-gemfire-name]](https://geode.apache.org/) as the caching
+Abstraction]([spring-framework-docs]/integration.html#cache)
+backed by [[vmware-gemfire-name]](https://www.vmware.com/products/gemfire.html) as the caching
 provider for Asynchronous Inline Caching.
 
 It is assumed that the reader is familiar with the Spring *programming
@@ -206,7 +206,7 @@ the golf course, which requires a name and `List` of pars for each hole
 ``` highlight
 class GolfCourse {
 
-    private final String name;
+    private String name;
 
     private final List<Integer> parForHole = new ArrayList<>(18);
 
@@ -227,18 +227,18 @@ round.
 ``` highlight
 class GolfTournament implements Iterable<Pairing> {
 
-    private final String name;
+    private String name;
 
     private GolfCourse golfCourse;
 
     private final List<Pairing>  pairings = new ArrayList<>();
 
-    private final Set<Golfer> players = new ArrayList<>();
+    private final Set<Golfer> players = new HashSet<>();
 
-    public static class Pair {
+    public static class Pairing {
 
-        private final Golfer playerOne;
-        private final Golfer playerTwo;
+        private Golfer playerOne;
+        private Golfer playerTwo;
 
     }
 }
@@ -342,17 +342,17 @@ To get everything started, a Spring Boot application class (i.e. a class
 annotated with the `@SpringBootApplication` annotation) is used to
 bootstrap the Golf Tournament application.
 
-`BootGeodeAsyncInlineCachingClientApplication` class
+`BootGemFireAsyncInlineCachingClientApplication` class
 
 ``` highlight
 @SpringBootApplication
 @SuppressWarnings("unused")
-public class BootGeodeAsyncInlineCachingClientApplication {
+public class BootGemFireAsyncInlineCachingClientApplication {
 
     private static final String APPLICATION_NAME = "GolfClientApplication";
 
     public static void main(String[] args) {
-        SpringApplication.run(BootGeodeAsyncInlineCachingClientApplication.class, args);
+        SpringApplication.run(BootGemFireAsyncInlineCachingClientApplication.class, args);
     }
 
     @Configuration
@@ -379,7 +379,7 @@ public class BootGeodeAsyncInlineCachingClientApplication {
     @Configuration
     @UseMemberName(APPLICATION_NAME)
     @EnableCachingDefinedRegions(serverRegionShortcut = RegionShortcut.REPLICATE)
-    static class GeodeConfiguration { }
+    static class GemFireConfiguration { }
 
     @PeerCacheApplication
     @Profile("peer-cache")
@@ -604,10 +604,10 @@ cover.
 While it is possible to run this example using an [vmware-gemfire-name]
 client/server topology, we keep things simple by running the example
 using a single Spring Boot application class, namely the
-`BootGeodeAsyncInlineCachingClientApplication` along with a peer cache
+`BootGemFireAsyncInlineCachingClientApplication` along with a peer cache
 configuration.
 
-That is, in our `BootGeodeAsyncInlineCachingClientApplication` class, we
+That is, in our `BootGemFireAsyncInlineCachingClientApplication` class, we
 also apply the `PeerCacheApplicationConfiguration` by enabling the
 Spring Profile, "*peer-cache*":
 
@@ -658,8 +658,8 @@ Of course, you can replace "*queue-batch-size*" with
 The final run configuration of the Spring Boot application, as seen in
 IntelliJ IDEA is:
 
-![BootGeodeAsyncInlineCachingClientApplication IntelliJ IDEA Run
-Configuration](./images/BootGeodeAsyncInlineCachingClientApplication-IntelliJ-IDEA-Run-Configuration.png)
+![BootGemFireAsyncInlineCachingClientApplication IntelliJ IDEA Run
+Configuration](./images/BootGemFireAsyncInlineCachingClientApplication-IntelliJ-IDEA-Run-Configuration.png)
 
 To access the golf application, simply navigate to:
 

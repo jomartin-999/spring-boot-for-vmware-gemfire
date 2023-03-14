@@ -27,7 +27,7 @@ There are several ways to access data stored in [vmware-gemfire-name].
 
 
 For instance, you can use the
-https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/Region.html\[Region API\]
+https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/Region.html\[Region API\]
 directly. If you are driven by the application’s domain context, you can
 use the power of https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories\[Spring
 Data Repositories\] instead.
@@ -56,9 +56,9 @@ portfolio.
 
 
 For example, the Spring Framework provides
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html\[`JdbcTemplate`\]
+[`JdbcTemplate`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jdbc/core/JdbcTemplate.html)
 and
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/jms/core/JmsTemplate.html\[`JmsTemplate`\].
+[`JmsTemplate`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/jms/core/JmsTemplate.html).
 
 
 
@@ -91,13 +91,13 @@ perform data access operations on [vmware-gemfire-name] cache
   simple query operations on cache Regions.
 
 - Use of Spring Framework’s consistent data access
-  https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#dao-exceptions\[Exception
+  [spring-framework-docs]/data-access.html#dao-exceptions\[Exception
   hierarchy\].
 
 - Automatic enlistment in the presence of local cache transactions.
 
 - Consistency and protection from
-  https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/Region.html\[Region
+  https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/Region.html\[Region
   API\] breaking changes.
 
 
@@ -144,7 +144,7 @@ Consider an explicitly declared Region bean definition:
 
 ``` highlight
 @Configuration
-class GeodeConfiguration {
+class GemFireConfiguration {
 
     @Bean("Example")
     ClientRegionFactoryBean<?, ?> exampleRegion(GemFireCache gemfireCache) {
@@ -282,7 +282,7 @@ Example 2. [vmware-gemfire-name] Configuration
 ``` highlight
 @Configuration
 @EnableEntityDefinedRegions(basePackageClasses = Customer.class)
-class GeodeConfiguration {
+class GemFireConfiguration {
     // ...
 }
 ```
@@ -321,7 +321,7 @@ Example 3. CustomerService application component
 @Service
 class CustomerService {
 
-    @Bean
+    @Autowired
     @Qualifier("customersTemplate")
     private GemfireTemplate customersTemplate;
 
@@ -360,10 +360,10 @@ Regions.
 
 
 When you use Spring Framework’s
-https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache\[Cache Abstraction\]
+[spring-framework-docs]/integration.html#cache\[Cache Abstraction\]
 backed by [vmware-gemfire-name], one requirement is to configure
 Regions for each of the caches specified in the
-https://docs.spring.io/spring/docs/current/spring-framework-referenceintegration.html#cache-annotations\[caching
+https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#cache-annotations\[caching
 annotations\] of your application service components.
 
 
@@ -399,7 +399,7 @@ Example 4. Cacheable `CustomerService` class
 @Service
 class CacheableCustomerService {
 
-    @Bean
+    @Autowired
     @Qualifier("customersByNameTemplate")
     private GemfireTemplate customersByNameTemplate;
 
@@ -441,7 +441,7 @@ Example 5. [vmware-gemfire-name] Configuration
 ``` highlight
 @Configuration
 @EnableCachingDefinedRegions
-class GeodeConfiguration {
+class GemFireConfiguration {
 
     @Bean
     public CustomerService customerService() {
@@ -579,7 +579,7 @@ Example 7. [vmware-gemfire-name] Configuration
 ``` highlight
 @Configuration
 @EnableGemFireProperties(cacheXmlFile = "cache.xml")
-class GeodeConfiguration {
+class GemFireConfiguration {
     // ...
 }
 ```
@@ -675,7 +675,7 @@ Example 9. [vmware-gemfire-name] Configuration
 ``` highlight
 @Configuration
 @EnableEntityDefinedRegions(basePackageClasses = Customer.class)
-class GeodeConfiguration {
+class GemFireConfiguration {
 
     @Bean
     public GemfireTemplate customersTemplate(GemFireCache cache) {
@@ -778,7 +778,7 @@ Example 11. [vmware-gemfire-name] Configuration
 ``` highlight
 @Configuration
 @EnableEntityDefinedRegions(basePackageClasses = Customer.class)
-class GeodeConfiguration {
+class GemFireConfiguration {
 
     @Bean
     public GemfireTemplate vipCustomersTemplate(GemFireCache cache) {

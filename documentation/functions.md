@@ -64,7 +64,7 @@ the data set across the cluster.
 
 [vmware-gemfire-name] addresses this very important application concern
 in its
-https://geode.apache.org/docs/guide/115/developing/function_exec/chapter_overview.html\[Function
+https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-function_exec-chapter_overview.html\[Function
 execution\] framework.
 
 
@@ -72,10 +72,10 @@ execution\] framework.
 
 
 [spring-data-gemfire-name]
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#function-annotations\[builds\] on this
+[spring-data-gemfire-docs]/#function-annotations\[builds\] on this
 Function execution framework by letting developers
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#function-implementation\[implement\] and
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#function-execution\[execute\]
+[spring-data-gemfire-docs]/#function-annotations\[implement\] and
+[spring-data-gemfire-docs]/#function-annotations\[execute\]
 [vmware-gemfire-name] functions with a simple POJO-based annotation
 configuration model.
 
@@ -94,7 +94,7 @@ configuration model.
 Tip
 </td>
 <td class="content">See
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#_implementation_vs_execution[the section
+[spring-data-gemfire-docs]/#_implementation_vs_execution[the section
 about implementation versus execution] for the difference between
 Function implementation and execution.</td>
 </tr>
@@ -198,7 +198,7 @@ class EligibilityDeterminationFunction {
 
 
 By using the [spring-data-gemfire-name]
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/function/annotation/GemfireFunction.html\[`@GemfireFunction`\]
+[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/function/annotation/GemfireFunction.html\[`@GemfireFunction`\]
 annotation, we can implement our Function as a POJO method. [spring-data-gemfire-name]
 appropriately handles registering this POJO method as a proper Function
 with [vmware-gemfire-name].
@@ -272,14 +272,14 @@ Example 3. Function use
 @Service
 class FinancialLoanApplicationService {
 
-    private final EligibilityDeterminationExecution execution;
+    private EligibilityDeterminationExecution execution;
 
-    public LoanApplicationService(EligibilityDeterminationExecution execution) {
+    public FinancialLoanApplicationService(EligibilityDeterminationExecution execution) {
         this.execution = execution;
     }
 
     @Cacheable("EligibilityDecisions")
-    EligibilityDecision processEligibility(Person person, Timespan timespan) {
+    public EligibilityDecision processEligibility(Person person, Timespan timespan) {
         return this.execution.determineEligibility(person, timespan);
     }
 }

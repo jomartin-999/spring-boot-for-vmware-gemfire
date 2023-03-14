@@ -39,7 +39,7 @@ Boot `application.properties`.
 Tip
 </td>
 <td class="content">See the
-https://geode.apache.org/docs/guide/115/reference/topics/gemfire_properties.html[User Guide]
+https://docs.vmware.com/en/VMware-GemFire/9.15/gf/reference-topics-gemfire_properties.html[User Guide]
 for a complete list of valid [vmware-gemfire-name] properties.</td>
 </tr>
 </tbody>
@@ -296,7 +296,7 @@ Tip
 </td>
 <td class="content">See the <code>@EnableGemFireProperties</code>
 annotation
-(https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableGemFireProperties.html[attributes])
+([spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableGemFireProperties.html[attributes])
 from [spring-data-gemfire-name] for a complete list of [vmware-gemfire-name] properties with
 no corresponding [spring-data-gemfire-name] property.</td>
 </tr>
@@ -314,9 +314,9 @@ Furthermore, many of the [spring-data-gemfire-name] properties also correspond t
 
 
 For example,
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#keepAlive\[`spring.data.gemfire.cache.client.keep-alive`\]
+[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/ClientCacheApplication.html#keepAlive\[`spring.data.gemfire.cache.client.keep-alive`\]
 translates to the
-https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/client/ClientCache.html#close-boolean\[`ClientCache.close(boolean keepAlive)`\]
+https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/client/ClientCache.html#close-boolean\[`ClientCache.close(boolean keepAlive)`\]
 API call.
 
 
@@ -730,7 +730,7 @@ or [vmware-gemfire-name] properties are declared in Spring Boot
 Finally, you cannot refer to [vmware-gemfire-short-name] properties declared in Spring Boot
 `application.properties` with the [spring-boot-gemfire-name] `GemFireProperties` class (see
 the
-{spring-boot-data-geode-javadoc}/org/springframework/geode/boot/autoconfigure/configuration/GemFireProperties.html\[Javadoc\]).
+{spring-boot-gemfire-javadoc}/org/springframework/geode/boot/autoconfigure/configuration/GemFireProperties.html\[Javadoc\]).
 
 
 

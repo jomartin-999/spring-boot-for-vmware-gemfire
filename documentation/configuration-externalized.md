@@ -24,19 +24,19 @@ supports externalized configuration.
 
 By externalized configuration, we mean configuration metadata stored in
 Spring Boot
-[`application.properties`](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-application-property-files).
+[`application.properties`](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.files).
 You can even separate concerns by addressing each concern in an
 individual properties file. Optionally, you could also enable any given
 property file for only a specific
-[profile](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-profile-specific-properties).
+[profile](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.profiles).
 
 You can do many other powerful things, such as (but not limited to)
 using
-[placeholders](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-placeholders-in-properties)
+[placeholders](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.files.property-placeholders)
 in properties,
-[encrypting](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-encrypting-properties)
+[encrypting](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.encrypting)
 properties, and so on. In this section, we focus particularly on
-[type safety](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-typesafe-configuration-properties).
+[type safety](https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.external-config.typesafe-configuration-properties).
 
 Like Spring Boot, [spring-boot-gemfire-name] provides a
 hierarchy of classes that captures configuration for several
@@ -54,7 +54,7 @@ properties for [vmware-gemfire-name]
 ``` highlight
 # Spring Boot application.properties used to configure [vmware-gemfire-name]
 
-spring.data.gemfire.name=MySpringBootApacheGeodeApplication
+spring.data.gemfire.name=MySpringBootGemFireApplication
 
 # Configure general cache properties
 spring.data.gemfire.cache.copy-on-read=true
@@ -73,7 +73,7 @@ spring.data.gemfire.pool.locators=10.105.120.16[11235],boombox[10334]
 
 You can use many other properties to externalize the configuration of
 your Spring Boot, [vmware-gemfire-name] applications. See the
-[Javadoc](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/package-frame.html)
+[Javadoc]([spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/package-frame.html)
 for specific configuration properties. Specifically, review the
 `enabling` annotation attributes.
 
@@ -81,14 +81,15 @@ You may sometimes require access to the configuration metadata
 (specified in properties) in your Spring Boot applications themselves,
 perhaps to further inspect or act on a particular configuration setting.
 You can access any property by using Spring’s
-[`Environment`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/core/env/Environment.html)
+[`Environment`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/env/Environment.html)
+
 abstraction:
 
 Example 2. Using the Spring `Environment`
 
 ``` highlight
 @Configuration
-class GeodeConfiguration {
+class GemFireConfiguration {
 
     void readConfigurationFromEnvironment(Environment environment) {
         boolean copyOnRead = environment.getProperty("spring.data.gemfire.cache.copy-on-read",
@@ -124,14 +125,14 @@ class MyApplicationComponent {
 ```
 
 Given a handle to
-[`GemFireProperties`](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/configuration/GemFireProperties.html),
+[`GemFireProperties`]([spring-boot-gemfire-javadoc]/org/springframework/geode/boot/autoconfigure/configuration/GemFireProperties.html),
 you can access any of the configuration properties that are used to
 configure [vmware-gemfire-name] in a Spring context. You need only
 autowire an instance of `GemFireProperties` into your application
 component.
 
 See the complete reference for the
-[[spring-boot-gemfire-name] `@ConfigurationProperties` classes and supporting classes](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/configuration/package-frame.html).
+[[spring-boot-gemfire-name] `@ConfigurationProperties` classes and supporting classes]([spring-boot-gemfire-javadoc]/org/springframework/geode/boot/autoconfigure/configuration/package-frame.html).
 
 ### Externalized Configuration of Spring Session
 
@@ -140,7 +141,7 @@ use [vmware-gemfire-name] as your (HTTP) session state caching
 provider.
 
 In this case, you need only acquire a reference to an instance of the
-[`SpringSessionProperties`](https://docs.spring.io/spring-boot-data-geode-build/current/api/org/springframework/geode/boot/autoconfigure/configuration/SpringSessionProperties.html) class.
+[`SpringSessionProperties`]([spring-boot-gemfire-javadoc]/org/springframework/geode/boot/autoconfigure/configuration/SpringSessionProperties.html) class.
 
 As shown earlier in this chapter, you can specify [spring-session-gemfire-name] properties as follows:
 

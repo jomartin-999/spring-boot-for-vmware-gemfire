@@ -35,7 +35,7 @@ Table of Contents
 
 This guide walks you through building a simple Spring Boot application
 using [Spring’s Cache
-Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache)
+Abstraction]([spring-framework-docs]/integration.html#cache)
 backed by [vmware-gemfire-name] as the caching provider for Inline Caching.
 
 It is assumed that the reader is familiar with the Spring *programming
@@ -118,7 +118,7 @@ There maybe other reasons.
 
 *Spring’s Cache Abstraction* offers a basic form of *Inline Caching* if
 you consider the overloaded
-[`Cache.get(Object key, Callable<T> valueLoader):T`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/cache/Cache.html#get-java.lang.Object-java.util.concurrent.Callable-)
+[`Cache.get(Object key, Callable<T> valueLoader):T`]([spring-data-gemfire-javadoc]/org/springframework/cache/Cache.html#get-java.lang.Object-java.util.concurrent.Callable-)
 method. The overloaded `Cache.get(..)` method accepts a `Callable`
 argument, which serves the purpose of loading a value from an external
 data source, as defined by the `Callable`, on a cache miss. If a value
@@ -131,7 +131,7 @@ their application by using the `org.springframework.cache.Cache` API
 directly. Most of the time, application developers will use the Spring
 cache annotations (e.g. `@Cacheable`), or alternatively, the JSR-107,
 JCache API annotations, as
-[documented](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache-jsr-107).
+[documented]([spring-framework-docs]/integration.html#cache-jsr-107).
 2) Second, while `Cache.get(..)` satisfies *read-through* to the
 backend, external data source, there is no equivalent operation in the
 `Cache` API for *write-through*, i.e. when using `Cache.put(key, value)`
@@ -446,16 +446,16 @@ Caching</a> section.
 
 To learn more about how [vmware-gemfire-name]’s data
 loading functionality works, or specifically, how to <a
-href="https://geode.apache.org/docs/guide/%7Bapache-geode-doc-version%7D/developing/outside_data_sources/sync_outside_data.html">"Keep
+href="https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-outside_data_sources-sync_outside_data.html">"Keep
 the Cache in Sync with Outside Data Sources"</a> follow the link. You
 may also learn more by reading the <em>Javadoc</em> for <a
-href="https://geode.apache.org/releases/latest/javadoc//org/apache/geode/cache/CacheLoader.html"><code>CacheLoader</code></a>
+href="https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/CacheLoader.html"><code>CacheLoader</code></a>
 and <a
-href="https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/CacheWriter.html"><code>CacheWriter</code></a>.
+href="https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/CacheWriter.html"><code>CacheWriter</code></a>.
 
 To learn more about
 <code>@EnableCachingDefinedRegions</code>, see the [spring-data-gemfire-name] <a
-href="https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-caching">documentation</a>.
+href="[spring-data-gemfire-docs]/#bootstrap-annotation-config-caching">documentation</a>.
 
 ### Backend DataSource Configuration
 
@@ -733,7 +733,7 @@ Running the example with `gradlew`
 $ gradlew :spring-geode-samples-caching-inline:bootRun
 ```
 
-Alternatively, you can run the `BootGeodeInlineCachingApplication` class
+Alternatively, you can run the `BootGemFireInlineCachingApplication` class
 in your IDE (e.g. IntelliJ IDEA). Simply create a run profile
 configuration and run it. No additional JVM arguments, System Properties
 or program arguments are required.
@@ -868,8 +868,8 @@ asserting the behavior demonstrated above in the example. The test class
 is available here:
 
 <a
-href="https://github.com/spring-projects/spring-boot-data-geode/spring-geode-samples/caching/inline/src/test/java/example/app/caching/inline/CalculatorApplicationIntegrationTests.java"
-class="bare">https://github.com/spring-projects/spring-boot-data-geode/spring-geode-samples/caching/inline/src/test/java/example/app/caching/inline/CalculatorApplicationIntegrationTests.java</a>
+href="https://github.com/gemfire/spring-boot-for-vmware-gemfire/blob/9.15-2.7/spring-gemfire-samples/caching/inline/src/test/java/example/app/caching/inline/CalculatorApplicationIntegrationTests.java"
+class="bare">https://github.com/gemfire/spring-boot-for-vmware-gemfire/blob/9.15-2.7/spring-gemfire-samples/caching/inline/src/test/java/example/app/caching/inline/CalculatorApplicationIntegrationTests.java</a>
 
 
 ## Summary

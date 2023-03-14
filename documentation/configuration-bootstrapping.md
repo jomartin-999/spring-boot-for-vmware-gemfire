@@ -31,13 +31,13 @@ bootstrap a [vmware-gemfire-name] server
 
 ``` highlight
 @SpringBootApplication
-@CacheServerApplication(name = "SpringBootApacheGeodeCacheServerApplication")
+@CacheServerApplication(name = "SpringBootGemFireCacheServerApplication")
 @SuppressWarnings("unused")
-public class SpringBootApacheGeodeCacheServerApplication {
+public class SpringBootGemFireCacheServerApplication {
 
     public static void main(String[] args) {
 
-        new SpringApplicationBuilder(SpringBootApacheGeodeCacheServerApplication.class)
+        new SpringApplicationBuilder(SpringBootGemFireCacheServerApplication.class)
             .web(WebApplicationType.NONE)
             .build()
             .run(args);
@@ -78,10 +78,10 @@ connections, among other things.
 
 The Manager lets you connect to this server using Gfsh
 ([vmware-gemfire-name]'s
-[command-line shell tool](https://geode.apache.org/docs/guide/115/tools_modules/gfsh/chapter_overview.html)).
+[command-line shell tool](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/tools_modules-gfsh-chapter_overview.html)).
 
 To start your primary server, create a run configuration in your IDE for
-the `SpringBootApacheGeodeCacheServerApplication` class using the
+the `SpringBootGemFireCacheServerApplication` class using the
 following, recommended JRE command-line options:
 
 Example 12. Server 1 run profile configuration
@@ -111,7 +111,7 @@ SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further detai
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.0.3.RELEASE)
 
-[info 2018/06/24 21:42:28.183 PDT <main> tid=0x1] Starting SpringBootApacheGeodeCacheServerApplication on jblum-mbpro-2.local with PID 41795 (/Users/jblum/pivdev/spring-boot-data-geode/spring-geode-docs/build/classes/main started by jblum in /Users/jblum/pivdev/spring-boot-data-geode/spring-geode-docs/build)
+[info 2018/06/24 21:42:28.183 PDT <main> tid=0x1] Starting SpringBootGemFireCacheServerApplication on jblum-mbpro-2.local with PID 41795 (/Users/jblum/pivdev/spring-boot-data-geode/spring-geode-docs/build/classes/main started by jblum in /Users/jblum/pivdev/spring-boot-data-geode/spring-geode-docs/build)
 
 [info 2018/06/24 21:42:28.186 PDT <main> tid=0x1] No active profile set, falling back to default profiles: default
 
@@ -182,7 +182,7 @@ jmx-manager-start=true
 jmx-manager-update-rate=2000
 log-level=config
 mcast-port=0
-name=SpringBootApacheGeodeCacheServerApplication
+name=SpringBootGemFireCacheServerApplication
 start-locator=localhost[10334]
 use-cluster-configuration=false
 ### [vmware-gemfire-short-name] Properties using default values ###
@@ -207,7 +207,7 @@ ack-severe-alert-threshold=0
 
 [info 2018/06/24 21:42:31.570 PDT <main> tid=0x1] CacheServer Configuration:   port=40404 max-connections=800 max-threads=0 notify-by-subscription=true socket-buffer-size=32768 maximum-time-between-pings=60000 maximum-message-count=230000 message-time-to-live=180 eviction-policy=none capacity=1 overflow directory=. groups=[] loadProbe=ConnectionCountProbe loadPollInterval=5000 tcpNoDelay=true
 
-[info 2018/06/24 21:42:31.588 PDT <main> tid=0x1] Started SpringBootApacheGeodeCacheServerApplication in 3.77 seconds (JVM running for 5.429)
+[info 2018/06/24 21:42:31.588 PDT <main> tid=0x1] Started SpringBootGemFireCacheServerApplication in 3.77 seconds (JVM running for 5.429)
 ```
 
 You can now connect to this server by using Gfsh:
@@ -237,12 +237,12 @@ Successfully connected to: [host=10.0.0.121, port=1099]
 gfsh>list members
                    Name                     | Id
 ------------------------------------------- | --------------------------------------------------------------------------
-SpringBootApacheGeodeCacheServerApplication | 10.0.0.121(SpringBootApacheGeodeCacheServerApplication:41795)<ec><v0>:1024
+SpringBootGemFireCacheServerApplication | 10.0.0.121(SpringBootGemFireCacheServerApplication:41795)<ec><v0>:1024
 
 
-gfsh>describe member --name=SpringBootApacheGeodeCacheServerApplication
-Name        : SpringBootApacheGeodeCacheServerApplication
-Id          : 10.0.0.121(SpringBootApacheGeodeCacheServerApplication:41795)<ec><v0>:1024
+gfsh>describe member --name=SpringBootGemFireCacheServerApplication
+Name        : SpringBootGemFireCacheServerApplication
+Id          : 10.0.0.121(SpringBootGemFireCacheServerApplication:41795)<ec><v0>:1024
 Host        : 10.0.0.121
 Regions     :
 PID         : 41795
@@ -267,7 +267,7 @@ as peers. [vmware-gemfire-name] requires members in a cluster to be named
 and for the names of each member in the cluster to be unique.
 
 Additionally, since we are running multiple instances of our
-`SpringBootApacheGeodeCacheServerApplication` class, which also embeds a
+`SpringBootGemFireCacheServerApplication` class, which also embeds a
 `CacheServer` component enabling cache clients to connect. Therefore,
 you must vary the ports used by the embedded services.
 
@@ -349,11 +349,11 @@ a Spring Boot <code>application.properties</code> file or by using Java
 System properties. You can find these properties in the annotation
 Javadoc in [spring-data-gemfire-name]’s annotation-based configuration model. For example, see
 the Javadoc for the
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#port--[<code>spring.data.gemfire.cache.server.port</code>
+[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html#port--[<code>spring.data.gemfire.cache.server.port</code>
 property]. Most [spring-data-gemfire-name] annotations include corresponding properties that
 can be defined in Spring Boot <code>application.properties</code>, which
 is explained in detail in the
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-properties/#bootstrap-annotation-config-properties[documentation].</td>
+[spring-data-gemfire-docs]/#bootstrap-annotation-config-properties/#bootstrap-annotation-config-properties[documentation].</td>
 </tr>
 </tbody>
 </table>
@@ -369,7 +369,7 @@ Example 16. Gfsh output after starting server 2
 gfsh>list members
                    Name                     | Id
 ------------------------------------------- | --------------------------------------------------------------------------
-SpringBootApacheGeodeCacheServerApplication | 10.0.0.121(SpringBootApacheGeodeCacheServerApplication:41795)<ec><v0>:1024
+SpringBootGemFireCacheServerApplication | 10.0.0.121(SpringBootGemFireCacheServerApplication:41795)<ec><v0>:1024
 ServerTwo                                   | 10.0.0.121(ServerTwo:41933)<v1>:1025
 
 
@@ -416,7 +416,7 @@ Example 18. Gfsh output after starting server 3
 gfsh>list members
                    Name                     | Id
 ------------------------------------------- | --------------------------------------------------------------------------
-SpringBootApacheGeodeCacheServerApplication | 10.0.0.121(SpringBootApacheGeodeCacheServerApplication:41795)<ec><v0>:1024
+SpringBootGemFireCacheServerApplication | 10.0.0.121(SpringBootGemFireCacheServerApplication:41795)<ec><v0>:1024
 ServerTwo                                   | 10.0.0.121(ServerTwo:41933)<v1>:1025
 ServerThree                                 | 10.0.0.121(ServerThree:41965)<v2>:1026
 

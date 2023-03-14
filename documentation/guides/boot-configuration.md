@@ -237,7 +237,7 @@ using an OQL query with the predicate: `name LIKE '%Doe'`.
 
 <a class="note"><strong>Note:</strong>
 <code>%</code> is the wildcard for OQL text
-searches.
+searches.</a>
 
 ## Running the Example
 
@@ -307,12 +307,12 @@ a Value, or an Object. A `Region` is actually much more than a simple
 A complete discussion of <code>Region</code> and it
 concepts are beyond the scope of this document. You may learn more by
 reading [vmware-gemfire-name]’s User Guide on <a
-href="https://geode.apache.org/docs/guide/1.15/developing/region_options/chapter_overview.html">Regions</a>.
+href="https://docs.vmware.com/en/VMware-GemFire/9.15/gf/basic_config-data_regions-chapter_overview.html">Regions</a>.
 </p>
 
 [spring-boot-gemfire-name] is opinionated and assumes most [vmware-gemfire-name] applications will be
 client applications in [vmware-gemfire-name]’s [client/server
-topology](https://geode.apache.org/docs/guide/1.15/topologies_and_comm/cs_configuration/chapter_overview.html).
+topology](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/topologies_and_comm-cs_configuration-chapter_overview.html).
 Therefore, [spring-boot-gemfire-name] auto-configures a `ClientCache` instance by default.
 
 The intrinsic `ClientCache` *auto-configuration* provided by [spring-boot-gemfire-name] can be
@@ -587,8 +587,8 @@ Although, for this example, we are going to use the tools provided with
 become apparent later.
 
 You need to <a
-href="https://geode.apache.org/releases/">download</a> and <a
-href="https://geode.apache.org/docs/guide/18/prereq_and_install.html">install</a>
+href="https://network.pivotal.io/products/pivotal-gemfire">download</a> and <a
+href="https://docs.vmware.com/en/VMware-GemFire/9.15/gf/getting_started-installation-install_intro.html">install</a>
 a full distribution of [vmware-gemfire-name] to make use of the provided tools.
 After installation, you will need to set the <code>GEODE</code>
 environment variable to the location of your installation. Additionally,
@@ -948,9 +948,9 @@ stored in the server(s) on the cluster with the OQL query
 
 Well, [vmware-gemfire-name] provides 2 proprietary serialization formats in
 addition to *Java Serialization*: [Data
-Serialization](https://geode.apache.org/docs/guide/1.15/developing/data_serialization/gemfire_data_serialization.html)
+Serialization](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-data_serialization-gemfire_data_serialization.html)
 and
-[PDX](https://geode.apache.org/docs/guide/1.15/developing/data_serialization/gemfire_pdx_serialization.html),
+[PDX](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-data_serialization-gemfire_pdx_serialization.html),
 or *Portable Data Exchange*.
 
 While *Data Serialization* is more efficient, PDX is more flexible (i.e.
@@ -1127,7 +1127,7 @@ Spring), you must do the following:
 4.  (Auth) Implement the `org.apache.geode.security.AuthInitialize`
     interface and set the `security-peer-auth-init` property in
     `gemfire.properties` as described in [Implementing
-    Authentication](https://geode.apache.org/docs/guide/1.15/managing/security/implementing_authentication.html)
+    Authentication](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-security-implementing_authentication.html)
     of the [vmware-gemfire-name] User Guide.
 
 5.  (SSL) Then, you must create Java KeyStore (jks) files for both the

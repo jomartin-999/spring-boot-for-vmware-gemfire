@@ -19,13 +19,13 @@ title: Building ClientCache Applications
 -->
 
 The first opinionated option provided to you by [spring-boot-gemfire-name] is a
-[`ClientCache`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/client/ClientCache.html)
+[`ClientCache`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/client/ClientCache.html)
 instance that you get by declaring [spring-boot-gemfire-name] on your application classpath.
 
 It is assumed that most application developers who use Spring Boot to
 build applications backed by [vmware-gemfire-name] are building cache
 client applications deployed in a [vmware-gemfire-name]
-[Client/Server Topology](https://geode.apache.org/docs/guide/115/topologies_and_comm/cs_configuration/chapter_overview.html).
+[Client/Server Topology](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/topologies_and_comm-cs_configuration-chapter_overview.html).
 The client/server topology is the most common and
 traditional architecture employed by enterprise applications that use
 [vmware-gemfire-name].
@@ -54,10 +54,10 @@ Example 2. Spring Boot, [vmware-gemfire-name] `ClientCache` Application
 
 ``` highlight
 @SpringBootApplication
-public class SpringBootApacheGeodeClientCacheApplication {
+public class SpringBootGemFireClientCacheApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootApacheGeodeClientCacheApplication.class, args);
+        SpringApplication.run(SpringBootGemFireClientCacheApplication.class, args);
     }
 }
 ```
@@ -74,7 +74,7 @@ during development.
 
 To develop with <code>LOCAL</code> Regions,
 configure your cache Regions with the
-[<code>ClientRegionShortcut.LOCAL</code>](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/client/ClientRegionShortcut.html#LOCAL)
+[<code>ClientRegionShortcut.LOCAL</code>](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/client/ClientRegionShortcut.html#LOCAL)
 data management policy.
 
 When you are ready to switch from your local development environment
@@ -85,7 +85,7 @@ sent to and received from one or more servers.
 
 Compare and contrast the preceding configuration
 with the [spring-data-gemfire-name]
-[approach](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-geode-applications).
+[approach]([spring-data-gemfire-docs]/#bootstrap-annotation-config-geode-applications).
 
 It is uncommon to ever need a direct reference to the `ClientCache`
 instance provided by [spring-boot-gemfire-name] injected into your application components (for
@@ -105,10 +105,10 @@ Example 3. Injecting a `GemFireCache` reference
 
 ``` highlight
 @SpringBootApplication
-public class SpringBootApacheGeodeClientCacheApplication {
+public class SpringBootGemFireClientCacheApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootApacheGeodeClientCacheApplication.class, args);
+        SpringApplication.run(SpringBootGemFireClientCacheApplication.class, args);
     }
 
     @Bean
@@ -148,10 +148,10 @@ quickly as requirements start to diverge from the defaults*".
 If your application requirements demand you use Spring Boot to configure
 and bootstrap an embedded peer `Cache` instance, declare your intention
 with either [spring-data-gemfire-name]’s
-[`@PeerCacheApplication`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html)
+[`@PeerCacheApplication`]([spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/PeerCacheApplication.html)
 annotation, or, if you also need to enable connections from
 `ClientCache` applications, use [spring-data-gemfire-name]’s
-[`@CacheServerApplication`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html)
+[`@CacheServerApplication`]([spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/CacheServerApplication.html)
 annotation:
 
 Example 4. Spring Boot, [vmware-gemfire-name] `CacheServer` Application
@@ -159,11 +159,11 @@ Example 4. Spring Boot, [vmware-gemfire-name] `CacheServer` Application
 
 ``` highlight
 @SpringBootApplication
-@CacheServerApplication(name = "SpringBootApacheGeodeCacheServerApplication")
-public class SpringBootApacheGeodeCacheServerApplication {
+@CacheServerApplication(name = "SpringBootGemFireCacheServerApplication")
+public class SpringBootGemFireCacheServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootApacheGeodeCacheServerApplication.class, args);
+        SpringApplication.run(SpringBootGemFireCacheServerApplication.class, args);
     }
 }
 ```
@@ -183,7 +183,7 @@ embedded *Locator*, which allows clients or even other peers to locate
 servers in the cluster. \* An embedded *Manager*, which allows the
 [vmware-gemfire-name] application process to be managed and monitored
 by using
-[Gfsh](https://geode.apache.org/docs/guide/115/tools_modules/gfsh/chapter_overview.html),
+[Gfsh](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/tools_modules-gfsh-chapter_overview.html),
 [vmware-gemfire-name]'s command-line shell tool:
 
 Example 5. Spring Boot [vmware-gemfire-name] `CacheServer` Application
@@ -192,13 +192,13 @@ with *Locator* and *Manager* services enabled
 
 ``` highlight
 @SpringBootApplication
-@CacheServerApplication(name = "SpringBootApacheGeodeCacheServerApplication")
+@CacheServerApplication(name = "SpringBootGemFireCacheServerApplication")
 @EnableLocator
 @EnableManager
-public class SpringBootApacheGeodeCacheServerApplication {
+public class SpringBootGemFireCacheServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootApacheGeodeCacheServerApplication.class, args);
+        SpringApplication.run(SpringBootGemFireCacheServerApplication.class, args);
     }
 }
 ```
@@ -227,12 +227,12 @@ Successfully connected to: [host=10.0.0.121, port=1099]
 gfsh>list members
                    Name                     | Id
 ------------------------------------------- | --------------------------------------------------------------------------
-SpringBootApacheGeodeCacheServerApplication | 10.0.0.121(SpringBootApacheGeodeCacheServerApplication:29798)<ec><v0>:1024
+SpringBootGemFireCacheServerApplication | 10.0.0.121(SpringBootGemFireCacheServerApplication:29798)<ec><v0>:1024
 
 
-gfsh>describe member --name=SpringBootApacheGeodeCacheServerApplication
-Name        : SpringBootApacheGeodeCacheServerApplication
-Id          : 10.0.0.121(SpringBootApacheGeodeCacheServerApplication:29798)<ec><v0>:1024
+gfsh>describe member --name=SpringBootGemFireCacheServerApplication
+Name        : SpringBootGemFireCacheServerApplication
+Id          : 10.0.0.121(SpringBootGemFireCacheServerApplication:29798)<ec><v0>:1024
 Host        : 10.0.0.121
 Regions     :
 PID         : 29798
@@ -275,7 +275,7 @@ Class-Path: /Users/jblum/pivdev/apache-geode-1.2.1/lib/geode-core-1.2.1.jar:/Use
 gfsh>list members
                    Name                     | Id
 ------------------------------------------- | --------------------------------------------------------------------------
-SpringBootApacheGeodeCacheServerApplication | 10.0.0.121(SpringBootApacheGeodeCacheServerApplication:29798)<ec><v0>:1024
+SpringBootGemFireCacheServerApplication | 10.0.0.121(SpringBootGemFireCacheServerApplication:29798)<ec><v0>:1024
 GfshServer                                  | 10.0.0.121(GfshServer:30031)<v1>:1025
 ```
 
@@ -322,7 +322,7 @@ GfshLocator | 10.0.0.121(GfshLocator:30245:locator)<ec><v0>:1024
 GfshServer  | 10.0.0.121(GfshServer:30270)<v1>:1025
 ```
 
-Then modify the `SpringBootApacheGeodeCacheServerApplication` class to
+Then modify the `SpringBootGemFireCacheServerApplication` class to
 connect to the existing cluster:
 
 Example 6. Spring Boot [vmware-gemfire-name] `CacheServer` Application
@@ -331,17 +331,17 @@ connecting to an external cluster
 
 ``` highlight
 @SpringBootApplication
-@CacheServerApplication(name = "SpringBootApacheGeodeCacheServerApplication", locators = "localhost[11235]")
-public class SpringBootApacheGeodeCacheServerApplication {
+@CacheServerApplication(name = "SpringBootGemFireCacheServerApplication", locators = "localhost[11235]")
+public class SpringBootGemFireCacheServerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootApacheGeodeClientCacheApplication.class, args);
+        SpringApplication.run(SpringBootGemFireClientCacheApplication.class, args);
     }
 }
 ```
 
 Notice that the
-<code>SpringBootApacheGeodeCacheServerApplication</code> class,
+<code>SpringBootGemFireCacheServerApplication</code> class,
 <code>@CacheServerApplication</code> annotation’s <code>locators</code>
 property are configured with the host and port
 (<code>localhost[11235]</code>), on which the Locator was started by
@@ -357,12 +357,12 @@ gfsh>list members
 ------------------------------------------- | ----------------------------------------------------------------------
 GfshLocator                                 | 10.0.0.121(GfshLocator:30245:locator)<ec><v0>:1024
 GfshServer                                  | 10.0.0.121(GfshServer:30270)<v1>:1025
-SpringBootApacheGeodeCacheServerApplication | 10.0.0.121(SpringBootApacheGeodeCacheServerApplication:30279)<v2>:1026
+SpringBootGemFireCacheServerApplication | 10.0.0.121(SpringBootGemFireCacheServerApplication:30279)<v2>:1026
 
 
-gfsh>describe member --name=SpringBootApacheGeodeCacheServerApplication
-Name        : SpringBootApacheGeodeCacheServerApplication
-Id          : 10.0.0.121(SpringBootApacheGeodeCacheServerApplication:30279)<v2>:1026
+gfsh>describe member --name=SpringBootGemFireCacheServerApplication
+Name        : SpringBootGemFireCacheServerApplication
+Id          : 10.0.0.121(SpringBootGemFireCacheServerApplication:30279)<v2>:1026
 Host        : 10.0.0.121
 Regions     :
 PID         : 30279
@@ -403,8 +403,6 @@ Otherwise, you are likely to run into a
 <code>java.net.BindException</code> caused by port conflicts.
 </p>
 
-See [Running a [vmware-gemfire-name] cluster with Spring Boot from your IDE](https://docs-staging.vmware.com/en/Spring-Boot-for-GemFire/1.7/sbfg/GUID-appendix.html#geode-cluster-configuration-bootstrapping)
- for more details.
 
 ### Building Locator Applications
 
@@ -430,7 +428,7 @@ which enables the load to be uniformly distributed across the cluster
 while also providing fail-over services to a redundant member if the
 primary fails. A Locator provides many more benefits, and we encourage
 you to read the
-[documentation](https://geode.apache.org/docs/guide/115/configuring/running/running_the_locator.html)
+[documentation](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/configuring-running-running_the_locator.html)
 for more details.
 
 As shown earlier, you can embed a Locator service within either a Spring
@@ -479,7 +477,7 @@ Example 8. Standalone Locator Process
 ``` highlight
 @SpringBootApplication
 @LocatorApplication
-class SpringBootApacheGeodeLocatorApplication {
+class SpringBootGemFireLocatorApplication {
     // ...
 }
 ```
@@ -513,18 +511,18 @@ started Locators and servers.
 First, we need to start two Locators by using our Spring Boot
 [vmware-gemfire-name] Locator application class:
 
-Example 9. SpringBootApacheGeodeLocatorApplication class
+Example 9. SpringBootGemFireLocatorApplication class
 
 
 ``` highlight
 @UseLocators
 @SpringBootApplication
-@LocatorApplication(name = "SpringBootApacheGeodeLocatorApplication")
-public class SpringBootApacheGeodeLocatorApplication {
+@LocatorApplication(name = "SpringBootGemFireLocatorApplication")
+public class SpringBootGemFireLocatorApplication {
 
     public static void main(String[] args) {
 
-        new SpringApplicationBuilder(SpringBootApacheGeodeLocatorApplication.class)
+        new SpringApplicationBuilder(SpringBootGemFireLocatorApplication.class)
             .web(WebApplicationType.NONE)
             .build()
             .run(args);
@@ -588,8 +586,8 @@ Example 10. Spring Boot [vmware-gemfire-name] Locator log output
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::  (v2.2.0.BUILD-SNAPSHOT)
 
-2019-09-01 11:02:48,707  INFO .SpringBootApacheGeodeLocatorApplication:  55 - Starting SpringBootApacheGeodeLocatorApplication on jblum-mbpro-2.local with PID 30077 (/Users/jblum/pivdev/spring-boot-data-geode/spring-geode-docs/out/production/classes started by jblum in /Users/jblum/pivdev/spring-boot-data-geode/spring-geode-docs/build)
-2019-09-01 11:02:48,711  INFO .SpringBootApacheGeodeLocatorApplication: 651 - No active profile set, falling back to default profiles: default
+2019-09-01 11:02:48,707  INFO .SpringBootGemFireLocatorApplication:  55 - Starting SpringBootGemFireLocatorApplication on jblum-mbpro-2.local with PID 30077 (/Users/jblum/pivdev/spring-boot-data-geode/spring-geode-docs/out/production/classes started by jblum in /Users/jblum/pivdev/spring-boot-data-geode/spring-geode-docs/build)
+2019-09-01 11:02:48,711  INFO .SpringBootGemFireLocatorApplication: 651 - No active profile set, falling back to default profiles: default
 2019-09-01 11:02:49,374  INFO xt.annotation.ConfigurationClassEnhancer: 355 - @Bean method LocatorApplicationConfiguration.exclusiveLocatorApplicationBeanFactoryPostProcessor is non-static and returns an object assignable to Spring's BeanFactoryPostProcessor interface. This will result in a failure to process annotations such as @Autowired, @Resource and @PostConstruct within the method's declaring @Configuration class. Add the 'static' modifier to this method to avoid these container lifecycle issues; see @Bean javadoc for complete details.
 2019-09-01 11:02:49,919  INFO ode.distributed.internal.InternalLocator: 530 - Starting peer location for Distribution Locator on 10.99.199.24[11235]
 2019-09-01 11:02:49,925  INFO ode.distributed.internal.InternalLocator: 498 - Starting Distribution Locator on 10.99.199.24[11235]
@@ -651,7 +649,7 @@ Class Path:
 2019-09-01 11:02:54,112  INFO ode.distributed.internal.InternalLocator: 661 - Locator started on 10.99.199.24[11235]
 2019-09-01 11:02:54,113  INFO ode.distributed.internal.InternalLocator: 769 - Starting server location for Distribution Locator on 10.99.199.24[11235]
 2019-09-01 11:02:54,134  INFO nt.internal.locator.wan.LocatorDiscovery: 138 - Locator discovery task exchanged locator information 10.99.199.24[11235] with localhost[10334]: {-1=[10.99.199.24[10334]]}.
-2019-09-01 11:02:54,242  INFO .SpringBootApacheGeodeLocatorApplication:  61 - Started SpringBootApacheGeodeLocatorApplication in 6.137470354 seconds (JVM running for 6.667)
+2019-09-01 11:02:54,242  INFO .SpringBootGemFireLocatorApplication:  61 - Started SpringBootGemFireLocatorApplication in 6.137470354 seconds (JVM running for 6.667)
 Press <enter> to exit!
 ```
 
@@ -687,23 +685,23 @@ SpringLocatorOne | 10.99.199.24(SpringLocatorOne:30043:locator)<ec><v0>:41000 [C
 SpringLocatorTwo | 10.99.199.24(SpringLocatorTwo:30077:locator)<ec><v1>:41001
 ```
 
-By using our `SpringBootApacheGeodeCacheServerApplication` main class
+By using our `SpringBootGemFireCacheServerApplication` main class
 from the previous section, we can configure and bootstrap an
 [vmware-gemfire-name] `CacheServer` application with Spring Boot and
 connect it to our cluster of Locators:
 
-Example 12. SpringBootApacheGeodeCacheServerApplication class
+Example 12. SpringBootGemFireCacheServerApplication class
 
 
 ``` highlight
 @SpringBootApplication
-@CacheServerApplication(name = "SpringBootApacheGeodeCacheServerApplication")
+@CacheServerApplication(name = "SpringBootGemFireCacheServerApplication")
 @SuppressWarnings("unused")
-public class SpringBootApacheGeodeCacheServerApplication {
+public class SpringBootGemFireCacheServerApplication {
 
     public static void main(String[] args) {
 
-        new SpringApplicationBuilder(SpringBootApacheGeodeCacheServerApplication.class)
+        new SpringApplicationBuilder(SpringBootGemFireCacheServerApplication.class)
             .web(WebApplicationType.NONE)
             .build()
             .run(args);
@@ -827,7 +825,7 @@ class CacheServerManagerApplication {
 ``` highlight
 @SpringBootApplication
 @PeerCacheApplication(name = "PeerCacheManagerApplication")
-@EnableManager(start = "true")
+@EnableManager(start = true)
 class PeerCacheManagerApplication {
     // ...
 }
@@ -858,7 +856,7 @@ In all configuration arrangements, the Manager is configured to start
 immediately.
 
 See the Javadoc for the
-[<code>@EnableManager</code> annotation](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableManager.html) for additional configuration options.
+[<code>@EnableManager</code> annotation]([spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableManager.html) for additional configuration options.
 
 As of [vmware-gemfire-name] 1.11.0, you must include additional
 [vmware-gemfire-name] dependencies on your Spring Boot application
@@ -882,7 +880,7 @@ Container), runs the Management (Admin) REST API, which is used by
 [vmware-gemfire-name] tooling, such as Gfsh, to connect to an
 [vmware-gemfire-name] cluster over HTTP. In addition, it also enables
 the [vmware-gemfire-name]
-[Pulse](https://geode.apache.org/docs/guide/115/tools_modules/pulse/pulse-overview.html)
+[Pulse](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/tools_modules-pulse-pulse-overview.html)
 Monitoring Tool (and Web application) to run.
 
 Even if you do not start the embedded HTTP service, a Manager still
@@ -902,6 +900,6 @@ runtime "org.apache.geode:geode-pulse"
 
 The `geode-pulse` dependency is only required if you want the Manager to
 automatically start the [vmware-gemfire-name]
-[Pulse](https://geode.apache.org/docs/guide/115/tools_modules/pulse/pulse-overview.html)
+[Pulse](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/tools_modules-pulse-pulse-overview.html)
 Monitoring Tool. Pulse enables you to view the nodes of your
 [vmware-gemfire-name] cluster and monitor them in realtime.

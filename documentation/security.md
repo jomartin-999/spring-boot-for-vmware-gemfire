@@ -60,7 +60,7 @@ Tip
 </td>
 <td class="content">See the corresponding sample <a
 href="guides/boot-security.html">guide</a> and
- https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/boot/security[code] to see Spring Boot Security for
+ [code](https://github.com/gemfire/spring-boot-for-vmware-gemfire/tree/9.15-2.7/spring-gemfire-samples/boot/security) to see Spring Boot Security for
 [vmware-gemfire-name] in action.</td>
 </tr>
 </tbody>
@@ -75,9 +75,9 @@ href="guides/boot-security.html">guide</a> and
 
 
 [vmware-gemfire-name] employs username- and password-based
-https://geode.apache.org/docs/guide/115/managing/security/authentication_overview.html\[authentication\]
+[authentication](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-security-authentication_overview.html)
 and role-based
-https://geode.apache.org/docs/guide/115/managing/security/authorization_overview.html\[authorization\]
+[authorization](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-security-authorization_overview.html)
 to secure your client to server data exchanges and operations.
 
 
@@ -85,10 +85,9 @@ to secure your client to server data exchanges and operations.
 
 
 [spring-data-gemfire-name] provides
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-security\[first-class
-support\] for [vmware-gemfire-name]'s Security framework, which is
+[first-class support([spring-data-gemfire-docs]/#bootstrap-annotation-config-security)] for [vmware-gemfire-name]'s Security framework, which is
 based on the
-https://geode.apache.org/releases/latest/javadoc/org/apache/geode/security/SecurityManager.html\[`SecurityManager`\]
+[`SecurityManager`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/security/SecurityManager.html)
 interface. Additionally, [vmware-gemfire-name]'s Security framework is
 integrated with [Apache Shiro](https://shiro.apache.org/).
 
@@ -192,7 +191,7 @@ authorization enabled.
 
 Alternatively, you can provide a custom, application-specific
 implementation of [vmware-gemfire-name]'s
-https://geode.apache.org/releases/latest/javadoc/org/apache/geode/security/SecurityManager.html\[`SecurityManager`\]
+[`SecurityManager`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/security/SecurityManager.html)
 interface, declared and registered as a bean in the Spring
 `ApplicationContext`:
 
@@ -430,7 +429,7 @@ sites (clusters).
 
 
 [spring-data-gemfire-name] provides [first-class
-support](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-ssl)
+support]([spring-data-gemfire-docs]/#bootstrap-annotation-config-ssl)
 for configuring and enabling SSL as well. Still, Spring Boot makes it
 even easier to configure and enable SSL, especially during development.
 
@@ -504,7 +503,7 @@ Example 4. Spring Boot configured and bootstrapped
 ``` highlight
 @SpringBootApplication
 @CacheServerApplication
-class SpringBootApacheGeodeCacheServerApplication {
+class SpringBootGemFireCacheServerApplication {
     // ...
 }
 ```
@@ -624,7 +623,7 @@ spring.data.gemfire.security.ssl.truststore.password = truststorePassword
 
 
 See the [spring-data-gemfire-name]
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableSsl.html\[`EnableSsl`\]
+[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableSsl.html\[`EnableSsl`\]
 annotation for all the configuration attributes and the corresponding
 properties expressed in `application.properties`.
 

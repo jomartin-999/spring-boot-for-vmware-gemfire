@@ -46,15 +46,15 @@ Spring Boot’s SQL database initialization, by using:
 
 
 - Gfsh’s
-  https://geode.apache.org/docs/guide/115/tools_modules/gfsh/quick_ref_commands_by_area.html#topic_C7DB8A800D6244AE8FF3ADDCF139DCE4\[import/export\]
+  https://docs.vmware.com/en/VMware-GemFire/9.15/gf/tools_modules-gfsh-quick_ref_commands_by_area.html\[import/export\]
   data commands.
 
-- https://geode.apache.org/docs/guide/115/managing/cache_snapshots/chapter_overview.html\[Snapshot
+- https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-cache_snapshots-chapter_overview.htmll\[Snapshot
   service\]
 
-- https://geode.apache.org/docs/guide/115/developing/storing_data_on_disk/chapter_overview.html\[Persistence\]
+- hhttps://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-storing_data_on_disk-chapter_overview.html\[Persistence\]
   with
-  https://geode.apache.org/docs/guide/115/managing/disk_storage/chapter_overview.html\[disk
+  https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-disk_storage-chapter_overview.html\[disk
   storage\]
 
 
@@ -62,7 +62,7 @@ Spring Boot’s SQL database initialization, by using:
 
 
 For example, by enabling persistence with disk storage, you could
-https://geode.apache.org/docs/guide/115/managing/disk_storage/backup_restore_disk_store.html\[backup
+https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-disk_storage-backup_restore_disk_store.html\[backup
 and restore\] persistent `DiskStore` files from one cluster to another.
 
 
@@ -80,9 +80,9 @@ exported.
 
 
 Finally, you can use [vmware-gemfire-name] shell (Gfsh) commands to
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/tools_modules/gfsh/command-pages/export.html#topic_263B70069BFC4A7185F86B3272011734\[export
+https://docs.vmware.com/en/VMware-GemFire/9.15/gf/tools_modules-gfsh-command-pages-export.html\[export
 data\] and
-https://geode.apache.org/docs/guide/115/tools_modules/gfsh/command-pages/import.html#topic_jw2_2ld_2l\[import
+https://docs.vmware.com/en/VMware-GemFire/9.15/gf/tools_modules-gfsh-command-pages-import.html\[import
 data\].
 
 
@@ -101,8 +101,8 @@ Tip
 </td>
 <td class="content">[spring-data-gemfire-name]
 contains dedicated support for
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap:region:persistence[persistence]
-and the https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap:snapshot[Snapshot
+[spring-data-gemfire-docs]/#bootstrap:region:persistence[persistence]
+and the [spring-data-gemfire-docs]/#bootstrap:snapshot[Snapshot
 Service].</td>
 </tr>
 </tbody>
@@ -149,9 +149,9 @@ Note
 (the <code>Region</code> instances) that manage your data is with [spring-data-gemfire-name]’s
 annotation-based configuration support for defining cache
 <code>Region</code> instances from your application’s
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-regions[entity
+[spring-data-gemfire-docs]/#bootstrap-annotation-config-regions[entity
 classes] or indirectly from Spring and JSR-107 or JCache
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-caching[caching
+[spring-data-gemfire-docs]/#bootstrap-annotation-config-caching[caching
 annotations].</td>
 </tr>
 </tbody>
@@ -239,7 +239,7 @@ Note
 </td>
 <td class="content"><code>&lt;regionName&gt;</code> refers to the
 lowercase "name" of the <code>Region</code>, as defined by
-https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/Region.html#getName--[<code>Region.getName()</code>].</td>
+https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/Region.html#getName--[<code>Region.getName()</code>].</td>
 </tr>
 </tbody>
 </table>
@@ -459,7 +459,7 @@ class OrdersRepository {
         Object value = this.orders.get(id);
 
         return value instanceof PurchaseOrder ? (PurchaseOrder) value
-            : value instanceof PdxInstance ? ((PdxInstance) value).getObject()
+            : value instanceof PdxInstance ? (PurchaseOrder) ((PdxInstance) value).getObject()
             : null;
     }
 }
@@ -505,9 +505,9 @@ Note
 </td>
 <td class="content">When JSON is imported into a <code>Region</code> as
 PDX, the
-https://geode.apache.org/releases/latest/javadoc/org/apache/geode/pdx/PdxInstance.html#getClassName--[<code>PdxInstance.getClassName()</code>]
+https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/pdx/PdxInstance.html#getClassName--[<code>PdxInstance.getClassName()</code>]
 does not refer to a valid Java class. It is
-https://geode.apache.org/releases/latest/javadoc/org/apache/geode/pdx/JSONFormatter.html#JSON_CLASSNAME[<code>JSONFormatter.JSON_CLASSNAME</code>].
+https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/pdx/JSONFormatter.html#JSON_CLASSNAME[<code>JSONFormatter.JSON_CLASSNAME</code>].
 As a result, <code>Region</code> data access operations, such as
 <code>Region.get(key)</code>, return a <code>PdxInstance</code> and not
 a Java object.</td>
@@ -652,7 +652,7 @@ class Book {
 
     LocalDate publishedDate;
 
-    Sring title;
+    String title;
 
 }
 ```
@@ -1060,7 +1060,7 @@ The primary interface to import data into a `Region` is
 
 
 `CacheDataImporter` is a `@FunctionalInterface` that extends Spring’s
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanPostProcessor.html\[`BeanPostProcessor`\]
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanPostProcessor.html\[`BeanPostProcessor`\]
 interface to trigger the import of data after the `Region` has been
 initialized.
 
@@ -1121,7 +1121,7 @@ is the `CacheDataExporter`.
 
 
 `CacheDataExporter` is a `@FunctionalInterface` that extends Spring’s
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/factory/config/DestructionAwareBeanPostProcessor.html\[`DestructionAwareBeanPostProcessor`\]
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/factory/config/DestructionAwareBeanPostProcessor.html\[`DestructionAwareBeanPostProcessor`\]
 interface to trigger the export of data before the `Region` is
 destroyed.
 
@@ -1252,7 +1252,7 @@ In all cases, [spring-boot-gemfire-name] provides the
 `LifecycleAwareCacheDataImporterExporter` class to wrap your
 `CacheDataImporterExporter` implementation. This class implements
 Spring’s
-https://docs.spring.io/spring/docs/current/javadoc-api/https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/context/SmartLifecycle.html\[`SmartLifecycle`\]
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/SmartLifecycle.html\[`SmartLifecycle`\]
 interface.
 
 
@@ -1350,7 +1350,7 @@ class MyApplicationConfiguration {
 
 Resolving resources used for import and export results in the creation
 of a Spring
-https://docs.spring.io/spring/docs/current/javadoc-api/https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/core/io/Resource.html\[`Resource`\]
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/io/Resource.html\[`Resource`\]
 handle.
 
 
@@ -1393,7 +1393,7 @@ interface ResourceResolver {
 
     Optional<Resource> resolve(String location);
 
-    default Resouce required(String location) {
+    default Resource required(String location) {
         // ...
     }
 }
@@ -1547,7 +1547,7 @@ spring.boot.data.gemfire.cache.data.export.resource.location=...
 
 The properties accept any valid resource string, as specified in the
 Spring
-https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#resources-resourceloader\[documentation\]
+[spring-framework-docs]/core.html#resources-resourceloader\[documentation\]
 (see **Table 10. Resource strings**).
 
 
@@ -1726,7 +1726,7 @@ initialized.</td>
 
 [spring-boot-gemfire-name] also sets the `#regionName` variable in the `EvaluationContext` to
 the name of the `Region`, as determined by
-https://geode.apache.org/releases/latest/javadoc/https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/Region.html#getName--\[`Region.getName()`\],
+https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/Region.html#getName--\[`Region.getName()`\],
 targeted for import and export.
 
 
@@ -1807,7 +1807,7 @@ Spring Boot application process.</td>
 Tip
 </td>
 <td class="content">See the Spring Framework
-https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#expressions[documentation] for more
+[spring-framework-docs]/core.html#expressions[documentation] for more
 information on SpEL.</td>
 </tr>
 </tbody>
@@ -1826,10 +1826,10 @@ information on SpEL.</td>
 
 
 The Spring
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/core/io/Resource.html\[`Resource`\]
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/io/Resource.html\[`Resource`\]
 handle specifies tion of a resource, not how the resource is read or
 written. Even the Spring
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/core/io/ResourceLoader.html\[`ResourceLoader`\],
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/core/io/ResourceLoader.html\[`ResourceLoader`\],
 which is an interface for loading `Resources`, does not specifically
 read or write any content to the `Resource`.
 

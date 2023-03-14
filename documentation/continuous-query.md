@@ -39,12 +39,10 @@ define the criteria for the data of interest and implement a handler
 
 
 
-https://geode.apache.org/docs/guide/115/developing/continuous_querying/chapter_overview.html\[Continuous
-Query (CQ)\] lets you easily define your criteria for the data you need.
+[Continuous Query (CQ)](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-continuous_querying-chapter_overview.html) lets you easily define your criteria for the data you need.
 With CQ, you can express the criteria that match the data you need by
 specifying a query predicate. [vmware-gemfire-name] implements the
-https://geode.apache.org/docs/guide/115/developing/querying_basics/query_basics.html\[Object
-Query Language (OQL)\] for defining and executing queries. OQL resembles
+[Object Query Language (OQL)](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-querying_basics-query_basics.html) for defining and executing queries. OQL resembles
 SQL and supports projections, query predicates, ordering, and
 aggregates. Also, when used in CQs, they execute continuously, firing
 events when the data changes in such ways as to match the criteria
@@ -136,17 +134,17 @@ notified when an eligibility decision is either `APPROVED` or `DENIED`:
 class EligibilityDecisionPostProcessor {
 
     @ContinuousQuery(name = "ApprovedDecisionsHandler",
-        query = "SELECT decisions.*
-                 FROM /EligibilityDecisions decisions
-                 WHERE decisions.getStatus().name().equalsIgnoreCase('APPROVED')")
+        query = "SELECT decisions.* " + 
+                "FROM /EligibilityDecisions decisions " + 
+                "WHERE decisions.getStatus().name().equalsIgnoreCase('APPROVED')")
     public void processApprovedDecisions(CqEvent event) {
         // ...
     }
 
     @ContinuousQuery(name = "DeniedDecisionsHandler",
-        query = "SELECT decisions.*
-                 FROM /EligibilityDecisions decisions
-                 WHERE decisions.getStatus().name().equalsIgnoreCase('DENIED')")
+        query = "SELECT decisions.* " +
+                 "FROM /EligibilityDecisions decisions " +
+                 "WHERE decisions.getStatus().name().equalsIgnoreCase('DENIED')")
     public void processDeniedDecisions(CqEvent event) {
         // ...
     }
@@ -176,7 +174,7 @@ intended function.
 
 
 This is not unlike Spring’s
-https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#jms-annotated\[annotation-driven
+[spring-framework-docs]/integration.html#jms-annotated\[annotation-driven
 listener endpoints\], which are used in (JMS) message listeners and
 handlers, except in [spring-boot-gemfire-name], you need not
 do anything special to enable this functionality. You can declare the

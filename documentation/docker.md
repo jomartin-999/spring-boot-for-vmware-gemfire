@@ -112,7 +112,7 @@ Hub](https://hub.docker.com/r/apachegeode/geode/).
 
 
 
-While [vmware-gemfire-name]'s https://geode.apache.org/docs/guide/115\[official
+While [vmware-gemfire-name]'s https://docs.vmware.com/en/VMware-GemFire/index.html\[official
 documentation\] is less than clear on how to use [vmware-gemfire-name]
 in Docker, we find a bit of relief in the
 {apache-geode-wiki}/How+to+use+[vmware-gemfire-short-name]+on+Docker\[Wiki\]. However, for a
@@ -568,11 +568,11 @@ Example 5. Spring Boot, [vmware-gemfire-name] Docker client application
 @SpringBootApplication
 @EnableClusterAware
 @EnableEntityDefinedRegions(basePackageClasses = Customer.class)
-@UseMemberName("SpringBootApacheGeodeDockerClientCacheApplication")
-public class SpringBootApacheGeodeDockerClientCacheApplication {
+@UseMemberName("SpringBootGemFireDockerClientCacheApplication")
+public class SpringBootGemFireDockerClientCacheApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootApacheGeodeDockerClientCacheApplication.class, args);
+        SpringApplication.run(SpringBootGemFireDockerClientCacheApplication.class, args);
     }
 
     @Bean
@@ -609,7 +609,7 @@ public class SpringBootApacheGeodeDockerClientCacheApplication {
 
         assertThat(cache).isNotNull();
         assertThat(cache.getName())
-            .isEqualTo(SpringBootApacheGeodeDockerClientCacheApplication.class.getSimpleName());
+            .isEqualTo(SpringBootGemFireDockerClientCacheApplication.class.getSimpleName());
         assertThat(cache.getPdxSerializer()).isInstanceOf(MappingPdxSerializer.class);
 
         MappingPdxSerializer serializer = (MappingPdxSerializer) cache.getPdxSerializer();
@@ -802,7 +802,7 @@ Example 8. Application log output
 
 ``` highlight
 /Library/Java/JavaVirtualMachines/jdk1.8.0_241.jdk/Contents/Home/bin/java ...
-    org.springframework.geode.docs.example.app.docker.SpringBootApacheGeodeDockerClientCacheApplication
+    org.springframework.geode.docs.example.app.docker.SpringBootGemFireDockerClientCacheApplication
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \

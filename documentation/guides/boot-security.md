@@ -147,9 +147,9 @@ To demonstrate the proper way to configure a Spring Boot application
 with security, we put together a simple example. The example is made up
 of two main parts:
 
-A client - `BootGeodeSecurityClientApplication`.
+A client - `BootGemFireSecurityClientApplication`.
 
-A server - `BootGeodeSecurityServerApplication`.
+A server - `BootGemFireSecurityServerApplication`.
 
 ### What it Does
 
@@ -170,7 +170,7 @@ succeeding.
 
 ### Classes
 
-#### BootGeodeSecurityClientApplication
+#### BootGemFireSecurityClientApplication
 
 Spring Boot, [vmware-gemfire-name] Client Application
 
@@ -178,13 +178,13 @@ Spring Boot, [vmware-gemfire-name] Client Application
 @SpringBootApplication
 @EnableClusterAware
 @EnableEntityDefinedRegions(basePackageClasses = Customer.class)
-public class BootGeodeSecurityClientApplication {
+public class BootGemFireSecurityClientApplication {
 
     private static final Logger logger = LoggerFactory.getLogger("example.app.security");
 
     public static void main(String[] args) {
 
-        new SpringApplicationBuilder(BootGeodeSecurityClientApplication.class)
+        new SpringApplicationBuilder(BootGemFireSecurityClientApplication.class)
             .web(WebApplicationType.SERVLET)
             .build()
             .run(args);
@@ -241,7 +241,7 @@ relevant <a
 href="../index.html#geode-clientcache-applications">chapter</a> in the
 reference documentation for more details.
 
-#### BootGeodeSecurityServerApplication
+#### BootGemFireSecurityServerApplication
 
 Spring Boot, [vmware-gemfire-name] Server Application
 
@@ -249,11 +249,11 @@ Spring Boot, [vmware-gemfire-name] Server Application
 @SpringBootApplication
 @CacheServerApplication
 @EnableSecurity
-public class BootGeodeSecurityServerApplication {
+public class BootGemFireSecurityServerApplication {
 
     public static void main(String[] args) {
 
-        new SpringApplicationBuilder(BootGeodeSecurityServerApplication.class)
+        new SpringApplicationBuilder(BootGemFireSecurityServerApplication.class)
             .web(WebApplicationType.NONE)
             .build()
             .run(args);
@@ -374,8 +374,8 @@ endpoint at “*/message*” to verify the clients use of SSL.
 
 #### Running Locally
 
-To run the example, first start the `BootGeodeSecurityServerApplication`
-and then run `BootGeodeSecurityClientApplication`.
+To run the example, first start the `BootGemFireSecurityServerApplication`
+and then run `BootGemFireSecurityClientApplication`.
 
 In the terminal you should see the following output:
 
@@ -396,7 +396,7 @@ application is using SSL.
 In order for this sample to work, your [vmware-gemfire-name] \[VMs\] tile
 must be setup to work with TLS. Instructions to enable TLS for the
 [vmware-gemfire-name] \[VMs\] tile can be found
-[here](https://docs.pivotal.io/p-cloud-cache/1-11/prepare-TLS.html).
+[here](https://docs.vmware.com/en/VMware-GemFire-for-Tanzu-Application-Service/1.14/gf-tas/content-tls-enabled-app.html?hWord=N4IghgNiBcIOYFMC2AzAlgJwQAgC5gDsAvAVzwgGcQBfIA).
 
 Once TLS has been enabled, create your service instance with the
 `-c '{"tls":true}'` flag.

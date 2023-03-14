@@ -74,7 +74,7 @@ application’s classpath.
 Tip
 </td>
 <td class="content">You can learn more about [spring-session-gemfire-name] in the
-https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/reference/html5[docs].</td>
+[docs]([spring-session-gemfire-docs]).</td>
 </tr>
 </tbody>
 </table>
@@ -95,7 +95,7 @@ Tip
 </td>
 <td class="content">See the corresponding sample <a
 href="guides/caching-http-session.html">guide</a> and
- https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/caching/http-session[code] to see [spring-session-gemfire-name] in action.</td>
+ [code](https://github.com/gemfire/spring-boot-for-vmware-gemfire/tree/9.15-2.7/spring-gemfire-samples/caching/http-session) to see [spring-session-gemfire-name] in action.</td>
 </tr>
 </tbody>
 </table>
@@ -255,7 +255,7 @@ Example 4. Spring Boot Application `Controller` using `HttpSession`
 @Controller
 class MyApplicationController {
 
-  @GetRequest("...")
+  @GetMapping("...")
   public String processGet(HttpSession session) {
     // interact with HttpSession
   }
@@ -322,8 +322,7 @@ In that case, see the next section.
 
 
 [spring-session-gemfire-name] publishes
-https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/reference/html5/#httpsession-gemfire-configuration-properties\[well-known
-configuration properties\] for each of the various Spring Session
+[well-known configuration properties]([spring-session-gemfire-docs]/#httpsession-gemfire-configuration-properties) for each of the various Spring Session
 configuration options when you use [vmware-gemfire-name] as the (HTTP)
 session state management provider.
 
@@ -342,8 +341,7 @@ using [vmware-gemfire-name].
 In addition to the properties provided in and by [spring-session-gemfire-name], [spring-boot-gemfire-name] also
 recognizes and respects the `spring.session.timeout` property and the
 `server.servlet.session.timeout` property, as discussed
-https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-session.html\[the Spring Boot
-documentation\].
+[the Spring Boot documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-session.html).
 
 
 
@@ -380,7 +378,7 @@ the Spring <code>Environment</code> of your application.</td>
 
 
 [spring-session-gemfire-name] also provides the
-https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/api/org/springframework/session/data/gemfire/config/annotation/web/http/support/SpringSessionGemFireConfigurer.html\[`SpringSessionGemFireConfigurer`\]
+[`SpringSessionGemFireConfigurer`](https://docs.spring.io/spring-session-data-geode/docs/2.5.0/api/org/springframework/session/data/gemfire/config/annotation/web/http/support/SpringSessionGemFireConfigurer.html)
 callback interface, which you can declare in your Spring
 `ApplicationContext` to programmatically control the configuration of
 Spring Session when you use [vmware-gemfire-name].
@@ -400,7 +398,7 @@ overrides them when both are present.
 
 More information on using the `SpringSessionGemFireConfigurer` can be
 found in the
-https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/reference/html5/#httpsession-gemfire-configuration-configurer\[docs\].
+[docs]([spring-session-gemfire-docs]/#httpsession-gemfire-configuration-configurer).
 
 
 
@@ -506,7 +504,7 @@ spring.session.store-type=none
 
 
 Again, see the Spring Boot
-https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-session.html\[documentation\] for
+[documentation](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-session.html) for
 more detail.
 
 
@@ -765,7 +763,7 @@ the individual providers, such as [vmware-gemfire-name].</td>
 Alternatively, you could send the definition for the cache Region from
 your Spring Boot `ClientCache` application to the cluster by using the
 [spring-boot-gemfire-name]
-{spring-boot-data-geode-javadoc}/org/springframework/geode/config/annotation/EnableClusterAware.html\[`@EnableClusterAware`\]
+{spring-boot-gemfire-javadoc}/org/springframework/geode/config/annotation/EnableClusterAware.html\[`@EnableClusterAware`\]
 annotation, which is meta-annotated with [spring-data-gemfire-name]’s
 `@EnableClusterConfiguration` annotation:
 
@@ -814,9 +812,9 @@ class MySpringBootSpringSessionApacheGeodeApplication {
 Tip
 </td>
 <td class="content">See the
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableClusterConfiguration.html[Javadoc]
+[Javadoc]([spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableClusterConfiguration.html)
 on the <code>@EnableClusterConfiguration</code> annotation and the
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-cluster[documentation]
+[documentation]([spring-data-gemfire-docs]/#bootstrap-annotation-config-cluster)
 for more detail.</td>
 </tr>
 </tbody>

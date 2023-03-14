@@ -16,8 +16,8 @@
  the License.
 -->
 
-1.  Spring Framework [Reference Guide](https://docs.spring.io/spring/docs/current/spring-framework-reference) |
-    [Javadoc](https://docs.spring.io/spring/docs/current/javadoc-api\)
+1.  Spring Framework [Reference Guide]([spring-framework-docs]) |
+    [Javadoc]([spring-data-gemfire-javadoc]\)
 
 2.  Spring Boot [Reference Guide](https://docs.spring.io/spring-boot/docs/current/reference/html) |
     [Javadoc](https://docs.spring.io/spring-boot/docs/current/api)
@@ -25,16 +25,13 @@
 3.  Spring Data Commons [Reference Guide](https://docs.spring.io/spring-data/commons/docs/current/reference/html) | [Javadoc](https://docs.spring.io/spring-data/commons/docs/current/api)
 
 4.  [spring-data-gemfire-name]
-    [Reference Guide](https://docs.spring.io/spring-data/geode/docs/current/reference/html) |
-    [Javadoc](https://docs.spring.io/spring/docs/current/javadoc-api)
+    [Reference Guide]([spring-data-gemfire-docs]) |
+    [Javadoc]([spring-data-gemfire-javadoc])
 
 5.  [spring-session-gemfire-name]
-    [Reference Guide](https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/reference/html5) |
-    [Javadoc](https://docs.spring.io/autorepo/docs/spring-session-data-geode-build/2.7.1/api)
+    [Reference Guide]([spring-session-gemfire-docs]) |
+    [Javadoc]([spring-session-gemfire-javadoc])
 
-6.  Spring Test for [vmware-gemfire-name]
-    [README](https://github.com/spring-projects/spring-test-data-geode#spring-test-framework-for-apache-geode%E2%80%94%E2%80%8Bvmware-tanzu-gemfire)
-
-7. [vmware-gemfire-name] [User Guide](https://geode.apache.org/docs/guide/115) |
-    [Javadoc](https://geode.apache.org/releases/latest/javadoc)
+6. [vmware-gemfire-name] [User Guide](https://docs.vmware.com/en/VMware-GemFire/index.html) |
+    [Javadoc](https://gemfire.docs.pivotal.io/apidocs/)
 

@@ -61,7 +61,7 @@ adds a great deal of overhead.
 
 
 Then, along came serialization using [vmware-gemfire-name]'s
-https://geode.apache.org/docs/guide/115/developing/data_serialization/gemfire_pdx_serialization.html\[PDX\]
+[PDX](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-data_serialization-gemfire_pdx_serialization.html)
 format. PDX stands for Portable Data Exchange and achieves four goals:
 
 
@@ -118,9 +118,8 @@ Also, PDX cannot handle field type changes.
 
 
 Furthermore, while [vmware-gemfire-name]'s general
-https://geode.apache.org/docs/guide/115/developing/data_serialization/gemfire_data_serialization.html\[Data
-Serialization\] handles
-https://geode.apache.org/docs/guide/115/developing/delta_propagation/chapter_overview.html\[Deltas\],
+[Data Serialization](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-monitor_tune-performance_controls_data_serialization.html) handles
+[Deltas](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-delta_propagation-chapter_overview.html),
 this is not achievable without de-serializing the object, since it
 involves a method invocation, which defeats one of the key benefits of
 PDX: preserving format to avoid the cost of serialization and
@@ -189,7 +188,7 @@ class EligibilityDecision {
 Note
 </td>
 <td class="content">[vmware-gemfire-name] does
-https://geode.apache.org/docs/guide/115/developing/data_serialization/java_serialization.html[support]
+https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-data_serialization-chapter_overview.html[support]
 the standard Java Serialization format.</td>
 </tr>
 </tbody>
@@ -204,9 +203,9 @@ the standard Java Serialization format.</td>
 
 
 Under-the-hood, [spring-boot-gemfire-name]
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-pdx\[enables\]
+[enables]([spring-data-gemfire-docs]/#bootstrap-annotation-config-pdx)
 and uses [spring-data-gemfire-name]'s
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/mapping/MappingPdxSerializer.html\[`MappingPdxSerializer`\]
+[`MappingPdxSerializer`]([spring-data-gemfire-javadoc]/org/springframework/data/gemfire/mapping/MappingPdxSerializer.html)
 to serialize your application domain objects with PDX.
 
 
@@ -224,7 +223,7 @@ to serialize your application domain objects with PDX.
 Tip
 </td>
 <td class="content">See the [spring-data-gemfire-name]
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#mapping.pdx-serializer[Reference Guide]
+[Reference Guide]([spring-data-gemfire-docs]/#mapping.pdx-serializer)
 for more details on the <code>MappingPdxSerializer</code> class.</td>
 </tr>
 </tbody>
@@ -236,7 +235,7 @@ for more details on the <code>MappingPdxSerializer</code> class.</td>
 
 The `MappingPdxSerializer` class offers several advantages above and
 beyond [vmware-gemfire-name]'s own
-https://geode.apache.org/releases/latest/javadoc/org/apache/geode/pdx/ReflectionBasedAutoSerializer.html\[`ReflectionBasedAutoSerializer`\]
+https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/pdx/ReflectionBasedAutoSerializer.html\[`ReflectionBasedAutoSerializer`\]
 class.
 
 
@@ -254,7 +253,7 @@ class.
 Tip
 </td>
 <td class="content">See [vmware-gemfire-name]'s
-https://geode.apache.org/docs/guide/115/developing/data_serialization/auto_serialization.html[User
+https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-data_serialization-auto_serialization.html[User
 Guide] for more details about the
 <code>ReflectionBasedAutoSerializer</code>.</td>
 </tr>
@@ -276,8 +275,7 @@ capabilities:
   infrastructure and metadata.
 
 - Includes support for both `includes` and `excludes` with first-class
-  https://docs.spring.io/spring-data/geode/docs/current/reference/html/#mapping.pdx-serializer.type-filtering\[type
-  filtering\]. Additionally, you can implement type filters by using
+  [type filtering]([spring-data-gemfire-docs]/#mapping.pdx-serializer.type-filtering). Additionally, you can implement type filters by using
   Java’s `java.util.function.Predicate` interface as opposed to the
   limited regex capabilities provided by [vmware-gemfire-name]'s
   `ReflectionBasedAutoSerializer` class. By default,
@@ -286,22 +284,19 @@ capabilities:
   `com.gemstone.gemfire`.
 
 - Handles
-  https://docs.spring.io/spring-data/geode/docs/current/reference/html/#mapping.pdx-serializer.transient-properties\[transient
-  object fields and properties\] when either Java’s `transient` keyword
+  [transient object fields and properties]([spring-data-gemfire-docs]/#mapping.pdx-serializer.transient-properties) when either Java’s `transient` keyword
   or Spring Data’s `@Transient` annotation is used.
 
 - Handles
-  https://docs.spring.io/spring-data/geode/docs/current/reference/html/#mapping.pdx-serializer.read-only-properties\[read-only
-  object properties\].
+  [read-only object properties]([spring-data-gemfire-docs]/#mapping.pdx-serializer.read-only-properties).
 
 - Automatically determines the identifier of your entities when you
   annotate the appropriate entity field or property with Spring Data’s
-  https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/annotation/Id.html\[`@Id`\]
+  [`@Id`](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/annotation/Id.html)
   annotation.
 
 - Lets additional `o.a.g.pdx.PdxSerializers` be registered to
-  https://docs.spring.io/spring-data/geode/docs/current/reference/html/#mapping.pdx-serializer.custom-serialization\[customize
-  the serialization\] of nested entity/object field and property types.
+  [customize the serialization]([spring-data-gemfire-docs]/#mapping.pdx-serializer.custom-serialization) of nested entity/object field and property types.
 
 
 
@@ -337,17 +332,17 @@ import java.security.Principal;
 
 @SpringBootApplication
 @EnablePdx(serializerBeanName = "myCustomMappingPdxSerializer")
-class SpringBootApacheGeodeClientCacheApplication {
+class SpringBootGemFireClientCacheApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootApacheGeodeClientCacheApplication.class, args);
+        SpringApplication.run(SpringBootGemFireClientCacheApplication.class, args);
     }
 
     @Bean
     MappingPdxSerializer myCustomMappingPdxSerializer() {
 
         MappingPdxSerializer customMappingPdxSerializer =
-            MappingPdxSerializer.newMappginPdxSerializer();
+            MappingPdxSerializer.newMappingPdxSerializer();
 
         customMappingPdxSerializer.setIncludeTypeFilters(
             type -> Principal.class.isAssignableFrom(type));

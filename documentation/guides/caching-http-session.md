@@ -32,7 +32,7 @@ Table of Contents
 
 This guide walks you through building a simple Spring Boot application
 using [Spring Session](https://spring.io/projects/spring-session) backed
-by [[vmware-gemfire-name]](https://geode.apache.org/) to manage HTTP Session
+by [[vmware-gemfire-name]](https://www.vmware.com/products/gemfire.html) to manage HTTP Session
 state.
 
 It is assumed that the reader is familiar with the Spring *programming
@@ -69,11 +69,11 @@ likely be using either the [STOMP](https://stomp.github.io/) or
 [WAMP](https://wamp-proto.org/) protocols.
 
 <tableThe core Spring Framework has <a
-href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#websocket">first-class
+href="[spring-framework-docs]/web.html#websocket">first-class
 support</a> for <em>WebSockets</em> over the STOMP protocol.
 
 Spring Session additionally <a
-href="https://docs.spring.io/spring-session/docs/current/reference/html5/#websocket">supports</a>
+href="https://docs.spring.io/spring-session/reference/guides/boot-websocket.html">supports</a>
 Session State Management for <em>WebSockets</em>.
 
 As mentioned above, it is useful to use the HTTP Session to manage
@@ -132,7 +132,7 @@ Again, the `SessionRepository` interface is the central component of the
 framework enabling any backend data store to be adapted and serve as a
 provider for managing the HTTP Sessions.
 
-This is effectively how [[spring-session-gemfire-name]](https://github.com/spring-projects/spring-session-data-geode)
+This is effectively how [[spring-session-gemfire-name]](https://github.com/gemfire/spring-session-for-vmware-gemfire)
 works.
 
 
@@ -313,10 +313,10 @@ import org.springframework.geode.config.annotation.EnableClusterAware;
 //tag::class[]
 @SpringBootApplication
 @EnableClusterAware
-public class BootGeodeHttpSessionCachingApplication {
+public class BootGemFireHttpSessionCachingApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BootGeodeHttpSessionCachingApplication.class, args);
+        SpringApplication.run(BootGemFireHttpSessionCachingApplication.class, args);
     }
 }
 //end::class[]
@@ -361,12 +361,12 @@ bootstrap an embedded, Apache Tomcat Servlet Container using a derived
 
 Now its time to run the example.
 
-You can run the `BootGeodeHttpSessionCachingApplication` class in your
+You can run the `BootGemFireHttpSessionCachingApplication` class in your
 IDE (e.g. IntelliJ IDEA). Simply create a run profile configuration and
 run it. No additional JVM arguments, System Properties or program
 arguments are required.
 
-Alternatively, you can run the `BootGeodeHttpSessionCachingApplication`
+Alternatively, you can run the `BootGemFireHttpSessionCachingApplication`
 class from the command-line with the `gradlew` command as follows:
 
 Run the example with `gradlew`
@@ -453,27 +453,17 @@ application requirements, therefore is beyond the scope of this guide.
 
 Spring Session is a powerful framework for managing your HTTP Session
 state. Not only does it allow you to plugin different backend data
-management providers (as of this writing):
-
-- [* [vmware-gemfire-name]*](https://github.com/spring-projects/spring-session-data-geode#spring-session-for-apache-geode—​pivotal-gemfire)
-
-- [*Hazelast*](https://spring.io/projects/spring-session)
-
-- [*JDBC*](https://spring.io/projects/spring-session)
-
-- [*MongoDB*](https://spring.io/projects/spring-session-data-mongodb)
-
-- [*Redis*](https://spring.io/projects/spring-session)
+management providers.
 
 Spring Session also allows you to manage different types of Sessions
 depending on the context:
 
-- [*HttpSession*](https://docs.spring.io/spring-session/docs/current/reference/html5/#httpsession)
+- [*HttpSession*](https://docs.spring.io/spring-session/reference/http-session.html)
 
-- [*WebSocket*](https://docs.spring.io/spring-session/docs/current/reference/html5/#websocket)
+- [*WebSocket*](https://docs.spring.io/spring-session/reference/guides/boot-websocket.html)
 
 - [*WebSession*
-  (Reactive)](https://docs.spring.io/spring-session/docs/current/reference/html5#websession)
+  (Reactive)](https://docs.spring.io/spring-session/docs/2.2.x/reference/html/websession.html)
 
 Therefore, it makes it a simple matter to switch providers, or adopt
 additional Session management capabilities as your application

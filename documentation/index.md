@@ -34,12 +34,12 @@ consistent experience whether building and running Spring Boot/[vmware-gemfire-n
 
 This project is a continuation and a logical extension to Spring Data
 for VMware GemFire’s [Annotation-based configuration
-model](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config),
+model]([spring-data-gemfire-docs]/#bootstrap-annotation-config),
 and the goals set forth in that model: *To enable application developers
 to **get up and running** as **quickly**, **reliably**, and as
 **easily** as possible*. In fact, [spring-boot-gemfire-name] builds
 on this very
-[foundation](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config)
+[foundation]([spring-data-gemfire-docs]/#bootstrap-annotation-config)
 cemented in [spring-data-gemfire-name] since the Spring Data Kay
 (2.0) Release Train.
 
@@ -53,7 +53,7 @@ including, but not limited to:
 
 - *Look-Aside, \[Async\] Inline, Near* and *Multi-Site Caching*, by
   using [vmware-gemfire-name] as a caching provider in [Spring’s Cache
-  Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache).
+  Abstraction]([spring-framework-docs]/integration.html#cache).
   For more information, see
   [Caching with [vmware-gemfire-name]](./caching.html).
 
@@ -66,40 +66,40 @@ including, but not limited to:
 
 - *Transactions*, managing application state consistently with [Spring
   Transaction
-  Management](https://docs.spring.io/spring/docs/current/spring-framework-reference/data-access.html#transaction)
+  Management]([spring-framework-docs]/data-access.html#transaction)
   with support for both [Local
-  Cache](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#apis:transaction-management)
+  Cache]([spring-data-gemfire-docs]/#apis:transaction-management)
   and [Global
-  JTA](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#apis:global-transaction-management)
+  JTA]([spring-data-gemfire-docs]/#apis:global-transaction-management)
   Transactions.
 
 - *Distributed Computations*, run with VMware GemFire’s [Function
-  Execution](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-function_exec-chapter_overview.html)
+  Execution](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-function_exec-chapter_overview.html)
   framework and conveniently implemented and executed with [POJO-based,
   annotation support for
-  Functions](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#function-annotations).
+  Functions]([spring-data-gemfire-docs]/#function-annotations).
   For more information, see [Function Implementations & Executions](./functions.md).
 
 - *Continuous Queries*, expressing interests in a stream of events and
   letting applications react to and process changes to data in near
   real-time with VMware GemFire’s [Continuous Query
-  (CQ)](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-continuous_querying-chapter_overview.html).
+  (CQ)](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-continuous_querying-chapter_overview.html?).
   Listeners/Handlers are defined as simple Message-Driven POJOs (MDP)
   with Spring’s [Message Listener
-  Container](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#jms-mdp),
+  Container]([spring-framework-docs]/integration.html#jms-mdp),
   which has been
-  [extended](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#apis:continuous-query)
+  [extended]([spring-data-gemfire-docs]/#apis:continuous-query)
   with its
-  [configurable](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-continuous-queries)
+  [configurable]([spring-data-gemfire-docs]/#bootstrap-annotation-config-continuous-queries)
   CQ support. For more information, see
   [Continuous Query](./continuous-query.md).
 
 - *Data Serialization* using [vmware-gemfire-name]
-  [PDX](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-developing-data_serialization-gemfire_pdx_serialization.html)
+  [PDX](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-data_serialization-gemfire_pdx_serialization.html)
   with first-class
-  [configuration](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-pdx)
+  [configuration]([spring-data-gemfire-docs]/#bootstrap-annotation-config-pdx)
   and
-  [support](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#mapping.pdx-serializer).
+  [support]([spring-data-gemfire-docs]/#mapping.pdx-serializer).
   For more information, see
   [Data Serialization with PDX](./data-serialization.md).
 
@@ -118,17 +118,17 @@ including, but not limited to:
   information, see [Logging](./logging.md).
 
 - *Security*, including
-  [Authentication](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-managing-security-authentication_overview.html)
+  [Authentication](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-security-authentication_overview.html)
   &
-  [Authorization](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-managing-security-authorization_overview.html),
+  [Authorization](https://docs.vmware.com/en/VMware-Smart-Assurance/10.1.0/sm-pub-smarts-security-config-guide-10.1/GUID-B7A9872B-7DE4-4344-A03E-7077A0EE396D.html),
   and Transport Layer Security (TLS) with [vmware-gemfire-name] [Secure Socket
   Layer
-  (SSL)](https://docs.vmware.com/en/VMware-Tanzu-GemFire/9.15/tgf/GUID-managing-security-ssl_overview.html).
+  (SSL)](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-security-ssl_overview.html).
   Once more, [spring-data-gemfire-name] includes first-class support
   for configuring
-  [Auth](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-security)
+  [Auth]([spring-data-gemfire-docs]/#bootstrap-annotation-config-security)
   and
-  [SSL](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-ssl).
+  [SSL]([spring-data-gemfire-docs]/#bootstrap-annotation-config-ssl).
   For more information, see [Security](./security.md).
 
 - *HTTP Session state management*, by including [spring-session-gemfire-name] on your application’s classpath. For more information,
@@ -136,7 +136,7 @@ including, but not limited to:
 
 - *Testing*. Whether you write Unit or Integration Tests for [vmware-gemfire-name] in a Spring context, [spring-boot-gemfire-name] covers all your testing needs with the
   help of
-  [STDG](https://github.com/spring-projects/spring-test-data-geode#spring-test-framework-for-apache-geode—​vmware-tanzu-gemfire).
+  [STDG](https://github.com/gemfire/spring-data-test-for-vmware-gemfire).
 
 
 While [spring-data-gemfire-name] offers a simple, consistent,
@@ -176,7 +176,7 @@ which this project is built.
 
 The story begins with the Spring Framework and the [core technologies
 and
-concepts](https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#spring-core)
+concepts]([spring-framework-docs]/core.html#spring-core)
 built into the Spring container.
 
 
@@ -185,7 +185,7 @@ applications in a Spring context, using Spring’s powerful abstractions
 and highly consistent programming model. This part of the story was
 greatly enhanced in Spring Data Kay, with the [Annotation-based
 configuration
-model](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config).
+model]([spring-data-gemfire-docs]/#bootstrap-annotation-config).
 Though this new configuration approach uses annotations and provides
 sensible defaults, its use is also very explicit and assumes nothing. If
 any part of the configuration is ambiguous, [spring-data-gemfire-name] will fail fast. [spring-data-gemfire-name]
@@ -197,9 +197,9 @@ and highly opinionated “convention over configuration” approach for
 getting the most out of your Spring [vmware-gemfire-name] applications in the
 easiest, quickest, and most reliable way possible. We accomplish this by
 combining [spring-data-gemfire-name]’s [annotation-based
-configuration](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config)
+configuration]([spring-data-gemfire-docs]/#bootstrap-annotation-config)
 with Spring Boot’s
-[auto-configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/#using-boot-auto-configuration)
+[auto-configuration](https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.auto-configuration)
 to get you up and running even faster and more reliably so that you are
 productive from the start.
 
@@ -213,7 +213,7 @@ Finally, we arrive at [spring-boot-gemfire-name].
 
 See the corresponding Sample
 [Guide](guides/getting-started.html) and
-[Code](https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started) to see [spring-boot-gemfire-name] in action.
+[Code](https://github.com/gemfire/spring-boot-for-vmware-gemfire/tree/9.15-2.7/spring-gemfire-samples/intro/getting-started) to see [spring-boot-gemfire-name] in action.
 
 ## Using [spring-boot-gemfire-name]
 
@@ -761,7 +761,7 @@ declared in the `spring-boot-dependencies` Maven POM.
 
 
 See Spring Boot’s documentation on [version
-properties](https://docs.spring.io/spring-boot/docs/current/reference/html/#appendix.dependency-versions.properties).
+properties](https://docs.spring.io/spring-boot/docs/current/reference/html/dependency-versions.html#appendix.dependency-versions.properties).
 
 
 Additional details can be found in the Spring Boot Maven Plugin

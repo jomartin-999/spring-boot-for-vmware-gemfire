@@ -21,32 +21,25 @@ title: Caching with [vmware-gemfire-name]
 One of the easiest, quickest and least invasive ways to start using
 [vmware-gemfire-name] in your Spring Boot applications is to use
 [vmware-gemfire-name] as a
-[caching provider](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache-store-configuration)
-in [Spring’s Cache Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache). [spring-data-gemfire-name]
-[enables](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache-store-configuration-gemfire)
+[caching provider]([spring-framework-docs]/integration.html#cache-store-configuration)
+in [Spring’s Cache Abstraction]([spring-framework-docs]/integration.html#cache). [spring-data-gemfire-name]
+[enables]([spring-framework-docs]/integration.html#cache-store-configuration-gemfire)
 [vmware-gemfire-name] to function as a caching provider in Spring’s
 Cache Abstraction.
 
 See the <em>[spring-data-gemfire-name]
 Reference Guide</em> for more details on the
-[support](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#apis:spring-cache-abstraction)
+[support]([spring-data-gemfire-docs]/#apis:spring-cache-abstraction)
 and
-[configuration](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-caching)
+[configuration]([spring-data-gemfire-docs]/#bootstrap-annotation-config-caching)
 of [vmware-gemfire-name] as a caching provider in Spring’s Cache
 Abstraction.
 
 <p class="note"><strong>Note:</strong>
 Make sure you thoroughly understand the
-[concepts](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache-strategies)
+[concepts]([spring-framework-docs]/integration.html#cache-strategies)
 behind Spring’s Cache Abstraction before you continue.
 </p>
-
-
-See also the relevant section on
-[caching](https://docs.spring.io/spring-boot/docs/current/reference/html/#boot-features-caching) in Spring Boot’s
-reference documentation. Spring Boot even provides auto-configuration
-support for a few of the simple
-[caching providers](https://docs.spring.io/spring-boot/docs/current/reference/html/#_supported_cache_providers).
 
 
 Indeed, caching can be an effective software design pattern to avoid the
@@ -61,17 +54,17 @@ person’s credit score when the person applies for a financial loan.
 If you need the proven power of an enterprise-class caching solution,
 with strong consistency, high availability, low latency, and multi-site
 (WAN) capabilities, then you should consider
-[[vmware-gemfire-name]](https://geode.apache.org/). Alternatively,
+[[vmware-gemfire-name]](https://www.vmware.com/products/gemfire.html). Alternatively,
 VMWare, Inc. offers a commercial solution, built on
 [vmware-gemfire-name], called [vmware-gemfire-name].
 
 Spring’s [declarative, annotation-based
-caching](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache-annotations)
+caching]([spring-framework-docs]/integration.html#cache-annotations)
 makes it simple to get started with caching, which is as easy as annotating your application
 components with the appropriate Spring cache annotations.
 
 Spring’s declarative, annotation-based caching also
-[supports](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache-jsr-107) JSR-107
+[supports]([spring-framework-docs]/integration.html#cache-jsr-107) JSR-107
 JCache annotations.
 
 
@@ -94,7 +87,7 @@ Example 1. Spring application service component applicable to caching
 class FinancialLoanApplicationService {
 
     @Cacheable("EligibilityDecisions")
-    EligibilityDecision processEligibility(Person person, Timespan timespan) {
+    public EligibilityDecision processEligibility(Person person, Timespan timespan) {
         // ...
     }
 }
@@ -135,7 +128,7 @@ serves as the cache. For [vmware-gemfire-name], this means a cache
 
 To configure the necessary Regions that back the caches declared in
 Spring’s cache annotations, use [spring-data-gemfire-name]'s
-[`@EnableCachingDefinedRegions`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableCachingDefinedRegions.html)
+[`@EnableCachingDefinedRegions`]([spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableCachingDefinedRegions.html)
 annotation.
 
 The following listing shows a complete Spring Boot application:
@@ -218,13 +211,13 @@ later release.
 
 See the corresponding sample <a
 href="guides/caching-look-aside.html">guide</a> and
-[code](https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/caching/look-aside) to see Look-aside caching
+[code](https://github.com/gemfire/spring-boot-for-vmware-gemfire/tree/9.15-2.7/spring-gemfire-samples/caching/look-aside) to see Look-aside caching
 with [vmware-gemfire-name] in action.
 
 
 The caching pattern demonstrated in the preceding example is a form of
 [Look-aside
-caching](https://content.pivotal.io/blog/an-introduction-to-look-aside-vs-inline-caching-patterns)
+caching](https://tanzu.vmware.com/content/blog/an-introduction-to-look-aside-vs-inline-caching-patterns)
 (or "*Cache Aside*").
 
 Essentially, the data of interest is searched for in the cache first,
@@ -253,7 +246,7 @@ class CustomerService {
   private final CustomerRepository customerRepository;
 
   @Cacheable("Customers")
-  Customer findByAcccount(Account account) {
+  public Customer findByAcccount(Account account) {
 
     // pre-processing logic here
 
@@ -283,7 +276,7 @@ on — hence the need for caching.
 
 See the corresponding sample <a
 href="guides/caching-near.html">guide</a> and
-[code](https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/caching/near) to see Near caching with
+[code](https://github.com/gemfire/spring-boot-for-vmware-gemfire/tree/9.15-2.7/spring-gemfire-samples/caching/near) to see Near caching with
 [vmware-gemfire-name] in action.
 
 
@@ -329,7 +322,7 @@ class FinancialLoanApplication {
 
 <p class="note"><strong>Note:</strong>
 The default client Region data management policy is
-[<code>ClientRegionShortcut.PROXY</code>](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/client/ClientRegionShortcut.html#PROXY).
+[<code>ClientRegionShortcut.PROXY</code>](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/client/ClientRegionShortcut.html#PROXY).
 As a result, all data access operations are immediately forwarded to the
 server.
 </p>
@@ -337,7 +330,7 @@ server.
 
 See also the [vmware-gemfire-name] documentation
 concerning
-[client/server event distribution](https://geode.apache.org/docs/guide/115/developing/events/how_client_server_distribution_works.html) and, specifically,
+[client/server event distribution](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-events-how_client_server_distribution_works.html) and, specifically,
 “Client Interest Registration on the Server,” which applies when you use client
 <code>CACHING_PROXY</code> Regions to manage state in addition to the
 corresponding server-side Region. This is necessary to receive updates
@@ -364,7 +357,7 @@ becomes available in the external data source.
 
 See the corresponding sample <a
 href="guides/caching-inline.html">guide</a> and
-[code](https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/caching/inline) to see Inline caching with
+[code](https://github.com/gemfire/spring-boot-for-vmware-gemfire/tree/9.15-2.7/spring-gemfire-samples/caching/inline) to see Inline caching with
 [vmware-gemfire-name] in action.
 
 
@@ -375,18 +368,18 @@ data source.
 
 With [vmware-gemfire-name], you can configure the cache (or, to use
 [vmware-gemfire-name] terminology, the Region) with a
-[`CacheLoader`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/CacheLoader.html).
+[`CacheLoader`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/CacheLoader.html).
 A `CacheLoader` is implemented to retrieve missing values from an
 external data source when a cache miss occurs. The external data source
 could be an RDBMS or any other type of data store (for example, another
 NoSQL data store, such as Apache Cassandra, MongoDB, or Neo4j).
 
 See [vmware-gemfire-name]'s User Guide on
-[data loaders](https://geode.apache.org/docs/guide/115/developing/outside_data_sources/how_data_loaders_work.html) for more details.
+[data loaders](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-outside_data_sources-how_data_loaders_work.htm) for more details.
 
 
 Likewise, you can also configure an [vmware-gemfire-name] Region with a
-[`CacheWriter`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/CacheWriter.html).
+[`CacheWriter`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/CacheWriter.html).
 A `CacheWriter` is responsible for writing an entry that has been put
 into the Region to the backend data store, such as an RDBMS. This is
 referred to as a write-through operation, because it is synchronous. If
@@ -396,12 +389,12 @@ store and the [vmware-gemfire-name] Region.
 
 You can also implement Inline caching using
 asynchronous write-behind operations by registering an
-[<code>AsyncEventListener</code>](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/asyncqueue/AsyncEventListener.html)
+[<code>AsyncEventListener</code>](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/asyncqueue/AsyncEventListener.html)
 on an
-[<code>AsyncEventQueue</code>](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/asyncqueue/AsyncEventQueue.html)
+[<code>AsyncEventQueue</code>](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/asyncqueue/AsyncEventQueue.html)
 attached to a server-side Region. See [vmware-gemfire-name]'s User
 Guide for more
-[details](https://geode.apache.org/docs/guide/115/developing/events/implementing_write_behind_event_handler.html).
+[details](https://docs.vmware.com/en/VMware-GemFire/10.0/gf/developing-events-implementing_write_behind_event_handler.html).
 We cover asynchronous write-behind Inline caching in the next
 section.
 
@@ -459,7 +452,7 @@ class FinancialLoanApplicationServer {
     }
 
     @Bean("EligibilityDecisions")
-    PartitionedRegionFactoryBean<Object, Object> eligibilityDecisionsRegion(
+    PartitionedRegionFactoryBean<?, ?> eligibilityDecisionsRegion(
             GemFireCache gemfireCache, CacheLoader eligibilityDecisionLoader,
             CacheWriter eligibilityDecisionWriter) {
 
@@ -496,9 +489,9 @@ class FinancialLoanApplicationServer {
 ```
 
 Then you could implement the
-[`CacheLoader`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/CacheLoader.html)
+[`CacheLoader`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/CacheLoader.html)
 and
-[`CacheWriter`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/CacheWriter.html)
+[`CacheWriter`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/CacheWriter.html)
 interfaces, as appropriate:
 
 Example 6. EligibilityDecisionLoader
@@ -506,7 +499,7 @@ Example 6. EligibilityDecisionLoader
 
 
 ``` highlight
-class EligibilityDecisionLoader implements CacheLoader<?, EligibilityDecision> {
+class EligibilityDecisionLoader implements CacheLoader<Object, EligibilityDecision> {
 
   private final DataSource dataSource;
 
@@ -514,7 +507,7 @@ class EligibilityDecisionLoader implements CacheLoader<?, EligibilityDecision> {
     this.dataSource = dataSource;
   }
 
-  public EligibilityDecision load(LoadHelper<?, EligibilityDecision> helper) {
+  public EligibilityDecision load(LoaderHelper<Object, EligibilityDecision> helper) {
 
     Object key = helper.getKey();
 
@@ -539,7 +532,7 @@ Example 7. EligibilityDecisionWriter
 
 
 ``` highlight
-class EligibilityDecisionWriter implements CacheWriter<?, EligibilityDecision> {
+class EligibilityDecisionWriter implements CacheWriter<Object, EligibilityDecision> {
 
   private final DataSource dataSource;
 
@@ -547,15 +540,15 @@ class EligibilityDecisionWriter implements CacheWriter<?, EligibilityDecision> {
     this.dataSource = dataSource;
   }
 
-  public void beforeCreate(EntryEvent<?, EligiblityDecision> entryEvent) {
+   public void beforeCreate(EntryEvent<Object, EligibilityDecision> event) {
     // Use configured DataSource to save (e.g. INSERT) the entry value into the backend data store
   }
 
-  public void beforeUpdate(EntryEvent<?, EligiblityDecision> entryEvent) {
+  public void beforeUpdate(EntryEvent<Object, EligibilityDecision> event) {
     // Use the configured DataSource to save (e.g. UPDATE or UPSERT) the entry value into the backend data store
   }
 
-  public void beforeDestroy(EntryEvent<?, EligiblityDecision> entryEvent) {
+  public void beforeDestroy(EntryEvent<Object, EligibilityDecision> event) {
     // Use the configured DataSource to delete (i.e. DELETE) the entry value from the backend data store
   }
 
@@ -625,7 +618,7 @@ Example 8. Inline caching configuration using [spring-boot-gemfire-name]
 @EntityScan(basePackageClasses = Customer.class)
 @EnableEntityDefinedRegions(basePackageClasses = Customer.class)
 @EnableJpaRepositories(basePackageClasses = CustomerRepository.class)
-class SpringBootOracleDatabaseApacheGeodeApplication {
+class SpringBootOracleDatabaseGemFireApplication {
 
   @Bean
   InlineCachingRegionConfigurer<Customer, Long> inlineCachingForCustomersRegionConfigurer(
@@ -676,7 +669,7 @@ in a future release.
 
 See the corresponding sample <a
 href="guides/caching-inline-async.html">guide</a> and
-[code](https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/caching/inline-async) to see asynchronous
+[code](https://github.com/gemfire/spring-boot-for-vmware-gemfire/tree/9.15-2.7/spring-gemfire-samples/caching/inline-async) to see asynchronous
 Inline caching with [vmware-gemfire-name] in action.
 
 
@@ -736,7 +729,7 @@ class ExampleAsyncEventListener implements AsyncEventListener {
 
     private final DataSource dataSource;
 
-    ExampleAsyncEventListener(DataSoruce dataSource) {
+    ExampleAsyncEventListener(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -772,7 +765,7 @@ Example 10. Create and Configure an `AsyncEventQueue`
 ``` highlight
 @Configuration
 @PeerCacheApplication
-class GeodeConfiguration {
+class GemFireConfiguration {
 
     @Bean
     DataSource exampleDataSource() {
@@ -817,7 +810,7 @@ configuration, in addition to your `AsyncEventListener` implementation,
 this is a lot of boilerplate code.
 
 See the Javadoc for [spring-data-gemfire-name]’s
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/wan/AsyncEventQueueFactoryBean.html[<code>AsyncEventQueueFactoryBean</code>]
+[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/wan/AsyncEventQueueFactoryBean.html[<code>AsyncEventQueueFactoryBean</code>]
 for more detail on the configuration of the AEQ.
 
 
@@ -844,10 +837,10 @@ Caching
 @EntityScan(basePackageClasses = ExampleEntity.class)
 @EnableJpaRepositories(basePackageClasses = ExampleRepository.class)
 @EnableEntityDefinedRegions(basePackageClasses = ExampleEnity.class)
-class ExampleSpringBootApacheGeodeAsyncInlineCachingApplication {
+class ExampleSpringBootApacheGemFireAsyncInlineCachingApplication {
 
     @Bean
-    AsyncInlineCachingRegionConfigurer asyncInlineCachingRegionConfigurer(
+    AsyncInlineCachingRegionConfigurer<?, ?> asyncInlineCachingRegionConfigurer(
             CrudRepository<ExampleEntity, Long> repository) {
 
         return AsyncInlineCachingRegionConfigurer.create(repository, "Example")
@@ -913,7 +906,7 @@ Example 12. AsyncEventErrorHandler interface definition
 
 ``` highlight
 @FunctionalInterface
-interface AsyncEventErrorHandler implements Function<AsyncEventError, Boolean> { }
+interface AsyncEventErrorHandler extends Function<AsyncEventError, Boolean> { }
 ```
 
 The `AsyncEventError` class encapsulates `AsyncEvent` along with the
@@ -961,7 +954,7 @@ Example 14. Configuring a custom `AsyncEventErrorHandler`
 
 ``` highlight
 @Configuration
-class GeodeConfiguration {
+class GemFireConfiguration {
 
     @Bean
     CustomAsyncEventErrorHandler customAsyncEventErrorHandler() {
@@ -994,7 +987,7 @@ By default, the `RepositoryAsyncEventListener` handles `CREATE`,
 derived from `AsyncEvent.getDeserializedValue()`.
 
 The cache
-[`Operation`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/Operation.html)
+[`Operation`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/Operation.html)
 to `CrudRepository` method is supported by the
 `AsyncEventOperationRepositoryFunction` interface, which implements
 `java.util.function.Function` and is a `@FunctionalInterface`.
@@ -1012,7 +1005,7 @@ Example 15. AsyncEventOperationRepositoryFunction interface definition
 
 ``` highlight
 @FunctionalInterface
-interface AsyncEventOperationRepositoryFunction<T, ID> implements Function<AsyncEvent<ID, T>,  Boolean> {
+interface AsyncEventOperationRepositoryFunction<T, ID> extends Function<AsyncEvent<ID, T>,  Boolean> {
 
     default boolean canProcess(AsyncEvent<ID, T> event) {
         return false;
@@ -1043,7 +1036,7 @@ method is already implemented in terms of
 
 
 For example, you may want to handle
-[`Operation.INVALIDATE`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/Operation.html#INVALIDATE)
+[`Operation.INVALIDATE`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/Operation.html#INVALIDATE)
 cache events as well, deleting the entity from the backend data store by
 invoking the `CrudRepository.delete(entity)` method:
 
@@ -1054,20 +1047,19 @@ Example 16. Handling `AsyncEvent`, `Operation.INVALIDATE`
 ``` highlight
 @Component
 class InvalidateAsyncEventRepositoryFunction
-        extends RepositoryAsyncEventListener.AbstractAsyncEventOperationRepositoryFunction<?, ?> {
+        extends RepositoryAsyncEventListener.AbstractAsyncEventOperationRepositoryFunction<Object, Object> {
 
-    InvalidateAsyncEventRepositoryFunction(RepositoryAsyncEventListener<?, ?> listener) {
+    InvalidateAsyncEventRepositoryFunction(RepositoryAsyncEventListener<Object, Object> listener) {
         super(listener);
     }
 
     @Override
-    public boolean canProcess(AsyncEvent<?, ?> event) {
+    public boolean canProcess(AsyncEvent<Object, Object> event) {
         return event != null && Operation.INVALIDATE.equals(event.getOperation());
     }
 
-
     @Override
-    protected Object doRepositoryOperation(Object entity) {
+    protected Object doRepositoryOp(Object entity) {
         getRepository().delete(entity);
         return null;
     }
@@ -1089,7 +1081,7 @@ Example 17. Configuring a user-defined
 import org.springframework.geode.cache.RepositoryAsyncEventListener;
 
 @Configuration
-class GeodeConfiguration {
+class GemFireConfiguration {
 
     @Bean
     AsyncInlineCachingRegionConfigurer asyncInlineCachingRegionConfigurer(
@@ -1127,7 +1119,7 @@ the essential components that are constructed and configured by the
 (such as `RepositoryAsyncEventListener`), the `AsyncEventQueueFactory`
 and even the `AsyncEventQueue` created by the
 `AsyncInlineCachingRegionConfigurer` (a [spring-data-gemfire-name]
-[`RegionConfigurer`](https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/RegionConfigurer.html))
+[`RegionConfigurer`]([spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/RegionConfigurer.html))
 during Spring `ApplicationContext` bean initialization.
 
 The `AsyncInlineCachingRegionConfigurer` class provides the following
@@ -1175,7 +1167,7 @@ demographic: active-active and active-passive.
 Multi-site caching, along with active-active and active-passive
 configuration arrangements, are described in more detail in the sample
 [guide](guides/caching-multi-site.html). Also, be sure to review the
-sample [code](https://github.com/spring-projects/spring-boot-data-geode/tree/1.7.4/spring-geode-samples/intro/getting-started/caching/multi-site).
+sample [code](https://github.com/gemfire/spring-boot-for-vmware-gemfire/tree/9.15-2.7/spring-gemfire-samples/caching/multi-site).
 
 
 ### Advanced Caching Configuration
@@ -1190,27 +1182,27 @@ JVM Heap.
 
 You can employ several techniques to more effectively manage memory,
 such as using
-[eviction](https://geode.apache.org/docs/guide/115/developing/eviction/chapter_overview.html),
+[eviction](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-eviction-chapter_overview.html),
 possibly
-[overflowing data to disk](https://geode.apache.org/docs/guide/115/developing/storing_data_on_disk/chapter_overview.html), configuring both entry Idle-Timeout\_ (TTI) and
+[overflowing data to disk](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-storing_data_on_disk-chapter_overview.html), configuring both entry Idle-Timeout\_ (TTI) and
 Time-to-Live\_ (TTL)
-[expiration policies](https://geode.apache.org/docs/guide/115/developing/expiration/chapter_overview.html), configuring
-[compression](https://geode.apache.org/docs/guide/115/managing/region_compression.html), and
+[expiration policies](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-expiration-chapter_overview.html), configuring
+[compression](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-region_compression.html), and
 using
-[off-heap](https://geode.apache.org/docs/guide/115/managing/heap_use/off_heap_management.html)
+[off-heap](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-heap_use-off_heap_management.html)
 or main memory.
 
 You can use several other strategies as well, as described in
-[Managing Heap and Off-heap Memory](https://geode.apache.org/docs/guide/115/managing/heap_use/heap_management.html).
+[Managing Heap and Off-heap Memory](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-heap_use-heap_management.html).
 
 While this is beyond the scope of this document, know that [spring-data-gemfire-name] makes all of these
-[configuration options](https://docs.spring.io/spring-data/geode/docs/current/reference/html/#bootstrap-annotation-config-regions) available to you.
+[configuration options]([spring-data-gemfire-docs]/#bootstrap-annotation-config-regions) available to you.
 
 ### Disable Caching
 
 There may be cases where you do not want your Spring Boot application to
 cache application state with
-[Spring’s Cache Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache) using [vmware-gemfire-name]. In certain cases, you may
+[Spring’s Cache Abstraction]([spring-framework-docs]/integration.html#cache) using [vmware-gemfire-name]. In certain cases, you may
 use another Spring supported caching provider, such as Redis, to cache
 and manage your application state. In other cases, you may not want to
 use Spring’s Cache Abstraction at all.

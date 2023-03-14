@@ -62,7 +62,7 @@ even as a JVM System Property (`-Dgemfire.log-level`).
 Tip
 </td>
 <td class="content">See [vmware-gemfire-name]'s
-https://geode.apache.org/docs/guide/115/reference/topics/gemfire_properties.html[documentation]
+[documentation](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/reference-topics-gemfire_properties.html)
 for a complete list of valid <code>Properties</code>, including the
 <code>Properties</code> used to configure logging.</td>
 </tr>
@@ -74,10 +74,9 @@ for a complete list of valid <code>Properties</code>, including the
 
 
 Unfortunately, this also means the [spring-data-gemfire-name]
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/config/annotation/EnableLogging.html\[`@EnableLogging`\]
+[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/config/annotation/EnableLogging.html\[`@EnableLogging`\]
 annotation no longer has any effect on [vmware-gemfire-name] logging
-either. Consequently, it has been
-[deprecated](https://jira.spring.io/browse/DATAGEODE-299). The reason
+either. Consequently, it has been deprecated. The reason
 `@EnableLogging` no longer has any effect on logging is because this
 annotation’s attributes and associated [spring-data-gemfire-name] properties indirectly set the
 corresponding [vmware-gemfire-name] properties, which, again, are
@@ -107,8 +106,8 @@ Example 1. Command-line configuration
 
 
 ``` highlight
-$ java -classpath ...:/path/to/MySpringBootApacheGeodeClientCacheApplication.jar -Dgemfire.log-level=DEBUG
-    example.app.MySpringBootApacheGeodeClientCacheApplication
+$ java -classpath ...:/path/to/MySpringBootGemFireClientCacheApplication.jar -Dgemfire.log-level=DEBUG
+    example.app.MySpringBootGemFireClientCacheApplication
 ```
 
 
@@ -192,7 +191,7 @@ Example 4. Java configuration using [spring-data-gemfire-name]’s `@EnableLoggi
 ``` highlight
 @SpringBootApplication
 @EnableLogging(logLevel = "DEBUG")
-class MySpringBootApacheGeodeClientApplication {
+class MySpringBootGemFireClientApplication {
 
 }
 ```
@@ -1074,7 +1073,7 @@ class LoggingConfiguration {
 
     ConsoleAppender<ILoggingEvent> consoleAppender = new ConsoleAppender<>();
 
-    FileAppender<ILoggingEvent> fileAppender = new FileApender<>();
+    FileAppender<ILoggingEvent> fileAppender = new FileAppender<>();
 
     Appender<ILoggingEvent> compositeAppender = CompositeAppender.compose(consoleAppender, fileAppender);
 
@@ -1114,15 +1113,12 @@ Example 16. Register `CompositeAppender` on "named" `Logger`
 
 
 ``` highlight
-class LoggerConfiguration {
-
-  void registerAppenderOnLogger() {
+void registerAppenderOnLogger() {
 
     Logger namedLogger = LoggerFactory.getLogger("loggerName");
 
     LogbackSupport.toLogbackLogger(namedLogger)
-      .ifPresent(it -> LogbackSupport.addAppender(it, compositeAppender));
-  }
+      .ifPresent(it -> LogbackSupport.addAppender(it, compositeAppender()));
 }
 ```
 

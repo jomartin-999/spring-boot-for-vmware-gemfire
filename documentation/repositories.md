@@ -38,7 +38,7 @@ of those data access operations in a Java interface.
 
 
 [spring-boot-gemfire-name] auto-configures the [spring-data-gemfire-name]
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#gemfire-repositories\[Repository
+[spring-data-gemfire-docs]/#gemfire-repositories\[Repository
 extension\] when either is declared on your application’s classpath. You
 need not do anything special to enable it. You can start coding your
 application-specific Repository interfaces.
@@ -49,7 +49,7 @@ application-specific Repository interfaces.
 
 The following example defines a `Customer` class to model customers and
 map it to the [vmware-gemfire-name] `Customers` Region by using the [spring-data-gemfire-name]
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/data/gemfire/mapping/annotation/Region.html\[`@Region`\]
+[spring-data-gemfire-javadoc]/org/springframework/data/gemfire/mapping/annotation/Region.html\[`@Region`\]
 mapping annotation:
 
 
@@ -156,20 +156,22 @@ package example.app;
 
 @SpringBootApplication
 @EnableEntityDefinedRegions(basePackageClasses = Customer.class)
-class SpringBootApacheGeodeClientCacheApplication {
+class SpringBootGemFireClientCacheApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootApacheGeodeClientCacheApplication.class, args);
+        SpringApplication.run(SpringBootGemFireClientCacheApplication.class, args);
     }
 
     @Bean
     ApplicationRunner runner(CustomerRepository customerRepository) {
 
-        // Matches Williams, Wilson, etc.
-        List<Customer> customers =
-            customerRepository.findByLastNameLikeOrderByLastNameDescFirstNameAsc("Wil%");
+        return args -> {
+            // Matches Williams, Wilson, etc.
+            List<Customer> customers =
+                    customerRepository.findByLastNameLikeOrderByLastNameDescFirstNameAsc("Wil%");
 
-        // process the list of matching customers...
+            // process the list of matching customers...
+        };
     }
 }
 ```
@@ -187,7 +189,7 @@ class SpringBootApacheGeodeClientCacheApplication {
 See Spring Data Commons'
 https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories\[Repositories
 abstraction\] and [spring-data-gemfire-name]'s
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#gemfire-repositories\[Repositories
+[spring-data-gemfire-docs]/#gemfire-repositories\[Repositories
 extension\] for more detail.
 
 

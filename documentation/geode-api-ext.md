@@ -22,7 +22,7 @@ Title: VMware GemFire API Extensions
 
 When using the Spring programming model and abstractions, it should not
 be necessary to use [vmware-gemfire-name]
-https://geode.apache.org/releases/latest/javadoc\[APIs\] at all — for example, when using the
+https://gemfire.docs.pivotal.io/apidocs/\[APIs\] at all — for example, when using the
 Spring Cache Abstraction for caching or the Spring Data Repository
 abstraction for DAO development. There are many more examples.
 
@@ -52,7 +52,7 @@ users inside a Spring context.
 Tip
 </td>
 <td class="content">[spring-data-gemfire-name] also
-https://docs.spring.io/spring-data/geode/docs/current/reference/html/#apis[includes] additional extensions to
+[spring-data-gemfire-docs]/#apis[includes] additional extensions to
 [vmware-gemfire-name]'s APIs.</td>
 </tr>
 </tbody>
@@ -78,9 +78,9 @@ for analysis.
 Typically, you already know the type of cache your application is using,
 since you must declare your application to be either a client
 (`ClientCache`) in the
-https://geode.apache.org/docs/guide/115/topologies_and_comm/cs_configuration/chapter_overview.html\[client/server
+https://docs.vmware.com/en/VMware-GemFire/9.15/gf/topologies_and_comm-cs_configuration-chapter_overview.html\[client/server
 topology\], or a
-https://geode.apache.org/docs/guide/115/topologies_and_comm/p2p_configuration/chapter_overview.html\[peer
+https://docs.vmware.com/en/VMware-GemFire/10.0/gf/topologies_and_comm-p2p_configuration-chapter_overview.html\[peer
 member or node\] (`Cache`) in the cluster on startup. This is expressed
 in configuration when creating the cache instance required to interact
 with the [vmware-gemfire-name] data management system. In most cases,
@@ -139,7 +139,7 @@ However, in cases where your application component or class is not
 managed by Spring and you need a reference to the cache instance at
 runtime, [spring-boot-gemfire-name] provides the abstract
 `org.springframework.geode.cache.SimpleCacheResolver` class (see its
-{spring-boot-data-geode-javadoc}/org/springframework/geode/cache/SimpleCacheResolver.html\[Javadoc\]).
+{spring-boot-gemfire-javadoc}/org/springframework/geode/cache/SimpleCacheResolver.html\[Javadoc\]).
 
 
 
@@ -162,13 +162,13 @@ package org.springframework.geode.cache;
 
 abstract class SimpleCacheResolver {
 
-    <T extends GemFireCache> T require() { }
+    <T extends GemFireCache> T require() {...}
 
-    <T extends GemFireCache> Optional<T> resolve() { }
+    <T extends GemFireCache> Optional<T> resolve() {...}
 
-    Optional<ClientCache> resolveClientCache() { }
+    Optional<ClientCache> resolveClientCache() {...}
 
-    Optional<Cache> resolvePeerCache() { }
+    Optional<Cache> resolvePeerCache() {...}
 
 }
 ```
@@ -218,7 +218,7 @@ throws an `IllegalStateException` if a cache is not present.
 
 Under the hood, `SimpleCacheResolver` delegates some of its functions to
 the
-{spring-boot-data-geode-javadoc}/org/springframework/geode/util/CacheUtils.html\[`CacheUtils`\]
+{spring-boot-gemfire-javadoc}/org/springframework/geode/util/CacheUtils.html\[`CacheUtils`\]
 abstract utility class, which provides additional, convenient
 capabilities when you use a cache.
 
@@ -340,10 +340,7 @@ proxies for all types of cache objects (<code>Cache</code>,
 would know how to obtain a fresh reference on a reconnect event.
 However, this turns out to be more problematic than it is worth. It is
 easier to “refresh” the Spring <code>ApplicationContext</code>, although
-doing so is no less expensive. Neither way is ideal. See <a
-href="https://jira.spring.io/browse/SGF-921">SGF-921</a> and <a
-href="https://jira.spring.io/browse/SGF-227">SGF-227</a> for further
-details.</td>
+doing so is no less expensive. Neither way is ideal.</td>
 </tr>
 </tbody>
 </table>
@@ -354,15 +351,15 @@ details.</td>
 
 In the case where membership events are useful to the Spring Boot
 application, [spring-boot-gemfire-name] provides the following
-{spring-boot-data-geode-javadoc}/org/springframework/geode/distributed/event/package-frame.html\[API\]:
+{spring-boot-gemfire-javadoc}/org/springframework/geode/distributed/event/package-frame.html\[API\]:
 
 
 
 
 
-- {spring-boot-data-geode-javadoc}/org/springframework/geode/distributed/event/MembershipListenerAdapter.html\[`MembershipListenerAdapter`\]
+- {spring-boot-gemfire-javadoc}/org/springframework/geode/distributed/event/MembershipListenerAdapter.html\[`MembershipListenerAdapter`\]
 
-- {spring-boot-data-geode-javadoc}/org/springframework/geode/distributed/event/MembershipEvent.html\[`MembershipEvent`\]
+- {spring-boot-gemfire-javadoc}/org/springframework/geode/distributed/event/MembershipEvent.html\[`MembershipEvent`\]
 
 
 
@@ -386,13 +383,13 @@ specific membership event types that occur within the
 
 
 
-- {spring-boot-data-geode-javadoc}/org/springframework/geode/distributed/event/support/MemberDepartedEvent.html\[`MemberDepartedEvent`\]
+- {spring-boot-gemfire-javadoc}/org/springframework/geode/distributed/event/support/MemberDepartedEvent.html\[`MemberDepartedEvent`\]
 
-- {spring-boot-data-geode-javadoc}/org/springframework/geode/distributed/event/support/MemberJoinedEvent.html\[`MemberJoinedEvent`\]
+- {spring-boot-gemfire-javadoc}/org/springframework/geode/distributed/event/support/MemberJoinedEvent.html\[`MemberJoinedEvent`\]
 
-- {spring-boot-data-geode-javadoc}/org/springframework/geode/distributed/event/support/MemberSuspectEvent.html\[`MemberSuspectEvent`\]
+- {spring-boot-gemfire-javadoc}/org/springframework/geode/distributed/event/support/MemberSuspectEvent.html\[`MemberSuspectEvent`\]
 
-- {spring-boot-data-geode-javadoc}/org/springframework/geode/distributed/event/support/QuorumLostEvent.html\[`QuorumLostEvent`\]
+- {spring-boot-gemfire-javadoc}/org/springframework/geode/distributed/event/support/QuorumLostEvent.html\[`QuorumLostEvent`\]
 
 
 
@@ -416,9 +413,9 @@ The API is depicted in the following UML diagram:
 
 The membership event type is further categorized with an appropriate
 enumerated value,
-{spring-boot-data-geode-javadoc}/org/springframework/geode/distributed/event/MembershipEvent.Type.html\[`MembershipEvent.Type`\],
+{spring-boot-gemfire-javadoc}/org/springframework/geode/distributed/event/MembershipEvent.Type.html\[`MembershipEvent.Type`\],
 as a property of the `MembershipEvent` itself (see
-{spring-boot-data-geode-javadoc}/org/springframework/geode/distributed/event/MembershipEvent.html#getType--\[`getType()`\]).
+{spring-boot-gemfire-javadoc}/org/springframework/geode/distributed/event/MembershipEvent.html#getType--\[`getType()`\]).
 
 
 
@@ -433,7 +430,7 @@ The type hierarchy is useful in `instanceof` expressions, while the
 
 You can see one particular implementation of the
 `MembershipListenerAdapter` with the
-{spring-boot-data-geode-javadoc}/org/springframework/geode/distributed/event/ApplicationContextMembershipListener.html\[`ApplicationContextMembershipListener`\]
+{spring-boot-gemfire-javadoc}/org/springframework/geode/distributed/event/ApplicationContextMembershipListener.html\[`ApplicationContextMembershipListener`\]
 class, which does exactly as we described earlier, handling
 forced-disconnect/auto-reconnect membership events inside a Spring
 container in order to refresh the Spring `ApplicationContext`.
@@ -473,7 +470,7 @@ only available and managed on servers in a cluster.
 
 
 In such cases, [spring-boot-gemfire-name] conveniently provides the
-{spring-boot-data-geode-javadoc}/org/springframework/geode/pdx/PdxInstanceBuilder.html\[`PdxInstanceBuilder`\]
+{spring-boot-gemfire-javadoc}/org/springframework/geode/pdx/PdxInstanceBuilder.html\[`PdxInstanceBuilder`\]
 class, appropriately named after the [Builder software design
 pattern](https://en.wikipedia.org/wiki/Builder_pattern). The
 `PdxInstanceBuilder` also offers a fluent API for constructing
@@ -498,9 +495,9 @@ Example 3. `PdxInstanceBuilder` API
 ``` highlight
 class PdxInstanceBuilder {
 
-    PdxInstanceFactory copy(PdxInstance pdx);
+    PdxInstanceFactory copy(PdxInstance pdx) {...}
 
-    Factory from(Object target);
+    Factory from(Object target) {...}
 
 }
 ```
@@ -540,7 +537,7 @@ class CustomerSerializer {
 
     PdxInstance serialize(Customer customer) {
 
-        return PdxInstanceBuilder.create()
+        return new PdxInstanceBuilder()
             .from(customer)
             .create();
     }
@@ -582,7 +579,7 @@ class CustomerDecorator {
     @Autowired
     CustomerSerializer serializer;
 
-    PdxIntance decorate(Customer customer) {
+    PdxInstance decorate(Customer customer) {
 
         PdxInstance pdxCustomer = serializer.serialize(customer);
 
@@ -611,7 +608,7 @@ class CustomerDecorator {
 
 
 [spring-boot-gemfire-name] also provides the
-{spring-boot-data-geode-javadoc}/org/springframework/geode/pdx/PdxInstanceWrapper.html\[`PdxInstanceWrapper`\]
+{spring-boot-gemfire-javadoc}/org/springframework/geode/pdx/PdxInstanceWrapper.html\[`PdxInstanceWrapper`\]
 class to wrap an existing `PdxInstance` in order to provide more control
 during the conversion from PDX to JSON and from JSON back into a POJO.
 Specifically, the wrapper gives you more control over the configuration
@@ -786,14 +783,14 @@ in the current context.
 
 
 Under the hood, [spring-boot-gemfire-name]’s `ObjectPdxInstanceAdapter` class uses Spring’s
-https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/beans/BeanWrapper.html\[`BeanWrapper`\]
+https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/beans/BeanWrapper.html\[`BeanWrapper`\]
 class along with Java’s introspection and reflection functionality to
 adapt the given `Object` and access it with the full
-https://geode.apache.org/releases/latest/javadoc/org/apache/geode/pdx/PdxInstance.html\[`PdxInstance`\]
+https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/pdx/PdxInstance.html\[`PdxInstance`\]
 API. This includes the use of the
-https://geode.apache.org/releases/latest/javadoc/org/apache/geode/pdx/WritablePdxInstance.html\[`WritablePdxInstance`\]
+https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/pdx/WritablePdxInstance.html\[`WritablePdxInstance`\]
 API, obtained from
-https://geode.apache.org/releases/latest/javadoc/org/apache/geode/pdx/PdxInstance.html#createWriter--\[`PdxInstance.createWriter()`\],
+https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/pdx/PdxInstance.html#createWriter--\[`PdxInstance.createWriter()`\],
 to modify the underlying `Object` as well.
 
 
@@ -814,7 +811,7 @@ the underlying `Object` backing the `PdxInstance` is a POJO.
 The `ObjectPdxInstanceAdapter.getObject()` method returns the wrapped
 `Object` used to construct the `ObjectPdxInstanceAdapter` and is,
 therefore, automatically deserializable, as determined by the
-https://geode.apache.org/releases/latest/javadoc/org/apache/geode/pdx/PdxInstance.html#isDeserializable--\[`PdxInstance.isDeseriable()`\]
+https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/pdx/PdxInstance.html#isDeserializable--\[`PdxInstance.isDeseriable()`\]
 method, which always returns `true`.
 
 
@@ -885,6 +882,8 @@ Example 8. `Customer` class
 
 ``` highlight
 @Region("Customers")
+@AllArgsConstructor
+@NoArgsConstructor
 class Customer {
 
     @Id
@@ -967,7 +966,7 @@ class ObjectPdxInstanceAdapterTest {
 
 For testing purposes, [spring-boot-gemfire-name] provides a test implementation of
 [vmware-gemfire-name]'s
-https://geode.apache.org/releases/latest/javadoc/org/apache/geode/security/SecurityManager.html\[`SecurityManager`\]
+https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/security/SecurityManager.html\[`SecurityManager`\]
 interface, which expects the password to match the username
 (case-sensitive) when authenticating.
 
@@ -983,7 +982,7 @@ By default, all operations are authorized.
 
 To match the expectations of [spring-boot-gemfire-name]’s `TestSecurityManager`, [spring-boot-gemfire-name]
 additionally provides a test implementation of [vmware-gemfire-name]'s
-https://geode.apache.org/releases/latest/javadoc/org/apache/geode/security/AuthInitialize.html\[`AuthInitialize`\]
+https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/security/AuthInitialize.html\[`AuthInitialize`\]
 interface, which supplies matching credentials for both the username and
 password.
 

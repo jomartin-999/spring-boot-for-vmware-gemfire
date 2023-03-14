@@ -38,7 +38,7 @@ Table of Contents
 
 This guide walks you through building a simple Spring Boot application
 using [Spring’s Cache
-Abstraction](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#cache)
+Abstraction]([spring-framework-docs]/integration.html#cache)
 backed by [vmware-gemfire-name] as the caching provider for Near Caching.
 
 It is assumed that the reader is familiar with the Spring *programming
@@ -187,11 +187,11 @@ SpringBootApplication for an [vmware-gemfire-name] `CacheServer`
 @SpringBootApplication
 @CacheServerApplication
 @SuppressWarnings("unused")
-public class BootGeodeNearCachingCacheServerApplication {
+public class BootGemFireNearCachingCacheServerApplication {
 
     public static void main(String[] args) {
 
-        new SpringApplicationBuilder(BootGeodeNearCachingCacheServerApplication.class)
+        new SpringApplicationBuilder(BootGemFireNearCachingCacheServerApplication.class)
             .web(WebApplicationType.NONE)
             .build()
             .run(args);
@@ -212,7 +212,7 @@ public class BootGeodeNearCachingCacheServerApplication {
     }
 
     @Configuration
-    static class GeodeConfiguration {
+    static class GemFireConfiguration {
 
         @Bean("YellowPages")
         public ReplicatedRegionFactoryBean<String, Person> yellowPagesRegion(GemFireCache gemfireCache,
@@ -258,7 +258,7 @@ Server-side Configuration
 
 ``` highlight
     @Configuration
-    static class GeodeConfiguration {
+    static class GemFireConfiguration {
 
         @Bean("YellowPages")
         public ReplicatedRegionFactoryBean<String, Person> yellowPagesRegion(GemFireCache gemfireCache,
@@ -348,10 +348,10 @@ SpringBootApplication for [vmware-gemfire-short-name] `ClientCache`
 
 ``` highlight
 @SpringBootApplication
-public class BootGeodeNearCachingClientCacheApplication {
+public class BootGemFireNearCachingClientCacheApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BootGeodeNearCachingClientCacheApplication.class, args);
+        SpringApplication.run(BootGemFireNearCachingClientCacheApplication.class, args);
     }
 
     @Bean
@@ -388,7 +388,7 @@ Application [vmware-gemfire-short-name] Configuration
 ``` highlight
 @Configuration
 //@EnableCachingDefinedRegions(clientRegionShortcut = ClientRegionShortcut.CACHING_PROXY)
-public class GeodeConfiguration {
+public class GemFireConfiguration {
 
     // TODO: Replace with the [spring-data-gemfire-name] `@EnableCachingDefineRegions annotation declared above (and currently commented out,
     //  because...) once DATAGEODE-219 is resolved. :(
@@ -557,14 +557,14 @@ changed.
 Configuring the client to only receive KEYS minimizes the amount of data
 sent over the network when the client only wants to (perhaps)
 "invalidate" the keyed entriess, e.g. by using
-[`Region.localInvalidate(key:Object)`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/Region.html#localInvalidate-java.lang.Object-).
+[`Region.localInvalidate(key:Object)`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/Region.html#localInvalidate-java.lang.Object-).
 
 In that way, the memory footprint of the clients can also be maintained
 and the client will only lazily fetch the value when needed again.
 
 The <code>RegexInterest</code> constructor
 corresponds to <a
-href="https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/Region.html#registerInterestRegex-java.lang.String-org.apache.geode.cache.InterestResultPolicy-boolean-boolean-">Region.registerInterestRegex(:String,
+href="https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/Region.html#registerInterestRegex-java.lang.String-org.apache.geode.cache.InterestResultPolicy-boolean-boolean-">Region.registerInterestRegex(:String,
 :InterestResultPolicy, :boolean, :boolean)</a>
 
 There is one final bit of configuration on the client-side that we need,
@@ -792,7 +792,7 @@ profile. The "<em>locator-manager</em>" profile can be enabled using the
 property. Additionally, the <code>server</code> profile has been enabled
 as well.
 
-When running the `BootGeodeNearCachingCacheServerApplication` class, you
+When running the `BootGemFireNearCachingCacheServerApplication` class, you
 should see output similar to the following:
 
 Server output
@@ -806,7 +806,7 @@ Server output
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::  (v2.1.7.BUILD-SNAPSHOT)
 
-[info 2019/08/12 13:02:17.328 PDT <main> tid=0x1] Starting BootGeodeNearCachingCacheServerApplication on jblum-mbpro-2.local with PID 13725...
+[info 2019/08/12 13:02:17.328 PDT <main> tid=0x1] Starting BootGemFireNearCachingCacheServerApplication on jblum-mbpro-2.local with PID 13725...
 
 [info 2019/08/12 13:02:17.329 PDT <main> tid=0x1] The following profiles are active: locator-manager,server
 
@@ -818,12 +818,12 @@ Server output
 
 [info 2019/08/12 13:02:20.975 PDT <main> tid=0x1] CacheServer Configuration:   port=40404 max-connections=800 max-threads=0 notify-by-subscription=true socket-buffer-size=32768 maximum-time-between-pings=60000 maximum-message-count=230000 message-time-to-live=180 eviction-policy=none capacity=1 overflow directory=. groups=[] loadProbe=ConnectionCountProbe loadPollInterval=5000 tcpNoDelay=true
 
-[info 2019/08/12 13:02:20.996 PDT <main> tid=0x1] Started BootGeodeNearCachingCacheServerApplication in 4.216 seconds (JVM running for 5.49)
+[info 2019/08/12 13:02:20.996 PDT <main> tid=0x1] Started BootGemFireNearCachingCacheServerApplication in 4.216 seconds (JVM running for 5.49)
 ```
 
 <p class="note"><strong>Note:</strong>
 The Spring Boot Gradle plugin has been configured to
-run the <code>BootGeodeNearCachingClientCacheApplication</code> class,
+run the <code>BootGemFireNearCachingClientCacheApplication</code> class,
 not the server.
 </p>
 

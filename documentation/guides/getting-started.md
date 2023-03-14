@@ -48,10 +48,8 @@ Table of Contents
 
 This guide walks you through building and running a simple Spring Boot,
 [vmware-gemfire-name] `ClientCache` application using the [spring-boot-gemfire-name] framework. Later in this guide, we switch the
-application from [[vmware-gemfire-name]](https://geode.apache.org/) to [Pivotal
-Cloud Cache](https://pivotal.io/pivotal-cloud-cache) and deploy (i.e
-*`push`*) the application up to [*Pivotal
-Platform*](https://pivotal.io/platform).
+application from standalone to on-platform [[vmware-gemfire-name]](https://www.vmware.com/products/gemfire.html) and deploy (i.e
+*`push`*) the application up to [*Tanzu*](https://tanzu.vmware.com/tanzu).
 
 
 Specifically, you will:
@@ -149,7 +147,7 @@ When creating the example app for this guide, we selected:
 
 
 You can use this
-[link](https://start.spring.io/#!platformVersion=%7Bspring-boot-version%7D&groupId=example.app&artifactId=crm&dependencies=geode&input-packageName=example.app.crm)
+[link](https://start.spring.io/#!type=gradle-project&language=java&platformVersion=3.0.5&packaging=jar&jvmVersion=17&groupId=example.app&artifactId=crm&name=demo&description=Demo%20project%20for%20Spring%20Boot&packageName=com.example.demo)
 to get you started. You will most likely need to set the "*Spring Boot*"
 version as well as the "*Package Name*".
 
@@ -778,7 +776,7 @@ The CRM application defines a `Customer` in terms of an identifier (i.e.
 
 Additionally, we map `Customer` objects to the "*/Customers*" Region
 using [spring-data-gemfire-name]’s 
-[`@Region`](https://docs.spring.io/spring-data/geode/docs/current/api/org/springframework/data/gemfire/mapping/annotation/Region.html)
+[`@Region`](https://docs.spring.io/spring-data/gemfire/docs/current/api/org/springframework/data/gemfire/mapping/annotation/Region.html)
 annotation.
 
 
@@ -790,7 +788,7 @@ Additionally, we annotate the `Long id` field with Spring Data’s
 `@org.springframework.data.annotation.Id` annotation. This designates
 the `id` field as the identifier, or in [vmware-gemfire-name]’s case, the "key"
 since a Region is a key/value store. In fact, [vmware-gemfire-name]’s
-[`Region`](https://geode.apache.org/releases/latest/javadoc/org/apache/geode/cache/Region.html)
+[`Region`](https://gemfire.docs.pivotal.io/apidocs/tgf-915/index.html?org/apache/geode/cache/Region.html)
 interface implements the `java.uti.Map` interface making it a `Map` data
 structure.
 
@@ -849,7 +847,7 @@ more details on <a
 href="https://docs.spring.io/spring-data/commons/docs/current/reference/html/#repositories">Working
 with Spring Data Repositories</a> and [spring-data-gemfire-name]’s
  <a
-href="https://docs.spring.io/spring-data/geode/docs/current/reference/html/#gemfire-repositories">extension
+href="[spring-data-gemfire-docs]/#gemfire-repositories">extension
 and implementation</a> of Spring Data Commons Repository
 Abstraction.
 
@@ -1068,7 +1066,7 @@ to define Regions explicitly using Spring *JavaConfig*, like so:
 
 ``` highlight
 @Configuration
-class GeodeConfiguration {
+class GemFireConfiguration {
 
   @Bean("Customers")
   public ClientRegionFactoryBean<Long, Customer> customersRegion(GemFireCache gemfireCache) {
@@ -1834,7 +1832,7 @@ Anytime you need to send data over the network, persist or overflow data
 to disk, your objects need to be serializable.
 
 [spring-boot-gemfire-name] employs [vmware-gemfire-name]’s [PDX
-Serialization](https://geode.apache.org/docs/guide/%7Bapache-geode-doc-version%7D/developing/data_serialization/gemfire_pdx_serialization.html)
+Serialization](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-data_serialization-gemfire_pdx_serialization.html)
 framework so your application entity classes do not need to implement
 `java.io.Serializable`. In other cases, implementing
 `java.io.Serializable` may not even be possible if your application
@@ -1877,7 +1875,7 @@ causes the `toString()` method on the queried object to be called.
 Anytime a method is invoked on the object in the projection, or even
 predicate, of a query, it will cause the object to be deserialized. This
 is also why PDX Serialization and [Delta
-Propagation](https://geode.apache.org/docs/guide/%7Bapache-geode-doc-version%7D/developing/delta_propagation/chapter_overview.html)
+Propagation](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-delta_propagation-how_delta_propagation_works.html)
 do not mix naturally.
 
 <em>Delta Propagation</em> is implemented by calling
@@ -2006,9 +2004,9 @@ assistance provided by [vmware-gemfire-name] or Pivotal Cloud Cache.
 This is why `@EnableClusterAware` will help you be much more productive
 during development. After you are ready to promote the application to
 the next environment, it is a simple matter to
-[export](https://geode.apache.org/docs/guide/%7Bapache-geode-doc-version%7D/tools_modules/gfsh/command-pages/export.html#topic_mdv_jgz_ck)
+[export](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/tools_modules-gfsh-command-pages-export.html)
 the server-side cluster configuration using *Gfsh* and then
-[import](https://geode.apache.org/docs/guide/%7Bapache-geode-doc-version%7D/tools_modules/gfsh/command-pages/import.html#topic_vnv_grz_ck)
+[import](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/tools_modules-gfsh-command-pages-import.html#import-cluster-config)
 that same configuration into another environment.
 
 
@@ -2037,15 +2035,11 @@ Cache* (PCC), in conjunction with *Pivotal Platform*, handles most
 operational concerns.
 
 
-#### Using Pivotal Platform
+#### Using Tanzu Platform
 
 
-To deploy this application to *Pivotal Platform* and use *Pivotal Cloud
-Cache* (PCC), you will need access to a *Pivotal Platform* environment
-(e.g. PWS) with the PCC tile installed.
-
-Please see [Pivotal Web Services](https://run.pivotal.io/) (PWS) website
-for more details on how to get started.
+To deploy this application to *Tanzu Platform* and use *Pivotal Cloud
+Cache* (PCC), you will need access to a PCC instance.
 
 
 <p class="note"><strong>Note:</strong>
@@ -2174,12 +2168,6 @@ server-side.
 
 #### Required Spring Boot Actuator Bits
 
-
-
-As of [vmware-gemfire-name] 1.9, upon which Pivotal Cloud Cache (PCC) 1.8 is
-[based](https://docs.pivotal.io/p-cloud-cache/%7Bpivotal-cloudcache-doc-version%7D/product-snapshot.html),
-[vmware-gemfire-name] requires you to declare Micrometer on the classpath as a
-compile-time dependency.
 
 
 Technically, the Micrometer bits are pulled in by
@@ -2313,7 +2301,7 @@ required to run our application.
 In order to properly package the application for deployment to a managed
 cloud platform environment, such as *Pivotal Platform*, you use the
 [Spring Boot Maven
-Plugin](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#build-tool-plugins-maven-plugin),
+Plugin](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/),
 which was added to the generated project by *Spring Initializer*:
 
 

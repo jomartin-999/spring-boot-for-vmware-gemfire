@@ -33,14 +33,13 @@ for your application. In the future, [spring-boot-gemfire-name] will provide ded
 This guide assumes you are already familiar with Spring Boot and
 [vmware-gemfire-name].
 
-Refer to the <a href="../index.html#actuator">Spring
-Boot Actuator</a> chapter in the reference documentation for more
+Refer to the [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready.html) chapter in the reference documentation for more
 information.
 
 ## Example Application
 
 This guide additionally provides a working
-[example application](https://github.com/spring-projects/spring-boot-data-geode/spring-geode-samples/boot/actuator) to review some of the Actuator Health Endpoints.
+[example application](https://github.com/gemfire/spring-boot-for-vmware-gemfire/tree/9.15-2.7/spring-gemfire-samples/boot/actuator) to review some of the Actuator Health Endpoints.
 
 The example application is a simple Temperature Monitoring Service,
 simulating a real-world, Internet of Things (IOT) Use Case (UC).
@@ -180,7 +179,7 @@ The *Repository* showcases a an example, derived query methods,
 
 To receive temperature change events, we need a class to monitor
 changes. This capability is built on [vmware-gemfire-name]'s
-[Continuous Query (CQ)](https://geode.apache.org/docs/guide/1.15/developing/continuous_querying/chapter_overview.html) functionality.
+[Continuous Query (CQ)](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/developing-continuous_querying-chapter_overview.html) functionality.
 
 
 With [vmware-gemfire-name] you can register an (OQL) Query with the servers in
@@ -298,7 +297,7 @@ public class TemperatureSensor {
 ```
 
 To generate a stream of temperatures, we use Spring’s
-[Scheduling Service](https://docs.spring.io/spring/docs/current/spring-framework-reference/integration.html#scheduling) along with a `Random` stream of `ints` provided via an
+[Scheduling Service](https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#scheduling) along with a `Random` stream of `ints` provided via an
 `Iterator`, as seen in the `readTemperature()` method.
 
 The `readTemperature()` method is then storing the **new**
@@ -330,7 +329,7 @@ We start with an Spring Boot, [vmware-gemfire-name] Server application
 functioning as the temperature sensor (device) using the
 `TemperatureSensor` class:
 
-BootGeodeServerApplication main class
+BootGemFireServerApplication main class
 
 ``` highlight
 @SpringBootApplication
@@ -341,11 +340,11 @@ BootGeodeServerApplication main class
 @EnableStatistics
 @UseGroups("TemperatureSensors")
 @SuppressWarnings("unused")
-public class BootGeodeServerApplication {
+public class BootGemFireServerApplication {
 
     public static void main(String[] args) {
 
-        new SpringApplicationBuilder(BootGeodeServerApplication.class)
+        new SpringApplicationBuilder(BootGemFireServerApplication.class)
             .web(WebApplicationType.SERVLET)
             .build()
             .run(args);
@@ -442,7 +441,7 @@ Spring Boot is one of the easier ways.
 Next, we need a client functioning as the "monitor" in our Temperature
 Service application.
 
-BootGeodeClientApplication main class
+BootGemFireClientApplication main class
 
 ``` highlight
 @SpringBootApplication
@@ -451,11 +450,11 @@ BootGeodeClientApplication main class
 @UseGroups("TemperatureMonitors")
 @UseMemberName("TemperatureMonitoringService")
 @SuppressWarnings("unused")
-public class BootGeodeClientApplication {
+public class BootGemFireClientApplication {
 
     public static void main(String[] args) {
 
-        new SpringApplicationBuilder(BootGeodeClientApplication.class)
+        new SpringApplicationBuilder(BootGemFireClientApplication.class)
             .web(WebApplicationType.SERVLET)
             .build()
             .run(args);
@@ -507,7 +506,7 @@ First, we need to start the server.
 
 You can run the server from your IDE (e.g. IntelliJ IDEA) by creating a
 run profile configuration for the
-`example.app.temp.geode.server.BootGeodeServerApplication` class. Make
+`example.app.temp.geode.server.BootGemFireServerApplication` class. Make
 sure to set the JVM argument to activate the "*server*" Spring Profile:
 `-Dspring.profiles.active=server`.
 
@@ -559,7 +558,7 @@ Run the server
 
 ``` highlight
 /Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/bin/java -server -ea -Dspring.profiles.active=server
-  ... example.app.temp.geode.server.BootGeodeServerApplication
+  ... example.app.temp.geode.server.BootGemFireServerApplication
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -586,7 +585,7 @@ from the command-line using `gradlew`.
 
 To run the client in your IDE (e.g. IntelliJ IDEA) then create a run
 profile configuration for the
-`example.app.temp.geode.client.BootGeodeClientApplication` and set the
+`example.app.temp.geode.client.BootGemFireClientApplication` and set the
 JVM argument to activate the "*client*" Spring Profile:
 \`-Dspring.profiles.active=client".
 
@@ -608,7 +607,7 @@ Run the client
 
 ``` highlight
 /Library/Java/JavaVirtualMachines/jdk1.8.0_192.jdk/Contents/Home/bin/java -server -ea -Dspring.profiles.active=client
-  ... example.app.temp.geode.client.BootGeodeClientApplication
+  ... example.app.temp.geode.client.BootGemFireClientApplication
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -734,5 +733,5 @@ You are encouraged to read more about
 functionality.
 
 Additionally, you can find out more about [vmware-gemfire-name] Statistics in the
-[User Guide](https://geode.apache.org/docs/guide/1.15/managing/statistics/chapter_overview.html).
+[User Guide](https://docs.vmware.com/en/VMware-GemFire/9.15/gf/managing-statistics-chapter_overview.html?hWord=N4IghgNiBcIOYFMC2AzAlgJwQAgM4Bcx80C0BjXEAXyA).
 
