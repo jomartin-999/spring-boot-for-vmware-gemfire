@@ -20,7 +20,7 @@ dependencies {
   implementation "org.springframework:spring-jcl:5.3.26"
   api "org.springframework.boot:spring-boot-starter:$springBootVersion"
 
-  api "com.vmware.gemfire:spring-data-2.6-gemfire-$gemfireBaseVersion:$springDataTanzuGemFireVersion"
+  api "com.vmware.gemfire:spring-data-2.6-gemfire-$gemfireBaseVersion:$springDataGemFireVersion"
 
   compileOnly "com.google.code.findbugs:jsr305"
 
