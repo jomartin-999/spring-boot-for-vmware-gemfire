@@ -43,7 +43,7 @@ dependencies {
   testImplementation "org.projectlombok:lombok"
   testImplementation "org.springframework.boot:spring-boot-starter-test"
   testImplementation "org.springframework.boot:spring-boot-starter-web"
-  testImplementation "com.vmware.gemfire:spring-test-gemfire-9.15-2.6:1.0.0-build.6"
+  testImplementation "com.vmware.gemfire:spring-test-gemfire-9.15-2.6:$springTestGemFireVersion"
   testImplementation "edu.umd.cs.mtc:multithreadedtc"
   testImplementation "com.vmware.gemfire:geode-http-service:${gemfireVersion}"
   testImplementation "com.vmware.gemfire:geode-web:${gemfireVersion}"
