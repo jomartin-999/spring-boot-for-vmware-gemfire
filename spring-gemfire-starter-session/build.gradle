@@ -31,19 +31,6 @@ sourceSets {
     }
 }
 
-task cleanSpringTestClasses(type:Exec)
-{
-    commandLine 'rm', '-rf', "${project.projectDir}/src/sbdg-test-read-only"
-}
-
-clean{
-    dependsOn("cleanSpringTestClasses")
-}
-
-test{
-    dependsOn(":spring-gemfire-starter:test")
-}
-
 repositories {
   def additionalMavenRepoURLs = project.ext.get('additionalMavenRepoURLs')
   if (!additionalMavenRepoURLs.isEmpty() && !additionalMavenRepoURLs.isBlank()) {
