@@ -34,8 +34,8 @@ class DependencySetPlugin implements Plugin<Project> {
 	void apply(Project project) {
 
 		project.ext.jstlDependencies = [
-			"jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api",
-			"org.glassfish.web:jakarta.servlet.jsp.jstl"
+			"javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api",
+			"org.glassfish.web:javax.servlet.jsp.jstl"
 		]
 
 		project.ext.seleniumDependencies = [
