@@ -12,6 +12,7 @@ import java.util.Objects;
 import java.util.function.Predicate;
 
 import org.apache.tomcat.jakartaee.EESpecProfile;
+import org.apache.tomcat.jakartaee.EESpecProfiles;
 import org.apache.tomcat.jakartaee.Migration;
 
 /**
@@ -61,7 +62,7 @@ public class JakartaEEMigrationService {
 
 				migration.setSource(resolvedWarFile.toFile());
 				migration.setDestination(migratedWarFile);
-				migration.setEESpecProfile(EESpecProfile.EE);
+				migration.setEESpecProfile(EESpecProfiles.EE);
 				migration.execute();
 			}
 			catch (IOException cause) {
