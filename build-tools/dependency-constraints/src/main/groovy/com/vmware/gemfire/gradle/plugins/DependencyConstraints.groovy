@@ -28,7 +28,6 @@ class DependencyConstraints {
     depVersionMapping.put("springFrameworkVersion", "6.0.7")
     depVersionMapping.put("springSecurityVersion", "6.0.2")
     depVersionMapping.put("testcontainersVersion", "1.17.6")
-    depVersionMapping.put("springTestGemFire", "1.0.0")
 
     return depVersionMapping
   }
@@ -54,7 +53,6 @@ class DependencyConstraints {
         api(group: 'org.springframework.security', name: 'spring-security-core', version: get('springSecurityVersion'))
         api(group: 'org.springframework.security', name: 'spring-security-web', version: get('springSecurityVersion'))
         api(group: 'org.testcontainers', name: 'testcontainers', version: get('testcontainersVersion'))
-        api(group: 'com.vmware.gemfire', name: 'spring-test-gemfire-10.0-3.0', version: get("springTestGemFire"))
         api(group: 'com.vmware.gemfire', name: 'gemfire-web', version: get("gemfireVersion"))
       }
 
