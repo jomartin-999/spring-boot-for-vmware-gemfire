@@ -1,6 +1,6 @@
 plugins {
   id 'java-library'
-  id "io.freefair.lombok" version "6.5.1"
+  id "io.freefair.lombok" version "8.0.1"
   id 'dependency-constraints'
   id 'gemfire-repo-artifact-publishing'
   id 'spring-java-jar'
@@ -26,8 +26,8 @@ dependencies {
 
   runtimeOnly "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
 
-  implementation 'com.fasterxml.jackson.core:jackson-annotations:2.14.1'
-  implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.1'
+  implementation 'com.fasterxml.jackson.core:jackson-annotations:2.14.2'
+  implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
 
   compileOnly "com.vmware.gemfire:gemfire-server-all:$gemfireVersion"
 
