@@ -19,7 +19,7 @@ dependencies {
   api "org.springframework:spring-context-support"
   api "org.springframework:spring-jcl"
   api "org.springframework.boot:spring-boot-starter"
-  api "com.vmware.gemfire:spring-data-3.0-gemfire-${gemfireBaseVersion}:${springDataTanzuGemFireVersion}"
+  api "com.vmware.gemfire:spring-data-3.0-gemfire-${gemfireBaseVersion}:${springDataGemFireVersion}"
 
   compileOnly "com.google.code.findbugs:jsr305:$findbugsVersion"
 
