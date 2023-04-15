@@ -838,8 +838,6 @@ explicitly named by using the <code>name</code> attribute or the
 
 <div id="footer-text">
 
-Last updated 2022-10-10 12:13:06 -0700
-
 
 
 

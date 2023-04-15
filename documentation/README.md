@@ -1,7 +1,5 @@
 # [spring-boot-gemfire-name] documentation
 
-[Last updated 10/31/2022]
-
 Converted October 2022 from [spring-boot-gemfire-name] asciidoc sources.
 
 At the time of first checkin:

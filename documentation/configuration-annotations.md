@@ -237,7 +237,7 @@ by [spring-boot-gemfire-name] when the classes are triggered, is no small feat. 
 should come as no surprise to learn that the security auto-configuration
 classes in [spring-boot-gemfire-name] must be triggered before the `ClientCache`
 auto-configuration class, which is why a `ClientCache` instance cannot
-“auto” authenticate properly in PCC when the `@ClientCacheApplication`
+“auto” authenticate properly in [vmware-gemfire-name] for TAS when the `@ClientCacheApplication`
 is explicitly declared without some assistance. In other words you must
 also explicitly declare the `@EnableSecurity` annotation in this case,
 since you overrode the auto-configuration of the cache, and implicitly

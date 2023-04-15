@@ -204,8 +204,5 @@ extension\] for more detail.
 
 <div id="footer-text">
 
-Last updated 2022-10-10 12:13:15 -0700
-
-
 
 

@@ -35,7 +35,7 @@
     *   [[vmware-gemfire-name] API Extensions](/spring-boot/geode-api-ext.html)
     *   [Spring Boot Actuator](/spring-boot/actuator.html)
     *   [Spring Session](/spring-boot/session.html)
-    *   [[vmware-gemfire-name] for VMs](/spring-boot/cloudfoundry.html)
+    *   [[vmware-gemfire-name] for TAS](/spring-boot/TAS.html)
     *   [Docker](/spring-boot/docker.html)
     *   [Samples](/spring-boot/samples.html)
     *   [Appendices](/spring-boot/appendices.html)

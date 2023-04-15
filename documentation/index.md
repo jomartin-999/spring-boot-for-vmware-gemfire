@@ -134,11 +134,6 @@ including, but not limited to:
 - *HTTP Session state management*, by including [spring-session-gemfire-name] on your application’s classpath. For more information,
   see [Spring Session](./session.md).
 
-- *Testing*. Whether you write Unit or Integration Tests for [vmware-gemfire-name] in a Spring context, [spring-boot-gemfire-name] covers all your testing needs with the
-  help of
-  [STDG](https://github.com/gemfire/spring-data-test-for-vmware-gemfire).
-
-
 While [spring-data-gemfire-name] offers a simple, consistent,
 convenient and declarative approach to configure all these powerful
 [vmware-gemfire-name] features, [spring-boot-gemfire-name] makes it even
@@ -153,7 +148,7 @@ of this project center around two key principles:
 
 
 1. From ***Non-Managed*** (self-managed/self-hosted or on-premise
-    installations) to ***Managed*** ([vmware-gemfire-name] for VMs,
+    installations) to ***Managed*** ([vmware-gemfire-name] for TAS,
    [vmware-gemfire-name] for K8S) environments.
 
 2. With **little to no code or configuration changes** necessary.
@@ -262,9 +257,7 @@ Your application use case may require more than one module if (for
 example, you need (HTTP) Session state management and replication with,
 for example, `spring-geode-starter-session`), if you need to enable
 Spring Boot Actuator endpoints for [vmware-gemfire-name] (for example,
-`spring-geode-starter-actuator`), or if you need assistance writing
-complex Unit and (Distributed) Integration Tests with Spring Test for
-[vmware-gemfire-name] (STDG) (for example, `spring-geode-starter-test`).
+`spring-geode-starter-actuator`).
 
 
 You can declare and use any one of the [spring-boot-gemfire-name] modules:
@@ -524,12 +517,6 @@ class="tableblock halign-left valign-top"><p>2.7.3</p></td>
 <td class="tableblock halign-left valign-top"><p>[spring-session-gemfire-name]</p></td>
 <td
 class="tableblock halign-left valign-top"><p>2.7.1</p></td>
-</tr>
-<tr class="odd">
-<td class="tableblock halign-left valign-top"><p>Spring Test for [vmware-gemfire-name]</p></td>
-<td
-class="tableblock halign-left valign-top"><p>0.3.1-RAJ</p></td>
-</tr>
 </tbody>
 </table>
 

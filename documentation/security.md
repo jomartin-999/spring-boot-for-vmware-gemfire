@@ -341,19 +341,19 @@ spring.data.gemfire.security.password = p@55w0rd
 
 
 Enabling auth for clients that connect to a {pivotal-cloudcache-name}
-service instance (PCC) in Tanzu Application Service (PCF) is even
+service instance in Tanzu Application Service (TAS) is even
 easier: You need do nothing.
 
 
 
 
 
-If your Spring Boot application uses [spring-boot-gemfire-name] and is bound to PCC, when you
-deploy (that is, `cf push`) your application to PCF, [spring-boot-gemfire-name] extracts the required auth credentials from the
-environment that you set up when you provisioned a PCC service instance
-in your PCF organization and space. PCC automatically assigns two users
+If your Spring Boot application uses [spring-boot-gemfire-name] and is bound to [vmware-gemfire-name] for TAS, when you
+deploy (that is, `cf push`) your application to TAS, [spring-boot-gemfire-name] extracts the required auth credentials from the
+environment that you set up when you provisioned a [vmware-gemfire-name] for TAS service instance
+in your TAS organization and space. [vmware-gemfire-name] for TAS automatically assigns two users
 with roles of `cluster_operator` and `developer`, respectively, to any
-Spring Boot application bound to the PCC service instance.
+Spring Boot application bound to the [vmware-gemfire-name] for TAS service instance.
 
 
 
@@ -363,8 +363,8 @@ By default, [spring-boot-gemfire-name] auto-configures your Spring Boot applicat
 with the user that has the `cluster_operator` role. This ensures that
 your Spring Boot application has the necessary permission
 (authorization) to perform all data access operations on the servers in
-the PCC cluster, including, for example, pushing configuration metadata
-from the client to the servers in the PCC cluster.
+the [vmware-gemfire-name] for TAS cluster, including, for example, pushing configuration metadata
+from the client to the servers in the [vmware-gemfire-name] for TAS cluster.
 
 
 
@@ -372,22 +372,22 @@ from the client to the servers in the PCC cluster.
 
 See the [Running Spring Boot applications as a specific
 user](#cloudfoundry-cloudcache-security-auth-runtime-user-configuration)
-section in the [Pivotal CloudFoundry](#cloudfoundry) chapter for
+section in the [Tanzu Application Service](#TAS) chapter for
 additional details on user authentication and authorization.
 
 
 
 
 
-See the [chapter](#cloudfoundry) (titled “Pivotal CloudFoundry”) for
+See the [chapter](#TAS) (titled “Tanzu Application Service”) for
 more general details.
 
 
 
 
 
-See the {pivotal-cloudcache-docs}/security.html\[Pivotal Cloud Cache
-documentation\] for security details when you use PCC and PCF.
+See the {pivotal-cloudcache-docs}/security.html\[[vmware-gemfire-name] for TAS
+documentation\] for security details when you use [vmware-gemfire-name] for TAS and TAS.
 
 
 
@@ -670,8 +670,6 @@ Encryption](https://aws.amazon.com/blogs/security/how-to-protect-data-at-rest-wi
 <div id="footer">
 
 <div id="footer-text">
-
-Last updated 2022-10-10 12:14:24 -0700
 
 
 

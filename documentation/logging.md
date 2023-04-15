@@ -1355,8 +1355,5 @@ code as well as in your tests.
 
 <div id="footer-text">
 
-Last updated 2022-10-10 12:14:14 -0700
-
-
 
 

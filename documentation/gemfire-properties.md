@@ -870,8 +870,6 @@ href="#geode-configuration-metadata-springdata">Appendix</a>.</td>
 
 <div id="footer-text">
 
-Last updated 2022-10-10 12:12:34 -0700
-
 
 
 

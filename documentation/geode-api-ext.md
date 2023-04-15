@@ -1000,8 +1000,6 @@ password.
 
 <div id="footer-text">
 
-Last updated 2022-10-10 12:14:46 -0700
-
 
 
 

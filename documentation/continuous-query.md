@@ -193,8 +193,6 @@ things.
 
 <div id="footer-text">
 
-Last updated 2022-10-10 12:13:35 -0700
-
 
 
 

@@ -335,8 +335,6 @@ client.</td>
 
 <div id="footer-text">
 
-Last updated 2022-10-10 12:13:25 -0700
-
 
 
 

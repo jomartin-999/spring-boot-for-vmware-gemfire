@@ -685,7 +685,7 @@ spring.data.gemfire.security.password=r0b!n5ucks
 
 <p class="note"><strong>Note:</strong>
 Authentication is even easier to configure in a
-managed environment, such as PCF when using PCC. You need not do
+managed environment, such as TAS when using [vmware-gemfire-name] for TAS. You need not do
 anything.
 </p>
 

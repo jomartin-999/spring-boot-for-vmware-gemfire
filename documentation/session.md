@@ -559,7 +559,7 @@ these property values (that is, either <code>gemfire</code> or
 
 
 
-### Using Spring Session with {pivotal-cloudcache-name} (PCC)
+### Using Spring Session with {pivotal-cloudcache-name}
 
 
 
@@ -862,7 +862,7 @@ gfsh> alter region --name=MySessions --entry-idle-time-expiration=1800
 Now your Spring Boot `ClientCache` application that uses Spring Session
 in a client/server topology is configured to store and manage user
 (HTTP) session state in the cluster. This works for either standalone,
-externally managed [vmware-gemfire-name] clusters or when you use PCC
+externally managed [vmware-gemfire-name] clusters or when you use [vmware-gemfire-name] for TAS
 running in a Tanzu Application Service environment.
 
 
@@ -878,8 +878,6 @@ running in a Tanzu Application Service environment.
 <div id="footer">
 
 <div id="footer-text">
-
-Last updated 2022-10-10 12:15:09 -0700
 
 
 

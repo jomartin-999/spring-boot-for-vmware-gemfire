@@ -1040,7 +1040,7 @@ classpath and exports JSON to the filesystem.
 
 
 However, not all environments expose a filesystem, such as cloud
-environments like PCF. Therefore, giving users control over each aspect
+environments like TAS. Therefore, giving users control over each aspect
 of the import and export processes is essential for performing the
 functions in any environment.
 
@@ -1998,8 +1998,6 @@ class MyApplicationConfiguration {
 <div id="footer">
 
 <div id="footer-text">
-
-Last updated 2022-10-10 12:13:53 -0700
 
 
 

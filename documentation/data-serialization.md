@@ -393,9 +393,3 @@ above, you must do this.</td>
 <div id="footer">
 
 <div id="footer-text">
-
-Last updated 2022-10-10 12:14:04 -0700
-
-
-
-

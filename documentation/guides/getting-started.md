@@ -1,4 +1,4 @@
-# Getting Started Quickly, Easily and Reliably with [spring-boot-gemfire-name] & Pivotal Cloud Cache
+# Getting Started Quickly, Easily and Reliably with [spring-boot-gemfire-name] & [vmware-gemfire-name] for TAS
 
 <!-- 
  Copyright (c) VMware, Inc. 2022. All rights reserved.
@@ -71,8 +71,8 @@ Specifically, you will:
     [Client/Server](#spring-geode-samples-getting-started-run-app-clientserver)
     topic.
 
-4.  And finally, we deploy the application to *Pivotal Platform* and
-    bind our application to a provisioned *Pivotal Cloud Cache* (PCC)
+4.  And finally, we deploy the application to *Tanzu Application Service* and
+    bind our application to a provisioned *[vmware-gemfire-name] for TAS*
     service instance. Goto the [Cloud
     Platform](#spring-geode-samples-getting-started-run-app-cloudplatform)
     topic.
@@ -88,16 +88,15 @@ configuration* changes. It should just work!
 <p class="note">
 <strong>Note:</strong>
 It is also possible to migrate from a Commercial,
-Managed environment (running in <em>Pivotal Platform</em> using
-<em>Pivotal Cloud Cache</em> (PCC)) back to an Open Source, Non-Managed
+Managed environment (running in <em>Tanzu Application Service</em> using
+<em>[vmware-gemfire-name] for TAS</em>) back to an Open Source, Non-Managed
 environment (i.e. running with an externally managed [vmware-gemfire-name]
 cluster).
 </p>
 
 By the end of this guide, you should feel comfortable and ready to begin
 building Spring Boot applications using either [vmware-gemfire-name] standalone
-or by deploying and running in *Pivotal Platform* using *Pivotal Cloud
-Cache* (PCC).
+or by deploying and running in *Tanzu Application Service* using *VMware GemFire for TAS*.
 
 
 Let’s begin!
@@ -1411,8 +1410,8 @@ application running locally inside our IDE, we want to expand on this
 bit and switch to a client/server topology.
 
 Although we are not quite ready to move to a managed cloud platform
-environment, like *Pivotal Platform* (formerly known as *Pivotal
-CloudFoundry*) using *Pivotal Cloud Cache* (PCC), we no longer want to
+environment, like *Tanzu Application Service* (formerly known as *Pivotal
+CloudFoundry*) using *[vmware-gemfire-name] for TAS*, we no longer want to
 maintain the data locally.
 
 Without persistence, we would lose all our data if the client
@@ -1998,7 +1997,7 @@ gfsh> create region --name=Example --type=PARTITION ...
 While this can be scripted and the script can be checked into source
 control (a definitive plus) the same as the application code, you sill
 need to create matching Regions on the client, for which there is no
-assistance provided by [vmware-gemfire-name] or Pivotal Cloud Cache.
+assistance provided by [vmware-gemfire-name] or [vmware-gemfire-name] for TAS.
 
 
 This is why `@EnableClusterAware` will help you be much more productive
@@ -2022,38 +2021,27 @@ Again, this is highly recommended in practice.
 
 Now that we have built and ran our application locally as well as in a
 client/server topology, we are ready to push the application to a
-managed cloud platform environment, like *Pivotal Platform* using
-*Pivotal Cloud Cache* (PCC).
+managed cloud platform environment, like *Tanzu Application Service* using
+*[vmware-gemfire-name] for TAS*.
 
 
 This is the final step in our journey to the cloud and [spring-boot-gemfire-name] makes this a
 non-event!
 
 
-While [spring-boot-gemfire-name] handles most application development concerns, *Pivotal Cloud
-Cache* (PCC), in conjunction with *Pivotal Platform*, handles most
+While [spring-boot-gemfire-name] handles most application development concerns, *VMware GemFire for TAS*, in conjunction with *Tanzu Application Service*, handles most
 operational concerns.
 
 
 #### Using Tanzu Platform
 
 
-To deploy this application to *Tanzu Platform* and use *Pivotal Cloud
-Cache* (PCC), you will need access to a PCC instance.
+To deploy this application to *Tanzu Application Service* and use *VMware GemFire for TAS*, you will need access to a [vmware-gemfire-name] for TAS instance.
 
 
-<p class="note"><strong>Note:</strong>
-Alternatively, you can run this example in a locally
-hosted <em>Pivotal Platform</em> environment called <a
-href="https://docs.pivotal.io/pcf-dev/index.html">PCF Dev</a>. See <a
-href="../index.html#cloudfoundry-geode">Hybrid Cloud Environments</a>
-for more details.
-</p>
-
-
-Once you have acquired a *Pivotal Platform* environment and installed
+Once you have acquired a *Tanzu Application Service* environment and installed
 the required tools (e.g. CF CLI), then you can package the application
-and deploy (i.e. "*push*") it to *Pivotal Platform*.
+and deploy (i.e. "*push*") it to *Tanzu Application Service*.
 
 See the <a
 href="../index.html#geode-gemfire-switch">Appendix</a> for more details
@@ -2064,9 +2052,9 @@ on making the switch.
 #### Matching Client/Server Versions
 
 
-It is important to match versions when deploying to Pivotal Platform
-(formerly known as Pivotal CloudFoundry; PCF) using Pivotal Cloud Cache
-(PCC). This is technically a Pivotal [vmware-gemfire-short-name] restriction and has nothing
+It is important to match versions when deploying to Tanzu Application Service
+ using [vmware-gemfire-name] for TAS
+([vmware-gemfire-name] for TAS). This is technically a Pivotal [vmware-gemfire-short-name] restriction and has nothing
 to do with Spring.
 
 
@@ -2085,7 +2073,7 @@ connect to and communicate with a 9.9, or earlier version of a, server.
 
 
 Use the following table to make sure your client and server versions are
-correct when deploying to Pivotal Platform (PCF) or similar cloud
+correct when deploying to Tanzu Application Service (TAS) or similar cloud
 environment hosting and managing [vmware-gemfire-name]:
 
 
@@ -2105,7 +2093,7 @@ environment hosting and managing [vmware-gemfire-name]:
 <th class="tableblock halign-left valign-top">Spring Boot</th>
 <th class="tableblock halign-left valign-top"> [vmware-gemfire-name]</th>
 <th class="tableblock halign-left valign-top">[vmware-gemfire-name]</th>
-<th class="tableblock halign-left valign-top">Pivotal Cloud Cache</th>
+<th class="tableblock halign-left valign-top">[vmware-gemfire-name] for TAS</th>
 </tr>
 </thead>
 <tbody>
@@ -2191,7 +2179,7 @@ As of this writing, due to an
 [Issue](https://github.com/cloudfoundry/java-buildpack-metric-writer/issues/6)
 in the *Java buildpack* for CloudFoundry, you are also required to put
 Spring Boot Actuator on the classpath for your Spring Boot application
-using [vmware-gemfire-name] or PCC:
+using [vmware-gemfire-name] or [vmware-gemfire-name] for TAS:
 
 
 
@@ -2208,7 +2196,7 @@ using [vmware-gemfire-name] or PCC:
 
 
 This is because the *Java buildpack* detects Micrometer on the
-application classpath, which Apach [vmware-gemfire-short-name] or PCC depends on and pulls in,
+application classpath, which Apach [vmware-gemfire-short-name] or [vmware-gemfire-name] for TAS depends on and pulls in,
 therefore the *Java buildpack* will enable Spring Boot’s Actuator
 functionality, which if not declared on your application classpath as
 well, will lead to the following Exception in a CloudFoudry environment
@@ -2229,7 +2217,7 @@ OUT     at o.s.c.a.TypeMappedAnnotation.getValue(TypeMappedAnnotation.java:403)
 
 
 
-On the other hand, if you try to exclude Micrometer from the [vmware-gemfire-name] or PCC dependency, for example:
+On the other hand, if you try to exclude Micrometer from the [vmware-gemfire-name] or [vmware-gemfire-name] for TAS dependency, for example:
 
 
 
@@ -2265,13 +2253,13 @@ encounter another Exception when Spring Boot tries to bootstrap [vmware-gemfire-
 
 
 Therefore, you must include Spring Boot Actuator on your Spring Boot
-application classpath when deploying to Pivotal Platform and using
-Pivotal Cloud Cache (PCC). Again, the easiest way to do that is include
+application classpath when deploying to Tanzu Application Service and using
+[vmware-gemfire-name] for TAS. Again, the easiest way to do that is include
 the `org.springframework.geode:spring-geode-starter-actuator` dependency
 on your application classpath.
 
 
-Additionally, and specifically when deploying to *Pivotal Platform*, we
+Additionally, and specifically when deploying to *Tanzu Application Service*, we
 will create a `manifest.yml` file containing details about the services
 our application requires at runtime to function properly up in the
 cloud:
@@ -2288,7 +2276,7 @@ applications:
     instances: 1
     path: ./build/libs/spring-geode-samples-getting-started-1.4.0-SNAPSHOT.jar
     services:
-      - pccServiceOne
+      - gemFireServiceOne
     buildpacks:
       - https://github.com/cloudfoundry/java-buildpack.git
 ```
@@ -2299,7 +2287,7 @@ application to inform the cloud platform about the runtime environment
 required to run our application.
 
 In order to properly package the application for deployment to a managed
-cloud platform environment, such as *Pivotal Platform*, you use the
+cloud platform environment, such as *Tanzu Application Service*, you use the
 [Spring Boot Maven
 Plugin](https://docs.spring.io/spring-boot/docs/current/maven-plugin/reference/htmlsingle/),
 which was added to the generated project by *Spring Initializer*:
@@ -2366,19 +2354,19 @@ Now, we are ready to deploy, or "push" our CRM application up to the
 cloud.
 
 
-The first thing you will need to do is login to your *Pivotal Platform*
+The first thing you will need to do is login to your *Tanzu Application Service*
 environment from the command-line using the CF CLI tool (i.e. `cf`):
 
 
 <p class="note"><strong>Note:</strong>
 The following CF CLI commands show what we did in
-our <em>Pivotal Platform</em> environment. You will follow a similar
-procedure for your <em>Pivotal Platform</em> environment. Sensitive
+our <em>Tanzu Application Service</em> environment. You will follow a similar
+procedure for your <em>Tanzu Application Service</em> environment. Sensitive
 information has be stared (<strong>*</strong>) out.
 </p>
 
 
-#### Login to the Pivotal Platform environment
+#### Login to the Tanzu Application Service environment
 
 
 ``` highlight
@@ -2443,7 +2431,7 @@ Creating app with these attributes...
 + instances:           1
 + memory:              768M
   services:
-+   pccServiceOne
++   gemFireServiceOne
   routes:
 +   crm-app.apps.*****
 
@@ -2482,17 +2470,16 @@ We can list the deployed apps and their current state:
 #### List current deployed apps
 
 
-
 ``` highlight
 $ cf apps
 Getting apps in org pivot-jblum / space playground as *****...
 OK
 
 name                 requested state   instances   memory   disk   urls
-boot-pcc-demo        stopped           0/1         768M     1G     boot-pcc-demo-fantastic-kudu.apps.*****
+boot-gemfire-demo        stopped           0/1         768M     1G     boot-gemfire-demo-fantastic-kudu.apps.*****
 crm-app              stopped           0/1         768M     1G     crm-app.apps.*****
 CustomerServiceApp   stopped           0/1         768M     1G     customerserviceapp.apps.*****
-data-pcc-demo        stopped           0/1         768M     1G
+data-gemfire-demo        stopped           0/1         768M     1G
 ```
 
 
@@ -2519,8 +2506,7 @@ overview](./images/pvtl-appsmanager-org-space-apps-crm-app-overview.png)
 
 
 If you click on "*Service (1)*" in the left navigation bar, you will see
-that the "*crm-app*" is bound to the "*pccServiceOne*" Pivotal Cloud
-Cache service instance:
+that the "*crm-app*" is bound to the gemFireServiceOne*" VMware GemFire for TAS service instance:
 
 
 ![pvtl appsmanager org space apps crm app
@@ -2529,7 +2515,7 @@ service](./images/pvtl-appsmanager-org-space-apps-crm-app-service.png)
 
 If you click on "*Settings*" in the left navigation bar and "REVEAL ENV
 VARS" you will find the "*Gfsh login string*" that you can use to
-connect to the Pivotal Cloud Cache cluster using *Gfsh* from your local
+connect to the [vmware-gemfire-name] for TAS cluster using *Gfsh* from your local
 development environment:
 
 
@@ -2541,7 +2527,7 @@ Let’s do that now. Copy the "*Gfsh login string*" and enter it in
 *Gfsh*:
 
 
-#### Connect to the PCC cluster using Gfsh
+#### Connect to the [vmware-gemfire-name] for TAS cluster using Gfsh
 
 
 ``` highlight
@@ -2633,7 +2619,7 @@ getallcustomers](./images/getting-started-crm-app-getallcustomers.png)
 
 
 Now, back in *Gfsh*, you can see that the 1) "*/Customers*" Region was
-added to the cluster of PCC servers and that 2) "*JonDoe*" was persisted
+added to the cluster of [vmware-gemfire-name] for TAS servers and that 2) "*JonDoe*" was persisted
 to the cluster and you are able to query for "*JonDoe*".
 
 
@@ -2688,21 +2674,21 @@ client/server topology. Now, we also benefit from:
 
 
 1.  [spring-boot-gemfire-name] figures out the connection criteria needed to connect your
-    client to the servers in the Pivotal Cloud Cache (PCC) cluster,
+    client to the servers in the [vmware-gemfire-name] for TAS cluster,
     which is technically extracted from the VCAP environment. [spring-boot-gemfire-name] will
-    connect the Spring Boot app to the PCC Locators.
+    connect the Spring Boot app to the [vmware-gemfire-name] for TAS Locators.
 
-2.  [spring-boot-gemfire-name] automatically authenticates your Spring Boot app with the PCC
-    cluster providing your app was correctly bound to the PCC service
+2.  [spring-boot-gemfire-name] automatically authenticates your Spring Boot app with the [vmware-gemfire-name] for TAS
+    cluster providing your app was correctly bound to the [vmware-gemfire-name] for TAS service
     instance so the app can access the servers in the cluster.
 
 3.  If Transport Layer Security (TLS) were required and SSL enabled, you
     could simply set the
     `spring.data.gemfire.security.ssl.use-default-context` property in
     Spring Boot’s `application.properties` and [spring-boot-gemfire-name] would connect your
-    client to the Locator(s) and Servers in the PCC cluster using SSL.
+    client to the Locator(s) and Servers in the [vmware-gemfire-name] for TAS cluster using SSL.
 
-4.  [spring-boot-gemfire-name] still sends configuration metadata to the PCC cluster to ensure
+4.  [spring-boot-gemfire-name] still sends configuration metadata to the [vmware-gemfire-name] for TAS cluster to ensure
     the correct Region and Index configuration on the server-side to
     match your client app.
 
@@ -2721,15 +2707,15 @@ cover the details of doing so in this guide.
 
 Running in a Hybrid Cloud Environment specifically means deploying your
 CRM, Spring Boot `ClientCache` application to a managed cloud platform
-environment, such as Pivotal Platform, but connect the app to an
+environment, such as Tanzu Application Service, but connect the app to an
 externally managed [vmware-gemfire-name] cluster, i.e. the [vmware-gemfire-name]
 cluster is running and managed off platform.
 
 
 As of this writing, the inverse is also being
 explored, running your Spring Boot applications off platform, but
-connecting those apps to managed data services (e.g. Pivotal Cloud Cache
-(PCC)) on platform.
+connecting those apps to managed data services (e.g. [vmware-gemfire-name] for TAS
+([vmware-gemfire-name] for TAS)) on platform.
 
 
 There may be cases where you are unable to move your data management

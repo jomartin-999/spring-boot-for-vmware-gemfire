@@ -191,8 +191,6 @@ Table 1. Example Spring Boot applications using [vmware-gemfire-name]
 
 <div id="footer-text">
 
-Last updated 2022-10-10 12:15:43 -0700
-
 
 
 
