@@ -15,16 +15,6 @@ Kubernetes.
 
 Spring Boot for VMware GemFire 1.1.0 is compatibile with the following:
 
-<table>
-    <tr>
-        <td>Spring Boot</td>
-        <td> 2.6, 2.7, 3.0</td>
-    </tr>
-    <tr>
-        <td>GemFire</td>
-        <td>9.15.0 to 9.15.4</td>
-    </tr>
-</table>
 
 ## Release Notes:
 
