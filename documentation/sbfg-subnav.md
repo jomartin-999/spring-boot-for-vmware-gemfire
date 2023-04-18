@@ -46,3 +46,4 @@
         *   [Testing](/spring-boot/testing-support.html)
         *   [Examples](/spring-boot/examples.html)
         *   [References](/spring-boot/references.html)
+    *   [Spring Boot for VMware GemFire Quick Start](/spring-boot/spring_boot_landing_page.html)
