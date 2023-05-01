@@ -34,7 +34,7 @@ Spring Boot for VMware GemFire provides developers with a consistent experience 
 * **"Bring your own GemFire" (ByoG)**:  You can now explicitly specify the GemFire version that you need. See below for examples of declaring the GemFire version. ByoG requires that you provide a working version of VMware GemFire.
 
 ### 1.0.0
-* Initial Spring Boot For VMware GemFire for VMware GemFire, still dependent on Spring Boot For Apache Geode
+* Initial Spring Boot For VMware GemFire release, still dependent on Spring Boot For Apache Geode
 
 ## Add Spring Boot for VMware GemFire to a Project
 
