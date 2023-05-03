@@ -188,7 +188,7 @@ For server applications:
     }
 ```
 
-1. Your application is now ready to connect with your GemFire instance.
+Your application is now ready to connect with your GemFire instance.
 
 
 ## Modules
