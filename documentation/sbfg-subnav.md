@@ -17,8 +17,8 @@
 
 
 * [ Spring Boot for VMware GemFire](index.html)
-  * [Release Notes](release-notes.html])
-  * [Compatibility and Versions](compatibility-and-versions.html])
+  * [Release Notes](release-notes.html)
+  * [Compatibility and Versions](compatibility-and-versions.html)
   * [Getting Started](getting-started.html)
 
   
