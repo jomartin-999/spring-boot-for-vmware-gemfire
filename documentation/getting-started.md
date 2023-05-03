@@ -91,8 +91,8 @@ The Spring Boot for VMware GemFire libraries are available from the [Pivotal Com
 After you have set up the repository and credentials, add the Spring Boot for VMware GemFire library to your application. To allow for more flexibility with multiple GemFire version, the Spring Boot for VMware GemFire library requires users to add an explicit dependency on the desired version of GemFire. The required dependencies differ depending on whether users a building a client application or a server application.
 
 In the following examples:
- - Update the `springBootForGemFire.version` with the version of the library that your project requires. 
- - Update the `vmwareGemFire.version` with the version of GemFire that your project requires. 
+	* Update the `springBootForGemFire.version` with the version of the library that your project requires. 
+	* Update the `vmwareGemFire.version` with the version of GemFire that your project requires. 
 
 For **client** applications:
 
