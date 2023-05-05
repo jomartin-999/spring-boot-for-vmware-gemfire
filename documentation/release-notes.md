@@ -5,7 +5,7 @@ title: Release Notes
 ## Spring Boot 2.7, 3.0 & GemFire 10.0
 
 ### 1.0.0
-* Initial release of the Spring Boot For VMware GemFire for VMware GemFire dependencies for **GemFire 10**. 
+* Initial release of the Spring Boot For VMware GemFire dependencies for **GemFire 10**. 
 
 
 ## Spring Boot 2.6, 2.7, 3.0 & GemFire 9.15
